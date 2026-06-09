@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://snayak27.github.io/</loc><priority>1.0</priority></url>
+  <url><loc>https://snayak27.github.io/ecosystem/</loc><priority>0.9</priority></url>
+  <url><loc>https://snayak27.github.io/behavioral-rules/</loc><priority>0.9</priority></url>
+  <url><loc>https://snayak27.github.io/hive/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/second-brain/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/uac/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/organic-url-index/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/claw-router/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/brave-bridge/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/hermes-agent/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/pi-hole-stack/</loc><priority>0.7</priority></url>
+  <url><loc>https://snayak27.github.io/cloak-browser/</loc><priority>0.7</priority></url>
+</urlset>

@@ -1,0 +1,15 @@
+# Editor / tooling
+.claude/
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build / scratch
+og-card.html
+*.log
+node_modules/

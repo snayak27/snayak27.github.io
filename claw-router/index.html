@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="Claw — LLM Router with benchmark-driven model selection. $0.38/M tokens, 5 task types, 4 quality modes, 15-day auto model review cycle.">
+  <meta property="og:title" content="LLM Router & Multi-Model Orchestration — Claw | Sashibhusan">
+  <meta property="og:description" content="Benchmark-driven LLM model router: $0.38/M tokens for writing tasks. 5 task types, 4 quality modes, 15-day auto model review cycle via OpenRouter.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/claw-router/">
+  <meta property="og:image" content="https://snayak27.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/og-image.png">
+  <title>LLM Router & Multi-Model Orchestration — Claw | Sashibhusan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{--bg:#faf9f7;--bg2:#f5f0e8;--card:#fff;--orange:#f97316;--orange-d:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;--text:#1c1917;--text2:#57534e;--muted:#a8a29e;--border:rgba(0,0,0,0.07);--shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);--shadow-h:0 16px 48px rgba(0,0,0,0.12),0 4px 16px rgba(0,0,0,0.06);--spring:cubic-bezier(0.34,1.56,0.64,1);--ease:cubic-bezier(0.4,0,0.2,1);--r:18px;}
+    html{scroll-behavior:smooth;}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;}
+    a{color:var(--orange);text-decoration:none;}a:hover{text-decoration:underline;}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(250,249,247,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 28px;}
+    .nav-inner{max-width:860px;margin:0 auto;height:52px;display:flex;align-items:center;gap:14px;}
+    .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:0.85rem;font-weight:500;text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--orange);text-decoration:none;}
+    .nav-sep{color:var(--border);}.nav-title{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
+    .hero{padding:72px 0 56px;}.hero-inner{display:flex;align-items:flex-start;gap:28px;}
+    .hero-icon{width:72px;height:72px;border-radius:20px;background:var(--orange-l);border:1.5px solid var(--orange-m);display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;}
+    .hero-badge{display:inline-flex;align-items:center;background:var(--orange-l);border:1px solid var(--orange-m);border-radius:99px;padding:4px 14px;font-size:0.7rem;font-weight:600;color:var(--orange-d);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:var(--text);margin-bottom:12px;}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--orange-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.7;margin-bottom:20px;}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:6px;}
+    .chip{background:var(--bg2);border:1px solid rgba(0,0,0,0.06);border-radius:99px;padding:3px 12px;font-size:0.72rem;color:var(--text2);font-weight:500;}
+    section{padding:56px 0;border-top:1px solid var(--border);}
+    section h2{font-size:1.45rem;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px;}
+    .lead{font-size:0.9rem;color:var(--muted);margin-bottom:28px;}
+    .analogy{background:linear-gradient(135deg,var(--orange-l),#fef9f5);border:1.5px solid var(--orange-m);border-radius:var(--r);padding:32px;}
+    .analogy-quote{font-size:1.15rem;font-weight:700;color:var(--text);border-left:3px solid var(--orange);padding-left:18px;margin-bottom:20px;line-height:1.5;}
+    .analogy p{font-size:0.93rem;color:var(--text2);margin-bottom:14px;line-height:1.75;}
+    .analogy p:last-child{margin-bottom:0;color:var(--orange-d);font-weight:600;}
+
+    /* Routing table */
+    .route-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .route-table th{background:var(--bg2);padding:11px 16px;text-align:left;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border);}
+    .route-table td{padding:13px 16px;font-size:0.84rem;border-bottom:1px solid rgba(0,0,0,0.04);vertical-align:top;}
+    .route-table tr:last-child td{border-bottom:none;}
+    .route-table tr:hover td{background:var(--orange-l);}
+    .task{font-weight:700;color:var(--text);}.model{color:var(--orange-d);font-weight:600;}
+    .model-id{font-size:0.73rem;color:var(--muted);font-family:monospace;}
+    .bench{font-size:0.78rem;color:#16a34a;font-weight:600;}
+
+    /* Modes */
+    .modes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:14px;}
+    .mode{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s var(--ease);}
+    .mode:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);}
+    .mode-tag{display:inline-block;background:var(--orange-l);border:1px solid var(--orange-m);border-radius:6px;padding:2px 10px;font-size:0.72rem;font-family:monospace;color:var(--orange-d);font-weight:700;margin-bottom:10px;}
+    .mode-title{font-weight:700;color:var(--text);font-size:0.9rem;margin-bottom:5px;}
+    .mode-desc{font-size:0.82rem;color:var(--text2);line-height:1.6;margin-bottom:8px;}
+    .mode-cost{font-size:0.77rem;color:#16a34a;font-weight:600;}
+
+    .stats{display:flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .stat{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-size:1.7rem;font-weight:800;color:var(--orange);display:block;}
+    .stat-l{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px;font-weight:500;}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:0.83rem;color:var(--muted);}
+    footer a{color:var(--text2);font-weight:500;}footer a:hover{color:var(--orange);}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    .fade{animation:fadeUp 0.5s var(--ease) both;}
+    .resume-snip{background:linear-gradient(145deg,#1c1917,#292524);border-radius:var(--r);padding:32px;}
+    .resume-snip h2{color:#fff;font-size:1.2rem;}
+    .resume-snip .lead{color:rgba(255,255,255,0.45);}
+    .resume-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+    .resume-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;}
+    .resume-role{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:#fed7aa;font-weight:700;margin-bottom:12px;}
+    .resume-bullets{list-style:none;padding:0;margin:0;}
+    .resume-bullets li{font-size:0.83rem;color:rgba(255,255,255,0.82);line-height:1.75;padding-left:18px;position:relative;margin-bottom:10px;}
+    .resume-bullets li:last-child{margin-bottom:0;}
+    .resume-bullets li::before{content:'•';color:#f97316;position:absolute;left:0;font-weight:700;}
+    .resume-stack{font-size:0.74rem;color:rgba(255,255,255,0.4);margin-top:12px;line-height:1.6;}
+    @media(max-width:600px){.hero-inner{flex-direction:column;gap:16px;}.modes-grid{grid-template-columns:1fr;}.stats{flex-wrap:wrap;}.stat{min-width:50%;border-bottom:1px solid var(--border);}}
+    /* Prev/Next project navigation */
+    .proj-nav{display:flex;align-items:center;justify-content:space-between;padding:40px 0 8px;gap:16px;}
+    .proj-nav-link{display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border:1.5px solid var(--border);border-radius:14px;background:var(--card);transition:all 0.3s var(--spring);max-width:220px;box-shadow:var(--shadow);}
+    .proj-nav-link:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);border-color:var(--orange-m);text-decoration:none;}
+    .nav-dir{font-size:0.7rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+    .nav-proj{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .nav-hint{font-size:0.74rem;color:var(--muted);}
+    .proj-nav-all{font-size:0.82rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:99px;background:var(--bg2);border:1px solid var(--border);transition:all 0.2s;white-space:nowrap;}
+    .proj-nav-all:hover{color:var(--orange);background:var(--orange-l);text-decoration:none;}
+    /* Architecture Diagram */
+    .arch-diagram{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;overflow-x:auto;}
+    .arch-node{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:86px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s ease;}
+    .arch-node:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);}
+    .arch-node img{width:30px;height:30px;object-fit:contain;}
+    .arch-node-name{font-size:0.73rem;font-weight:600;color:var(--text);text-align:center;line-height:1.3;}
+    .arch-node-role{font-size:0.65rem;color:var(--muted);text-align:center;margin-top:-1px;}
+    .arch-arrow{color:var(--orange);font-size:1.2rem;padding:0 6px;flex-shrink:0;font-weight:700;align-self:center;}
+    .arch-vstack{display:flex;flex-direction:column;gap:8px;align-items:center;}
+    .arch-hstack{display:flex;flex-direction:row;gap:10px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+    .arch-down{text-align:center;color:var(--orange);font-size:1.1rem;font-weight:700;margin:6px 0;}
+    .logo-b{display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;color:white;flex-shrink:0;border-radius:6px;width:30px;height:30px;}
+    .lb-or{background:#1c1917;}.lb-hive{background:#f97316;}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a class="nav-back" href="../index.html">← All Projects</a><span class="nav-sep">|</span><span class="nav-title">Claw Router — The Brain Surgeon</span></div></nav>
+<div class="wrap">
+  <div class="hero fade">
+    <div class="hero-inner">
+      <div class="hero-icon">🎯</div>
+      <div>
+        <div class="hero-badge">LLM Router · Multi-Model Orchestration</div>
+        <h1>The <em>Brain Surgeon</em></h1>
+        <p class="hero-sub">An LLM model router with benchmark-driven selection — automatically routes coding, writing, and reasoning tasks to the optimal AI model via OpenRouter, with critic-revise quality loops and AI cost optimization.</p>
+        <div class="hero-chips"><span class="chip">LLM Router</span><span class="chip">Multi-Model Orchestration</span><span class="chip">AI Cost Optimization</span><span class="chip">Python</span><span class="chip">OpenRouter API</span><span class="chip">DeepSeek</span><span class="chip">Qwen3</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Imagine this…</h2>
+    <p class="lead">A story a 10-year-old would understand</p>
+    <div class="analogy">
+      <div class="analogy-quote">"Imagine a hospital that automatically sends you to the best specialist — a brain surgeon for brain problems, a heart surgeon for heart problems. Not the same doctor for everything."</div>
+      <p>Most people use one AI model for everything. It's like going to a general practitioner for brain surgery. You're not getting the best expert for the job.</p>
+      <p>Claw Router is a smart dispatcher. Tell it the task type — coding, writing, reasoning — and it picks the model with the highest benchmark score for that exact task, within a sensible budget.</p>
+      <p>In technical terms: Python script → OpenRouter API. Task type → benchmark lookup → best model selection. Critic-revise loops, parallel candidates, chain mode for long documents.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Model routing table</h2>
+    <p class="lead">Benchmark-first — budget gate of ≤ $1.50 per million output tokens</p>
+    <table class="route-table">
+      <thead><tr><th>Task type</th><th>Model chosen</th><th>Price / M tokens</th><th>Why this model</th></tr></thead>
+      <tbody>
+        <tr><td><span class="task">coding</span></td><td><span class="model">MiniMax M2.5</span><br><span class="model-id">minimax/minimax-m2.5</span></td><td>$0.99</td><td><span class="bench">SWE-bench: 80.2%</span> — highest verified score for real-world code</td></tr>
+        <tr><td><span class="task">agentic</span></td><td><span class="model">MiniMax M2.7</span><br><span class="model-id">minimax/minimax-m2.7</span></td><td>$1.20</td><td><span class="bench">Top agentic index</span> — multi-step tool-use tasks</td></tr>
+        <tr><td><span class="task">writing</span></td><td><span class="model">DeepSeek V3.2</span><br><span class="model-id">deepseek/deepseek-v3.2</span></td><td>$0.38</td><td><span class="bench">Best output quality</span> at the lowest cost in tier</td></tr>
+        <tr><td><span class="task">reasoning</span></td><td><span class="model">Qwen3-Coder-Next</span><br><span class="model-id">qwen/qwen3-coder-next</span></td><td>$0.75</td><td><span class="bench">Logic &amp; math benchmarks</span> — structured reasoning</td></tr>
+        <tr><td><span class="task">simple</span></td><td><span class="model">GPT-4.1 Nano</span><br><span class="model-id">openai/gpt-4.1-nano</span></td><td>$0.40</td><td>Fast + accurate — short tasks, no heavyweight needed</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Invocation modes</h2>
+    <p class="lead">Four ways to call the router depending on quality needs</p>
+    <div class="modes-grid">
+      <div class="mode"><span class="mode-tag">single</span><div class="mode-title">Single call</div><div class="mode-desc">One model, one pass. Best for straightforward generation where speed matters.</div><div class="mode-cost">~$0.001 typical</div></div>
+      <div class="mode"><span class="mode-tag">--revise 2</span><div class="mode-title">Critic-revise loop</div><div class="mode-desc">Writer generates → critic reviews → writer revises. Catches errors automatically.</div><div class="mode-cost">~$0.004 typical</div></div>
+      <div class="mode"><span class="mode-tag">--chain</span><div class="mode-title">Sequential chain</div><div class="mode-desc">Outline → expand → verify. Each stage feeds the next. Best for long structured docs.</div><div class="mode-cost">~$0.007 typical</div></div>
+      <div class="mode"><span class="mode-tag">--compete 3</span><div class="mode-title">Parallel competition</div><div class="mode-desc">3 candidates run in parallel → judge picks winner. Best for CVs, proposals, formal reports.</div><div class="mode-cost">~$0.012 typical</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lead">Task type is detected, benchmarked against the routing table, and sent to the cheapest model that wins on score — never the other way round.</p>
+    <div class="arch-diagram">
+      <div class="arch-hstack" style="align-items:center;">
+        <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"><span class="arch-node-name">Claude Code</span><span class="arch-node-role">sends task</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="background:var(--orange-l);border-color:var(--orange-m);"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"><span class="arch-node-name">claw_invoke.py</span><span class="arch-node-role">type detector</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-vstack">
+          <div style="font-size:0.66rem;font-weight:700;text-transform:uppercase;color:var(--orange-d);text-align:center;margin-bottom:4px;">Routing Table</div>
+          <div class="arch-node"><span class="arch-node-name">coding</span><span class="arch-node-role">MiniMax M2.5</span></div>
+          <div class="arch-node"><span class="arch-node-name">writing</span><span class="arch-node-role">DeepSeek V3.2</span></div>
+          <div class="arch-node"><span class="arch-node-name">reasoning</span><span class="arch-node-role">Qwen3-Coder</span></div>
+          <div class="arch-node"><span class="arch-node-name">simple</span><span class="arch-node-role">GPT-4.1 Nano</span></div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="background:#f0fdf4;border-color:#bbf7d0;"><div class="logo-b lb-or">OR</div><span class="arch-node-name">OpenRouter</span><span class="arch-node-role">API gateway</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node"><span style="font-size:1.3rem;">📄</span><span class="arch-node-name">Output file</span><span class="arch-node-role">saved to disk</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="resume-snip">
+      <h2>&#128203; Put this on your resume</h2>
+      <p class="lead">Copy-paste ready &#8212; two versions for different roles</p>
+      <div class="resume-cards">
+        <div class="resume-card">
+          <div class="resume-role">AI &#183; Platform &#183; Backend Engineering</div>
+          <ul class="resume-bullets">
+            <li>Designed LLM model router with benchmark-driven selection across 5 task types (coding, agentic, writing, reasoning, simple) via OpenRouter API; budget-gated at &#8804;$1.50/M output tokens with automated 15-day model performance review</li>
+            <li>Implemented 4 quality modes: single call, critic-revise loop (writer&#8594;critic&#8594;writer), sequential chain (outline&#8594;expand&#8594;verify), and parallel competition (N candidates + judge); reduced writing costs to $0.38/M tokens</li>
+          </ul>
+          <div class="resume-stack">Stack: Python &#183; OpenRouter API &#183; DeepSeek V3.2 &#183; MiniMax M2.5 &#183; Qwen3-Coder &#183; GPT-4.1 Nano</div>
+        </div>
+        <div class="resume-card">
+          <div class="resume-role">SAP &#183; Consulting &#183; Digital Transformation</div>
+          <ul class="resume-bullets">
+            <li>Built AI cost optimization and quality control system for multi-model LLM workflows; routes tasks to optimal models using real benchmark scores &#8212; applicable to enterprise AI budget management and output quality guarantees</li>
+            <li>Automated model selection and quality review cycles with critic-revise loops &#8212; applicable to document generation, proposals, and formal reports in SAP BTP AI services</li>
+          </ul>
+          <div class="resume-stack">Keywords: LLM Router &#183; Multi-Model Orchestration &#183; AI Cost Optimization &#183; Generative AI &#183; Quality Loops</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>By the numbers</h2>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">5</span><span class="stat-l">Task Types Routed</span></div>
+      <div class="stat"><span class="stat-n">4</span><span class="stat-l">Quality Modes</span></div>
+      <div class="stat"><span class="stat-n">$0.38</span><span class="stat-l">Per Million Output Tokens</span></div>
+      <div class="stat"><span class="stat-n">15d</span><span class="stat-l">Auto Model Review Cycle</span></div>
+    </div>
+  </section>
+</div>
+<div class="wrap">
+  <div class="proj-nav">
+    <a href="../organic-url-index/" class="proj-nav-link">
+      <span class="nav-dir">← Prev</span>
+      <span class="nav-proj">Web Crawler</span>
+      <span class="nav-hint">~80% cache hit rate</span>
+    </a>
+    <a href="../index.html" class="proj-nav-all">⊞ All Projects</a>
+    <a href="../brave-bridge/" class="proj-nav-link">
+      <span class="nav-dir">Next →</span>
+      <span class="nav-proj">Browser Automation</span>
+      <span class="nav-hint">60s harvest · 90d backfill</span>
+    </a>
+  </div>
+</div>
+<footer><div class="wrap">Built by <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank">Sashibhusan</a> &nbsp;·&nbsp; <a href="https://github.com/snayak27" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="../index.html">← Back to all projects</a></div></footer>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      obs.unobserve(e.target);
+      var el=e.target,raw=el.textContent.trim();
+      var m=raw.match(/^([$~<]?)(\d+(?:\.\d+)?)(.*)/);
+      if(!m){el.style.opacity='0';el.style.transform='scale(0.7)';el.style.transition='opacity .5s ease,transform .5s var(--spring)';requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='scale(1)'});return;}
+      var pre=m[1],num=parseFloat(m[2]),suf=m[3],dur=1000,t0=performance.now();
+      (function tick(ts){var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3),cur=num*ease;var disp=num>=100?Math.round(cur).toString():num%1!==0?cur.toFixed(2):Math.round(cur).toString();el.textContent=p>=1?raw:pre+disp+(p>.8?suf:'');if(p<1)requestAnimationFrame(tick);})(t0);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-n').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>

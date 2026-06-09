@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="UAC — AI Agent Observability & Memory: 3 feedback loops, 3 self-monitoring hooks, ~80% fewer redundant API calls, 48h cross-session memory.">
+  <meta property="og:title" content="AI Agent Observability & Memory — UAC | Sashibhusan">
+  <meta property="og:description" content="AI agent observability system: 3 feedback loops, 3 self-monitoring hooks, ~80% fewer redundant API calls, 48h cross-session memory continuity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/uac/">
+  <meta property="og:image" content="https://snayak27.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/og-image.png">
+  <title>AI Agent Observability & Memory — UAC | Sashibhusan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#faf9f7;--bg2:#f5f0e8;--card:#fff;
+      --orange:#f97316;--orange-d:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;
+      --text:#1c1917;--text2:#57534e;--muted:#a8a29e;
+      --border:rgba(0,0,0,0.07);
+      --shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);
+      --shadow-h:0 16px 48px rgba(0,0,0,0.12),0 4px 16px rgba(0,0,0,0.06);
+      --spring:cubic-bezier(0.34,1.56,0.64,1);--ease:cubic-bezier(0.4,0,0.2,1);--r:18px;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;}
+    a{color:var(--orange);text-decoration:none;}a:hover{text-decoration:underline;}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(250,249,247,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 28px;}
+    .nav-inner{max-width:860px;margin:0 auto;height:52px;display:flex;align-items:center;gap:14px;}
+    .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:0.85rem;font-weight:500;text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--orange);text-decoration:none;}
+    .nav-sep{color:var(--border);}
+    .nav-title{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
+    .hero{padding:72px 0 56px;}
+    .hero-inner{display:flex;align-items:flex-start;gap:28px;}
+    .hero-icon{width:72px;height:72px;border-radius:20px;background:var(--orange-l);border:1.5px solid var(--orange-m);display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;}
+    .hero-badge{display:inline-flex;align-items:center;background:var(--orange-l);border:1px solid var(--orange-m);border-radius:99px;padding:4px 14px;font-size:0.7rem;font-weight:600;color:var(--orange-d);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:var(--text);margin-bottom:12px;}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--orange-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.7;margin-bottom:20px;}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:6px;}
+    .chip{background:var(--bg2);border:1px solid rgba(0,0,0,0.06);border-radius:99px;padding:3px 12px;font-size:0.72rem;color:var(--text2);font-weight:500;}
+    section{padding:56px 0;border-top:1px solid var(--border);}
+    section h2{font-size:1.45rem;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px;}
+    .lead{font-size:0.9rem;color:var(--muted);margin-bottom:28px;}
+    .analogy{background:linear-gradient(135deg,var(--orange-l),#fef9f5);border:1.5px solid var(--orange-m);border-radius:var(--r);padding:32px;}
+    .analogy-quote{font-size:1.15rem;font-weight:700;color:var(--text);border-left:3px solid var(--orange);padding-left:18px;margin-bottom:20px;line-height:1.5;}
+    .analogy p{font-size:0.93rem;color:var(--text2);margin-bottom:14px;line-height:1.75;}
+    .analogy p:last-child{margin-bottom:0;color:var(--orange-d);font-weight:600;}
+
+    /* Loops */
+    .loops{display:flex;flex-direction:column;gap:14px;}
+    .loop{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:24px;display:flex;gap:18px;align-items:flex-start;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s var(--ease);}
+    .loop:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);}
+    .loop-num{width:36px;height:36px;border-radius:50%;background:var(--orange-l);border:1.5px solid var(--orange-m);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.9rem;color:var(--orange-d);flex-shrink:0;}
+    .loop-body{flex:1;}
+    .loop-title{font-weight:700;color:var(--text);font-size:0.92rem;margin-bottom:5px;}
+    .loop-desc{font-size:0.85rem;color:var(--text2);line-height:1.65;margin-bottom:10px;}
+    .loop-code{background:var(--bg2);border:1px solid rgba(0,0,0,0.06);border-radius:8px;padding:6px 12px;font-size:0.74rem;font-family:monospace;color:var(--orange-d);}
+
+    /* Redis table */
+    .redis-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .redis-table th{background:var(--bg2);padding:11px 16px;text-align:left;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border);}
+    .redis-table td{padding:11px 16px;font-size:0.83rem;border-bottom:1px solid rgba(0,0,0,0.04);}
+    .redis-table tr:last-child td{border-bottom:none;}
+    .redis-table tr:hover td{background:var(--orange-l);}
+    .redis-table td:first-child{font-family:monospace;font-size:0.78rem;color:var(--orange-d);font-weight:600;}
+    .redis-table td:last-child{color:var(--text2);}
+
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+    .feat{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s var(--ease);}
+    .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);}
+    .feat-icon{font-size:1.5rem;margin-bottom:10px;}
+    .feat-title{font-weight:700;color:var(--text);font-size:0.9rem;margin-bottom:5px;}
+    .feat-desc{font-size:0.82rem;color:var(--text2);line-height:1.6;}
+    .stats{display:flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .stat{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-size:1.7rem;font-weight:800;color:var(--orange);display:block;}
+    .stat-l{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px;font-weight:500;}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:0.83rem;color:var(--muted);}
+    footer a{color:var(--text2);font-weight:500;}footer a:hover{color:var(--orange);}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    .fade{animation:fadeUp 0.5s var(--ease) both;}
+    .resume-snip{background:linear-gradient(145deg,#1c1917,#292524);border-radius:var(--r);padding:32px;}
+    .resume-snip h2{color:#fff;font-size:1.2rem;}
+    .resume-snip .lead{color:rgba(255,255,255,0.45);}
+    .resume-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+    .resume-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;}
+    .resume-role{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:#fed7aa;font-weight:700;margin-bottom:12px;}
+    .resume-bullets{list-style:none;padding:0;margin:0;}
+    .resume-bullets li{font-size:0.83rem;color:rgba(255,255,255,0.82);line-height:1.75;padding-left:18px;position:relative;margin-bottom:10px;}
+    .resume-bullets li:last-child{margin-bottom:0;}
+    .resume-bullets li::before{content:'•';color:#f97316;position:absolute;left:0;font-weight:700;}
+    .resume-stack{font-size:0.74rem;color:rgba(255,255,255,0.4);margin-top:12px;line-height:1.6;}
+    @media(max-width:600px){.hero-inner{flex-direction:column;gap:16px;}.feat-grid{grid-template-columns:1fr;}.loop{flex-direction:column;}.stats{flex-wrap:wrap;}.stat{min-width:50%;border-bottom:1px solid var(--border);}}
+    /* Prev/Next project navigation */
+    .proj-nav{display:flex;align-items:center;justify-content:space-between;padding:40px 0 8px;gap:16px;}
+    .proj-nav-link{display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border:1.5px solid var(--border);border-radius:14px;background:var(--card);transition:all 0.3s var(--spring);max-width:220px;box-shadow:var(--shadow);}
+    .proj-nav-link:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);border-color:var(--orange-m);text-decoration:none;}
+    .nav-dir{font-size:0.7rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+    .nav-proj{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .nav-hint{font-size:0.74rem;color:var(--muted);}
+    .proj-nav-all{font-size:0.82rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:99px;background:var(--bg2);border:1px solid var(--border);transition:all 0.2s;white-space:nowrap;}
+    .proj-nav-all:hover{color:var(--orange);background:var(--orange-l);text-decoration:none;}
+    /* Architecture Diagram */
+    .arch-diagram{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;overflow-x:auto;}
+    .arch-node{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:86px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s ease;}
+    .arch-node:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);}
+    .arch-node img{width:30px;height:30px;object-fit:contain;}
+    .arch-node-name{font-size:0.73rem;font-weight:600;color:var(--text);text-align:center;line-height:1.3;}
+    .arch-node-role{font-size:0.65rem;color:var(--muted);text-align:center;margin-top:-1px;}
+    .arch-arrow{color:var(--orange);font-size:1.2rem;padding:0 6px;flex-shrink:0;font-weight:700;align-self:center;}
+    .arch-vstack{display:flex;flex-direction:column;gap:8px;align-items:center;}
+    .arch-hstack{display:flex;flex-direction:row;gap:10px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+    .arch-divider-v{width:1px;background:var(--border);align-self:stretch;min-height:80px;margin:0 12px;}
+    .arch-down{text-align:center;color:var(--orange);font-size:1.1rem;font-weight:700;margin:6px 0;}
+    .logo-b{display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;color:white;flex-shrink:0;border-radius:6px;width:30px;height:30px;}
+    .lb-chroma{background:#7c3aed;}.lb-neo4j{background:#018bff;}.lb-c4{background:#059669;}.lb-or{background:#1c1917;}.lb-hive{background:#f97316;}.lb-me{background:#ea580c;}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a class="nav-back" href="../index.html">← All Projects</a><span class="nav-sep">|</span><span class="nav-title">UAC — Self-Awareness Engine</span></div></nav>
+<div class="wrap">
+  <div class="hero fade">
+    <div class="hero-inner">
+      <div class="hero-icon">⚡</div>
+      <div>
+        <div class="hero-badge">Unified Agentic Consciousness</div>
+        <h1>The AI's <em>Self-Awareness</em> Engine</h1>
+        <p class="hero-sub">An AI agent observability and memory system — cross-session state management, 3 self-correcting feedback loops, and real-time drift detection that keeps AI reliable across days.</p>
+        <div class="hero-chips"><span class="chip">AI Agent Observability</span><span class="chip">LLM State Management</span><span class="chip">Feedback Loops</span><span class="chip">Redis</span><span class="chip">FastAPI</span><span class="chip">Python</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Imagine this…</h2>
+    <p class="lead">A story a 10-year-old would understand</p>
+    <div class="analogy">
+      <div class="analogy-quote">"Imagine a goldfish that actually remembers — every swim, every meal, every mistake — across every single day."</div>
+      <p>AI assistants normally forget everything when you close them. Start fresh tomorrow, re-explain your context, watch them repeat the same mistakes.</p>
+      <p>UAC gives the AI a persistent nervous system. It knows what you were working on yesterday. It knows which documentation turned out to be wrong. It knows which programming language kept failing — and avoids it next time.</p>
+      <p>In technical terms: Redis-backed in-session and cross-session state, three self-correcting feedback loops, Python hooks that fire automatically at session start and stop.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>The three feedback loops</h2>
+    <p class="lead">How the AI learns from its own mistakes — without being told</p>
+    <div class="loops">
+      <div class="loop">
+        <div class="loop-num">1</div>
+        <div class="loop-body">
+          <div class="loop-title">Doc-Suspect Loop — "That documentation was wrong"</div>
+          <div class="loop-desc">When code written using cached docs fails at runtime, the AI marks that doc as suspect. Next session it skips the cache and re-fetches fresh documentation from source — then updates so the error can't repeat.</div>
+          <div class="loop-code">redis SET agent:lib_docs:{lib}:{ver}:suspect 1 EX 3600</div>
+        </div>
+      </div>
+      <div class="loop">
+        <div class="loop-num">2</div>
+        <div class="loop-body">
+          <div class="loop-title">Language-History Loop — "That approach kept failing"</div>
+          <div class="loop-desc">When a programming language choice succeeds or fails in a domain, the outcome is recorded. After 2+ failures for the same domain, the AI automatically avoids it — even if GitHub stars suggest it's popular.</div>
+          <div class="loop-code">redis HMSET agent:lang_history {domain}:{lang} "failure|N"</div>
+        </div>
+      </div>
+      <div class="loop">
+        <div class="loop-num">3</div>
+        <div class="loop-body">
+          <div class="loop-title">Goal-Continuity Loop — "Continuing from where we left off"</div>
+          <div class="loop-desc">At every session end, the current goal and domain are saved to Redis. Next session start, if less than 48 hours have passed, the AI automatically resumes the same context — no re-explaining needed.</div>
+          <div class="loop-code">redis HSET agent:session:latest goal "..." last_active "..."</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Redis state keys</h2>
+    <p class="lead">What UAC stores — and remembers — across your sessions</p>
+    <table class="redis-table">
+      <thead><tr><th>Key</th><th>What it stores</th></tr></thead>
+      <tbody>
+        <tr><td>agent:current:goal</td><td>What you're working on right now</td></tr>
+        <tr><td>agent:current:domain</td><td>Active domain: homelab · sap · finance · code</td></tr>
+        <tr><td>agent:session:latest</td><td>Cross-session: goal, domain, tool count, last active timestamp</td></tr>
+        <tr><td>agent:lib_docs:{lib}:{ver}</td><td>Cached documentation summary (TTL 24 hours)</td></tr>
+        <tr><td>agent:lib_access_freq</td><td>How often each library was used — prioritises frequently-used docs</td></tr>
+        <tr><td>agent:lang_history</td><td>Language success/failure count per domain</td></tr>
+        <tr><td>agent:ecosystem:{domain}</td><td>Resolved ecosystem language + confidence (TTL 7 days)</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Phase 3 — the AI watches itself</h2>
+    <p class="lead">Three new self-monitoring hooks added 2026-05-31 — the AI now catches its own drift in real time</p>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">🎯</div><div class="feat-title">Goal drift detector (B45)</div><div class="feat-desc">Every 10 tool calls, a hook checks if recent actions still match the active goal keywords stored in Redis. 80%+ absent → emits [DRIFT] signal to stderr before the session wanders further.</div></div>
+      <div class="feat"><div class="feat-icon">🐇</div><div class="feat-title">Rabbit-hole detector (B45)</div><div class="feat-desc">Each 10-call batch is classified by topic. Three different topics in a row → emits [STACK] warning. The AI notices when it has been pulled down unrelated threads and self-corrects.</div></div>
+      <div class="feat"><div class="feat-icon">📊</div><div class="feat-title">Token budget enforcer (B44)</div><div class="feat-desc">Tracks read-heavy calls in a rolling 2-minute window via Redis TTL key. More than 10 reads → emits [B40] nudge. Enforces "retrieve less, reason more" discipline automatically.</div></div>
+      <div class="feat"><div class="feat-icon">🗂️</div><div class="feat-title">Hook audit trail (B46)</div><div class="feat-desc">Every hook invocation is logged to homelab.db with timing, surface type (cognitive/operational/contextual), and outcome. Run hook_health.py for a live dashboard before any harness session.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">🔁</div><div class="feat-title">Session hooks (start + stop)</div><div class="feat-desc">Python scripts fire automatically when Claude Code starts and stops. They write state to Redis so context is always preserved, even on unexpected shutdowns.</div></div>
+      <div class="feat"><div class="feat-icon">🌐</div><div class="feat-title">UAC Daemon (FastAPI)</div><div class="feat-desc">A lightweight service at port 7001 with endpoints for ecosystem resolution, feedback submission, and nightly housekeeping. Accessible directly via HTTP — no docker exec needed.</div></div>
+      <div class="feat"><div class="feat-icon">📚</div><div class="feat-title">5-tier doc-fetch chain</div><div class="feat-desc">Before using any library, UAC checks Redis → ChromaDB → package registries → context7 → Tavily. Each tier caches results to prevent repeat API calls.</div></div>
+      <div class="feat"><div class="feat-icon">🌍</div><div class="feat-title">Ecosystem-first language selection</div><div class="feat-desc">Before writing code, UAC checks GitHub for which language the ecosystem actually uses — Go, Rust, TypeScript, or Python — based on real repos, not assumptions.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lead">Every tool call flows through an 11-hook chain. Redis persists state across sessions. Three self-monitors run autonomously in the background.</p>
+    <div class="arch-diagram">
+      <div class="arch-hstack" style="align-items:flex-start;">
+        <div class="arch-vstack">
+          <div style="font-size:0.66rem;font-weight:700;color:var(--orange-d);text-transform:uppercase;text-align:center;margin-bottom:6px;">Tool Lifecycle</div>
+          <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"><span class="arch-node-name">Session Start</span><span class="arch-node-role">hook fires</span></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-node" style="background:var(--orange-l);border-color:var(--orange-m);"><span style="font-size:1rem;">🛠</span><span class="arch-node-name">Tool Call</span><span class="arch-node-role">Pre + Post hooks</span></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg"><span class="arch-node-name">Redis State</span><span class="arch-node-role">7 keys tracked</span></div>
+          <div class="arch-down">↓</div>
+          <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"><span class="arch-node-name">Audit Log</span><span class="arch-node-role">homelab.db</span></div>
+        </div>
+        <div class="arch-divider-v"></div>
+        <div class="arch-vstack">
+          <div style="font-size:0.66rem;font-weight:700;color:#15803d;text-transform:uppercase;text-align:center;margin-bottom:6px;">Feedback Loops</div>
+          <div class="arch-node" style="background:#f0fdf4;border-color:#bbf7d0;"><span style="font-size:1rem;">📚</span><span class="arch-node-name">Loop 1</span><span class="arch-node-role">Doc suspect → re-fetch</span></div>
+          <div class="arch-node" style="background:#f0fdf4;border-color:#bbf7d0;"><span style="font-size:1rem;">🔤</span><span class="arch-node-name">Loop 2</span><span class="arch-node-role">Lang history → correct</span></div>
+          <div class="arch-node" style="background:#f0fdf4;border-color:#bbf7d0;"><span style="font-size:1rem;">🧭</span><span class="arch-node-name">Loop 3</span><span class="arch-node-role">Goal continuity 48h</span></div>
+          <div style="font-size:0.66rem;font-weight:700;color:#7c3aed;text-transform:uppercase;text-align:center;margin-top:10px;margin-bottom:6px;">Self-Monitors</div>
+          <div class="arch-node" style="background:#fdf4ff;border-color:#e9d5ff;"><span style="font-size:1rem;">🎯</span><span class="arch-node-name">Goal Drift</span><span class="arch-node-role">B45 — every 10 calls</span></div>
+          <div class="arch-node" style="background:#fdf4ff;border-color:#e9d5ff;"><span style="font-size:1rem;">📊</span><span class="arch-node-name">Token Budget</span><span class="arch-node-role">B44 — 2min window</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="resume-snip">
+      <h2>&#128203; Put this on your resume</h2>
+      <p class="lead">Copy-paste ready &#8212; two versions for different roles</p>
+      <div class="resume-cards">
+        <div class="resume-card">
+          <div class="resume-role">AI &#183; Platform &#183; Backend Engineering</div>
+          <ul class="resume-bullets">
+            <li>Implemented AI agent observability system with Redis cross-session state management (48h continuity), 3 self-correcting feedback loops (doc-suspect, language-history, goal-continuity), and real-time goal-drift / rabbit-hole detection via Python hooks</li>
+            <li>Built UAC Daemon (FastAPI) with endpoints for ecosystem language resolution, feedback submission, and nightly housekeeping; reduced AI re-prompting overhead and repeated tool failures to near-zero</li>
+          </ul>
+          <div class="resume-stack">Stack: Redis &#183; FastAPI &#183; Python &#183; Docker &#183; SQLite &#183; Claude Code hooks</div>
+        </div>
+        <div class="resume-card">
+          <div class="resume-role">SAP &#183; Consulting &#183; Digital Transformation</div>
+          <ul class="resume-bullets">
+            <li>Designed AI agent memory and observability layer with automated context preservation, self-correcting feedback loops, and 48-hour operational continuity &#8212; applicable to enterprise AI assistant deployments requiring consistent behavior</li>
+            <li>Built self-learning system that automatically avoids previously-failed technology choices and re-fetches stale documentation &#8212; reduces repeated AI failures without manual intervention</li>
+          </ul>
+          <div class="resume-stack">Keywords: AI Observability &#183; Agent Memory &#183; LLM State Management &#183; Feedback Loops &#183; Responsible AI</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>By the numbers</h2>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Feedback Loops</span></div>
+      <div class="stat"><span class="stat-n">3</span><span class="stat-l">Self-Monitor Hooks</span></div>
+      <div class="stat"><span class="stat-n">~80%</span><span class="stat-l">Fewer Redundant API Calls</span></div>
+      <div class="stat"><span class="stat-n">48h</span><span class="stat-l">Cross-Session Memory</span></div>
+    </div>
+  </section>
+</div>
+<div class="wrap">
+  <div class="proj-nav">
+    <a href="../second-brain/" class="proj-nav-link">
+      <span class="nav-dir">← Prev</span>
+      <span class="nav-proj">RAG Pipeline</span>
+      <span class="nav-hint">23K+ notes · sub-second search</span>
+    </a>
+    <a href="../index.html" class="proj-nav-all">⊞ All Projects</a>
+    <a href="../organic-url-index/" class="proj-nav-link">
+      <span class="nav-dir">Next →</span>
+      <span class="nav-proj">Web Crawler</span>
+      <span class="nav-hint">~80% cache hit · $0 Tavily</span>
+    </a>
+  </div>
+</div>
+<footer><div class="wrap">Built by <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank">Sashibhusan</a> &nbsp;·&nbsp; <a href="https://github.com/snayak27" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="../index.html">← Back to all projects</a></div></footer>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      obs.unobserve(e.target);
+      var el=e.target,raw=el.textContent.trim();
+      var m=raw.match(/^([$~<]?)(\d+(?:\.\d+)?)(.*)/);
+      if(!m){el.style.opacity='0';el.style.transform='scale(0.7)';el.style.transition='opacity .5s ease,transform .5s var(--spring)';requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='scale(1)'});return;}
+      var pre=m[1],num=parseFloat(m[2]),suf=m[3],dur=1000,t0=performance.now();
+      (function tick(ts){var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3),cur=num*ease;var disp=num>=100?Math.round(cur).toString():num%1!==0?cur.toFixed(2):Math.round(cur).toString();el.textContent=p>=1?raw:pre+disp+(p>.8?suf:'');if(p<1)requestAnimationFrame(tick);})(t0);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-n').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>

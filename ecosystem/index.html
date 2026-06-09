@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <title>Ecosystem Map — One Engineer, One Coherent System | Sashibhusan</title>
+  <meta name="description" content="Visual map of how 10 AI projects connect — HIVE, 2nd Brain, UAC, Claw Router, BraveBridge and more wired into one coherent AI ecosystem.">
+  <meta property="og:title" content="Ecosystem Map — 10 Projects, One System | Sashibhusan">
+  <meta property="og:description" content="One engineer. One coherent AI ecosystem. 10 projects wired together — data flows upward from infrastructure to intelligence to action.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/ecosystem/">
+  <meta property="og:image" content="https://snayak27.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{
+      --bg:#faf9f7;--bg2:#f5f0e8;--card:#fff;
+      --orange:#f97316;--orange-d:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;
+      --text:#1c1917;--text2:#57534e;--muted:#a8a29e;
+      --border:rgba(0,0,0,0.07);
+      --shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);
+      --shadow-h:0 16px 48px rgba(0,0,0,0.12),0 4px 16px rgba(0,0,0,0.06);
+      --spring:cubic-bezier(0.34,1.56,0.64,1);--ease:cubic-bezier(0.4,0,0.2,1);--r:18px;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;}
+    a{color:var(--orange);text-decoration:none;}a:hover{text-decoration:underline;}
+
+    /* Nav */
+    .nav{position:sticky;top:0;z-index:100;background:rgba(250,249,247,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 28px;}
+    .nav-inner{max-width:1000px;margin:0 auto;height:52px;display:flex;align-items:center;gap:14px;}
+    .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:0.85rem;font-weight:500;text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--orange);text-decoration:none;}
+    .nav-sep{color:var(--border);}
+    .nav-title{font-size:0.88rem;font-weight:600;color:var(--text);}
+
+    .wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+
+    /* Hero */
+    .hero{padding:72px 0 56px;}
+    .hero-badge-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+    .hero-badge{display:inline-flex;background:var(--orange-l);border:1px solid var(--orange-m);border-radius:99px;padding:4px 14px;font-size:0.7rem;font-weight:600;color:var(--orange-d);text-transform:uppercase;letter-spacing:0.05em;}
+    .hero h1{font-size:clamp(2rem,4.5vw,3.2rem);font-weight:800;letter-spacing:-0.03em;line-height:1.1;color:var(--text);margin-bottom:16px;}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--orange-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:1.05rem;color:var(--text2);max-width:600px;line-height:1.75;}
+
+    section{padding:60px 0;border-top:1px solid var(--border);}
+    section>h2{font-size:1.45rem;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px;}
+    .lead{font-size:0.9rem;color:var(--muted);margin-bottom:32px;}
+
+    /* ── Ecosystem Map ── */
+    .eco-map{display:flex;flex-direction:column;gap:0;}
+
+    .eco-layer{border-radius:16px;padding:22px 24px;position:relative;}
+    .eco-layer-label{font-size:0.67rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+    .eco-layer-label::after{content:'';flex:1;height:1px;background:currentColor;opacity:0.18;}
+
+    .l-orchestration{background:linear-gradient(135deg,#fff7ed,#fef3e2);border:1.5px solid #fed7aa;}
+    .l-orchestration .eco-layer-label{color:#ea580c;}
+    .l-platform{background:linear-gradient(135deg,#fffbeb,#fefce8);border:1.5px solid #fde68a;}
+    .l-platform .eco-layer-label{color:#b45309;}
+    .l-intelligence{background:linear-gradient(135deg,#eff6ff,#eef2ff);border:1.5px solid #bfdbfe;}
+    .l-intelligence .eco-layer-label{color:#1d4ed8;}
+    .l-automation{background:linear-gradient(135deg,#f0fdf4,#ecfdf5);border:1.5px solid #bbf7d0;}
+    .l-automation .eco-layer-label{color:#15803d;}
+    .l-infra{background:linear-gradient(135deg,#f8fafc,#f1f5f9);border:1.5px solid #cbd5e1;}
+    .l-infra .eco-layer-label{color:#475569;}
+
+    /* Connector between layers */
+    .eco-connector{display:flex;align-items:center;justify-content:center;height:32px;position:relative;z-index:0;}
+    .eco-connector::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--orange-m);transform:translateX(-50%);}
+    .eco-connector-pill{background:var(--bg);border:1.5px solid var(--orange-m);color:var(--orange-d);font-size:0.68rem;font-weight:700;padding:3px 12px;border-radius:99px;position:relative;z-index:1;white-space:nowrap;}
+
+    /* Node grid inside a layer */
+    .eco-nodes{display:flex;gap:12px;flex-wrap:wrap;}
+    .eco-nodes.center{justify-content:center;}
+
+    /* Individual node card */
+    .eco-node{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:6px;flex:1;min-width:180px;max-width:280px;box-shadow:var(--shadow);transition:all 0.3s var(--spring);color:var(--text);}
+    .eco-node:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);border-color:var(--orange-m);text-decoration:none;}
+    .eco-node-icon{font-size:1.6rem;line-height:1;margin-bottom:2px;}
+    .eco-node-name{font-size:0.84rem;font-weight:700;color:var(--text);line-height:1.3;}
+    .eco-node-sub{font-size:0.68rem;font-weight:600;color:var(--orange-d);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:2px;}
+    .eco-node-role{font-size:0.72rem;color:var(--text2);line-height:1.5;}
+    .eco-node-tag{font-size:0.63rem;font-weight:700;padding:2px 9px;border-radius:99px;display:inline-flex;align-items:center;width:fit-content;margin-top:4px;}
+    .tag-orange{background:var(--orange-l);color:var(--orange-d);border:1px solid var(--orange-m);}
+    .tag-blue{background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;}
+    .tag-green{background:#f0fdf4;color:#15803d;border:1px solid #bbf7d0;}
+    .tag-purple{background:#fdf4ff;color:#7c3aed;border:1px solid #e9d5ff;}
+    .tag-gray{background:#f8fafc;color:#475569;border:1px solid #cbd5e1;}
+
+    /* Wide single node */
+    .eco-node-wide{flex-direction:row;align-items:center;gap:18px;max-width:500px;cursor:default;}
+    .eco-node-wide .eco-node-icon{font-size:2.2rem;flex-shrink:0;}
+    .eco-node-wide:hover{transform:none;box-shadow:var(--shadow);}
+
+    /* ── Connections section ── */
+    .conn-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .conn-card{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;transition:box-shadow 0.2s;}
+    .conn-card:hover{box-shadow:var(--shadow-h);}
+    .conn-flow{display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
+    .conn-from,.conn-to{font-size:0.74rem;font-weight:700;color:var(--text);background:var(--bg2);padding:3px 10px;border-radius:6px;white-space:nowrap;}
+    .conn-arrow{color:var(--orange);font-weight:800;font-size:1rem;flex-shrink:0;}
+    .conn-desc{font-size:0.77rem;color:var(--text2);line-height:1.6;}
+    .conn-metric{font-size:0.7rem;font-weight:600;color:var(--orange-d);margin-top:6px;}
+
+    /* ── Data Pipeline highlight ── */
+    .pipeline-strip{background:linear-gradient(135deg,#1c1917,#292524);border-radius:var(--r);padding:32px;overflow-x:auto;}
+    .pipeline-strip h3{color:#fff;font-size:1rem;font-weight:700;margin-bottom:6px;}
+    .pipeline-strip .lead-dark{color:rgba(255,255,255,0.45);font-size:0.82rem;margin-bottom:24px;}
+    .pipeline-flow{display:flex;align-items:center;gap:0;min-width:600px;}
+    .pipe-node{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:100px;}
+    .pipe-node-box{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:10px 14px;text-align:center;}
+    .pipe-node-name{font-size:0.74rem;font-weight:600;color:#fff;}
+    .pipe-node-sub{font-size:0.63rem;color:rgba(255,255,255,0.4);}
+    .pipe-arrow{color:#f97316;font-size:1.2rem;font-weight:700;padding:0 8px;flex-shrink:0;}
+    .pipe-metric{font-size:0.62rem;font-weight:600;color:#fed7aa;text-align:center;margin-top:4px;}
+
+    /* ── Philosophy cards ── */
+    .phil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    .phil-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s ease;}
+    .phil-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);}
+    .phil-icon{font-size:2rem;margin-bottom:14px;}
+    .phil-title{font-size:0.92rem;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3;}
+    .phil-text{font-size:0.82rem;color:var(--text2);line-height:1.7;}
+
+    /* Footer */
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:0.83rem;color:var(--muted);}
+    footer a{color:var(--text2);font-weight:500;}footer a:hover{color:var(--orange);}
+
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-6px);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+    @media(max-width:700px){
+      .eco-nodes{flex-direction:column;}
+      .eco-node{min-width:unset;max-width:unset;}
+      .eco-node-wide{flex-direction:column;text-align:center;}
+      .conn-grid{grid-template-columns:1fr;}
+      .phil-grid{grid-template-columns:1fr;}
+      .pipeline-flow{gap:0;}
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="nav-back">← All Projects</a>
+    <span class="nav-sep">|</span>
+    <span class="nav-title">Ecosystem Map</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-badge-row">
+      <span class="hero-badge">Ecosystem Map</span>
+      <span class="hero-badge">10 Projects · 1 System</span>
+    </div>
+    <h1>One engineer.<br><em>One coherent system.</em></h1>
+    <p class="hero-sub">These aren't 10 isolated projects. Each one feeds the next — BraveBridge harvests URLs into the URL Index, the URL Index feeds the 2nd Brain, the 2nd Brain informs UAC memory, UAC monitors every tool call, hooks enforce 46+ rules... all so Claude Code can do in seconds what took hours before. This is what systems thinking looks like in practice.</p>
+  </div>
+
+  <!-- System Architecture Map -->
+  <section>
+    <h2>System architecture</h2>
+    <p class="lead">Five layers, each serving the one above it. Every project is a node. Every arrow is live data or active control flow.</p>
+
+    <div class="eco-map">
+
+      <!-- Layer 1: Orchestration -->
+      <div class="eco-layer l-orchestration">
+        <div class="eco-layer-label">Layer 1 — Orchestration</div>
+        <div class="eco-nodes center">
+          <div class="eco-node eco-node-wide">
+            <span class="eco-node-icon" style="animation:float 5s ease-in-out infinite;">🤖</span>
+            <div>
+              <div class="eco-node-sub">AI Orchestrator</div>
+              <div class="eco-node-name" style="font-size:1rem;">Claude Code</div>
+              <div class="eco-node-role">Calls all tools, runs all logic, delegates generation, governs via behavioral rules. The single point of intelligence that drives everything below it.</div>
+              <div class="eco-node-tag tag-orange" style="margin-top:8px;">Anthropic Claude · MCP Client</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="eco-connector">
+        <span class="eco-connector-pill">all tool calls route through ↓</span>
+      </div>
+
+      <!-- Layer 2: Platform -->
+      <div class="eco-layer l-platform">
+        <div class="eco-layer-label">Layer 2 — Platform · always on</div>
+        <div class="eco-nodes">
+          <a href="../hive/" class="eco-node">
+            <span class="eco-node-icon">🏠</span>
+            <div class="eco-node-sub">Multi-Agent Platform</div>
+            <span class="eco-node-name">HIVE</span>
+            <span class="eco-node-role">FastMCP gateway routing 34 tools across 4 service rings — Brain, Crawler, Local, Browser. One connection gives Claude access to everything.</span>
+            <span class="eco-node-tag tag-orange">34 MCP tools · 4 rings</span>
+          </a>
+          <a href="../uac/" class="eco-node">
+            <span class="eco-node-icon">🧭</span>
+            <div class="eco-node-sub">Agent Observability</div>
+            <span class="eco-node-name">UAC</span>
+            <span class="eco-node-role">Monitors every tool call via lifecycle hooks. 3 feedback loops self-correct decisions over time. Goal drift and token budget detected automatically.</span>
+            <span class="eco-node-tag tag-purple">Cross-cutting · monitors all layers</span>
+          </a>
+          <a href="../behavioral-rules/" class="eco-node">
+            <span class="eco-node-icon">⚡</span>
+            <div class="eco-node-sub">Agent Harnessing · LLMOps</div>
+            <span class="eco-node-name">Behavioral Rules</span>
+            <span class="eco-node-role">46+ rules encoded as Python hooks that fire on PreToolUse and PostToolUse — governing routing, safety, quality, and memory across every session.</span>
+            <span class="eco-node-tag tag-orange">🔥 46+ rules · 11 hooks</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="eco-connector">
+        <span class="eco-connector-pill">intelligence served from ↓</span>
+      </div>
+
+      <!-- Layer 3: Intelligence -->
+      <div class="eco-layer l-intelligence">
+        <div class="eco-layer-label">Layer 3 — Intelligence · knowledge + generation</div>
+        <div class="eco-nodes">
+          <a href="../second-brain/" class="eco-node">
+            <span class="eco-node-icon">🧠</span>
+            <div class="eco-node-sub">RAG Pipeline</div>
+            <span class="eco-node-name">2nd Brain</span>
+            <span class="eco-node-role">23K+ notes across ChromaDB (vectors), Neo4j (graph), Obsidian (raw notes), SQLite (structured). Sub-second semantic search. Feeds context up to UAC + Claude.</span>
+            <span class="eco-node-tag tag-blue">23K+ notes · $0 cloud cost</span>
+          </a>
+          <a href="../organic-url-index/" class="eco-node">
+            <span class="eco-node-icon">🕷</span>
+            <div class="eco-node-sub">Web Crawler</div>
+            <span class="eco-node-name">Organic URL Index</span>
+            <span class="eco-node-role">4-tier search cascade — Redis → ChromaDB → Crawl4AI → Tavily. ~80% of queries served locally. Grows passively from every Brave browsing session.</span>
+            <span class="eco-node-tag tag-blue">~80% cache hit · $0 Tavily</span>
+          </a>
+          <a href="../claw-router/" class="eco-node">
+            <span class="eco-node-icon">🧩</span>
+            <div class="eco-node-sub">LLM Router</div>
+            <span class="eco-node-name">Claw Router</span>
+            <span class="eco-node-role">Benchmark-first model selection. Any output &gt;30 lines is delegated here instead of generated inline — keeping Claude's context clean, cost low, quality high.</span>
+            <span class="eco-node-tag tag-blue">$0.38/M · auto model review</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="eco-connector">
+        <span class="eco-connector-pill">automation collects data ↓</span>
+      </div>
+
+      <!-- Layer 4: Automation -->
+      <div class="eco-layer l-automation">
+        <div class="eco-layer-label">Layer 4 — Automation · agents + browsers</div>
+        <div class="eco-nodes">
+          <a href="../brave-bridge/" class="eco-node">
+            <span class="eco-node-icon">🌐</span>
+            <div class="eco-node-sub">Browser Automation</div>
+            <span class="eco-node-name">BraveBridge</span>
+            <span class="eco-node-role">Live Brave session access over SSE — real cookies, auth, and page state. Passively harvests every visited URL into the URL Index every 60 seconds.</span>
+            <span class="eco-node-tag tag-green">0 extra logins · 60s harvest</span>
+          </a>
+          <a href="../hermes-agent/" class="eco-node">
+            <span class="eco-node-icon">🪽</span>
+            <div class="eco-node-sub">Autonomous Agent</div>
+            <span class="eco-node-name">Hermes</span>
+            <span class="eco-node-role">Starts at login. 3 personas, 6 skills. Uses Claw Router for generation and writes output to 2nd Brain (Obsidian + SQLite). Zero manual triggers ever needed.</span>
+            <span class="eco-node-tag tag-green">Starts at login · 0 triggers</span>
+          </a>
+          <a href="../cloak-browser/" class="eco-node">
+            <span class="eco-node-icon">🕵️</span>
+            <div class="eco-node-sub">Stealth Browser Automation</div>
+            <span class="eco-node-name">CloakBrowser</span>
+            <span class="eco-node-role">Persistent browser profiles for Naukri, LinkedIn, SAP portals — anti-detection, session cookies persist indefinitely. Provides CDP sessions to Crawl4AI for authenticated scraping.</span>
+            <span class="eco-node-tag tag-green">1 login · unlimited sessions</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="eco-connector">
+        <span class="eco-connector-pill">infrastructure serves everything ↓</span>
+      </div>
+
+      <!-- Layer 5: Infrastructure -->
+      <div class="eco-layer l-infra">
+        <div class="eco-layer-label">Layer 5 — Infrastructure · the silent foundation</div>
+        <div class="eco-nodes center">
+          <a href="../pi-hole-stack/" class="eco-node eco-node-wide">
+            <span class="eco-node-icon" style="font-size:2rem;flex-shrink:0;">🔒</span>
+            <div>
+              <div class="eco-node-sub">DNS Filtering · Network Security</div>
+              <div class="eco-node-name" style="font-size:0.95rem;">Pi-hole DNS Stack</div>
+              <div class="eco-node-role">Provides DNS for every Docker container on pihole-net. 0 third-party providers see queries. 1-script deploy. Watchtower auto-updates every service silently.</div>
+              <div class="eco-node-tag tag-gray" style="margin-top:8px;">Network foundation for all containers</div>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Key Data Pipeline -->
+  <section>
+    <h2>The core data pipeline</h2>
+    <p class="lead">The longest chain in the ecosystem — passive browsing becomes intelligent memory with zero manual steps.</p>
+    <div class="pipeline-strip">
+      <div class="pipeline-flow">
+        <div class="pipe-node">
+          <div class="pipe-node-box">
+            <div class="pipe-node-name">You browse</div>
+            <div class="pipe-node-sub">Brave Browser</div>
+          </div>
+          <div class="pipe-metric">any page</div>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-node">
+          <div class="pipe-node-box">
+            <div class="pipe-node-name">BraveBridge</div>
+            <div class="pipe-node-sub">harvests URL</div>
+          </div>
+          <div class="pipe-metric">every 60s</div>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-node">
+          <div class="pipe-node-box">
+            <div class="pipe-node-name">URL Index</div>
+            <div class="pipe-node-sub">stores + crawls</div>
+          </div>
+          <div class="pipe-metric">Crawl4AI async</div>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-node">
+          <div class="pipe-node-box">
+            <div class="pipe-node-name">ChromaDB</div>
+            <div class="pipe-node-sub">embeds content</div>
+          </div>
+          <div class="pipe-metric">1024-dim vector</div>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-node">
+          <div class="pipe-node-box">
+            <div class="pipe-node-name">megamem</div>
+            <div class="pipe-node-sub">searchable</div>
+          </div>
+          <div class="pipe-metric">&lt;1s retrieval</div>
+        </div>
+        <span class="pipe-arrow">→</span>
+        <div class="pipe-node">
+          <div class="pipe-node-box" style="border-color:rgba(249,115,22,0.4);">
+            <div class="pipe-node-name">Claude Code</div>
+            <div class="pipe-node-sub">uses context</div>
+          </div>
+          <div class="pipe-metric" style="color:#f97316;">answers with it</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Connection Details -->
+  <section>
+    <h2>How the pieces connect</h2>
+    <p class="lead">12 active data flows — every arrow does real work on every session.</p>
+    <div class="conn-grid">
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">BraveBridge</span><span class="conn-arrow">→</span><span class="conn-to">URL Index</span></div>
+        <p class="conn-desc">Every URL visited in Brave is harvested every 60 seconds and appended to the local SQLite index. The knowledge base grows passively while you browse.</p>
+        <div class="conn-metric">60s harvest interval · 90-day history backfill on setup</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">URL Index</span><span class="conn-arrow">→</span><span class="conn-to">2nd Brain</span></div>
+        <p class="conn-desc">Crawled page content is chunked and embedded into ChromaDB (1024-dim), making external web knowledge semantically searchable alongside personal notes.</p>
+        <div class="conn-metric">Crawl4AI async crawl → embed → 2nd Brain search</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">2nd Brain</span><span class="conn-arrow">→</span><span class="conn-to">UAC</span></div>
+        <p class="conn-desc">UAC reads cross-session goals, tool history, and active domain from the 2nd Brain's SQLite tables — giving Claude 48h continuity without re-prompting.</p>
+        <div class="conn-metric">48h cross-session memory · 7 Redis state keys</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">UAC hooks</span><span class="conn-arrow">→</span><span class="conn-to">Every tool call</span></div>
+        <p class="conn-desc">11 Python hooks fire on PreToolUse and PostToolUse for every single tool call — gap checks, token budget, goal drift detection, checkpoint commits, audit log.</p>
+        <div class="conn-metric">~80% fewer redundant API calls · 0 manual intervention</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">Behavioral Rules</span><span class="conn-arrow">→</span><span class="conn-to">UAC hooks</span></div>
+        <p class="conn-desc">46+ behavioral rules define the spec. UAC hooks are the enforcement layer. Rules say "what to do"; hooks make it happen automatically every session.</p>
+        <div class="conn-metric">46+ rules → 11 hooks → 0 manual re-prompting</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">Claude Code</span><span class="conn-arrow">→</span><span class="conn-to">Claw Router</span></div>
+        <p class="conn-desc">Any output &gt;30 lines is delegated to Claw Router instead of generated inline. Claude's context stays clean. Cost drops 90%. Quality improves via benchmark routing.</p>
+        <div class="conn-metric">$0.38/M for writing · DeepSeek V3.2 · auto 15-day review</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">Hermes</span><span class="conn-arrow">→</span><span class="conn-to">Claw Router</span></div>
+        <p class="conn-desc">Hermes' scheduled generation tasks — daily notes, quiz content, job summaries — route through Claw Router for benchmark-optimal model selection.</p>
+        <div class="conn-metric">Starts at login · 0 triggers · outputs to 2nd Brain</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">HIVE Gateway</span><span class="conn-arrow">→</span><span class="conn-to">All 34 tools</span></div>
+        <p class="conn-desc">Claude makes one SSE connection to HIVE at port 8765 and gets access to all 34 MCP tools across all 4 rings — no individual server management.</p>
+        <div class="conn-metric">Hot-reloaded manifests · add service without restart</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">CloakBrowser</span><span class="conn-arrow">→</span><span class="conn-to">Crawl4AI CDP</span></div>
+        <p class="conn-desc">CloakBrowser provides persistent authenticated CDP sessions for Crawl4AI to scrape Naukri/LinkedIn with real session cookies — bypassing login walls.</p>
+        <div class="conn-metric">1 login persists indefinitely · noVNC profile management</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">Pi-hole</span><span class="conn-arrow">→</span><span class="conn-to">All Docker containers</span></div>
+        <p class="conn-desc">Every Docker container on pihole-net resolves DNS through Pi-hole + Unbound. 0 third-party DNS providers see queries. Watchtower auto-updates all images.</p>
+        <div class="conn-metric">Quad9 failover · auto-updates · network-level ad blocking</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">Hermes</span><span class="conn-arrow">→</span><span class="conn-to">2nd Brain</span></div>
+        <p class="conn-desc">Every scheduled Hermes output — digests, quiz results, job hunt notes — is appended to the Obsidian vault and SQLite tables for permanent recall across sessions.</p>
+        <div class="conn-metric">Obsidian daily log + sqlite insert on every run</div>
+      </div>
+
+      <div class="conn-card">
+        <div class="conn-flow"><span class="conn-from">URL Index</span><span class="conn-arrow">→</span><span class="conn-to">Claw Router docs</span></div>
+        <p class="conn-desc">The B31 doc-fetch chain checks the URL Index for cached library docs before spending tokens on Tavily or context7 — the free local tier always hits first.</p>
+        <div class="conn-metric">Redis → Chroma → URL Index → Tavily (last resort only)</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Design Philosophy -->
+  <section>
+    <h2>Design philosophy</h2>
+    <p class="lead">Three principles that explain why this ecosystem looks the way it does — and why an interviewer should care.</p>
+    <div class="phil-grid">
+
+      <div class="phil-card">
+        <div class="phil-icon">🔗</div>
+        <div class="phil-title">Everything talks to everything — value compounds</div>
+        <p class="phil-text">No project is a dead end. BraveBridge feeds URL Index feeds 2nd Brain feeds UAC feeds Claude Code. The value isn't in any single project. It's in the connections. The more the system is used, the smarter it gets — passively, automatically.</p>
+      </div>
+
+      <div class="phil-card">
+        <div class="phil-icon">⬆️</div>
+        <div class="phil-title">Data flows up. Control flows down.</div>
+        <p class="phil-text">Infrastructure serves automation. Automation collects for intelligence. Intelligence informs the platform. The platform serves the orchestrator. Signals (URLs, notes, tool history) flow upward. Commands (navigate, scrape, generate, remember) flow downward. Clean separation.</p>
+      </div>
+
+      <div class="phil-card">
+        <div class="phil-icon">💰</div>
+        <div class="phil-title">$0 cloud dependency — local tier always first</div>
+        <p class="phil-text">Every layer has a free local option that runs before any paid external service. Redis before Chroma before Tavily. BraveBridge before CloakBrowser. Claw Router picks the cheapest benchmark-winning model. Cloud is the last resort — not the default. The whole ecosystem runs on one developer's homelab.</p>
+      </div>
+
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Built by <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank">Sashibhusan</a>
+    &nbsp;·&nbsp; <a href="https://github.com/snayak27" target="_blank">GitHub</a>
+    &nbsp;·&nbsp; <a href="../index.html">← Back to all projects</a>
+  </div>
+</footer>
+
+</body>
+</html>

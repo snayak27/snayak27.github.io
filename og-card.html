@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html,body{width:1200px;height:630px;overflow:hidden;}
+  body{
+    font-family:'Inter',sans-serif;
+    background:linear-gradient(135deg,#fff7ed 0%,#faf9f7 55%,#f5f0e8 100%);
+    position:relative;color:#1c1917;
+  }
+  .blob{position:absolute;border-radius:50%;filter:blur(70px);}
+  .b1{width:520px;height:520px;background:radial-gradient(circle,#fed7aa,#fb923c);top:-150px;right:-120px;opacity:.55;}
+  .b2{width:420px;height:420px;background:radial-gradient(circle,#fef3c7,#fde68a);bottom:-160px;left:-100px;opacity:.5;}
+  .frame{position:relative;z-index:1;height:100%;padding:60px 80px;display:flex;flex-direction:column;justify-content:space-between;}
+  .top{display:flex;align-items:center;gap:18px;}
+  .badge{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,#f97316,#ea580c);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:900;font-size:38px;box-shadow:0 8px 24px rgba(249,115,22,.4);}
+  .eyebrow{font-size:21px;font-weight:700;color:#ea580c;letter-spacing:.02em;text-transform:uppercase;}
+  .mid h1{font-size:62px;font-weight:900;letter-spacing:-.03em;line-height:1.06;}
+  .mid h1 em{font-style:normal;background:linear-gradient(135deg,#f97316,#ea580c);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+  .mid p{font-size:28px;font-weight:500;color:#57534e;margin-top:18px;line-height:1.4;max-width:960px;}
+  .chips{display:flex;gap:14px;margin-top:26px;flex-wrap:wrap;}
+  .chip{background:#fff;border:1.5px solid #fed7aa;border-radius:99px;padding:11px 22px;font-size:21px;font-weight:700;color:#1c1917;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+  .chip b{color:#ea580c;}
+  .bottom{display:flex;align-items:center;justify-content:space-between;border-top:1.5px solid rgba(0,0,0,.08);padding-top:26px;}
+  .url{font-size:24px;font-weight:700;color:#1c1917;}
+  .tag{font-size:21px;font-weight:600;color:#a8a29e;}
+</style>
+</head>
+<body>
+  <div class="blob b1"></div>
+  <div class="blob b2"></div>
+  <div class="frame">
+    <div class="top">
+      <div class="badge">S</div>
+      <div class="eyebrow">Techno-Functional SAP Consultant · S/4HANA Finance × BTP / AI · Bangalore</div>
+    </div>
+    <div class="mid">
+      <h1>Sashibhusan Nayak.<br><em>SAP Finance, with an architect's mind for AI.</em></h1>
+      <p>S/4HANA Finance (FICO) + a full AI engineering ecosystem built on one laptop — multi-agent platform, RAG pipeline, LLM router, and agent governance.</p>
+      <div class="chips">
+        <span class="chip"><b>10</b> Projects</span>
+        <span class="chip"><b>34</b> MCP Tools</span>
+        <span class="chip"><b>23K+</b> Notes Indexed</span>
+        <span class="chip"><b>46+</b> AI Rules</span>
+      </div>
+    </div>
+    <div class="bottom">
+      <span class="url">snayak27.github.io</span>
+      <span class="tag">LLMOps · Multi-Agent Systems · MCP · Docker</span>
+    </div>
+  </div>
+</body>
+</html>

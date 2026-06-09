@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="BraveBridge — Browser Automation & AI Web Intelligence. 0 extra logins for auth pages, 60s auto URL harvest, 90-day history backfill.">
+  <meta property="og:title" content="Browser Automation & AI Web Intelligence — BraveBridge | Sashibhusan">
+  <meta property="og:description" content="Browser automation bridge giving AI direct access to live Brave Browser sessions. 0 extra logins, 60s auto-harvest, 90-day history backfill.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/brave-bridge/">
+  <meta property="og:image" content="https://snayak27.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/og-image.png">
+  <title>Browser Automation & AI Web Intelligence — BraveBridge | Sashibhusan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{--bg:#faf9f7;--bg2:#f5f0e8;--card:#fff;--orange:#f97316;--orange-d:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;--text:#1c1917;--text2:#57534e;--muted:#a8a29e;--border:rgba(0,0,0,0.07);--shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);--shadow-h:0 16px 48px rgba(0,0,0,0.12),0 4px 16px rgba(0,0,0,0.06);--spring:cubic-bezier(0.34,1.56,0.64,1);--ease:cubic-bezier(0.4,0,0.2,1);--r:18px;}
+    html{scroll-behavior:smooth;}body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;}
+    a{color:var(--orange);text-decoration:none;}a:hover{text-decoration:underline;}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(250,249,247,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 28px;}
+    .nav-inner{max-width:860px;margin:0 auto;height:52px;display:flex;align-items:center;gap:14px;}
+    .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:0.85rem;font-weight:500;text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--orange);text-decoration:none;}
+    .nav-sep{color:var(--border);}.nav-title{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
+    .hero{padding:72px 0 56px;}.hero-inner{display:flex;align-items:flex-start;gap:28px;}
+    .hero-icon{width:72px;height:72px;border-radius:20px;background:var(--orange-l);border:1.5px solid var(--orange-m);display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;}
+    .hero-badge{display:inline-flex;background:var(--orange-l);border:1px solid var(--orange-m);border-radius:99px;padding:4px 14px;font-size:0.7rem;font-weight:600;color:var(--orange-d);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:var(--text);margin-bottom:12px;}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--orange-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.7;margin-bottom:20px;}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:6px;}
+    .chip{background:var(--bg2);border:1px solid rgba(0,0,0,0.06);border-radius:99px;padding:3px 12px;font-size:0.72rem;color:var(--text2);font-weight:500;}
+    section{padding:56px 0;border-top:1px solid var(--border);}
+    section h2{font-size:1.45rem;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px;}
+    .lead{font-size:0.9rem;color:var(--muted);margin-bottom:28px;}
+    .analogy{background:linear-gradient(135deg,var(--orange-l),#fef9f5);border:1.5px solid var(--orange-m);border-radius:var(--r);padding:32px;}
+    .analogy-quote{font-size:1.15rem;font-weight:700;color:var(--text);border-left:3px solid var(--orange);padding-left:18px;margin-bottom:20px;line-height:1.5;}
+    .analogy p{font-size:0.93rem;color:var(--text2);margin-bottom:14px;line-height:1.75;}
+    .analogy p:last-child{margin-bottom:0;color:var(--orange-d);font-weight:600;}
+
+    /* Flow diagram */
+    .flow-diagram{background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);padding:32px;box-shadow:var(--shadow);}
+    .flow-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);font-weight:600;margin-bottom:24px;text-align:center;}
+    .flow-row{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;}
+    .flow-node{background:var(--bg2);border:1.5px solid var(--border);border-radius:10px;padding:9px 16px;font-size:0.82rem;font-weight:600;color:var(--text);}
+    .flow-node.hi{background:var(--orange-l);border-color:var(--orange-m);color:var(--orange-d);}
+    .flow-arr{color:var(--muted);font-size:0.9rem;}
+    .flow-note{text-align:center;font-size:0.78rem;color:var(--muted);margin-top:6px;}
+
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+    .feat{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s var(--ease);}
+    .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);}
+    .feat-icon{font-size:1.5rem;margin-bottom:10px;}
+    .feat-title{font-weight:700;color:var(--text);font-size:0.9rem;margin-bottom:5px;}
+    .feat-desc{font-size:0.82rem;color:var(--text2);line-height:1.6;}
+
+    /* Port table */
+    .port-table{width:100%;border-collapse:collapse;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .port-table th{background:var(--bg2);padding:11px 16px;text-align:left;font-size:0.73rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);font-weight:700;border-bottom:1px solid var(--border);}
+    .port-table td{padding:11px 16px;font-size:0.83rem;border-bottom:1px solid rgba(0,0,0,0.04);}
+    .port-table tr:last-child td{border-bottom:none;}
+    .port-table tr:hover td{background:var(--orange-l);}
+    .port-table td:nth-child(2){font-family:monospace;font-size:0.78rem;color:var(--orange-d);font-weight:600;}
+
+    .stats{display:flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .stat{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-size:1.7rem;font-weight:800;color:var(--orange);display:block;}
+    .stat-l{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px;font-weight:500;}
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:0.83rem;color:var(--muted);}
+    footer a{color:var(--text2);font-weight:500;}footer a:hover{color:var(--orange);}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    .fade{animation:fadeUp 0.5s var(--ease) both;}
+    .resume-snip{background:linear-gradient(145deg,#1c1917,#292524);border-radius:var(--r);padding:32px;}
+    .resume-snip h2{color:#fff;font-size:1.2rem;}
+    .resume-snip .lead{color:rgba(255,255,255,0.45);}
+    .resume-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+    .resume-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;}
+    .resume-role{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:#fed7aa;font-weight:700;margin-bottom:12px;}
+    .resume-bullets{list-style:none;padding:0;margin:0;}
+    .resume-bullets li{font-size:0.83rem;color:rgba(255,255,255,0.82);line-height:1.75;padding-left:18px;position:relative;margin-bottom:10px;}
+    .resume-bullets li:last-child{margin-bottom:0;}
+    .resume-bullets li::before{content:'•';color:#f97316;position:absolute;left:0;font-weight:700;}
+    .resume-stack{font-size:0.74rem;color:rgba(255,255,255,0.4);margin-top:12px;line-height:1.6;}
+    @media(max-width:600px){.hero-inner{flex-direction:column;gap:16px;}.feat-grid{grid-template-columns:1fr;}.stats{flex-wrap:wrap;}.stat{min-width:50%;border-bottom:1px solid var(--border);}}
+    /* Prev/Next project navigation */
+    .proj-nav{display:flex;align-items:center;justify-content:space-between;padding:40px 0 8px;gap:16px;}
+    .proj-nav-link{display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border:1.5px solid var(--border);border-radius:14px;background:var(--card);transition:all 0.3s var(--spring);max-width:220px;box-shadow:var(--shadow);}
+    .proj-nav-link:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);border-color:var(--orange-m);text-decoration:none;}
+    .nav-dir{font-size:0.7rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+    .nav-proj{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .nav-hint{font-size:0.74rem;color:var(--muted);}
+    .proj-nav-all{font-size:0.82rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:99px;background:var(--bg2);border:1px solid var(--border);transition:all 0.2s;white-space:nowrap;}
+    .proj-nav-all:hover{color:var(--orange);background:var(--orange-l);text-decoration:none;}
+    /* Architecture Diagram */
+    .arch-diagram{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;overflow-x:auto;}
+    .arch-node{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:86px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s ease;}
+    .arch-node:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);}
+    .arch-node img{width:30px;height:30px;object-fit:contain;}
+    .arch-node-name{font-size:0.73rem;font-weight:600;color:var(--text);text-align:center;line-height:1.3;}
+    .arch-node-role{font-size:0.65rem;color:var(--muted);text-align:center;margin-top:-1px;}
+    .arch-arrow{color:var(--orange);font-size:1.2rem;padding:0 6px;flex-shrink:0;font-weight:700;align-self:center;}
+    .arch-vstack{display:flex;flex-direction:column;gap:8px;align-items:center;}
+    .arch-hstack{display:flex;flex-direction:row;gap:10px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+    .arch-down{text-align:center;color:var(--orange);font-size:1.1rem;font-weight:700;margin:6px 0;}
+    .logo-b{display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;color:white;flex-shrink:0;border-radius:6px;width:30px;height:30px;}
+    .lb-hive{background:#f97316;}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a class="nav-back" href="../index.html">← All Projects</a><span class="nav-sep">|</span><span class="nav-title">BraveBridge — Browser Telepathy</span></div></nav>
+<div class="wrap">
+  <div class="hero fade">
+    <div class="hero-inner">
+      <div class="hero-icon">👁️</div>
+      <div>
+        <div class="hero-badge">Browser Automation · AI Web Intelligence</div>
+        <h1><em>Browser Telepathy</em></h1>
+        <p class="hero-sub">A browser automation and AI web intelligence bridge — gives AI real-time access to your live browser session via CDP and WebSocket, including authenticated pages behind login that no external scraper can reach.</p>
+        <div class="hero-chips"><span class="chip">Browser Automation</span><span class="chip">AI Web Intelligence</span><span class="chip">CDP</span><span class="chip">WebSocket</span><span class="chip">Python</span><span class="chip">Browser Extension</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Imagine this…</h2>
+    <p class="lead">A story a 10-year-old would understand</p>
+    <div class="analogy">
+      <div class="analogy-quote">"Imagine if your AI assistant could look over your shoulder and see exactly what's on your screen — your open tabs, what you're reading, even pages where you're already logged in."</div>
+      <p>Normal AI tools can only browse the public internet. They can't see your Naukri job feed, your LinkedIn messages, or anything behind a login screen.</p>
+      <p>BraveBridge connects Claude directly to your running Brave Browser. The AI can read the current tab, navigate to a URL using your real session, or silently harvest every URL you visit for later indexing.</p>
+      <p>In technical terms: a Chrome Extension (WebSocket client :9877) + Python server (SSE :9878) + HIVE gateway proxy. Ring 4 in the HIVE architecture.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>How the bridge works</h2>
+    <p class="lead">Messages flow between Claude and your browser in real time</p>
+    <div class="flow-diagram">
+      <div class="flow-label">BraveBridge — Data Flow</div>
+      <div class="flow-row">
+        <div class="flow-node">Claude Code</div>
+        <span class="flow-arr">→</span>
+        <div class="flow-node hi">HIVE Gateway :8765</div>
+        <span class="flow-arr">→</span>
+        <div class="flow-node hi">BraveBridge Server :9878</div>
+      </div>
+      <div class="flow-row"><span class="flow-arr" style="font-size:1.4rem;">↕</span></div>
+      <div class="flow-row">
+        <div class="flow-node">WebSocket :9877</div>
+        <span class="flow-arr">↔</span>
+        <div class="flow-node hi">Brave Extension</div>
+        <span class="flow-arr">→</span>
+        <div class="flow-node">Live Brave Tab</div>
+      </div>
+      <div class="flow-note">Full round-trip: Claude sends command → server → extension → live browser → response back</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What Claude can do with your browser</h2>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">📖</div><div class="feat-title">Read any open tab</div><div class="feat-desc">brave_get_markdown() returns the current page as clean text — even pages behind login like Naukri job listings or LinkedIn profiles.</div></div>
+      <div class="feat"><div class="feat-icon">🧭</div><div class="feat-title">Navigate using your session</div><div class="feat-desc">brave_navigate() opens URLs in your real browser with your existing cookies — no re-login, no CAPTCHA, no bot detection.</div></div>
+      <div class="feat"><div class="feat-icon">🌾</div><div class="feat-title">Passive URL harvesting</div><div class="feat-desc">Every URL you visit gets silently buffered and flushed to the Organic URL Index every 60 seconds. Your browsing builds the search index automatically.</div></div>
+      <div class="feat"><div class="feat-icon">📸</div><div class="feat-title">Screenshots on demand</div><div class="feat-desc">brave_screenshot() captures what's currently visible. Claude can analyze layout or verify that a navigation succeeded.</div></div>
+      <div class="feat"><div class="feat-icon">⌨️</div><div class="feat-title">Click and fill forms</div><div class="feat-desc">brave_click() and brave_fill() let Claude interact with page elements using your real authenticated session.</div></div>
+      <div class="feat"><div class="feat-icon">📚</div><div class="feat-title">Backfill 90 days of history</div><div class="feat-desc">brave_enrich_history(days=90) processes your browser history and seeds the Organic URL Index instantly.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ports and components</h2>
+    <table class="port-table">
+      <thead><tr><th>Component</th><th>Port</th><th>Role</th></tr></thead>
+      <tbody>
+        <tr><td>Brave Extension</td><td>WebSocket :9877</td><td>Runs in browser, listens for commands, returns page content</td></tr>
+        <tr><td>Python Server</td><td>SSE :9878</td><td>HIVE registers this. Bridges Claude ↔ extension over WebSocket</td></tr>
+        <tr><td>HIVE Gateway</td><td>:8765</td><td>Claude connects here — proxies brave_* tools to the server</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lead">Claude Code controls the live Brave session over SSE — real cookies, auth, and page state. Every visited URL harvests back into the search index automatically.</p>
+    <div class="arch-diagram">
+      <div class="arch-hstack" style="align-items:center;">
+        <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"><span class="arch-node-name">Claude Code</span><span class="arch-node-role">MCP client</span></div>
+        <div class="arch-vstack" style="gap:4px;">
+          <div style="font-size:0.7rem;color:var(--text2);white-space:nowrap;">⟵ SSE events</div>
+          <div style="font-size:0.7rem;color:var(--orange);white-space:nowrap;">→ commands</div>
+        </div>
+        <div class="arch-node" style="background:var(--orange-l);border-color:var(--orange-m);"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg"><span class="arch-node-name">Bridge Server</span><span class="arch-node-role">:9878 · FastAPI</span></div>
+        <div class="arch-vstack" style="gap:4px;">
+          <div style="font-size:0.7rem;color:var(--text2);white-space:nowrap;">⟵ page data</div>
+          <div style="font-size:0.7rem;color:var(--orange);white-space:nowrap;">→ navigate</div>
+        </div>
+        <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/chrome/chrome-original.svg"><span class="arch-node-name">Brave Browser</span><span class="arch-node-role">live session</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="background:#f0fdf4;border-color:#bbf7d0;"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"><span class="arch-node-name">URL Index</span><span class="arch-node-role">60s harvest</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="resume-snip">
+      <h2>&#128203; Put this on your resume</h2>
+      <p class="lead">Copy-paste ready &#8212; two versions for different roles</p>
+      <div class="resume-cards">
+        <div class="resume-card">
+          <div class="resume-role">AI &#183; Browser Automation &#183; Backend</div>
+          <ul class="resume-bullets">
+            <li>Built browser automation and AI web intelligence bridge via CDP and WebSocket: Chrome Extension (WS :9877) &#8594; Python server (SSE :9878) &#8594; HIVE gateway; real-time AI access to authenticated browser sessions including login-gated pages</li>
+            <li>Implemented passive URL harvesting (60s flush interval) feeding organic search index; 90-day browser history backfill via single API call; 25 browser automation tools (navigate, click, fill, screenshot, get_markdown)</li>
+          </ul>
+          <div class="resume-stack">Stack: Python &#183; JavaScript (Chrome Extension) &#183; WebSocket &#183; SSE &#183; CDP &#183; FastAPI &#183; Docker</div>
+        </div>
+        <div class="resume-card">
+          <div class="resume-role">SAP &#183; Consulting &#183; Digital Transformation</div>
+          <ul class="resume-bullets">
+            <li>Designed AI-powered browser intelligence system enabling automated data extraction from authenticated portals (Naukri, LinkedIn, SAP Learning) without re-authentication &#8212; applicable to enterprise portal automation and HR data pipelines</li>
+            <li>Built passive knowledge base enrichment that automatically indexes every URL visited in the browser &#8212; applicable to competitive intelligence and enterprise research automation</li>
+          </ul>
+          <div class="resume-stack">Keywords: Browser Automation &#183; Web Intelligence &#183; CDP &#183; AI Integration &#183; Authenticated Scraping</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>By the numbers</h2>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">0</span><span class="stat-l">Extra Logins for Auth Pages</span></div>
+      <div class="stat"><span class="stat-n">60s</span><span class="stat-l">Auto URL Harvest Interval</span></div>
+      <div class="stat"><span class="stat-n">90d</span><span class="stat-l">History Backfill on Setup</span></div>
+      <div class="stat"><span class="stat-n">0</span><span class="stat-l">Extra API Keys Needed</span></div>
+    </div>
+  </section>
+</div>
+<div class="wrap">
+  <div class="proj-nav">
+    <a href="../claw-router/" class="proj-nav-link">
+      <span class="nav-dir">← Prev</span>
+      <span class="nav-proj">LLM Router</span>
+      <span class="nav-hint">$0.38/M tokens · 4 modes</span>
+    </a>
+    <a href="../index.html" class="proj-nav-all">⊞ All Projects</a>
+    <a href="../hermes-agent/" class="proj-nav-link">
+      <span class="nav-dir">Next →</span>
+      <span class="nav-proj">Autonomous Agent</span>
+      <span class="nav-hint">6 skills · starts at login</span>
+    </a>
+  </div>
+</div>
+<footer><div class="wrap">Built by <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank">Sashibhusan</a> &nbsp;·&nbsp; <a href="https://github.com/snayak27" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="../index.html">← Back to all projects</a></div></footer>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      obs.unobserve(e.target);
+      var el=e.target,raw=el.textContent.trim();
+      var m=raw.match(/^([$~<]?)(\d+(?:\.\d+)?)(.*)/);
+      if(!m){el.style.opacity='0';el.style.transform='scale(0.7)';el.style.transition='opacity .5s ease,transform .5s var(--spring)';requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='scale(1)'});return;}
+      var pre=m[1],num=parseFloat(m[2]),suf=m[3],dur=1000,t0=performance.now();
+      (function tick(ts){var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3),cur=num*ease;var disp=num>=100?Math.round(cur).toString():num%1!==0?cur.toFixed(2):Math.round(cur).toString();el.textContent=p>=1?raw:pre+disp+(p>.8?suf:'');if(p<1)requestAnimationFrame(tick);})(t0);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-n').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>

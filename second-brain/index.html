@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="2nd Brain — 4-database RAG pipeline over 23K+ notes. ChromaDB, Neo4j, PostgreSQL, SQLite. Sub-second semantic search. $0 cloud cost.">
+  <meta property="og:title" content="RAG Pipeline & Knowledge Graph — 2nd Brain | Sashibhusan">
+  <meta property="og:description" content="4-database RAG pipeline over 23K+ personal notes. Sub-second semantic search. ChromaDB, Neo4j, PostgreSQL, SQLite. $0 cloud storage cost.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/second-brain/">
+  <meta property="og:image" content="https://snayak27.github.io/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/og-image.png">
+  <title>RAG Pipeline & Knowledge Graph — 2nd Brain | Sashibhusan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --bg:#faf9f7;--bg2:#f5f0e8;--card:#fff;
+      --orange:#f97316;--orange-d:#ea580c;--orange-l:#fff7ed;--orange-m:#fed7aa;
+      --text:#1c1917;--text2:#57534e;--muted:#a8a29e;
+      --border:rgba(0,0,0,0.07);
+      --shadow:0 2px 12px rgba(0,0,0,0.06),0 1px 4px rgba(0,0,0,0.04);
+      --shadow-h:0 16px 48px rgba(0,0,0,0.12),0 4px 16px rgba(0,0,0,0.06);
+      --spring:cubic-bezier(0.34,1.56,0.64,1);--ease:cubic-bezier(0.4,0,0.2,1);--r:18px;
+    }
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:'Inter',-apple-system,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.65;}
+    a{color:var(--orange);text-decoration:none;}a:hover{text-decoration:underline;}
+    .nav{position:sticky;top:0;z-index:100;background:rgba(250,249,247,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 28px;}
+    .nav-inner{max-width:860px;margin:0 auto;height:52px;display:flex;align-items:center;gap:14px;}
+    .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--text2);font-size:0.85rem;font-weight:500;text-decoration:none;transition:color 0.2s;}
+    .nav-back:hover{color:var(--orange);text-decoration:none;}
+    .nav-sep{color:var(--border);}
+    .nav-title{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .wrap{max-width:860px;margin:0 auto;padding:0 28px;}
+    .hero{padding:72px 0 56px;}
+    .hero-inner{display:flex;align-items:flex-start;gap:28px;}
+    .hero-icon{width:72px;height:72px;border-radius:20px;background:var(--orange-l);border:1.5px solid var(--orange-m);display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;box-shadow:var(--shadow);animation:float 5s ease-in-out infinite;}
+    .hero-badge{display:inline-flex;align-items:center;background:var(--orange-l);border:1px solid var(--orange-m);border-radius:99px;padding:4px 14px;font-size:0.7rem;font-weight:600;color:var(--orange-d);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
+    .hero h1{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;letter-spacing:-0.03em;line-height:1.15;color:var(--text);margin-bottom:12px;}
+    .hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--orange),var(--orange-d));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+    .hero-sub{font-size:1rem;color:var(--text2);max-width:540px;line-height:1.7;margin-bottom:20px;}
+    .hero-chips{display:flex;flex-wrap:wrap;gap:6px;}
+    .chip{background:var(--bg2);border:1px solid rgba(0,0,0,0.06);border-radius:99px;padding:3px 12px;font-size:0.72rem;color:var(--text2);font-weight:500;}
+    section{padding:56px 0;border-top:1px solid var(--border);}
+    section h2{font-size:1.45rem;font-weight:800;letter-spacing:-0.02em;color:var(--text);margin-bottom:6px;}
+    .lead{font-size:0.9rem;color:var(--muted);margin-bottom:28px;}
+    .analogy{background:linear-gradient(135deg,var(--orange-l) 0%,#fef9f5 100%);border:1.5px solid var(--orange-m);border-radius:var(--r);padding:32px;}
+    .analogy-quote{font-size:1.15rem;font-weight:700;color:var(--text);border-left:3px solid var(--orange);padding-left:18px;margin-bottom:20px;line-height:1.5;}
+    .analogy p{font-size:0.93rem;color:var(--text2);margin-bottom:14px;line-height:1.75;}
+    .analogy p:last-child{margin-bottom:0;color:var(--orange-d);font-weight:600;}
+
+    .db-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;}
+    .db-card{border-radius:14px;padding:20px;border:1.5px solid;}
+    .db-obsidian{background:#fff7ed;border-color:#fed7aa;}
+    .db-chroma{background:#fdf4ff;border-color:#e9d5ff;}
+    .db-neo4j{background:#f0fdf4;border-color:#bbf7d0;}
+    .db-sqlite{background:#eff6ff;border-color:#bfdbfe;}
+    .db-name{font-weight:700;font-size:0.9rem;color:var(--text);margin-bottom:4px;}
+    .db-role{font-size:0.78rem;color:var(--text2);margin-bottom:8px;}
+    .db-stat{font-size:0.8rem;font-weight:700;}
+    .db-obsidian .db-stat{color:#ea580c;}
+    .db-chroma .db-stat{color:#9333ea;}
+    .db-neo4j .db-stat{color:#16a34a;}
+    .db-sqlite .db-stat{color:#2563eb;}
+
+    .search-box{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow);}
+    .search-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:var(--muted);font-weight:600;margin-bottom:14px;}
+    .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;}
+    .flow-step{background:var(--bg2);border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:5px 12px;font-size:0.78rem;color:var(--text2);}
+    .flow-step.result{background:var(--orange-l);border-color:var(--orange-m);color:var(--orange-d);font-weight:600;}
+    .flow-arrow{color:var(--muted);font-size:0.85rem;}
+
+    .feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+    .feat{background:var(--card);border:1.5px solid var(--border);border-radius:14px;padding:20px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s var(--ease);}
+    .feat:hover{transform:translateY(-4px);box-shadow:var(--shadow-h);}
+    .feat-icon{font-size:1.5rem;margin-bottom:10px;}
+    .feat-title{font-weight:700;color:var(--text);font-size:0.9rem;margin-bottom:5px;}
+    .feat-desc{font-size:0.82rem;color:var(--text2);line-height:1.6;}
+
+    .stats{display:flex;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+    .stat{flex:1;padding:20px 16px;text-align:center;border-right:1px solid var(--border);}
+    .stat:last-child{border-right:none;}
+    .stat-n{font-size:1.7rem;font-weight:800;color:var(--orange);display:block;}
+    .stat-l{font-size:0.7rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;margin-top:4px;font-weight:500;}
+
+    footer{background:var(--bg2);border-top:1px solid var(--border);padding:28px 0;text-align:center;font-size:0.83rem;color:var(--muted);}
+    footer a{color:var(--text2);font-weight:500;}footer a:hover{color:var(--orange);}
+
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+    .fade{animation:fadeUp 0.5s var(--ease) both;}
+    .resume-snip{background:linear-gradient(145deg,#1c1917,#292524);border-radius:var(--r);padding:32px;}
+    .resume-snip h2{color:#fff;font-size:1.2rem;}
+    .resume-snip .lead{color:rgba(255,255,255,0.45);}
+    .resume-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:20px;}
+    .resume-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:20px;}
+    .resume-role{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;color:#fed7aa;font-weight:700;margin-bottom:12px;}
+    .resume-bullets{list-style:none;padding:0;margin:0;}
+    .resume-bullets li{font-size:0.83rem;color:rgba(255,255,255,0.82);line-height:1.75;padding-left:18px;position:relative;margin-bottom:10px;}
+    .resume-bullets li:last-child{margin-bottom:0;}
+    .resume-bullets li::before{content:'•';color:#f97316;position:absolute;left:0;font-weight:700;}
+    .resume-stack{font-size:0.74rem;color:rgba(255,255,255,0.4);margin-top:12px;line-height:1.6;}
+    @media(max-width:600px){.hero-inner{flex-direction:column;gap:16px;}.db-grid{grid-template-columns:1fr;}.feat-grid{grid-template-columns:1fr;}.stats{flex-wrap:wrap;}.stat{min-width:50%;border-bottom:1px solid var(--border);}}
+    /* Prev/Next project navigation */
+    .proj-nav{display:flex;align-items:center;justify-content:space-between;padding:40px 0 8px;gap:16px;}
+    .proj-nav-link{display:flex;flex-direction:column;gap:4px;text-decoration:none;padding:16px 20px;border:1.5px solid var(--border);border-radius:14px;background:var(--card);transition:all 0.3s var(--spring);max-width:220px;box-shadow:var(--shadow);}
+    .proj-nav-link:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);border-color:var(--orange-m);text-decoration:none;}
+    .nav-dir{font-size:0.7rem;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.05em;}
+    .nav-proj{font-size:0.88rem;font-weight:600;color:var(--text);}
+    .nav-hint{font-size:0.74rem;color:var(--muted);}
+    .proj-nav-all{font-size:0.82rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:99px;background:var(--bg2);border:1px solid var(--border);transition:all 0.2s;white-space:nowrap;}
+    .proj-nav-all:hover{color:var(--orange);background:var(--orange-l);text-decoration:none;}
+    /* Architecture Diagram */
+    .arch-diagram{background:var(--bg2);border:1.5px solid var(--border);border-radius:var(--r);padding:28px;overflow-x:auto;}
+    .arch-node{background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:86px;box-shadow:var(--shadow);transition:transform 0.3s var(--spring),box-shadow 0.25s ease;}
+    .arch-node:hover{transform:translateY(-3px);box-shadow:var(--shadow-h);}
+    .arch-node img{width:30px;height:30px;object-fit:contain;}
+    .arch-node-name{font-size:0.73rem;font-weight:600;color:var(--text);text-align:center;line-height:1.3;}
+    .arch-node-role{font-size:0.65rem;color:var(--muted);text-align:center;margin-top:-1px;}
+    .arch-arrow{color:var(--orange);font-size:1.2rem;padding:0 6px;flex-shrink:0;font-weight:700;align-self:center;}
+    .arch-vstack{display:flex;flex-direction:column;gap:8px;align-items:center;}
+    .arch-hstack{display:flex;flex-direction:row;gap:10px;align-items:flex-start;justify-content:center;flex-wrap:wrap;}
+    .arch-divider-v{width:1px;background:var(--border);align-self:stretch;min-height:80px;margin:0 12px;}
+    .arch-down{text-align:center;color:var(--orange);font-size:1.1rem;font-weight:700;margin:6px 0;}
+    .logo-b{display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;color:white;flex-shrink:0;border-radius:6px;width:30px;height:30px;}
+    .lb-chroma{background:#7c3aed;}.lb-neo4j{background:#018bff;}.lb-obs{background:#8b5cf6;}.lb-c4{background:#059669;}.lb-or{background:#1c1917;}.lb-hive{background:#f97316;}.lb-me{background:#ea580c;}
+  </style>
+</head>
+<body>
+<nav class="nav"><div class="nav-inner"><a class="nav-back" href="../index.html">← All Projects</a><span class="nav-sep">|</span><span class="nav-title">2nd Brain — Long-Term Memory</span></div></nav>
+<div class="wrap">
+  <div class="hero fade">
+    <div class="hero-inner">
+      <div class="hero-icon">🧠</div>
+      <div>
+        <div class="hero-badge">2nd Brain System</div>
+        <h1>The AI's <em>Long-Term</em> Memory</h1>
+        <p class="hero-sub">A 4-database RAG pipeline and knowledge graph over 23,000+ personal notes — semantic vector search, entity graph traversal, and unified query that returns results in milliseconds.</p>
+        <div class="hero-chips"><span class="chip">RAG Pipeline</span><span class="chip">Vector Database</span><span class="chip">Knowledge Graph</span><span class="chip">Semantic Search</span><span class="chip">ChromaDB</span><span class="chip">Neo4j</span><span class="chip">PostgreSQL</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Imagine this…</h2>
+    <p class="lead">A story a 10-year-old would understand</p>
+    <div class="analogy">
+      <div class="analogy-quote">"Imagine a magical notebook that connects every page to every other page — and can find exactly what you need just by thinking about it."</div>
+      <p>Most people take notes and forget them. They search but can't find things. They remember reading something but can't locate it.</p>
+      <p>The 2nd Brain is like a library where every book knows about every other book, every page is connected to related pages, and the librarian can answer questions by reading all 23,000 pages at once in milliseconds.</p>
+      <p>In technical terms: Obsidian markdown notes → ChromaDB vector index → Neo4j entity graph → PostgreSQL relational store. One unified search call queries all four.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lead">Four databases with one intelligent search layer on top</p>
+    <div class="db-grid">
+      <div class="db-card db-obsidian"><div class="db-name">📝 Obsidian Vault</div><div class="db-role">Raw notes, daily logs, research</div><div class="db-stat">23,000+ markdown files</div></div>
+      <div class="db-card db-chroma"><div class="db-name">🔮 ChromaDB</div><div class="db-role">Semantic vector search</div><div class="db-stat">1024-dim · obsidian_vault_v2</div></div>
+      <div class="db-card db-neo4j"><div class="db-name">🕸️ Neo4j</div><div class="db-role">Entity graph with temporal decay</div><div class="db-stat">Entities · Relations · Decay</div></div>
+      <div class="db-card db-sqlite"><div class="db-name">🗃️ SQLite</div><div class="db-role">Job hunt, SAP study, career data</div><div class="db-stat">33 tables · homelab.db</div></div>
+    </div>
+    <div class="search-box">
+      <div class="search-label">Unified Search — megamem query("anything")</div>
+      <div class="flow">
+        <span class="flow-step">Your question</span><span class="flow-arrow">→</span>
+        <span class="flow-step">Obsidian claims</span><span class="flow-arrow">+</span>
+        <span class="flow-step">Neo4j entities</span><span class="flow-arrow">+</span>
+        <span class="flow-step">Chroma vectors</span><span class="flow-arrow">→</span>
+        <span class="flow-step result">Answer in milliseconds</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What I built</h2>
+    <p class="lead">The pieces that make memory actually work</p>
+    <div class="feat-grid">
+      <div class="feat"><div class="feat-icon">🔍</div><div class="feat-title">Unified search in one call</div><div class="feat-desc">megamem query() searches Obsidian, Neo4j, and ChromaDB simultaneously and merges the results. No need to know which database to query.</div></div>
+      <div class="feat"><div class="feat-icon">⏳</div><div class="feat-title">Memory decay like a real brain</div><div class="feat-desc">Neo4j entities have temporal decay — old, unchecked facts gradually fade. The system models memory the way humans actually remember things.</div></div>
+      <div class="feat"><div class="feat-icon">📐</div><div class="feat-title">1024-dim semantic vectors</div><div class="feat-desc">Notes are embedded with qwen3-embedding-8b via OpenRouter. Searching "finance career goals" also finds "MBA salary targets".</div></div>
+      <div class="feat"><div class="feat-icon">🔗</div><div class="feat-title">Knowledge graph with relations</div><div class="feat-desc">Neo4j stores how concepts relate — "SAP BTP" connects to "C_LCNC_2406 cert", which connects to "Naukri job listings". Graph traversal, not just keyword search.</div></div>
+      <div class="feat"><div class="feat-icon">⚡</div><div class="feat-title">In-memory index for speed</div><div class="feat-desc">The 2nd Brain server pre-builds an in-memory index of all 10K+ notes at startup. Searches that took 9 seconds now take milliseconds.</div></div>
+      <div class="feat"><div class="feat-icon">📓</div><div class="feat-title">Works without Obsidian running</div><div class="feat-desc">obsidian-fast reads the vault directly from disk. No need to keep the app open. Browse, read, and append notes any time.</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <p class="lead">Every knowledge query fans out across 4 live databases simultaneously through a unified search layer — sub-second response, $0 cloud cost.</p>
+    <div class="arch-diagram">
+      <div class="arch-hstack" style="align-items:center;">
+        <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"><span class="arch-node-name">Claude Code</span><span class="arch-node-role">asks a question</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="background:var(--orange-l);border-color:var(--orange-m);"><div class="logo-b lb-me">Me</div><span class="arch-node-name">megamem</span><span class="arch-node-role">Unified search</span></div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-vstack">
+          <div class="arch-node"><div class="logo-b lb-chroma">Ch</div><span class="arch-node-name">ChromaDB</span><span class="arch-node-role">1024-dim vectors</span></div>
+          <div class="arch-node"><div class="logo-b lb-neo4j">N4</div><span class="arch-node-name">Neo4j</span><span class="arch-node-role">Knowledge graph</span></div>
+          <div class="arch-node"><div class="logo-b lb-obs">Ob</div><span class="arch-node-name">Obsidian</span><span class="arch-node-role">23K+ notes</span></div>
+          <div class="arch-node"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg"><span class="arch-node-name">SQLite</span><span class="arch-node-role">33 tables</span></div>
+        </div>
+        <div class="arch-arrow">→</div>
+        <div class="arch-node" style="background:#f0fdf4;border-color:#bbf7d0;"><span style="font-size:1.4rem;">✓</span><span class="arch-node-name">Answer</span><span class="arch-node-role">&lt;1 second</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="resume-snip">
+      <h2>&#128203; Put this on your resume</h2>
+      <p class="lead">Copy-paste ready &#8212; two versions for different roles</p>
+      <div class="resume-cards">
+        <div class="resume-card">
+          <div class="resume-role">AI &#183; Data Engineering &#183; Backend</div>
+          <ul class="resume-bullets">
+            <li>Built 4-database RAG pipeline over 23,000+ knowledge notes: ChromaDB (1024-dim semantic vectors via qwen3-embedding-8b), Neo4j entity graph with temporal decay, PostgreSQL relational store, and unified millisecond-latency search</li>
+            <li>Implemented in-memory note index (10K+ files) for sub-millisecond search vs 9-second cold reads; entity knowledge graph enabling relationship traversal across SAP, career, investing, and homelab domains</li>
+          </ul>
+          <div class="resume-stack">Stack: ChromaDB &#183; Neo4j &#183; PostgreSQL &#183; Python &#183; OpenRouter (embeddings) &#183; Obsidian &#183; SQLite</div>
+        </div>
+        <div class="resume-card">
+          <div class="resume-role">SAP &#183; Consulting &#183; Digital Transformation</div>
+          <ul class="resume-bullets">
+            <li>Designed enterprise knowledge management system with RAG pipeline across 4 databases; semantic search and entity graph traversal applicable to SAP document management, project knowledge bases, and AI assistant grounding</li>
+            <li>Built unified search interface querying multiple knowledge stores in one call &#8212; applicable to enterprise AI assistants requiring grounded, accurate responses from internal documents</li>
+          </ul>
+          <div class="resume-stack">Keywords: RAG &#183; Vector Database &#183; Knowledge Graph &#183; Semantic Search &#183; Knowledge Management</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>By the numbers</h2>
+    <div class="stats">
+      <div class="stat"><span class="stat-n">23K+</span><span class="stat-l">Notes Indexed</span></div>
+      <div class="stat"><span class="stat-n">4</span><span class="stat-l">Live Databases</span></div>
+      <div class="stat"><span class="stat-n">&lt;1s</span><span class="stat-l">Semantic Search Speed</span></div>
+      <div class="stat"><span class="stat-n">$0</span><span class="stat-l">Cloud Storage Cost</span></div>
+    </div>
+  </section>
+</div>
+<div class="wrap">
+  <div class="proj-nav">
+    <a href="../hive/" class="proj-nav-link">
+      <span class="nav-dir">← Prev</span>
+      <span class="nav-proj">Multi-Agent Platform</span>
+      <span class="nav-hint">34 MCP tools · 4 rings</span>
+    </a>
+    <a href="../index.html" class="proj-nav-all">⊞ All Projects</a>
+    <a href="../uac/" class="proj-nav-link">
+      <span class="nav-dir">Next →</span>
+      <span class="nav-proj">Agent Observability</span>
+      <span class="nav-hint">3 feedback loops · 48h memory</span>
+    </a>
+  </div>
+</div>
+<footer><div class="wrap">Built by <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank">Sashibhusan</a> &nbsp;·&nbsp; <a href="https://github.com/snayak27" target="_blank">GitHub</a> &nbsp;·&nbsp; <a href="../index.html">← Back to all projects</a></div></footer>
+<script>
+(function(){
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      obs.unobserve(e.target);
+      var el=e.target,raw=el.textContent.trim();
+      var m=raw.match(/^([$~<]?)(\d+(?:\.\d+)?)(.*)/);
+      if(!m){el.style.opacity='0';el.style.transform='scale(0.7)';el.style.transition='opacity .5s ease,transform .5s var(--spring)';requestAnimationFrame(function(){el.style.opacity='1';el.style.transform='scale(1)'});return;}
+      var pre=m[1],num=parseFloat(m[2]),suf=m[3],dur=1000,t0=performance.now();
+      (function tick(ts){var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3),cur=num*ease;var disp=num>=100?Math.round(cur).toString():num%1!==0?cur.toFixed(2):Math.round(cur).toString();el.textContent=p>=1?raw:pre+disp+(p>.8?suf:'');if(p<1)requestAnimationFrame(tick);})(t0);
+    });
+  },{threshold:0.5});
+  document.querySelectorAll('.stat-n').forEach(function(el){obs.observe(el)});
+})();
+</script>
+</body>
+</html>
