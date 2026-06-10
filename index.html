@@ -425,6 +425,21 @@
     .cs-ready { background: var(--orange-l); color: var(--orange-d); }
     .cs-prog { background: var(--bg2); color: var(--text2); }
 
+    /* ── Writing / Explained in Public ── */
+    .writing-wrap { max-width: 1000px; margin: 0 auto 40px; }
+    .wpost-hero { display: block; text-decoration: none; color: inherit; background: linear-gradient(160deg, #fff 58%, #fff7ed 100%); border: 1.5px solid var(--orange-m); border-radius: var(--r); padding: 26px 28px; box-shadow: 0 2px 12px rgba(249,115,22,0.12); margin-bottom: 18px; transition: transform 0.35s var(--spring), box-shadow 0.3s var(--ease); }
+    .wpost-hero:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(249,115,22,0.16); }
+    .wpost-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .wpost { display: flex; flex-direction: column; gap: 9px; text-decoration: none; color: inherit; background: var(--card); border: 1.5px solid var(--border); border-radius: var(--r); padding: 22px; box-shadow: var(--shadow); transition: transform 0.35s var(--spring), box-shadow 0.3s var(--ease), border-color 0.2s; }
+    .wpost:hover { transform: translateY(-6px); box-shadow: var(--shadow-h); border-color: var(--orange-m); }
+    .wpost-badge { align-self: flex-start; display: inline-flex; align-items: center; gap: 6px; background: var(--orange-l); border: 1px solid var(--orange-m); color: var(--orange-d); font-size: 0.72rem; font-weight: 700; padding: 3px 11px; border-radius: 99px; }
+    .wpost-analogy { font-size: 1.02rem; font-weight: 700; color: var(--text); line-height: 1.32; letter-spacing: -0.01em; }
+    .wpost-hero .wpost-analogy { font-size: 1.3rem; }
+    .wpost-insight { font-size: 0.85rem; color: var(--text2); line-height: 1.6; flex: 1; }
+    .wpost-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .wpost-cta { font-size: 0.78rem; font-weight: 700; color: var(--orange-d); }
+    .wpost:hover .wpost-cta, .wpost-hero:hover .wpost-cta { text-decoration: underline; }
+
     /* ── Responsive ── */
     @media (max-width: 760px) { .road-grid { grid-template-columns: 1fr; } }
     @media (max-width: 640px) {
@@ -449,6 +464,7 @@
     <span class="nav-logo">Sashibhusan Nayak ✦</span>
     <div class="nav-links">
       <a href="#experience">Experience</a>
+      <a href="#writing">Writing</a>
       <a href="resume.pdf" download>Resume</a>
       <a href="https://github.com/snayak27" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn</a>
@@ -807,6 +823,73 @@
         <p>BraveBridge feeds URL Index feeds 2nd Brain feeds UAC feeds Claude Code. See how all 10 projects wire together into a single coherent system with live data flows.</p>
       </div>
       <a href="ecosystem/" class="btn btn-primary">View Ecosystem Map →</a>
+    </div>
+  </div>
+
+  <!-- ── Writing / Explained in Public ── -->
+  <div class="wrap" id="writing">
+    <div class="section-head">
+      <h2>SAP &amp; AI, Explained in Public</h2>
+      <p>I learn in public — explaining S/4HANA, BTP, Build &amp; Joule the way I'd explain them to a teammate. A few that resonated:</p>
+    </div>
+    <div class="writing-wrap">
+
+      <a class="wpost-hero" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">
+        <span class="wpost-badge">🔥 235 reactions · 10 comments</span>
+        <div class="wpost-analogy" style="margin-top:12px;">How SAP Joule sees your business data — without exposing it</div>
+        <div class="wpost-insight" style="margin-top:8px;">Two distinct paths: a read-only "Seeing" layer (SAP Business Data Cloud) gives Joule context, while the "Doing" layer (SAP Integration Suite) safely executes tasks. The LLM stays <em>outside</em> SAP BTP, behind the SAP Generative AI Hub — your ERP data never reaches the public model.</div>
+        <div class="wpost-tags" style="margin-top:12px;"><span class="chip">SAP Joule</span><span class="chip">SAP BTP</span><span class="chip">Enterprise Architecture</span><span class="chip">GenAI</span></div>
+        <div class="wpost-cta" style="margin-top:12px;">Read on LinkedIn ↗</div>
+      </a>
+
+      <div class="wpost-grid">
+
+        <a class="wpost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="wpost-badge">👍 68 reactions</span>
+          <div class="wpost-analogy">SAP CAP is your Project Manager 🏗️</div>
+          <div class="wpost-insight">Building on BTP like building a house: CDS is the blueprint, the Service SDKs are the construction crew, and BTP services (XSUAA, Destination) are the utilities — CAP keeps the plumbing out of your way.</div>
+          <div class="wpost-tags"><span class="chip">SAP CAP</span><span class="chip">SAP BTP</span><span class="chip">Clean Core</span></div>
+          <div class="wpost-cta">Read on LinkedIn ↗</div>
+        </a>
+
+        <a class="wpost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="wpost-badge">🔁 33 reactions · 8 reposts</span>
+          <div class="wpost-analogy">Don't change the core — extend beside it</div>
+          <div class="wpost-insight">The Clean Core strategy: build custom work as side-by-side extensions on SAP BTP and connect via Cloud Connector + Destination service, instead of modifying S/4HANA.</div>
+          <div class="wpost-tags"><span class="chip">Clean Core</span><span class="chip">SAP BTP</span><span class="chip">S/4HANA</span></div>
+          <div class="wpost-cta">Read on LinkedIn ↗</div>
+        </a>
+
+        <a class="wpost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="wpost-badge">👨‍🍳 Joule explainer</span>
+          <div class="wpost-analogy">Joule Skill vs Agent = Recipe vs Chef</div>
+          <div class="wpost-insight">A Skill follows fixed steps (a recipe). An Agent reasons at runtime to reach a goal (a chef) — and Agents use Skills as their tools.</div>
+          <div class="wpost-tags"><span class="chip">SAP Joule</span><span class="chip">AI Agents</span><span class="chip">SAP Build</span></div>
+          <div class="wpost-cta">Read on LinkedIn ↗</div>
+        </a>
+
+        <a class="wpost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="wpost-badge">🍰 8-page carousel</span>
+          <div class="wpost-analogy">AI is a Five-Layer Cake — bake it in 2026</div>
+          <div class="wpost-insight">Energy → Infrastructure → Chips → LLMs → Applications. Early winners built on top; lasting winners build the foundation.</div>
+          <div class="wpost-tags"><span class="chip">AI Strategy</span><span class="chip">Thought Leadership</span></div>
+          <div class="wpost-cta">Read on LinkedIn ↗</div>
+        </a>
+
+        <a class="wpost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">
+          <span class="wpost-badge">🚀 12-page · open-source</span>
+          <div class="wpost-analogy">FusionForge: an open-source AI Fusion Team for BTP</div>
+          <div class="wpost-insight">A team of AI agents that builds BTP solutions as a learning accelerator — every artifact is a lesson, exposing its Observe → Think → Act reasoning.</div>
+          <div class="wpost-tags"><span class="chip">SAP BTP</span><span class="chip">Multi-Agent</span><span class="chip">Open Source</span></div>
+          <div class="wpost-cta">Read on LinkedIn ↗</div>
+        </a>
+
+      </div>
+
+      <div style="text-align:center; margin-top:24px;">
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">See all posts on LinkedIn ↗</a>
+      </div>
+
     </div>
   </div>
 
