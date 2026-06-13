@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta property="og:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <title>On-Premise SAP — Explained Simply | SAP Landscape</title>
+  <meta name="description" content="On-premise SAP means running it on your own servers in your own data center. Who chooses it, why, and how it compares — for total beginners.">
+  <meta property="og:title" content="On-Premise SAP — Explained Simply">
+  <meta property="og:description" content="Running SAP on your own servers: full control, full responsibility.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sashibhusan Nayak">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css"><link rel="stylesheet" href="../assets/css/components.css">
+</head>
+<body>
+  <div class="blob-wrap" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+  <nav class="nav"><div class="nav-inner">
+    <a class="nav-logo" href="../index.html"><span class="dot"></span> SAP&nbsp;Landscape <span class="sub">/ explained</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../landscape.html" data-section="landscape">Full Map</a>
+      <a href="../deployment/index.html" data-section="deployment">Deployment</a>
+      <a href="../by-role/index.html" data-section="by-role">By Role</a>
+      <a href="../by-process/index.html" data-section="by-process">By Process</a>
+      <a href="../by-size/index.html" data-section="by-size">By Size</a>
+      <a href="../ai-transformation.html" data-section="ai-transformation">SAP &amp; AI</a>
+      <a class="nav-pill" href="https://snayak27.github.io/" target="_blank" rel="noopener">By Sashibhusan ↗</a>
+    </div>
+  </div></nav>
+
+  <div class="wrap"><div class="crumb"><a href="../index.html">Home</a><span class="sep">/</span><a href="index.html">Deployment</a><span class="sep">/</span><span>On-Premise</span></div></div>
+
+  <header class="wrap hero">
+    <span class="eyebrow deploy">Model 1 of 4</span>
+    <h1>On-Premise <em>SAP</em></h1>
+    <p class="hero-sub">The original way SAP was always run: the company buys its own servers, installs SAP in its own building, and takes full responsibility for keeping it alive.</p>
+  </header>
+
+  <main class="wrap wrap-narrow">
+    <div class="analogy">
+      <div class="lbl">🏠 In one sentence</div>
+      <p>On-premise is <strong>owning your house outright</strong> — total freedom to knock down walls, but when the boiler breaks at 2am, it's your problem.</p>
+    </div>
+
+    <div class="panel" data-reveal>
+      <h3><span class="pic">📦</span> What it actually means</h3>
+      <p>"On-premise" (often shortened to <span class="term">on-prem<span class="tip"><b>On-prem</b> = on the premises. The software lives on hardware the company owns and operates itself.</span></span>) means the SAP software sits on physical servers the company bought and keeps in its own data center.</p>
+      <ul>
+        <li>The company buys the hardware, installs SAP, and patches it</li>
+        <li>Their own IT team handles backups, security, and upgrades</li>
+        <li>SAP sells the software licence; everything else is the customer's job</li>
+        <li>The modern version is <span class="term">S/4HANA<span class="tip"><b>S/4HANA</b> = SAP's current-generation ERP on the in-memory HANA database.</span></span> on-premise; the legacy version is <span class="term">ECC<span class="tip"><b>SAP ECC</b> = ERP Central Component, the older generation. Mainstream support ends 2027 (extended to 2030 with fees).</span></span></li>
+      </ul>
+    </div>
+
+    <div class="panel" data-reveal>
+      <h3><span class="pic">👍</span> Why a company would choose it</h3>
+      <ul>
+        <li><b>Total control</b> — customize anything, integrate with anything, no vendor telling you what you can't change</li>
+        <li><b>Data sovereignty</b> — some governments, banks, and defense firms are legally required to keep data on their own soil and hardware</li>
+        <li><b>Already invested</b> — they've spent years and millions building it; ripping it out is painful</li>
+      </ul>
+      <h3 style="margin-top:18px;"><span class="pic">👎</span> The trade-offs</h3>
+      <ul>
+        <li>Expensive — you pay for hardware, data-center space, power, and a big IT team</li>
+        <li>Slow to upgrade — every new feature is a manual project</li>
+        <li>You carry all the risk — security, downtime, disaster recovery</li>
+        <li>The newest AI innovations are <b>cloud-first</b> — on-prem increasingly lags behind</li>
+      </ul>
+    </div>
+
+    <div class="panel" data-reveal>
+      <h3><span class="pic">🎬</span> A day in its life</h3>
+      <p>A 40-year-old German auto-parts manufacturer runs SAP ECC on servers in a basement data center. Their IT team of 30 keeps it running. When SAP releases a new feature, it takes a 6-month project to adopt. They love the control — every weird process they've built over decades is baked in — but they know the 2027 support deadline is coming, and migration planning has started.</p>
+    </div>
+
+    <div class="panel" data-reveal>
+      <h3><span class="pic">➡️</span> Where it's heading</h3>
+      <p>On-premise is the past and (for some) the present, but not SAP's future. With ECC support ending in 2027, most on-prem customers are choosing a migration path:</p>
+      <ul>
+        <li>Move to <a href="private-cloud.html"><b>RISE with SAP</b> (private cloud)</a> — keep flexibility, hand off the infrastructure headache</li>
+        <li>Or, for simpler businesses, jump to <a href="public-cloud.html"><b>GROW with SAP</b> (public cloud)</a> — standardize and modernize</li>
+      </ul>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="private-cloud.html"><span class="ic">🔒</span><span class="tx"><b>Next: Private Cloud (RISE)</b><span>The #1 migration path</span></span></a>
+      <a class="next-link" href="index.html"><span class="ic">☁️</span><span class="tx"><b>Back to all models</b><span>Compare all four</span></span></a>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">Built by <b>Sashibhusan Nayak</b> · Techno-Functional SAP Consultant · Bangalore</div>
+      <div class="footer-links">
+        <a href="https://snayak27.github.io/" target="_blank" rel="noopener">Portfolio ↗</a>
+        <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/snayak27" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <p class="footer-note">An independent educational guide. Product names and trademarks belong to SAP SE. Grounded in official SAP sources as of 2026.</p>
+  </div></footer>
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

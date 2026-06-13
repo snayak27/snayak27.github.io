@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <title>SAP Jargon Buster — Every Term, Plain English | SAP Landscape</title>
+  <meta name="description" content="Every SAP acronym and buzzword, explained in one sentence of plain English. ERP, S/4HANA, BTP, RISE, GROW, Clean Core, Fiori, Joule and more.">
+  <meta property="og:title" content="SAP Jargon Buster — Every Term in Plain English">
+  <meta property="og:description" content="Every SAP acronym explained in one sentence.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/sap-landscape/glossary.html">
+  <meta property="og:site_name" content="Sashibhusan Nayak">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css"><link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    .gloss { display: flex; flex-direction: column; gap: 0; }
+    .gloss-item { display: grid; grid-template-columns: 180px 1fr; gap: 18px; padding: 14px 0; border-bottom: 1px solid var(--border); }
+    .gloss-term { font-weight: 700; color: var(--text); font-size: 0.92rem; }
+    .gloss-term small { display: block; font-weight: 500; color: var(--muted); font-size: 0.74rem; margin-top: 2px; }
+    .gloss-def { color: var(--text2); font-size: 0.9rem; line-height: 1.6; }
+    .gloss-def a { font-weight: 600; }
+    @media (max-width: 600px) { .gloss-item { grid-template-columns: 1fr; gap: 4px; } }
+    .filter-box { width: 100%; padding: 12px 18px; border: 1.5px solid var(--border); border-radius: var(--r-xs); font-family: inherit; font-size: 0.95rem; background: var(--card); box-shadow: var(--shadow); margin-bottom: 8px; }
+    .filter-box:focus { outline: none; border-color: var(--orange-m); }
+  </style>
+</head>
+<body>
+  <div class="blob-wrap" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+  <nav class="nav"><div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="dot"></span> SAP&nbsp;Landscape <span class="sub">/ explained</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="landscape.html" data-section="landscape">Full Map</a>
+      <a href="deployment/index.html" data-section="deployment">Deployment</a>
+      <a href="by-role/index.html" data-section="by-role">By Role</a>
+      <a href="by-process/index.html" data-section="by-process">By Process</a>
+      <a href="by-size/index.html" data-section="by-size">By Size</a>
+      <a href="ai-transformation.html" data-section="ai-transformation">SAP &amp; AI</a>
+      <a class="nav-pill" href="https://snayak27.github.io/" target="_blank" rel="noopener">By Sashibhusan ↗</a>
+    </div>
+  </div></nav>
+
+  <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>Jargon Buster</span></div></div>
+
+  <header class="wrap hero">
+    <span class="eyebrow">No acronym left behind</span>
+    <h1>The SAP <em>jargon buster</em></h1>
+    <p class="hero-sub">SAP loves acronyms. Here's every one used across this guide, each explained in a single plain-English sentence. Type to filter.</p>
+  </header>
+
+  <main class="wrap wrap-narrow">
+    <input class="filter-box" id="filter" type="text" placeholder="🔍 Filter terms… (e.g. RISE, clean core, ERP)" aria-label="Filter glossary terms">
+    <div class="gloss" id="gloss">
+      <div class="gloss-item"><div class="gloss-term">ERP<small>Enterprise Resource Planning</small></div><div class="gloss-def">One central system that runs a company's core operations — finance, supply chain, HR — instead of many disconnected tools.</div></div>
+      <div class="gloss-item"><div class="gloss-term">S/4HANA</div><div class="gloss-def">SAP's flagship, current-generation <a href="products/s4hana.html">ERP</a>. "S/4" = 4th generation; "HANA" = the in-memory database it runs on.</div></div>
+      <div class="gloss-item"><div class="gloss-term">HANA</div><div class="gloss-def">SAP's in-memory database — it keeps data in RAM for real-time speed. Also available as HANA Cloud on <a href="products/btp.html">BTP</a>.</div></div>
+      <div class="gloss-item"><div class="gloss-term">ECC<small>ERP Central Component</small></div><div class="gloss-def">The older, legacy generation of SAP ERP. Mainstream support ends in 2027 (2030 with extra fees) — driving a huge migration wave.</div></div>
+      <div class="gloss-item"><div class="gloss-term">BTP<small>Business Technology Platform</small></div><div class="gloss-def">SAP's platform for integration, app-building, data and AI. Where all custom work lives. <a href="products/btp.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">RISE with SAP</div><div class="gloss-def">A bundle for moving to <a href="deployment/private-cloud.html">private cloud</a> — S/4HANA Private Edition run by SAP. For existing customers migrating off on-premise.</div></div>
+      <div class="gloss-item"><div class="gloss-term">GROW with SAP</div><div class="gloss-def">A bundle for <a href="deployment/public-cloud.html">public cloud</a> — standardized S/4HANA Public Edition, live in weeks. For companies new to SAP Cloud ERP.</div></div>
+      <div class="gloss-item"><div class="gloss-term">On-Premise</div><div class="gloss-def">Running SAP on the company's own servers, in its own data center. Maximum control, maximum responsibility. <a href="deployment/on-premise.html">More →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">Hybrid</div><div class="gloss-def">A real-world mix of deployment models, stitched together with BTP. The shape of almost every large landscape. <a href="deployment/hybrid.html">More →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">Clean Core</div><div class="gloss-def">The rule: never modify the ERP core; build all custom work as extensions on BTP, so upgrades stay easy and AI stays reliable.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Fit-to-Standard</div><div class="gloss-def">Adapting your business to SAP's proven best-practice process, rather than customizing SAP to fit your old way.</div></div>
+      <div class="gloss-item"><div class="gloss-term">SAP Activate</div><div class="gloss-def">SAP's cloud adoption methodology with ready-made best practices. Six phases: Discover → Prepare → Explore → Realize → Deploy → Run.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Fiori</div><div class="gloss-def">SAP's modern app interface — clean, tile-based screens instead of the old grey transaction-code screens.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Universal Journal</div><div class="gloss-def">One single table in S/4HANA holding all financial postings — financial and management accounting unified, no reconciliation.</div></div>
+      <div class="gloss-item"><div class="gloss-term">FICO</div><div class="gloss-def">Financial Accounting (FI) + Controlling (CO) — SAP's finance module set. The domain behind the <a href="by-role/cfo.html">CFO view</a>.</div></div>
+      <div class="gloss-item"><div class="gloss-term">SAP Build</div><div class="gloss-def">The low-code/no-code part of BTP — Build Apps, Build Process Automation, Build Work Zone, Build Code.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Build Apps</div><div class="gloss-def">Drag-and-drop visual app builder on BTP (formerly AppGyver). Build web &amp; mobile apps without traditional coding.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Integration Suite</div><div class="gloss-def">The BTP tool that connects SAP↔SAP and SAP↔non-SAP systems in real time. An "iPaaS".</div></div>
+      <div class="gloss-item"><div class="gloss-term">iPaaS<small>Integration Platform as a Service</small></div><div class="gloss-def">A cloud service for connecting different software systems together — SAP's is the Integration Suite.</div></div>
+      <div class="gloss-item"><div class="gloss-term">CAP / RAP</div><div class="gloss-def">SAP's pro-code frameworks — CAP (Cloud Application Programming) and RAP (RESTful ABAP Programming) for building apps the clean-core way.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Joule</div><div class="gloss-def">SAP's AI copilot, embedded across every app — ask questions in plain language. <a href="products/joule.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">Joule Studio</div><div class="gloss-def">The BTP tool for building and governing your own AI agents, apps and workflows.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Autonomous Suite</div><div class="gloss-def">SAP's 2026 fleet of 200+ AI agents and 50+ assistants that run tasks across Finance, Spend, Supply Chain, HCM and CX.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Agent / Assistant</div><div class="gloss-def">An <b>agent</b> does one precise task; an <b>assistant</b> is mapped to a role and orchestrates several agents to complete a process.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Knowledge Graph</div><div class="gloss-def">SAP's semantic map of all business entities and relationships — gives AI agents context so they don't hallucinate.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Business Data Cloud</div><div class="gloss-def">SAP's unified, governed data layer (Datasphere + SAP Analytics Cloud) that makes all data AI-ready.</div></div>
+      <div class="gloss-item"><div class="gloss-term">SuccessFactors</div><div class="gloss-def">SAP's cloud HR suite — the whole employee journey, hire to retire. <a href="products/successfactors.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">Ariba</div><div class="gloss-def">SAP's procurement / source-to-pay suite and supplier network. <a href="products/ariba.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">Concur</div><div class="gloss-def">SAP's travel &amp; expense management product. <a href="products/concur.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">Fieldglass</div><div class="gloss-def">SAP's system for managing the external workforce — contractors, temps, SOW-based services.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Signavio</div><div class="gloss-def">SAP's process transformation suite — model processes and mine event logs to find what's broken. <a href="products/signavio.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">LeanIX</div><div class="gloss-def">SAP's enterprise architecture tool — maps the whole IT application landscape. Also powers the AI Agent Hub.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Process Mining</div><div class="gloss-def">Reconstructing how a process actually ran by reading system event logs — revealing the real flow, not the assumed one.</div></div>
+      <div class="gloss-item"><div class="gloss-term">SAP CX</div><div class="gloss-def">SAP's customer experience suite — commerce, marketing, sales, service. <a href="products/cx.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">IBP<small>Integrated Business Planning</small></div><div class="gloss-def">SAP's cloud supply chain planning hub — demand forecasting, S&amp;OP, inventory optimization. <a href="products/ibp.html">Deep-dive →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">S&amp;OP</div><div class="gloss-def">Sales &amp; Operations Planning — the process of aligning demand forecasts with supply capacity.</div></div>
+      <div class="gloss-item"><div class="gloss-term">MES<small>Manufacturing Execution System</small></div><div class="gloss-def">Software that controls and monitors what happens on the factory floor. SAP's is Digital Manufacturing.</div></div>
+      <div class="gloss-item"><div class="gloss-term">EWM / TM</div><div class="gloss-def">Extended Warehouse Management (warehouse operations) and Transportation Management (freight &amp; logistics).</div></div>
+      <div class="gloss-item"><div class="gloss-term">Two-Tier ERP</div><div class="gloss-def">Headquarters runs a heavy ERP (e.g. RISE) while smaller subsidiaries run a lighter one (e.g. GROW), connected together.</div></div>
+      <div class="gloss-item"><div class="gloss-term">Business One</div><div class="gloss-def">SAP's affordable all-in-one ERP for small businesses. <a href="by-size/small-business.html">More →</a></div></div>
+      <div class="gloss-item"><div class="gloss-term">MCP / A2A</div><div class="gloss-def">Open AI standards — Model Context Protocol (tools for agents) and Agent-to-Agent (agents talking to each other). Joule supports both.</div></div>
+    </div>
+    <p id="noresult" style="display:none;color:var(--muted);text-align:center;padding:24px;">No terms match that filter.</p>
+
+    <div class="next-row">
+      <a class="next-link" href="index.html"><span class="ic">🧭</span><span class="tx"><b>Back to start</b><span>Pick a door</span></span></a>
+      <a class="next-link" href="landscape.html"><span class="ic">🗺️</span><span class="tx"><b>The full map</b><span>See it all together</span></span></a>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">Built by <b>Sashibhusan Nayak</b> · Techno-Functional SAP Consultant · Bangalore</div>
+      <div class="footer-links">
+        <a href="https://snayak27.github.io/" target="_blank" rel="noopener">Portfolio ↗</a>
+        <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/snayak27" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <p class="footer-note">An independent educational guide. Product names and trademarks belong to SAP SE. Grounded in official SAP sources as of 2026.</p>
+  </div></footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    (function(){
+      var box=document.getElementById('filter'),items=document.querySelectorAll('.gloss-item'),none=document.getElementById('noresult');
+      box.addEventListener('input',function(){
+        var q=box.value.toLowerCase().trim(),shown=0;
+        items.forEach(function(it){
+          var match=it.textContent.toLowerCase().indexOf(q)!==-1;
+          it.style.display=match?'':'none'; if(match)shown++;
+        });
+        none.style.display=shown?'none':'block';
+      });
+    })();
+  </script>
+</body>
+</html>

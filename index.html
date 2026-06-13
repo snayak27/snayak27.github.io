@@ -590,6 +590,71 @@
     </div>
   </div>
 
+  <!-- ── SAP Landscape spotlight (contribution) ── -->
+  <style>
+    .sapls-spot { position: relative; z-index: 1; max-width: 1160px; margin: 64px auto; padding: 0 28px; }
+    .sapls-card { background: linear-gradient(135deg, #fff 0%, var(--orange-l, #fff7ed) 100%); border: 1.5px solid var(--orange-m, #fed7aa); border-radius: var(--r, 20px); box-shadow: var(--shadow, 0 2px 12px rgba(0,0,0,.06)); padding: 40px; overflow: hidden; position: relative; display: grid; grid-template-columns: 1.3fr 1fr; gap: 36px; align-items: center; }
+    .sapls-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, var(--orange-m,#fed7aa), transparent 70%); opacity: .5; pointer-events: none; }
+    .sapls-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--orange-m,#fed7aa); border-radius: 99px; padding: 6px 16px; font-size: .72rem; font-weight: 700; color: var(--orange-d,#ea580c); letter-spacing: .04em; text-transform: uppercase; margin-bottom: 18px; }
+    .sapls-eyebrow::before { content:''; width:6px; height:6px; border-radius:50%; background:var(--orange,#f97316); }
+    .sapls-h2 { font-size: clamp(1.5rem,3vw,2.1rem); font-weight: 800; letter-spacing:-.02em; color: var(--text,#1c1917); margin-bottom: 14px; line-height:1.2; }
+    .sapls-h2 em { font-style: normal; color: var(--orange-d,#ea580c); }
+    .sapls-lead { font-size: .98rem; color: var(--text2,#57534e); line-height: 1.7; margin-bottom: 14px; }
+    .sapls-quote { border-left: 3px solid var(--orange,#f97316); padding-left: 16px; font-size: .92rem; color: var(--text,#1c1917); font-style: italic; margin: 0 0 22px; }
+    .sapls-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--orange,#f97316); color:#fff; font-weight: 700; font-size: .92rem; padding: 13px 26px; border-radius: 12px; text-decoration: none; box-shadow: 0 4px 14px rgba(249,115,22,.35); transition: transform .15s cubic-bezier(.34,1.56,.64,1), background .2s; }
+    .sapls-cta:hover { background: var(--orange-d,#ea580c); transform: translateY(-2px); }
+    .sapls-cta2 { display:inline-flex; align-items:center; gap:6px; margin-left: 14px; font-weight:600; font-size:.9rem; color: var(--text2,#57534e); text-decoration:none; }
+    .sapls-cta2:hover { color: var(--orange-d,#ea580c); }
+    .sapls-prev { background:#fff; border:1px solid var(--border,rgba(0,0,0,.07)); border-radius:16px; box-shadow:var(--shadow-h,0 16px 48px rgba(0,0,0,.12)); padding:20px; }
+    .sapls-prev-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px; }
+    .sapls-pill { font-size:.72rem; font-weight:600; padding:5px 12px; border-radius:99px; border:1px solid; }
+    .p-blue{color:#2563eb;background:#eff4ff;border-color:#c9dbff;} .p-violet{color:#7c3aed;background:#f5f0ff;border-color:#ddccfb;}
+    .p-green{color:#0f9d58;background:#ecf8f1;border-color:#bce3cc;} .p-amber{color:#d97706;background:#fdf6ec;border-color:#f6dcb0;}
+    .p-red{color:#dc2626;background:#fdeded;border-color:#f6c6c6;}
+    .sapls-stats { display:flex; gap:0; border-top:1px solid var(--border,rgba(0,0,0,.07)); padding-top:14px; }
+    .sapls-stat { flex:1; text-align:center; }
+    .sapls-stat b { display:block; font-size:1.5rem; font-weight:800; color:var(--orange,#f97316); line-height:1; }
+    .sapls-stat span { font-size:.66rem; color:var(--muted,#a8a29e); text-transform:uppercase; letter-spacing:.05em; }
+    @media (max-width: 760px){ .sapls-card{ grid-template-columns:1fr; padding:28px; } }
+  </style>
+  <section class="sapls-spot" id="sap-landscape">
+    <div class="sapls-card">
+      <div>
+        <span class="sapls-eyebrow">Community contribution</span>
+        <h2 class="sapls-h2">Every SAPian should understand the <em>SAP landscape</em> &mdash; before choosing this career</h2>
+        <p class="sapls-lead">
+          When I moved into SAP from finance, the hardest part wasn't any single product &mdash; it was grasping the
+          <strong>whole landscape</strong>: 100+ products, RISE vs GROW, on-prem vs cloud, what's used where and by whom.
+          Nothing explained it simply.
+        </p>
+        <p class="sapls-quote">So I built the guide I wish I'd had &mdash; so no one entering SAP faces the confusion I did.</p>
+        <p class="sapls-lead" style="margin-bottom:22px;">
+          <strong>The SAP Landscape, explained for everyone</strong> &mdash; a 36-page, beginner-first map of the entire SAP universe
+          (2026-current), sliced by deployment, role, business process &amp; company size, plus the AI/agentic transformation story.
+          Grounded in official SAP sources.
+        </p>
+        <a class="sapls-cta" href="sap-landscape/" target="_blank" rel="noopener">Explore the SAP Landscape &rarr;</a>
+        <a class="sapls-cta2" href="sap-landscape/ai-transformation.html" target="_blank" rel="noopener">or see SAP &amp; AI &#8599;</a>
+      </div>
+      <div class="sapls-prev" aria-hidden="true">
+        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted,#a8a29e);margin-bottom:10px;">5 ways to explore</div>
+        <div class="sapls-prev-row">
+          <span class="sapls-pill p-blue">☁️ Deployment</span>
+          <span class="sapls-pill p-violet">👤 By Role</span>
+          <span class="sapls-pill p-green">⚙️ By Process</span>
+          <span class="sapls-pill p-amber">🏢 By Size</span>
+          <span class="sapls-pill p-red">🤖 SAP &amp; AI</span>
+        </div>
+        <div class="sapls-stats">
+          <div class="sapls-stat"><b>36</b><span>Pages</span></div>
+          <div class="sapls-stat"><b>9</b><span>Products</span></div>
+          <div class="sapls-stat"><b>2026</b><span>Current</span></div>
+          <div class="sapls-stat"><b>0</b><span>Jargon</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ── Certifications ── -->
   <div class="wrap">
     <div class="section-head">

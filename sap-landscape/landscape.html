@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <title>The Full SAP Product Map — Every Pillar, Explained | SAP Landscape</title>
+  <meta name="description" content="The entire SAP product universe on one page: the SAP Business Suite architecture, all 14 product pillars, and how every product connects — explained for beginners.">
+  <meta property="og:title" content="The Full SAP Product Map — Every Pillar, Explained">
+  <meta property="og:description" content="The entire SAP universe on one page. Which product is which, and how they connect.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/sap-landscape/landscape.html">
+  <meta property="og:site_name" content="Sashibhusan Nayak">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    /* ── Page-specific: the architecture stack ── */
+    .stack { max-width: 880px; margin: 0 auto; display: flex; flex-direction: column; gap: 10px; }
+    .layer {
+      border-radius: var(--r); padding: 20px 24px; border: 1.5px solid var(--border);
+      box-shadow: var(--shadow); background: var(--card); position: relative; overflow: hidden;
+      animation: cardIn 0.6s var(--spring) both;
+    }
+    .layer-tag { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .layer-name { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 3px; }
+    .layer-desc { font-size: 0.82rem; color: var(--text2); margin-bottom: 12px; line-height: 1.5; }
+    .layer-items { display: flex; flex-wrap: wrap; gap: 7px; }
+    .layer-item { font-size: 0.76rem; font-weight: 600; padding: 5px 12px; border-radius: 8px; background: var(--bg2); border: 1px solid var(--border-2); color: var(--text); }
+    .layer.ai    { border-top: 4px solid var(--prod); } .layer.ai .layer-tag { color: var(--prod); }
+    .layer.data  { border-top: 4px solid var(--deploy); } .layer.data .layer-tag { color: var(--deploy); }
+    .layer.apps  { border-top: 4px solid var(--proc); } .layer.apps .layer-tag { color: var(--proc); }
+    .layer-platform {
+      border-radius: var(--r); padding: 16px 24px; text-align: center;
+      background: linear-gradient(135deg, var(--orange) 0%, var(--orange-d) 100%); color: #fff;
+      box-shadow: 0 6px 20px rgba(249,115,22,0.35); animation: cardIn 0.6s 0.3s var(--spring) both;
+    }
+    .layer-platform b { font-size: 1rem; font-weight: 800; } .layer-platform span { font-size: 0.8rem; opacity: 0.92; display: block; margin-top: 2px; }
+    .stack-arrow { text-align: center; color: var(--muted); font-size: 1.1rem; line-height: 0.6; }
+
+    .pillar-block { margin-bottom: 14px; }
+    .pillar-head { display: flex; align-items: center; gap: 10px; margin: 30px 0 14px; }
+    .pillar-head .pic { width: 38px; height: 38px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+    .pillar-head h3 { font-size: 1.15rem; font-weight: 800; }
+    .pillar-head .cnt { margin-left: auto; font-size: 0.72rem; color: var(--muted); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="blob-wrap" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html"><span class="dot"></span> SAP&nbsp;Landscape <span class="sub">/ explained</span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="landscape.html" data-section="landscape">Full Map</a>
+        <a href="deployment/index.html" data-section="deployment">Deployment</a>
+        <a href="by-role/index.html" data-section="by-role">By Role</a>
+        <a href="by-process/index.html" data-section="by-process">By Process</a>
+        <a href="by-size/index.html" data-section="by-size">By Size</a>
+      <a href="ai-transformation.html" data-section="ai-transformation">SAP &amp; AI</a>
+        <a class="nav-pill" href="https://snayak27.github.io/" target="_blank" rel="noopener">By Sashibhusan ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>The Full Map</span></div>
+  </div>
+
+  <!-- HERO -->
+  <header class="wrap hero">
+    <span class="eyebrow prod">The whole universe, one page</span>
+    <h1>The full <em>SAP product map</em></h1>
+    <p class="hero-sub">SAP makes 100+ products. But they aren't random — they snap into a clean structure. Understand the structure first, and every product falls into place. This is that structure, top to bottom.</p>
+  </header>
+
+  <main class="wrap">
+
+    <!-- THE ARCHITECTURE STACK -->
+    <section>
+      <div class="section-head">
+        <h2>Start with the shape: SAP Business Suite</h2>
+        <p>In 2026 SAP organizes everything into one architecture. Three layers of value, all standing on one technical platform.</p>
+      </div>
+
+      <div class="stack">
+        <div class="layer ai">
+          <div class="layer-tag">Intelligence layer · acts for you</div>
+          <div class="layer-name">🤖 SAP Business AI</div>
+          <div class="layer-desc">The AI brain. Copilots and autonomous agents that read your data and do the work — not just answer questions.</div>
+          <div class="layer-items"><span class="layer-item">Joule</span><span class="layer-item">Joule Studio</span><span class="layer-item">Autonomous Suite (200+ agents)</span><span class="layer-item">Knowledge Graph</span></div>
+        </div>
+        <div class="stack-arrow">▲<br>powered by</div>
+        <div class="layer data">
+          <div class="layer-tag">Data layer · the single truth</div>
+          <div class="layer-name">🗄️ SAP Business Data Cloud</div>
+          <div class="layer-desc">One clean, governed view of all your data — SAP and non-SAP — so the AI above never guesses.</div>
+          <div class="layer-items"><span class="layer-item">Datasphere</span><span class="layer-item">SAP Analytics Cloud</span><span class="layer-item">Reltio (master data)</span></div>
+        </div>
+        <div class="stack-arrow">▲<br>powered by</div>
+        <div class="layer apps">
+          <div class="layer-tag">Process layer · runs the business</div>
+          <div class="layer-name">📦 SAP Business Applications</div>
+          <div class="layer-desc">The actual work: finance, HR, procurement, supply chain, customers. The ERP core plus specialized line-of-business apps.</div>
+          <div class="layer-items"><span class="layer-item">S/4HANA Cloud ERP</span><span class="layer-item">SuccessFactors</span><span class="layer-item">Ariba</span><span class="layer-item">CX</span><span class="layer-item">IBP</span></div>
+        </div>
+        <div class="stack-arrow">▲<br>all standing on</div>
+        <div class="layer-platform">
+          <b>🧩 SAP Business Technology Platform (BTP)</b>
+          <span>The foundation — integration, app-building, automation &amp; AI services that hold everything together</span>
+        </div>
+      </div>
+
+      <div class="analogy" style="max-width:880px;margin:28px auto 0;">
+        <div class="lbl">🏗️ Think of it like a building</div>
+        <p><strong>BTP is the foundation and plumbing.</strong> The <strong>applications</strong> are the rooms where work happens. <strong>Business Data Cloud</strong> is the wiring that connects every room. And <strong>Business AI</strong> is the smart assistant that walks the building and does jobs for you. Same building, four ways to look at it.</p>
+      </div>
+    </section>
+
+    <!-- HOW IT CONNECTS -->
+    <section>
+      <div class="section-head">
+        <h2>How it all connects</h2>
+        <p>S/4HANA sits at the centre. Every other product feeds it, extends it, or reports on it — and BTP is the wiring between them.</p>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:20px;overflow-x:auto;">
+        <svg viewBox="0 0 720 440" width="100%" role="img" aria-label="Hub-and-spoke diagram: SAP S/4HANA at the centre, connected to SuccessFactors, Ariba, Concur, CX, IBP, and Signavio, all on the SAP BTP foundation">
+          <defs><linearGradient id="hub" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f97316"/><stop offset="1" stop-color="#ea580c"/></linearGradient></defs>
+          <!-- spokes -->
+          <g stroke="#fed7aa" stroke-width="2.5">
+            <line x1="360" y1="210" x2="150" y2="90"/>
+            <line x1="360" y1="210" x2="360" y2="70"/>
+            <line x1="360" y1="210" x2="570" y2="90"/>
+            <line x1="360" y1="210" x2="150" y2="330"/>
+            <line x1="360" y1="210" x2="360" y2="350"/>
+            <line x1="360" y1="210" x2="570" y2="330"/>
+          </g>
+          <!-- spoke nodes -->
+          <g font-family="Inter,sans-serif" font-size="12" font-weight="600" text-anchor="middle">
+            <g><circle cx="150" cy="90" r="46" fill="#f5f0ff" stroke="#ddccfb" stroke-width="2"/><text x="150" y="84" fill="#7c3aed">👥</text><text x="150" y="100" fill="#1c1917">Success-</text><text x="150" y="114" fill="#1c1917">Factors</text></g>
+            <g><circle cx="360" cy="70" r="46" fill="#fdeded" stroke="#f6c6c6" stroke-width="2"/><text x="360" y="64" fill="#dc2626">🛒</text><text x="360" y="80" fill="#1c1917">Ariba</text><text x="360" y="94" fill="#57534e" font-size="10">+ Concur</text></g>
+            <g><circle cx="570" cy="90" r="46" fill="#fdeded" stroke="#f6c6c6" stroke-width="2"/><text x="570" y="84" fill="#dc2626">💬</text><text x="570" y="100" fill="#1c1917">SAP CX</text></g>
+            <g><circle cx="150" cy="330" r="46" fill="#ecf8f1" stroke="#bce3cc" stroke-width="2"/><text x="150" y="324" fill="#0f9d58">🚚</text><text x="150" y="340" fill="#1c1917">IBP</text><text x="150" y="354" fill="#57534e" font-size="10">supply chain</text></g>
+            <g><circle cx="360" cy="350" r="46" fill="#eff4ff" stroke="#c9dbff" stroke-width="2"/><text x="360" y="344" fill="#2563eb">🗺️</text><text x="360" y="360" fill="#1c1917">Signavio</text></g>
+            <g><circle cx="570" cy="330" r="46" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/><text x="570" y="324" fill="#ea580c">🤖</text><text x="570" y="340" fill="#1c1917">Joule</text><text x="570" y="354" fill="#57534e" font-size="10">AI agents</text></g>
+          </g>
+          <!-- hub -->
+          <circle cx="360" cy="210" r="62" fill="url(#hub)"/>
+          <text x="360" y="200" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="22">💼</text>
+          <text x="360" y="224" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="14" font-weight="800">S/4HANA</text>
+          <text x="360" y="240" text-anchor="middle" fill="#ffe8d6" font-family="Inter,sans-serif" font-size="10">the ERP core</text>
+        </svg>
+        <p style="text-align:center;font-size:0.8rem;color:var(--muted);margin-top:8px;">All of it runs on <strong style="color:var(--orange-d);">SAP BTP</strong> — the platform that integrates every box above.</p>
+      </div>
+    </section>
+
+    <!-- ALL PILLARS -->
+    <section>
+      <div class="section-head">
+        <h2>Now the full catalogue — all 14 pillars</h2>
+        <p>SAP's own product navigation groups everything into these pillars. Click the highlighted ones for a beginner deep-dive.</p>
+      </div>
+
+      <!-- Core -->
+      <div class="pillar-head"><span class="pic" style="background:var(--proc-l);border:1px solid var(--proc-m)">🏛️</span><h3>The Core</h3><span class="cnt">where the business actually runs</span></div>
+      <div class="grid">
+        <a class="card prod" href="products/s4hana.html">
+          <div class="card-top"><div class="card-ic prod">💼</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Cloud ERP</div>
+          <div class="card-name">SAP S/4HANA Cloud</div>
+          <div class="card-desc">The flagship ERP — the company's operating system for finance, supply chain &amp; procurement. Runs as RISE (private) or GROW (public).</div>
+          <div class="chips"><span class="chip">Finance</span><span class="chip">Procurement</span><span class="chip">Manufacturing</span></div>
+        </a>
+        <a class="card prod" href="products/btp.html">
+          <div class="card-top"><div class="card-ic prod">🧩</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Technology Platform</div>
+          <div class="card-name">SAP BTP</div>
+          <div class="card-desc">The foundation. Integration, low-code app building (SAP Build), databases &amp; AI services. Where all custom work lives — the "clean core" way.</div>
+          <div class="chips"><span class="chip hot">Integration Suite</span><span class="chip hot">SAP Build</span><span class="chip">HANA Cloud</span></div>
+        </a>
+      </div>
+
+      <!-- Line of Business -->
+      <div class="pillar-head"><span class="pic" style="background:var(--role-l);border:1px solid var(--role-m)">🧑‍💼</span><h3>Line-of-Business Apps</h3><span class="cnt">specialized work, per department</span></div>
+      <div class="grid">
+        <a class="card prod" href="products/successfactors.html">
+          <div class="card-top"><div class="card-ic prod">👥</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Human Capital Mgmt</div>
+          <div class="card-name">SAP SuccessFactors</div>
+          <div class="card-desc">The HR suite — hire to retire. Employee records, recruiting, learning, performance, payroll.</div>
+          <div class="chips"><span class="chip">Employee Central</span><span class="chip">Recruiting</span></div>
+        </a>
+        <a class="card prod" href="products/ariba.html">
+          <div class="card-top"><div class="card-ic prod">🛒</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Spend Management</div>
+          <div class="card-name">SAP Ariba</div>
+          <div class="card-desc">The procurement network — find suppliers, run sourcing, manage contracts, pay invoices. Source-to-pay.</div>
+          <div class="chips"><span class="chip">Sourcing</span><span class="chip">Suppliers</span></div>
+        </a>
+        <a class="card prod" href="products/concur.html">
+          <div class="card-top"><div class="card-ic prod">✈️</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Spend Management</div>
+          <div class="card-name">SAP Concur</div>
+          <div class="card-desc">Travel &amp; expense — book trips, snap receipts, auto-check policy, reimburse, post to finance.</div>
+          <div class="chips"><span class="chip">Travel</span><span class="chip">Expense</span></div>
+        </a>
+        <a class="card prod" href="products/cx.html">
+          <div class="card-top"><div class="card-ic prod">💬</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">CRM &amp; Customer Exp.</div>
+          <div class="card-name">SAP CX</div>
+          <div class="card-desc">The customer-facing suite — commerce, marketing, sales &amp; service in one connected view.</div>
+          <div class="chips"><span class="chip">Sales Cloud</span><span class="chip">Commerce</span></div>
+        </a>
+        <a class="card prod" href="products/ibp.html">
+          <div class="card-top"><div class="card-ic prod">🚚</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Supply Chain</div>
+          <div class="card-name">SAP IBP</div>
+          <div class="card-desc">Supply chain planning — forecast demand, balance supply, optimize inventory before problems hit.</div>
+          <div class="chips"><span class="chip">Demand Planning</span><span class="chip">S&amp;OP</span></div>
+        </a>
+        <a class="card" href="by-process/supply-chain.html">
+          <div class="card-top"><div class="card-ic">🏭</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker">Supply Chain</div>
+          <div class="card-name">+ Fieldglass, EWM, TM</div>
+          <div class="card-desc">External workforce (Fieldglass), warehouse (EWM) &amp; transportation (TM) round out the supply chain &amp; spend family.</div>
+          <div class="chips"><span class="chip">See process page</span></div>
+        </a>
+      </div>
+
+      <!-- Transform + Intelligence -->
+      <div class="pillar-head"><span class="pic" style="background:var(--deploy-l);border:1px solid var(--deploy-m)">🧠</span><h3>Transform, Data &amp; Intelligence</h3><span class="cnt">understand, unify &amp; automate</span></div>
+      <div class="grid">
+        <a class="card prod" href="products/signavio.html">
+          <div class="card-top"><div class="card-ic prod">🗺️</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Process Transformation</div>
+          <div class="card-name">SAP Signavio</div>
+          <div class="card-desc">Maps and X-rays how your business actually works — the blueprint + the process mining that finds what's broken.</div>
+          <div class="chips"><span class="chip">Process Modeler</span><span class="chip">Mining</span></div>
+        </a>
+        <a class="card prod" href="products/joule.html">
+          <div class="card-top"><div class="card-ic prod">🤖</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker prod">Business AI</div>
+          <div class="card-name">Joule &amp; Autonomous Suite</div>
+          <div class="card-desc">SAP's AI — from the Joule copilot to 200+ autonomous agents that run finance, HR &amp; supply chain tasks for you.</div>
+          <div class="chips"><span class="chip hot">Joule</span><span class="chip hot">200+ agents</span></div>
+        </a>
+        <a class="card" href="products/btp.html">
+          <div class="card-top"><div class="card-ic">🗄️</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker">Data &amp; Network</div>
+          <div class="card-name">Business Data Cloud + Network</div>
+          <div class="card-desc">Datasphere &amp; SAP Analytics Cloud unify all data; Business Network connects you to trading partners in real time.</div>
+          <div class="chips"><span class="chip">Datasphere</span><span class="chip">SAC</span></div>
+        </a>
+        <a class="card" href="by-size/index.html">
+          <div class="card-top"><div class="card-ic">🌱</div><span class="card-arrow">↗</span></div>
+          <div class="card-kicker">SME + Sustainability</div>
+          <div class="card-name">Business One · Green Ledger</div>
+          <div class="card-desc">SAP Business One for small firms, and the sustainability suite that accounts for carbon like it accounts for cash.</div>
+          <div class="chips"><span class="chip">SAP Business One</span><span class="chip">Footprint Mgmt</span></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- WHERE NEXT -->
+    <section>
+      <div class="section-head">
+        <h2>Same universe — pick your angle</h2>
+        <p>You've seen the products. Now slice the landscape the way that matters to you.</p>
+      </div>
+      <div class="next-row">
+        <a class="next-link" href="deployment/index.html"><span class="ic">☁️</span><span class="tx"><b>By Deployment</b><span>On-prem · RISE · GROW · Hybrid</span></span></a>
+        <a class="next-link" href="by-role/index.html"><span class="ic">👤</span><span class="tx"><b>By Role</b><span>What a CFO / CIO / dev touches</span></span></a>
+        <a class="next-link" href="by-process/index.html"><span class="ic">⚙️</span><span class="tx"><b>By Process</b><span>Finance · HR · Supply chain</span></span></a>
+        <a class="next-link" href="by-size/index.html"><span class="ic">🏢</span><span class="tx"><b>By Company Size</b><span>Small · Mid · Enterprise</span></span></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="wrap">
+      <div class="footer-inner">
+        <div class="footer-brand">Built by <b>Sashibhusan Nayak</b> · Techno-Functional SAP Consultant · Bangalore</div>
+        <div class="footer-links">
+          <a href="https://snayak27.github.io/" target="_blank" rel="noopener">Portfolio ↗</a>
+          <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a href="https://github.com/snayak27" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+      <p class="footer-note">An independent educational guide. Product names and trademarks belong to SAP SE. Grounded in official SAP sources (sap.com, learning.sap.com, SAP Discovery Center) as of 2026.</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

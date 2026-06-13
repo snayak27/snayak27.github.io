@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta property="og:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <title>SAP & AI — From Copilot to the Autonomous Enterprise | SAP Landscape</title>
+  <meta name="description" content="How SAP is transforming with AI and agentic AI — the verified 3-year arc from Joule the copilot (2024) to reasoning agents (2025) to the Autonomous Enterprise (2026). Explained for beginners.">
+  <meta property="og:title" content="SAP & AI — From Copilot to the Autonomous Enterprise">
+  <meta property="og:description" content="SAP's AI transformation 2024→2026, explained simply. Joule, agents, the Autonomous Enterprise.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/sap-landscape/ai-transformation.html">
+  <meta property="og:site_name" content="Sashibhusan Nayak">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css"><link rel="stylesheet" href="assets/css/components.css">
+  <style>
+    /* evolution timeline */
+    .era { display:flex; gap:18px; margin-bottom:8px; }
+    .era-rail { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:64px; }
+    .era-year { width:64px; height:64px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:800; font-size:1rem; color:#fff; box-shadow:var(--shadow); }
+    .era-line { width:2px; flex:1; background:var(--orange-m); margin:4px 0; min-height:24px; }
+    .era:last-child .era-line{display:none;}
+    .era-body{ flex:1; background:var(--card); border:1.5px solid var(--border); border-radius:var(--r); padding:22px 24px; margin-bottom:18px; box-shadow:var(--shadow); transition:transform .35s var(--spring),box-shadow .3s,border-color .2s; }
+    .era-body:hover{ transform:translateX(5px); box-shadow:var(--shadow-h); border-color:var(--orange-m); }
+    .era-tag{ font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:var(--orange-d); margin-bottom:4px; }
+    .era-title{ font-size:1.25rem; font-weight:800; margin-bottom:8px; }
+    .era-body ul{ list-style:none; }
+    .era-body li{ position:relative; padding-left:22px; margin-bottom:7px; font-size:.88rem; color:var(--text2); line-height:1.55; }
+    .era-body li::before{ content:'→'; position:absolute; left:0; color:var(--orange); font-weight:700; }
+    .y24{background:#9a8c98;} .y25{background:#f59e0b;} .y26{background:linear-gradient(135deg,#f97316,#ea580c);}
+    .svg-wrap{ background:var(--card); border:1px solid var(--border); border-radius:var(--r); padding:24px; box-shadow:var(--shadow); margin-bottom:24px; overflow-x:auto; }
+  </style>
+</head>
+<body>
+  <div class="blob-wrap" aria-hidden="true"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
+  <nav class="nav"><div class="nav-inner">
+    <a class="nav-logo" href="index.html"><span class="dot"></span> SAP&nbsp;Landscape <span class="sub">/ explained</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="landscape.html" data-section="landscape">Full Map</a>
+      <a href="deployment/index.html" data-section="deployment">Deployment</a>
+      <a href="by-role/index.html" data-section="by-role">By Role</a>
+      <a href="by-process/index.html" data-section="by-process">By Process</a>
+      <a href="by-size/index.html" data-section="by-size">By Size</a>
+      <a href="ai-transformation.html" data-section="ai-transformation">SAP &amp; AI</a>
+      <a class="nav-pill" href="https://snayak27.github.io/" target="_blank" rel="noopener">By Sashibhusan ↗</a>
+    </div>
+  </div></nav>
+
+  <div class="wrap"><div class="crumb"><a href="index.html">Home</a><span class="sep">/</span><span>SAP &amp; AI</span></div></div>
+
+  <header class="wrap hero">
+    <span class="eyebrow prod">The transformation frontier</span>
+    <h1>SAP &amp; AI — from copilot to the <em>Autonomous Enterprise</em></h1>
+    <p class="hero-sub">SAP is making the biggest bet in its 50-year history: that AI agents will run the business. Here's what's actually happening — the real 3-year journey, in plain English, verified from SAP's own announcements.</p>
+  </header>
+
+  <main class="wrap wrap-narrow">
+
+    <!-- What is agentic AI -->
+    <div class="analogy">
+      <div class="lbl">🤖 First — what's the difference?</div>
+      <p>A <strong>copilot</strong> answers your questions ("what's my overdue invoice total?"). An <strong>agent</strong> does the work ("I've reconciled the account, chased the customer, and drafted the report — approve?"). SAP's whole AI story is the shift from <strong>copilot → agent → fully autonomous</strong>.</p>
+    </div>
+
+    <!-- Evolution SVG -->
+    <div class="svg-wrap">
+      <svg viewBox="0 0 760 150" width="100%" role="img" aria-label="SAP AI evolution: Copilot 2024 to Orchestrator 2025 to Autonomous Enterprise 2026">
+        <defs>
+          <linearGradient id="g26" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#f97316"/><stop offset="1" stop-color="#ea580c"/></linearGradient>
+        </defs>
+        <!-- connecting arrow -->
+        <line x1="120" y1="75" x2="640" y2="75" stroke="#fed7aa" stroke-width="3"/>
+        <polygon points="640,69 656,75 640,81" fill="#f59e0b"/>
+        <!-- 2024 -->
+        <circle cx="120" cy="75" r="40" fill="#9a8c98"/>
+        <text x="120" y="71" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="15" font-weight="800">2024</text>
+        <text x="120" y="90" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="9">Copilot</text>
+        <text x="120" y="135" text-anchor="middle" fill="#57534e" font-family="Inter,sans-serif" font-size="11" font-weight="600">Joule answers</text>
+        <!-- 2025 -->
+        <circle cx="380" cy="75" r="44" fill="#f59e0b"/>
+        <text x="380" y="71" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="15" font-weight="800">2025</text>
+        <text x="380" y="90" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="9">Reason &amp; act</text>
+        <text x="380" y="138" text-anchor="middle" fill="#57534e" font-family="Inter,sans-serif" font-size="11" font-weight="600">Agents do the work</text>
+        <!-- 2026 -->
+        <circle cx="640" cy="75" r="48" fill="url(#g26)"/>
+        <text x="640" y="70" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="15" font-weight="800">2026</text>
+        <text x="640" y="89" text-anchor="middle" fill="#fff" font-family="Inter,sans-serif" font-size="9">Autonomous</text>
+        <text x="640" y="140" text-anchor="middle" fill="#ea580c" font-family="Inter,sans-serif" font-size="11" font-weight="700">The Enterprise runs itself</text>
+      </svg>
+    </div>
+
+    <div class="section-head" style="margin-top:30px;"><h2>The 3-year arc, verified</h2><p>Every fact below is from SAP's own Sapphire &amp; TechEd announcements.</p></div>
+
+    <!-- timeline -->
+    <div>
+      <div class="era">
+        <div class="era-rail"><div class="era-year y24">2024</div><div class="era-line"></div></div>
+        <div class="era-body">
+          <div class="era-tag">Sapphire + TechEd 2024 · the copilot era</div>
+          <div class="era-title">Joule, and the first agents</div>
+          <ul>
+            <li><b>Joule</b> launched as SAP's AI copilot — ask questions in plain language inside any SAP app</li>
+            <li>At <b>Sapphire 2024</b>, SAP unveiled its vision for <b>collaborative AI agents</b></li>
+            <li>At <b>TechEd 2024</b>, the first agents shipped (Q4 2024) — e.g. a collections agent coordinating email, invoice & support agents to settle a payment dispute</li>
+            <li><b>SAP Knowledge Graph</b> introduced to give agents real business context</li>
+            <li>Scale: 27,000+ customers already using SAP Business AI</li>
+          </ul>
+        </div>
+      </div>
+      <div class="era">
+        <div class="era-rail"><div class="era-year y25">2025</div><div class="era-line"></div></div>
+        <div class="era-body">
+          <div class="era-tag">Sapphire + TechEd 2025 · agents that reason</div>
+          <div class="era-title">Joule becomes the orchestrator</div>
+          <ul>
+            <li><b>Joule Agents reason and act</b> — multi-step, self-planned workflows (always with a human in the loop)</li>
+            <li>Joule positioned as <b>"the new UI"</b> — and made omnipresent across non-SAP apps via WalkMe</li>
+            <li>The <b>accruals agent</b> cut manual finance close work by <b>90%</b></li>
+            <li><b>Perplexity</b> collaboration (real-world unstructured answers); <b>NEURA Robotics + NVIDIA</b> (AI moves to the physical world)</li>
+            <li><b>AI Foundation</b> = the "operating system" for AI; <b>AI Agent Hub</b> in LeanIX for governance</li>
+            <li>Scale: 230→400 AI scenarios, 1,600 Joule skills, 34,000 customers</li>
+          </ul>
+        </div>
+      </div>
+      <div class="era">
+        <div class="era-rail"><div class="era-year y26">2026</div></div>
+        <div class="era-body" style="border-color:var(--orange-m);">
+          <div class="era-tag">Sapphire 2026 · the autonomous enterprise</div>
+          <div class="era-title">"Agents run the business"</div>
+          <ul>
+            <li><b>SAP Business AI Platform</b> — BTP + Business Data Cloud + AI Foundation unified into one</li>
+            <li><b>SAP Autonomous Suite</b> — <b>200+ agents and 50+ assistants</b> across Finance, Spend, Supply Chain, HCM & CX</li>
+            <li><b>Joule Studio</b> for enterprise agent-building (with n8n & Vercel embedded); <b>Joule Work</b> as the new way to work</li>
+            <li><b>Autonomous Close</b> compresses financial close from weeks to days</li>
+            <li>Partners: Anthropic, AWS, Google Cloud, Microsoft, NVIDIA, Palantir; <b>Reltio</b> acquired for AI-ready data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Why grounded -->
+    <div class="panel" data-reveal>
+      <h3><span class="pic">🧭</span> Why SAP's AI is different (the key idea)</h3>
+      <p>General AI like ChatGPT is brilliant but doesn't know <em>your</em> business. SAP's bet: 50 years of business data + processes is the moat. Joule is <b>grounded</b> in your real ERP data via the <span class="term">Knowledge Graph<span class="tip"><b>Knowledge Graph</b> = a semantic map of all your business entities and how they relate — so AI agents act on facts, not guesses.</span></span>, so it gives accurate, compliant, secure answers instead of plausible hallucinations.</p>
+      <p>As SAP's CEO put it: <em>"80% accuracy is fine for consumer AI — not when you run the world's most business-critical processes."</em></p>
+    </div>
+
+    <!-- What it means for you -->
+    <div class="panel" data-reveal>
+      <h3><span class="pic">💼</span> What this means for a career in SAP</h3>
+      <ul>
+        <li><b>Domain knowledge matters more, not less</b> — agents need people who understand the business process to design and supervise them</li>
+        <li><b>Building agents</b> (Joule Studio on <a href="products/btp.html">BTP</a>) is the fastest-growing skill — the <a href="by-role/developer.html">developer / architect path</a></li>
+        <li><b>Clean Core is now non-negotiable</b> — AI can't safely act on a hacked, modified ERP core</li>
+        <li>Techno-functional people (process + platform) are the rarest, most valuable profile</li>
+      </ul>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="products/joule.html"><span class="ic">🤖</span><span class="tx"><b>Deep-dive: Joule</b><span>The product behind the story</span></span></a>
+      <a class="next-link" href="landscape.html"><span class="ic">🗺️</span><span class="tx"><b>The full map</b><span>Where AI sits in the landscape</span></span></a>
+    </div>
+  </main>
+
+  <footer class="footer"><div class="wrap">
+    <div class="footer-inner">
+      <div class="footer-brand">Built by <b>Sashibhusan Nayak</b> · Techno-Functional SAP Consultant · Bangalore</div>
+      <div class="footer-links">
+        <a href="https://snayak27.github.io/" target="_blank" rel="noopener">Portfolio ↗</a>
+        <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/snayak27" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+    <p class="footer-note">An independent educational guide. Product names and trademarks belong to SAP SE. The AI timeline is grounded in SAP News Center coverage of SAP Sapphire &amp; SAP TechEd, 2024–2026.</p>
+  </div></footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
