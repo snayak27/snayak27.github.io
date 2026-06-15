@@ -475,6 +475,7 @@
     <span class="nav-logo">Sashibhusan Nayak ✦</span>
     <div class="nav-links">
       <a href="#alignment">SAP Fit</a>
+      <a href="#how">How I Think</a>
       <a href="#experience">Experience</a>
       <a href="#writing">Writing</a>
       <a href="community/">Community Contribution</a>
@@ -606,6 +607,44 @@
     @media (prefers-reduced-motion: reduce) {
       .align-row, .align-go, .align-cta a, .align-row:hover, .align-go:hover, .align-cta a:hover { transition: none; transform: none; }
     }
+    /* ── How I Think ── */
+    .how-sec { margin-top: 0; margin-bottom: 104px; scroll-margin-top: 90px; }
+    .how-thesis { max-width: 720px; margin: -12px auto 36px; text-align: center; }
+    .how-thesis p { font-size: 1rem; color: var(--text2); line-height: 1.7; }
+    .how-thesis p em { font-style: normal; font-weight: 800; color: var(--orange-d); }
+    .how-thesis p b { color: var(--text); font-weight: 800; }
+    .how-brief { max-width: 1000px; margin: 0 auto; background: var(--card); border: 1.5px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.35s var(--spring), box-shadow 0.3s var(--ease); }
+    .how-brief:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); }
+    .how-brief-head { padding: 24px 28px 18px; background: linear-gradient(160deg, #fff 60%, var(--orange-l) 100%); border-bottom: 1px dashed var(--border); }
+    .how-tag { display: inline-flex; align-items: center; background: var(--orange-l); border: 1px solid var(--orange-m); color: var(--orange-d); font-size: 0.7rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 11px; border-radius: 99px; }
+    .how-brief-head h3 { font-size: 1.12rem; font-weight: 800; color: var(--text); margin: 12px 0 6px; letter-spacing: -0.01em; line-height: 1.35; }
+    .how-brief-head > p { font-size: 0.85rem; color: var(--text2); line-height: 1.6; }
+    .how-lenses { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .how-lens { padding: 20px 22px; border-right: 1px solid var(--border); display: flex; flex-direction: column; gap: 8px; }
+    .how-lens:last-child { border-right: none; }
+    .how-lens-ico { width: 34px; height: 34px; border-radius: 9px; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--orange-d); }
+    .how-lens-ico svg { width: 18px; height: 18px; }
+    .how-lens b { font-size: 0.86rem; font-weight: 800; color: var(--text); }
+    .how-lens small { font-size: 0.78rem; color: var(--text2); line-height: 1.55; }
+    .how-call { padding: 18px 24px; background: var(--orange-l); border-top: 1px solid var(--orange-m); display: flex; gap: 14px; align-items: flex-start; }
+    .how-call-label { flex: none; background: var(--orange); color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 11px; border-radius: 8px; box-shadow: 0 2px 8px rgba(249,115,22,0.35); margin-top: 1px; }
+    .how-call p { font-size: 0.86rem; color: var(--text); line-height: 1.6; }
+    .how-call p b { color: var(--orange-d); font-weight: 800; }
+    .how-call .how-flip { font-weight: 800; color: var(--text); }
+    .how-foot { text-align: center; margin-top: 30px; }
+    .how-foot p { font-size: 1.08rem; font-weight: 800; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
+    .how-foot p span { color: var(--orange-d); }
+    .how-foot small { display: block; font-size: 0.8rem; color: var(--muted); font-style: italic; }
+    @media (max-width: 720px) {
+      .how-sec { margin-bottom: 72px; }
+      .how-lenses { grid-template-columns: 1fr; }
+      .how-lens { border-right: none; border-bottom: 1px solid var(--border); }
+      .how-lens:last-child { border-bottom: none; }
+      .how-call { flex-direction: column; gap: 10px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .how-brief, .how-brief:hover { transition: none; transform: none; }
+    }
   </style>
   <div class="wrap align-sec" id="alignment" role="region" aria-label="How my skills map to SAP's roadmap">
     <div class="section-head">
@@ -706,6 +745,52 @@
     <div class="align-cta">
       <p>Not just SAP-<span>certified</span> — SAP-<span>roadmap-ready</span>.</p>
       <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=iam.sb.nayak@gmail.com&amp;su=SAP%20Techno-Functional%20role%20%E2%80%94%20Sashibhusan%20Nayak" target="_blank" rel="noopener">Let's talk →</a>
+    </div>
+  </div>
+
+  <!-- ── How I Think ── -->
+  <div class="wrap how-sec" id="how" role="region" aria-label="How I think about SAP's disruption">
+    <div class="section-head">
+      <h2>How I think about it</h2>
+      <p>The role most are clinging to is the one I'm deliberately skipping</p>
+    </div>
+
+    <div class="how-thesis">
+      <p>Three shifts are quietly closing the old SAP job. <em>Clean Core</em> turns config into technical debt. <em>AI</em> eats the routine work. <em>Self-service</em> thins the translator layer between business and system. I'm not claiming I'm ready — I'm claiming I'm <b>aimed</b>. Most people twice my experience haven't looked up yet.</p>
+    </div>
+
+    <div class="how-brief">
+      <div class="how-brief-head">
+        <span class="how-tag">Decision brief</span>
+        <h3>RISE with SAP, or stay on-premise? — a mid-market firm, 2026</h3>
+        <p>The kind of million-dollar call where the CFO doesn't speak the tech and the CIO doesn't speak the business. Here's how I'd frame it.</p>
+      </div>
+      <div class="how-lenses">
+        <div class="how-lens">
+          <span class="how-lens-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+          <b>Finance lens</b>
+          <small>Capex&nbsp;→&nbsp;opex shift, 5-year TCO vs. an on-prem refresh, audit &amp; compliance continuity, and who owns the depreciation story.</small>
+        </div>
+        <div class="how-lens">
+          <span class="how-lens-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
+          <b>Tech lens</b>
+          <small>Clean Core readiness, how much custom-code debt to retire, what moves to BTP side-by-side extensions, and where Joule &amp; agents actually fit.</small>
+        </div>
+        <div class="how-lens">
+          <span class="how-lens-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.2 8 11 4.6-2.8 8-6 8-11V5z"/><path d="M12 9v4"/><path d="M12 16h.01"/></svg></span>
+          <b>Risk lens</b>
+          <small>The month-six migration traps, change-management resistance, and which stakeholders quietly sabotage a Clean Core move.</small>
+        </div>
+      </div>
+      <div class="how-call">
+        <span class="how-call-label" aria-hidden="true">My call</span>
+        <p>For most mid-market firms: <b>RISE, phased</b> — lead with finance and the standardized processes, park the genuinely differentiating logic on BTP. <span class="how-flip">The call flips if</span> the firm's real edge lives inside heavily-customized core processes — then a private-cloud bridge buys time to re-architect without betting the business on a big-bang cutover.</p>
+      </div>
+    </div>
+
+    <div class="how-foot">
+      <p>I don't configure the decision — I help <span>shape</span> it.</p>
+      <small>The window everyone's now warning about? I saw it before I had anything to protect.</small>
     </div>
   </div>
 
