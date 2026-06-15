@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="Community Contribution by Sashibhusan Nayak — free, beginner-first guides for people entering SAP and tech. No jargon, no signup. Built so no fresher faces the confusion I did.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/community/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Community Contribution — Sashibhusan Nayak">
+  <meta property="og:description" content="Free, beginner-first guides for people entering SAP and tech. No jargon, no signup. The guides I wish I'd had as a fresher.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://snayak27.github.io/community/">
+  <meta property="og:site_name" content="Sashibhusan Nayak">
+  <meta property="og:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Community Contribution — free beginner-first guides for people entering SAP.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Community Contribution — Sashibhusan Nayak">
+  <meta name="twitter:description" content="Free, beginner-first guides for people entering SAP and tech. No jargon, no signup.">
+  <meta name="twitter:image" content="https://snayak27.github.io/sap-landscape/og-image.png">
+
+  <title>Community Contribution — Free, beginner-first guides | Sashibhusan Nayak</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg:       #faf9f7;
+      --bg2:      #f5f0e8;
+      --card:     #ffffff;
+      --orange:   #f97316;
+      --orange-d: #ea580c;
+      --orange-l: #fff7ed;
+      --orange-m: #fed7aa;
+      --text:     #1c1917;
+      --text2:    #57534e;
+      --muted:    #a8a29e;
+      --border:   rgba(0,0,0,0.07);
+      --shadow:   0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
+      --shadow-h: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+      --spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease:     cubic-bezier(0.4, 0, 0.2, 1);
+      --r:        20px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--text);
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh; overflow-x: hidden; -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Blobs ── */
+    .blob-wrap { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .blob { position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.35; }
+    .blob-1 { width: 600px; height: 600px; background: radial-gradient(circle, #fed7aa, #fb923c); top: -160px; right: -160px; animation: blobDrift 18s ease-in-out infinite alternate; }
+    .blob-2 { width: 500px; height: 500px; background: radial-gradient(circle, #fef3c7, #fde68a); bottom: 5%; left: -160px; animation: blobDrift 22s ease-in-out infinite alternate-reverse; }
+    @keyframes blobDrift { from { transform: translate(0,0) scale(1); } to { transform: translate(40px,30px) scale(1.08); } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    .wrap { position: relative; z-index: 1; max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+    /* ── Nav ── */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(250,249,247,0.82); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border-bottom: 1px solid var(--border); padding: 0 28px; }
+    .nav-inner { max-width: 1160px; margin: 0 auto; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo { font-weight: 700; font-size: 0.95rem; color: var(--text); text-decoration: none; }
+    .nav-logo:hover { color: var(--orange); }
+    .nav-links { display: flex; align-items: center; gap: 20px; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--text2); text-decoration: none; transition: color 0.2s var(--ease); }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-pill { background: var(--orange); color: #fff; font-size: 0.8rem; font-weight: 600; padding: 6px 16px; border-radius: 99px; text-decoration: none !important; transition: background 0.2s, transform 0.15s var(--spring); }
+    .nav-pill:hover { background: var(--orange-d); transform: scale(1.04); color: #fff !important; }
+
+    /* ── Hero / mission banner ── */
+    .chero { padding: 84px 0 36px; text-align: center; }
+    .chero-eyebrow { display: inline-flex; align-items: center; gap: 8px; background: var(--orange-l); border: 1px solid var(--orange-m); border-radius: 99px; padding: 6px 18px; font-size: 0.75rem; font-weight: 600; color: var(--orange-d); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 24px; animation: fadeUp 0.5s var(--ease) both; }
+    .chero-eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--orange); animation: pulse 2s ease infinite; }
+    .chero h1 { font-size: clamp(2.1rem, 5vw, 3.4rem); font-weight: 800; line-height: 1.12; letter-spacing: -0.03em; margin-bottom: 20px; animation: fadeUp 0.5s 0.08s var(--ease) both; }
+    .chero h1 em { font-style: normal; background: linear-gradient(135deg, var(--orange) 0%, var(--orange-d) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .chero .lead { font-size: clamp(1rem, 2.2vw, 1.12rem); color: var(--text2); max-width: 640px; margin: 0 auto 14px; line-height: 1.75; animation: fadeUp 0.5s 0.16s var(--ease) both; }
+    .chero .lead strong { color: var(--text); font-weight: 700; }
+
+    /* ── Story banner ── */
+    .story { position: relative; z-index: 1; max-width: 880px; margin: 36px auto 0; padding: 0 28px; animation: fadeUp 0.5s 0.24s var(--ease) both; }
+    .story-card { background: linear-gradient(135deg, #fff 0%, var(--orange-l) 100%); border: 1.5px solid var(--orange-m); border-radius: var(--r); box-shadow: var(--shadow); padding: 30px 34px; position: relative; overflow: hidden; }
+    .story-card::before { content: '\201C'; position: absolute; top: -18px; left: 16px; font-size: 7rem; color: var(--orange-m); opacity: .55; font-family: Georgia, serif; line-height: 1; pointer-events: none; }
+    .story-card p { font-size: 1.02rem; line-height: 1.75; color: var(--text); position: relative; }
+    .story-card p + p { margin-top: 12px; color: var(--text2); font-size: .96rem; }
+    .story-sign { margin-top: 16px !important; font-size: .85rem !important; color: var(--muted) !important; font-weight: 600; }
+
+    /* ── Principles strip ── */
+    .princ { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; max-width: 1000px; margin: 44px auto 0; }
+    .princ-item { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 18px; box-shadow: var(--shadow); text-align: center; transition: transform .3s var(--spring), box-shadow .3s var(--ease); }
+    .princ-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); }
+    .princ-ic { font-size: 1.6rem; line-height: 1; display: block; margin-bottom: 8px; }
+    .princ-item b { display: block; font-size: 0.86rem; font-weight: 700; margin-bottom: 3px; }
+    .princ-item span { font-size: 0.74rem; color: var(--muted); line-height: 1.4; }
+    @media (max-width: 720px) { .princ { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ── Section head ── */
+    .sec-head { text-align: center; margin: 76px auto 8px; }
+    .sec-head h2 { font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 800; letter-spacing: -0.02em; }
+    .sec-head p { color: var(--text2); font-size: 0.96rem; margin-top: 8px; }
+
+    /* ── Project grid ── */
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 22px; margin: 36px auto 0; }
+    .proj { background: #fff; border: 1px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow); padding: 28px; display: flex; flex-direction: column; position: relative; overflow: hidden; transition: transform .3s var(--spring), box-shadow .3s var(--ease), border-color .3s var(--ease); }
+    .proj:hover { transform: translateY(-4px); box-shadow: var(--shadow-h); border-color: var(--accent-m); }
+    .proj::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--accent); }
+    .proj-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .proj-ic { width: 46px; height: 46px; border-radius: 12px; background: var(--accent-l); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; }
+    .badge { font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 5px 11px; border-radius: 99px; }
+    .badge-live { background: #dcfce7; color: #15803d; }
+    .badge-soon { background: var(--bg2); color: var(--muted); }
+    .proj h3 { font-size: 1.18rem; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 6px; }
+    .proj .audience { font-size: 0.76rem; font-weight: 600; color: var(--accent-d); margin-bottom: 12px; }
+    .proj .problem { font-size: 0.9rem; color: var(--text2); line-height: 1.65; margin-bottom: 16px; }
+    .proj .problem b { color: var(--text); }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 18px; }
+    .tag { font-size: 0.7rem; font-weight: 600; padding: 4px 10px; border-radius: 99px; background: var(--bg2); color: var(--text2); }
+    .proj-meta { display: flex; align-items: center; gap: 14px; font-size: 0.74rem; color: var(--muted); margin-bottom: 18px; }
+    .proj-meta span { display: inline-flex; align-items: center; gap: 5px; }
+    .proj-foot { margin-top: auto; }
+    .proj-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--accent); color: #fff; font-weight: 700; font-size: 0.88rem; padding: 11px 22px; border-radius: 11px; text-decoration: none; transition: transform .15s var(--spring), filter .2s; }
+    .proj-cta:hover { filter: brightness(0.93); transform: translateY(-2px); }
+    .proj-cta2 { display: inline-flex; align-items: center; gap: 5px; margin-left: 12px; font-size: 0.82rem; font-weight: 600; color: var(--text2); text-decoration: none; }
+    .proj-cta2:hover { color: var(--accent-d); }
+
+    /* soon / placeholder card */
+    .proj-soon { border-style: dashed; background: transparent; box-shadow: none; align-items: center; justify-content: center; text-align: center; min-height: 260px; }
+    .proj-soon::before { display: none; }
+    .proj-soon .proj-ic { background: var(--bg2); }
+    .proj-soon h3 { color: var(--text2); }
+    .proj-soon p { font-size: 0.86rem; color: var(--muted); line-height: 1.6; max-width: 260px; margin: 0 auto; }
+
+    /* ── Suggest / footer ── */
+    .suggest { text-align: center; margin: 70px auto 0; max-width: 620px; }
+    .suggest h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 10px; }
+    .suggest p { color: var(--text2); font-size: 0.94rem; line-height: 1.7; margin-bottom: 20px; }
+    .footer { text-align: center; padding: 60px 0 50px; color: var(--muted); font-size: 0.82rem; }
+    .footer a { color: var(--text2); text-decoration: none; font-weight: 600; }
+    .footer a:hover { color: var(--orange); }
+
+    @media (max-width: 600px) { .nav-links { gap: 14px; } .chero { padding: 60px 0 28px; } }
+  </style>
+</head>
+<body>
+
+<div class="blob-wrap">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+</div>
+
+<!-- ── Nav ── -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../">Sashibhusan Nayak ✦</a>
+    <div class="nav-links">
+      <a href="../">Home</a>
+      <a href="../#experience">Experience</a>
+      <a href="../sap-landscape/" target="_blank" rel="noopener">SAP Landscape ↗</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <!-- ── Mission hero ── -->
+  <section class="chero">
+    <div class="wrap">
+      <span class="chero-eyebrow">Community Contribution</span>
+      <h1>The guides I wish I'd had<br>when I was <em>starting out</em></h1>
+      <p class="lead">
+        Free, <strong>beginner-first</strong> guides for people entering SAP and tech.
+        No jargon. No signup. No 40-tab rabbit holes. Just the clear map you needed on day one.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── Why I'm doing this (story banner) ── -->
+  <div class="story">
+    <div class="story-card">
+      <p>
+        When I moved into SAP from a finance background, the hardest part wasn't learning a product —
+        it was <strong>the noise</strong>. Misinformation, outdated blogs, conflicting answers, and official
+        sites so dense they scared off freshers. As a newcomer, I nearly gave up just trying to understand
+        <em>where to even begin</em>.
+      </p>
+      <p>
+        So I decided to give back. Every guide here exists for one reason: <strong>no fresher should face
+        the confusion I did.</strong> I'll keep adding to this — one clear, honest, free guide at a time.
+      </p>
+      <p class="story-sign">— Sashibhusan Nayak</p>
+    </div>
+  </div>
+
+  <!-- ── Principles (why this is NOT like the official docs) ── -->
+  <div class="wrap">
+    <div class="princ">
+      <div class="princ-item"><span class="princ-ic">🧭</span><b>Beginner-first</b><span>Written for day one, not for experts</span></div>
+      <div class="princ-item"><span class="princ-ic">🚫</span><b>Zero jargon</b><span>Plain language, terms explained on the spot</span></div>
+      <div class="princ-item"><span class="princ-ic">🆓</span><b>Free &amp; open</b><span>No signup, no paywall, no catch</span></div>
+      <div class="princ-item"><span class="princ-ic">✅</span><b>Verified</b><span>Grounded in official sources, kept current</span></div>
+    </div>
+  </div>
+
+  <!-- ── Projects ── -->
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>The guides</h2>
+      <p>Pick one and start — each answers what it solves, who it's for, and how long it takes.</p>
+    </div>
+    <div class="proj-grid" id="projGrid"><!-- rendered from PROJECTS registry --></div>
+  </div>
+
+  <!-- ── Suggest ── -->
+  <div class="wrap">
+    <div class="suggest">
+      <h3>Got stuck on something I haven't covered yet?</h3>
+      <p>If there's a topic that confused you as a beginner, tell me — it might become the next guide.
+         This grows from real problems real freshers hit.</p>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener" style="padding:10px 22px;">Suggest a topic ↗</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Built &amp; maintained by <a href="../">Sashibhusan Nayak</a> · A community contribution · Free forever</p>
+  </div>
+</main>
+
+<script>
+  /* ──────────────────────────────────────────────────────────────
+     PROJECT REGISTRY — to add a future guide, append one object.
+     That's the entire injection step. Newest first.
+     accent: orange | blue | violet | green | amber  (or any hex pair)
+  ────────────────────────────────────────────────────────────── */
+  const ACCENTS = {
+    orange: { c:'#f97316', d:'#ea580c', l:'#fff7ed', m:'#fed7aa' },
+    blue:   { c:'#2563eb', d:'#1d4ed8', l:'#eff6ff', m:'#bfdbfe' },
+    violet: { c:'#7c3aed', d:'#6d28d9', l:'#f5f3ff', m:'#ddd6fe' },
+    green:  { c:'#0f9d58', d:'#0b7c46', l:'#ecfdf5', m:'#a7f3d0' },
+    amber:  { c:'#d97706', d:'#b45309', l:'#fffbeb', m:'#fde68a' },
+  };
+
+  const PROJECTS = [
+    {
+      title: "The SAP Landscape",
+      icon: "🗺️",
+      status: "live",                         // "live" | "soon"
+      audience: "For absolute SAP freshers",
+      problem: "<b>100+ products, RISE vs GROW, on-prem vs cloud</b> — what's used where, and by whom. Nothing explained the whole picture simply. This is that picture.",
+      readTime: "~20 min read",
+      pages: "36 pages",
+      tags: ["SAP", "Beginner", "Career"],
+      url: "../sap-landscape/",
+      cta: "Explore the guide",
+      secondary: { label: "or see SAP & AI ↗", url: "../sap-landscape/ai-transformation.html" },
+      accent: "orange",
+    },
+    // ── Next guide goes here ──
+    // { title:"...", icon:"💡", status:"live", audience:"For ...", problem:"...",
+    //   readTime:"~X min", pages:"", tags:["..."], url:"../your-folder/",
+    //   cta:"Explore the guide", secondary:null, accent:"blue" },
+  ];
+
+  function accentVars(name) {
+    const a = ACCENTS[name] || ACCENTS.orange;
+    return `--accent:${a.c};--accent-d:${a.d};--accent-l:${a.l};--accent-m:${a.m};`;
+  }
+
+  function cardHTML(p) {
+    const live = p.status === "live";
+    const badge = live
+      ? '<span class="badge badge-live">● Live</span>'
+      : '<span class="badge badge-soon">Coming soon</span>';
+    const tags = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join("");
+    const meta = [
+      p.readTime ? `<span>🕑 ${p.readTime}</span>` : "",
+      p.pages ? `<span>📄 ${p.pages}</span>` : "",
+    ].join("");
+    const sec = p.secondary
+      ? `<a class="proj-cta2" href="${p.secondary.url}" target="_blank" rel="noopener">${p.secondary.label}</a>`
+      : "";
+    const foot = live
+      ? `<div class="proj-foot"><a class="proj-cta" href="${p.url}" target="_blank" rel="noopener">${p.cta || "Explore"} →</a>${sec}</div>`
+      : `<div class="proj-foot"><span class="proj-cta" style="background:var(--bg2);color:var(--muted);box-shadow:none;cursor:default;">In progress…</span></div>`;
+    return `<article class="proj" style="${accentVars(p.accent)}">
+      <div class="proj-top"><div class="proj-ic">${p.icon || "📘"}</div>${badge}</div>
+      <h3>${p.title}</h3>
+      <div class="audience">${p.audience || ""}</div>
+      <p class="problem">${p.problem || ""}</p>
+      <div class="proj-tags">${tags}</div>
+      <div class="proj-meta">${meta}</div>
+      ${foot}
+    </article>`;
+  }
+
+  const placeholderHTML = `<article class="proj proj-soon">
+    <div class="proj-ic">✨</div>
+    <h3>More guides on the way</h3>
+    <p>This is an ongoing mission. New beginner-first guides drop here as I build them.</p>
+  </article>`;
+
+  document.getElementById("projGrid").innerHTML =
+    PROJECTS.map(cardHTML).join("") + placeholderHTML;
+</script>
+</body>
+</html>

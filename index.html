@@ -178,6 +178,17 @@
       animation: fadeUp 0.5s 0.16s var(--ease) both;
     }
 
+    .avail {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #fff; border: 1px solid var(--border); border-radius: 99px;
+      padding: 8px 18px; font-size: 0.82rem; font-weight: 600; color: var(--text2);
+      margin-bottom: 34px; box-shadow: var(--shadow);
+      animation: fadeUp 0.5s 0.2s var(--ease) both;
+    }
+    .avail-dot {
+      width: 9px; height: 9px; border-radius: 50%; background: #16a34a;
+      box-shadow: 0 0 0 4px rgba(22,163,74,0.15); animation: pulse 2s ease infinite; flex-shrink: 0;
+    }
     .hero-ctas {
       display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
       animation: fadeUp 0.5s 0.24s var(--ease) both;
@@ -275,7 +286,7 @@
     .section-head p { font-size: 0.95rem; color: var(--muted); }
 
     /* ── Grid ── */
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; padding-bottom: 100px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; padding-bottom: 40px; }
 
     /* ── Card ── */
     .card {
@@ -320,7 +331,7 @@
     }
 
     /* ── Ecosystem Map CTA ── */
-    .eco-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,var(--orange-l),#fef9f5);border:1.5px solid var(--orange-m);border-radius:var(--r);padding:32px 40px;margin:56px 0 0;}
+    .eco-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;background:linear-gradient(135deg,var(--orange-l),#fef9f5);border:1.5px solid var(--orange-m);border-radius:var(--r);padding:32px 40px;margin:40px 0 64px;}
     .eco-cta-text h3{font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:6px;letter-spacing:-0.01em;}
     .eco-cta-text p{font-size:0.85rem;color:var(--text2);max-width:500px;line-height:1.6;}
     .eco-cta .btn{white-space:nowrap;flex-shrink:0;}
@@ -465,6 +476,7 @@
     <div class="nav-links">
       <a href="#experience">Experience</a>
       <a href="#writing">Writing</a>
+      <a href="community/">Community Contribution</a>
       <a href="resume.pdf" download>Resume</a>
       <a href="https://github.com/snayak27" target="_blank" rel="noopener">GitHub</a>
       <a href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn</a>
@@ -477,9 +489,10 @@
 <main>
   <section class="hero">
     <div class="wrap">
-      <div class="hero-eyebrow">Techno-Functional SAP Consultant · S/4HANA Finance × BTP / Build × AI · Bangalore</div>
-      <h1 class="hero-heading">Hi, I'm <em>Sashibhusan&nbsp;Nayak.</em></h1>
-      <p class="hero-sub">Techno-functional SAP consultant — <strong>S/4HANA Finance (FICO)</strong> with an MBA in Finance and a finance &amp; markets domain background — extending into <strong>SAP BTP, Build &amp; Business AI (Joule)</strong> on a path toward Solution Architect. I architect systems and orchestrate their build: a full AI ecosystem of <strong>10 projects, 46+ governance rules, and $0 in cloud bills.</strong></p>
+      <div class="hero-eyebrow">Sashibhusan Nayak · Techno-Functional SAP Consultant · Bangalore</div>
+      <h1 class="hero-heading">Finance fluency. SAP depth.<br>AI engineering. <em>One&nbsp;person.</em></h1>
+      <p class="hero-sub">The techno-functional combination teams rarely find in one mind — I speak <strong>Finance</strong> (MBA + S/4HANA FICO), configure <strong>SAP BTP &amp; Build</strong>, and engineer the <strong>AI systems</strong> on top. The business and the build, bridged by one person.</p>
+      <div class="avail"><span class="avail-dot"></span> Open to opportunities · Bengaluru / open to relocate · immediate joiner</div>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="resume.pdf" download>
           <svg viewBox="0 0 24 24"><path d="M5 20h14v-2H5v2zM19 9h-4V3H9v6H5l7 7 7-7z"/></svg>
@@ -505,13 +518,39 @@
     </div>
   </section>
 
-  <!-- ── Stats ── -->
+  <!-- ── Proof bar ── -->
   <div class="wrap">
     <div class="stats-row">
+      <div class="stat-item"><span class="stat-num">30K+</span><span class="stat-label">Top Post Reach</span></div>
       <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">Projects</span></div>
       <div class="stat-item"><span class="stat-num">34</span><span class="stat-label">MCP Tools</span></div>
       <div class="stat-item"><span class="stat-num">23K+</span><span class="stat-label">2nd Brain Notes</span></div>
       <div class="stat-item"><span class="stat-num">46+</span><span class="stat-label">AI Rules</span></div>
+    </div>
+  </div>
+
+  <!-- ── Thesis ── -->
+  <style>
+    .thesis { max-width: 980px; margin: 0 auto 64px; text-align: center; }
+    .thesis-lead { font-size: clamp(1.15rem, 2.6vw, 1.6rem); font-weight: 700; letter-spacing: -0.02em; line-height: 1.4; color: var(--text); max-width: 760px; margin: 0 auto 40px; }
+    .thesis-lead em { font-style: normal; color: var(--orange-d); }
+    .thesis-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; text-align: left; }
+    .thesis-col { background: #fff; border: 1px solid var(--border); border-radius: 16px; padding: 24px; box-shadow: var(--shadow); transition: transform .3s var(--spring), box-shadow .3s var(--ease); position: relative; overflow: hidden; }
+    .thesis-col::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--orange); }
+    .thesis-col:hover { transform: translateY(-4px); box-shadow: var(--shadow-h); }
+    .thesis-col .ti { font-size: 1.5rem; line-height: 1; display: block; margin-bottom: 12px; }
+    .thesis-col b { display: block; font-size: 1.02rem; font-weight: 800; margin-bottom: 6px; color: var(--text); }
+    .thesis-col span { font-size: 0.88rem; color: var(--text2); line-height: 1.6; }
+    @media (max-width: 720px) { .thesis-cols { grid-template-columns: 1fr; } }
+  </style>
+  <div class="wrap" style="margin-top:72px;">
+    <div class="thesis">
+      <p class="thesis-lead">Most people in SAP are <em>functional</em> or <em>technical</em>. Most people in AI can't speak <em>business</em>. I work where all three meet.</p>
+      <div class="thesis-cols">
+        <div class="thesis-col"><span class="ti">💼</span><b>I speak Finance</b><span>MBA Finance + S/4HANA FICO and 4 years in the domain — I understand the business process before I touch the config.</span></div>
+        <div class="thesis-col"><span class="ti">🧩</span><b>I build on SAP</b><span>BTP, Build &amp; Joule — extending S/4HANA the clean-core way, bridging the business need to the actual build.</span></div>
+        <div class="thesis-col"><span class="ti">🤖</span><b>I engineer the AI</b><span>A 10-project agentic-AI ecosystem shipped solo — the exact direction SAP itself is now heading with Business AI.</span></div>
+      </div>
     </div>
   </div>
 
@@ -557,6 +596,20 @@
         </div>
 
       </div>
+    </div>
+  </div>
+
+  <!-- ── Certifications ── -->
+  <div class="wrap">
+    <div class="section-head">
+      <h2>Certifications</h2>
+      <p>Credentials earned and certification exams in preparation</p>
+    </div>
+    <div class="cert-strip">
+      <a class="cert-item" href="https://learn.deeplearning.ai/courses/generative-ai-with-llms/lesson/rs5m7/course-introduction" target="_blank" rel="noopener"><span class="cert-ic">🎓</span><b>Generative AI with LLMs</b><span class="cert-org">DeepLearning.AI &amp; AWS</span><span class="cert-status cs-done">Completed</span></a>
+      <span class="cert-item"><span class="cert-ic">📘</span><b>SAP Implementation Consultant — S/4HANA Cloud, Financial Accounting</b><span class="cert-status cs-ready">Exam-ready</span></span>
+      <span class="cert-item"><span class="cert-ic">🧩</span><b>SAP Solution Architect — SAP BTP</b><span class="cert-status cs-prog">In progress</span></span>
+      <span class="cert-item"><span class="cert-ic">⚙️</span><b>SAP Build Developer</b><span class="cert-status cs-prog">In progress</span></span>
     </div>
   </div>
 
@@ -617,27 +670,26 @@
     .sapls-stat span { font-size:.66rem; color:var(--muted,#a8a29e); text-transform:uppercase; letter-spacing:.05em; }
     @media (max-width: 760px){ .sapls-card{ grid-template-columns:1fr; padding:28px; } }
   </style>
-  <section class="sapls-spot" id="sap-landscape">
+  <section class="sapls-spot" id="community">
     <div class="sapls-card">
       <div>
         <span class="sapls-eyebrow">Community contribution</span>
-        <h2 class="sapls-h2">Every SAPian should understand the <em>SAP landscape</em> &mdash; before choosing this career</h2>
+        <h2 class="sapls-h2">The guides I wish I'd had &mdash; so no <em>fresher</em> faces the confusion I did</h2>
         <p class="sapls-lead">
-          When I moved into SAP from finance, the hardest part wasn't any single product &mdash; it was grasping the
-          <strong>whole landscape</strong>: 100+ products, RISE vs GROW, on-prem vs cloud, what's used where and by whom.
-          Nothing explained it simply.
+          Entering SAP from finance, the hardest part wasn't any single product &mdash; it was the <strong>noise</strong>:
+          misinformation, outdated blogs, and official sites so dense they scare off beginners. So I started building
+          free, <strong>beginner-first</strong> guides &mdash; no jargon, no signup.
         </p>
-        <p class="sapls-quote">So I built the guide I wish I'd had &mdash; so no one entering SAP faces the confusion I did.</p>
+        <p class="sapls-quote">No fresher should face the confusion I did. One clear, honest, free guide at a time.</p>
         <p class="sapls-lead" style="margin-bottom:22px;">
-          <strong>The SAP Landscape, explained for everyone</strong> &mdash; a 36-page, beginner-first map of the entire SAP universe
-          (2026-current), sliced by deployment, role, business process &amp; company size, plus the AI/agentic transformation story.
-          Grounded in official SAP sources.
+          First up &mdash; <strong>The SAP Landscape, explained for everyone</strong>: a 36-page beginner map of the entire
+          SAP universe (2026-current), by deployment, role, process &amp; company size, plus the AI/agentic story. More guides coming.
         </p>
-        <a class="sapls-cta" href="sap-landscape/" target="_blank" rel="noopener">Explore the SAP Landscape &rarr;</a>
-        <a class="sapls-cta2" href="sap-landscape/ai-transformation.html" target="_blank" rel="noopener">or see SAP &amp; AI &#8599;</a>
+        <a class="sapls-cta" href="community/">See all contributions &rarr;</a>
+        <a class="sapls-cta2" href="sap-landscape/" target="_blank" rel="noopener">or jump to the SAP Landscape &#8599;</a>
       </div>
       <div class="sapls-prev" aria-hidden="true">
-        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted,#a8a29e);margin-bottom:10px;">5 ways to explore</div>
+        <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--muted,#a8a29e);margin-bottom:10px;">Featured guide · The SAP Landscape</div>
         <div class="sapls-prev-row">
           <span class="sapls-pill p-blue">☁️ Deployment</span>
           <span class="sapls-pill p-violet">👤 By Role</span>
@@ -647,27 +699,13 @@
         </div>
         <div class="sapls-stats">
           <div class="sapls-stat"><b>36</b><span>Pages</span></div>
-          <div class="sapls-stat"><b>9</b><span>Products</span></div>
+          <div class="sapls-stat"><b>1</b><span>Guide live</span></div>
           <div class="sapls-stat"><b>2026</b><span>Current</span></div>
           <div class="sapls-stat"><b>0</b><span>Jargon</span></div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- ── Certifications ── -->
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Certifications</h2>
-      <p>Credentials earned and certification exams in preparation</p>
-    </div>
-    <div class="cert-strip">
-      <a class="cert-item" href="https://learn.deeplearning.ai/courses/generative-ai-with-llms/lesson/rs5m7/course-introduction" target="_blank" rel="noopener"><span class="cert-ic">🎓</span><b>Generative AI with LLMs</b><span class="cert-org">DeepLearning.AI &amp; AWS</span><span class="cert-status cs-done">Completed</span></a>
-      <span class="cert-item"><span class="cert-ic">📘</span><b>SAP Implementation Consultant — S/4HANA Cloud, Financial Accounting</b><span class="cert-status cs-ready">Exam-ready</span></span>
-      <span class="cert-item"><span class="cert-ic">🧩</span><b>SAP Solution Architect — SAP BTP</b><span class="cert-status cs-prog">In progress</span></span>
-      <span class="cert-item"><span class="cert-ic">⚙️</span><b>SAP Build Developer</b><span class="cert-status cs-prog">In progress</span></span>
-    </div>
-  </div>
 
   <!-- ── Skills Matrix ── -->
   <div class="wrap">
@@ -963,6 +1001,33 @@
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/recent-activity/all/" target="_blank" rel="noopener">See all posts on LinkedIn ↗</a>
       </div>
 
+    </div>
+  </div>
+
+  <!-- ── Closing CTA ── -->
+  <style>
+    .close-cta { position: relative; z-index: 1; max-width: 880px; margin: 88px auto 0; padding: 0 28px; }
+    .close-card { background: linear-gradient(135deg, var(--orange-l) 0%, #fff 100%); border: 1.5px solid var(--orange-m); border-radius: var(--r); box-shadow: var(--shadow-h); padding: 48px 40px; text-align: center; position: relative; overflow: hidden; }
+    .close-card::before { content: ''; position: absolute; top: -90px; right: -90px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, var(--orange-m), transparent 70%); opacity: .5; pointer-events: none; }
+    .close-card h2 { font-size: clamp(1.6rem, 3.4vw, 2.3rem); font-weight: 800; letter-spacing: -.02em; margin-bottom: 14px; position: relative; }
+    .close-card h2 em { font-style: normal; color: var(--orange-d); }
+    .close-card p { font-size: 1rem; color: var(--text2); line-height: 1.7; max-width: 580px; margin: 0 auto 14px; position: relative; }
+    .close-avail { display: inline-flex; align-items: center; gap: 9px; font-size: .84rem; font-weight: 600; color: var(--text2); margin-bottom: 26px; position: relative; }
+    .close-ctas { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; position: relative; }
+  </style>
+  <div class="close-cta">
+    <div class="close-card">
+      <h2>Hiring, collaborating, or just <em>curious</em>?</h2>
+      <p>Whether you're a recruiter, a fellow SAP traveller, or someone simply trying to make sense of this world — I'd genuinely love to hear from you. Reach out, and let's talk.</p>
+      <div class="close-avail"><span class="avail-dot"></span> Open to opportunities · Bengaluru / open to relocate · immediate joiner</div>
+      <div class="close-ctas">
+        <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=iam.sb.nayak@gmail.com&amp;su=Hello%20Sashibhusan" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 13.065L2 6.5V18a2 2 0 002 2h16a2 2 0 002-2V6.5l-10 6.565zM12 11L22 4.5A2 2 0 0020 4H4a2 2 0 00-2 .5L12 11z"/></svg>
+          Let's connect
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="resume.pdf" download>Download Resume</a>
+      </div>
     </div>
   </div>
 
