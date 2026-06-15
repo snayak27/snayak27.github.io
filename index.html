@@ -474,6 +474,7 @@
   <div class="nav-inner">
     <span class="nav-logo">Sashibhusan Nayak ✦</span>
     <div class="nav-links">
+      <a href="#alignment">SAP Fit</a>
       <a href="#experience">Experience</a>
       <a href="#writing">Writing</a>
       <a href="community/">Community Contribution</a>
@@ -551,6 +552,160 @@
         <div class="thesis-col"><span class="ti">🧩</span><b>I build on SAP</b><span>BTP, Build &amp; Joule — extending S/4HANA the clean-core way, bridging the business need to the actual build.</span></div>
         <div class="thesis-col"><span class="ti">🤖</span><b>I engineer the AI</b><span>A 10-project agentic-AI ecosystem shipped solo — the exact direction SAP itself is now heading with Business AI.</span></div>
       </div>
+    </div>
+  </div>
+
+  <!-- ── Roadmap Alignment ── -->
+  <style>
+    .align-sec { margin-top: 84px; margin-bottom: 104px; scroll-margin-top: 90px; }
+    .align-intro { max-width: 660px; margin: -16px auto 38px; text-align: center; }
+    .align-intro p { font-size: 0.95rem; color: var(--text2); line-height: 1.65; }
+    .align-intro p em { font-style: normal; font-weight: 700; color: var(--orange-d); }
+    .align-grid { display: flex; flex-direction: column; gap: 16px; max-width: 1000px; margin: 0 auto; }
+    .align-head { display: grid; grid-template-columns: 1fr 46px 1fr; align-items: center; padding: 0 22px 2px; }
+    .align-head span { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: var(--muted); }
+    .align-head span:last-child { text-align: right; }
+    .align-row {
+      display: grid; grid-template-columns: 1fr 46px 1fr; align-items: stretch;
+      background: var(--card); border: 1.5px solid var(--border); border-radius: var(--r);
+      box-shadow: var(--shadow); overflow: hidden;
+      transition: transform 0.35s var(--spring), box-shadow 0.3s var(--ease), border-color 0.2s;
+    }
+    .align-row:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); border-color: var(--orange-m); }
+    .align-cell { padding: 17px 20px; display: flex; gap: 13px; align-items: flex-start; }
+    .align-cell.mine { background: var(--bg2); }
+    .align-ico { flex: none; width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+    .align-cell.mine .align-ico { background: var(--card); border: 1px solid var(--border); color: var(--text); }
+    .align-ico svg { width: 19px; height: 19px; }
+    .align-txt { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+    .align-txt b { font-size: 0.9rem; font-weight: 800; color: var(--text); line-height: 1.35; }
+    .align-txt small { font-size: 0.78rem; color: var(--text2); line-height: 1.5; }
+    .align-cell.sap .align-txt b { color: var(--orange-d); }
+    .sap-badge { flex: none; height: 36px; padding: 0 10px; border-radius: 10px; background: var(--orange); color: #fff; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.04em; display: flex; align-items: center; box-shadow: 0 2px 8px rgba(249,115,22,0.35); }
+    .align-arrow { display: flex; align-items: center; justify-content: center; background: var(--bg2); color: var(--orange); font-size: 1.15rem; font-weight: 800; }
+    .align-proof { grid-column: 1 / -1; padding: 10px 22px; border-top: 1px dashed var(--border); background: var(--orange-l); }
+    .align-proof span { font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
+    .align-proof span b { color: var(--orange-d); font-weight: 700; }
+    .align-go { flex: none; margin-left: auto; align-self: center; width: 28px; height: 28px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--orange-d); font-size: 0.95rem; font-weight: 800; text-decoration: none; border: 1px solid var(--orange-m); background: var(--card); transition: background 0.2s, transform 0.2s, color 0.2s; }
+    .align-go:hover { background: var(--orange); color: #fff; transform: translateY(-1px); }
+    .align-prov { text-align: center; margin: 24px auto 0; }
+    .align-prov span { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 600; color: var(--text2); background: var(--bg2); border: 1px solid var(--border); border-radius: 99px; padding: 6px 15px; }
+    .align-prov span::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #16a34a; box-shadow: 0 0 0 3px rgba(22,163,74,0.18); }
+    .align-cta { text-align: center; margin-top: 32px; }
+    .align-cta p { font-size: 1.05rem; font-weight: 800; color: var(--text); margin-bottom: 15px; letter-spacing: -0.01em; }
+    .align-cta p span { color: var(--orange-d); }
+    .align-cta a { display: inline-block; background: var(--orange); color: #fff; font-size: 0.88rem; font-weight: 700; text-decoration: none; padding: 11px 24px; border-radius: 99px; box-shadow: 0 4px 14px rgba(249,115,22,0.32); transition: transform 0.25s var(--spring), box-shadow 0.3s; }
+    .align-cta a:hover { transform: translateY(-2px); box-shadow: var(--shadow-h); }
+    @media (max-width: 720px) {
+      .align-sec { margin-bottom: 72px; }
+      .align-head { display: none; }
+      .align-row { grid-template-columns: 1fr; }
+      .align-arrow { padding: 2px; font-size: 1rem; background: transparent; transform: rotate(90deg); }
+      .align-cell.sap { border-top: 1px solid var(--border); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .align-row, .align-go, .align-cta a, .align-row:hover, .align-go:hover, .align-cta a:hover { transition: none; transform: none; }
+    }
+  </style>
+  <div class="wrap align-sec" id="alignment" role="region" aria-label="How my skills map to SAP's roadmap">
+    <div class="section-head">
+      <h2>Already Aligned With SAP's Autonomous Enterprise</h2>
+      <p>What I built independently maps 1:1 to SAP's roadmap — SAPPHIRE 2026, the Autonomous Enterprise</p>
+    </div>
+    <div class="align-intro">
+      <p>At SAPPHIRE 2026 SAP repositioned around the <em>Autonomous Enterprise</em> — knowledge graphs, agent reasoning on Anthropic Claude, MCP, and a suite of 200+ agents. I'd already built the same primitives solo on open tools. <em>SAP is now shipping natively what I run daily — so I land productive, not learning from zero.</em></p>
+    </div>
+    <div class="align-grid">
+      <div class="align-head"><span>What I built — solo, today</span><span></span><span>Where SAP is heading — SAPPHIRE 2026</span></div>
+
+      <div class="align-row">
+        <div class="align-cell mine">
+          <span class="align-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="6" r="2.4"/><circle cx="19" cy="7" r="2.4"/><circle cx="12" cy="18" r="2.4"/><path d="M7 7.3 17 8M6.4 8 11 15.7M17 9.2 13.2 16"/></svg></span>
+          <div class="align-txt"><b>Neo4j + Chroma grounding my agents</b><small>Knowledge graph + vector store I run for RAG retrieval &amp; agent reasoning</small></div>
+        </div>
+        <div class="align-arrow" aria-hidden="true">→</div>
+        <div class="align-cell sap">
+          <span class="sap-badge">SAP</span>
+          <div class="align-txt"><b>SAP Knowledge Graph — core of the Autonomous Enterprise</b><small>452K tables &amp; 7.3M semantic fields infused into agent reasoning</small></div>
+          <a class="align-go" href="sap-landscape/ai-transformation.html" aria-label="Explore SAP AI transformation on my SAP landscape map">↗</a>
+        </div>
+        <div class="align-proof"><span>SAP calls the Knowledge Graph "the secret to production-ready AI." <b>I already model agents on graph + vector grounding</b> — not learning the concept.</span></div>
+      </div>
+
+      <div class="align-row">
+        <div class="align-cell mine">
+          <span class="align-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V5M4 19h16M8 16l3.5-4 3 2.5L20 8"/></svg></span>
+          <div class="align-txt"><b>4 yrs Finance + S/4HANA FICO</b><small>I own the outcomes — close, AR/AP, treasury, audit, reporting</small></div>
+        </div>
+        <div class="align-arrow" aria-hidden="true">→</div>
+        <div class="align-cell sap">
+          <span class="sap-badge">SAP</span>
+          <div class="align-txt"><b>SAP-RPT-1.5 + 7 Finance Joule Assistants</b><small>Closing, AR churn &amp; dunning, Cash &amp; Treasury — RPT-1.5 tops the TabArena benchmark</small></div>
+          <a class="align-go" href="sap-landscape/by-process/finance.html" aria-label="Explore SAP Finance on my SAP landscape map">↗</a>
+        </div>
+        <div class="align-proof"><span>The Finance Assistants automate the <b>exact outcomes I already own</b> — I frame the use case &amp; judge the output, not just run the model.</span></div>
+      </div>
+
+      <div class="align-row">
+        <div class="align-cell mine">
+          <span class="align-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.2 5.6L20 10l-5.8 1.4L12 17l-2.2-5.6L4 10l5.8-1.4z"/></svg></span>
+          <div class="align-txt"><b>I build on Claude Code every day</b><small>My whole agent ecosystem runs on Anthropic Claude reasoning</small></div>
+        </div>
+        <div class="align-arrow" aria-hidden="true">→</div>
+        <div class="align-cell sap">
+          <span class="sap-badge">SAP</span>
+          <div class="align-txt"><b>Anthropic Claude — primary reasoning model for Joule</b><small>Named at SAPPHIRE 2026 to power agents across the Autonomous Suite</small></div>
+          <a class="align-go" href="sap-landscape/products/joule.html" aria-label="Explore SAP Joule on my SAP landscape map">↗</a>
+        </div>
+        <div class="align-proof"><span>SAP chose the <b>exact model I'm already fluent in</b> — I know its reasoning, limits &amp; prompt patterns from daily hands-on use.</span></div>
+      </div>
+
+      <div class="align-row">
+        <div class="align-cell mine">
+          <span class="align-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2v5M15 2v5M7 7h10v3a5 5 0 0 1-10 0z"/><path d="M12 15v4M12 19a3 3 0 0 0 3 3"/></svg></span>
+          <div class="align-txt"><b>34 MCP tools driving my agent harness</b><small>Agents grounded in live data through the Model Context Protocol</small></div>
+        </div>
+        <div class="align-arrow" aria-hidden="true">→</div>
+        <div class="align-cell sap">
+          <span class="sap-badge">SAP</span>
+          <div class="align-txt"><b>Joule connects natively over MCP</b><small>MCP links Joule to Copilot &amp; third-party agents; A2A protocol GA Q4 2026</small></div>
+          <a class="align-go" href="sap-landscape/products/btp.html" aria-label="Explore SAP BTP on my SAP landscape map">↗</a>
+        </div>
+        <div class="align-proof"><span>I've shipped <b>MCP-grounded agents for a year</b> — SAP made it Joule's native interop layer. No ramp-up needed.</span></div>
+      </div>
+
+      <div class="align-row">
+        <div class="align-cell mine">
+          <span class="align-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="18" r="2.2"/><circle cx="19" cy="18" r="2.2"/><path d="M11 7 6.2 16M13 7l4.8 9M7 18h10"/></svg></span>
+          <div class="align-txt"><b>10-project multi-agent ecosystem + model router</b><small>Agents collaborating across a multi-model routing layer</small></div>
+        </div>
+        <div class="align-arrow" aria-hidden="true">→</div>
+        <div class="align-cell sap">
+          <span class="sap-badge">SAP</span>
+          <div class="align-txt"><b>SAP Autonomous Suite — 200+ agents + Joule Studio 2.0</b><small>Agent-to-agent collaboration; pro-code agent building &amp; orchestration</small></div>
+          <a class="align-go" href="sap-landscape/products/joule.html" aria-label="Explore SAP Joule Studio on my SAP landscape map">↗</a>
+        </div>
+        <div class="align-proof"><span>Multi-agent orchestration &amp; model routing is <b>my daily practice</b> — the pro-code path SAP opened in Joule Studio 2.0.</span></div>
+      </div>
+
+      <div class="align-row">
+        <div class="align-cell mine">
+          <span class="align-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.2 8 11 4.6-2.8 8-6 8-11V5z"/><path d="M9 12l2 2 4-4"/></svg></span>
+          <div class="align-txt"><b>UAC daemon + 46 behavioral rules + hooks</b><small>A control plane I built to govern agent behavior, drift &amp; safety</small></div>
+        </div>
+        <div class="align-arrow" aria-hidden="true">→</div>
+        <div class="align-cell sap">
+          <span class="sap-badge">SAP</span>
+          <div class="align-txt"><b>SAP AI Agent Hub — Q3 2026</b><small>Central marketplace to discover, manage &amp; govern agents (680+ submissions)</small></div>
+          <a class="align-go" href="sap-landscape/products/btp.html" aria-label="Explore SAP BTP on my SAP landscape map">↗</a>
+        </div>
+        <div class="align-proof"><span>I already think in <b>agent governance — guardrails, tracing, drift control</b> — the discipline enterprises need before scaling agents.</span></div>
+      </div>
+    </div>
+    <div class="align-prov"><span>Tracked live from SAP SAPPHIRE 2026 · sources verified Jun 2026</span></div>
+    <div class="align-cta">
+      <p>Not just SAP-<span>certified</span> — SAP-<span>roadmap-ready</span>.</p>
+      <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=iam.sb.nayak@gmail.com&amp;su=SAP%20Techno-Functional%20role%20%E2%80%94%20Sashibhusan%20Nayak" target="_blank" rel="noopener">Let's talk →</a>
     </div>
   </div>
 
