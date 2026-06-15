@@ -609,10 +609,18 @@
     }
     /* ── How I Think ── */
     .how-sec { margin-top: 0; margin-bottom: 104px; scroll-margin-top: 90px; }
-    .how-thesis { max-width: 720px; margin: -12px auto 36px; text-align: center; }
-    .how-thesis p { font-size: 1rem; color: var(--text2); line-height: 1.7; }
-    .how-thesis p em { font-style: normal; font-weight: 800; color: var(--orange-d); }
-    .how-thesis p b { color: var(--text); font-weight: 800; }
+    .how-thesis { max-width: 860px; margin: -12px auto 38px; text-align: center; }
+    .how-lead { font-size: 0.92rem; color: var(--text2); font-weight: 600; margin-bottom: 20px; }
+    .how-shifts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px; }
+    .how-shift { background: var(--card); border: 1.5px solid var(--border); border-radius: 16px; padding: 20px 16px; display: flex; flex-direction: column; align-items: center; gap: 9px; text-align: center; box-shadow: var(--shadow); transition: transform 0.3s var(--spring), box-shadow 0.3s var(--ease), border-color 0.2s; }
+    .how-shift:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); border-color: var(--orange-m); }
+    .how-shift-ico { width: 42px; height: 42px; border-radius: 12px; background: var(--orange-l); border: 1px solid var(--orange-m); color: var(--orange-d); display: flex; align-items: center; justify-content: center; }
+    .how-shift-ico svg { width: 22px; height: 22px; }
+    .how-shift b { font-size: 0.92rem; font-weight: 800; color: var(--text); letter-spacing: -0.01em; }
+    .how-shift small { font-size: 0.8rem; color: var(--text2); line-height: 1.5; }
+    .how-shift small span { color: var(--orange-d); font-weight: 700; }
+    .how-aim { font-size: 1rem; color: var(--text2); line-height: 1.7; max-width: 640px; margin: 0 auto; }
+    .how-aim b { color: var(--text); font-weight: 800; }
     .how-brief { max-width: 1000px; margin: 0 auto; background: var(--card); border: 1.5px solid var(--border); border-radius: var(--r); box-shadow: var(--shadow); overflow: hidden; transition: transform 0.35s var(--spring), box-shadow 0.3s var(--ease); }
     .how-brief:hover { transform: translateY(-3px); box-shadow: var(--shadow-h); }
     .how-brief-head { padding: 24px 28px 18px; background: linear-gradient(160deg, #fff 60%, var(--orange-l) 100%); border-bottom: 1px dashed var(--border); }
@@ -624,23 +632,21 @@
     .how-lens:last-child { border-right: none; }
     .how-lens-ico { width: 34px; height: 34px; border-radius: 9px; background: var(--bg2); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--orange-d); }
     .how-lens-ico svg { width: 18px; height: 18px; }
-    .how-lens b { font-size: 0.86rem; font-weight: 800; color: var(--text); }
+    .how-lens b { font-size: 0.88rem; font-weight: 800; color: var(--text); line-height: 1.35; }
     .how-lens small { font-size: 0.78rem; color: var(--text2); line-height: 1.55; }
-    .how-call { padding: 18px 24px; background: var(--orange-l); border-top: 1px solid var(--orange-m); display: flex; gap: 14px; align-items: flex-start; }
-    .how-call-label { flex: none; background: var(--orange); color: #fff; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 11px; border-radius: 8px; box-shadow: 0 2px 8px rgba(249,115,22,0.35); margin-top: 1px; }
-    .how-call p { font-size: 0.86rem; color: var(--text); line-height: 1.6; }
-    .how-call p b { color: var(--orange-d); font-weight: 800; }
-    .how-call .how-flip { font-weight: 800; color: var(--text); }
+    .how-lens small span { color: var(--text); font-weight: 700; }
+    .how-move-tag { display: inline-flex; align-self: flex-start; align-items: center; font-size: 0.66rem; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; background: var(--orange-l); border: 1px solid var(--orange-m); color: var(--orange-d); margin-bottom: 2px; }
     .how-foot { text-align: center; margin-top: 30px; }
     .how-foot p { font-size: 1.08rem; font-weight: 800; color: var(--text); letter-spacing: -0.01em; margin-bottom: 8px; }
     .how-foot p span { color: var(--orange-d); }
     .how-foot small { display: block; font-size: 0.8rem; color: var(--muted); font-style: italic; }
     @media (max-width: 720px) {
       .how-sec { margin-bottom: 72px; }
+      .how-shifts { grid-template-columns: 1fr; gap: 10px; }
+      .how-shift { flex-direction: row; text-align: left; justify-content: flex-start; }
       .how-lenses { grid-template-columns: 1fr; }
       .how-lens { border-right: none; border-bottom: 1px solid var(--border); }
       .how-lens:last-child { border-bottom: none; }
-      .how-call { flex-direction: column; gap: 10px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .how-brief, .how-brief:hover { transition: none; transform: none; }
@@ -756,41 +762,55 @@
     </div>
 
     <div class="how-thesis">
-      <p>Three shifts are quietly closing the old SAP job. <em>Clean Core</em> turns config into technical debt. <em>AI</em> eats the routine work. <em>Self-service</em> thins the translator layer between business and system. I'm not claiming I'm ready — I'm claiming I'm <b>aimed</b>. Most people twice my experience haven't looked up yet.</p>
+      <p class="how-lead">Three shifts are quietly closing the old SAP job:</p>
+      <div class="how-shifts">
+        <div class="how-shift">
+          <span class="how-shift-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 11 1.9-5.7A2 2 0 0 1 6.8 4h10.4a2 2 0 0 1 1.9 1.3L21 11"/><path d="M3 11h18v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m8.5 15 1.5 1.5L14 13"/></svg></span>
+          <b>Clean Core</b>
+          <small>turns config into <span>technical debt</span></small>
+        </div>
+        <div class="how-shift">
+          <span class="how-shift-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg></span>
+          <b>AI</b>
+          <small>eats the <span>routine work</span></small>
+        </div>
+        <div class="how-shift">
+          <span class="how-shift-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11h-6"/></svg></span>
+          <b>Self-service</b>
+          <small>thins the <span>translator layer</span></small>
+        </div>
+      </div>
+      <p class="how-aim">I'm not claiming I'm ready — I'm claiming I'm <b>aimed</b>. Most people twice my experience haven't looked up yet.</p>
     </div>
 
     <div class="how-brief">
       <div class="how-brief-head">
-        <span class="how-tag">Decision brief</span>
-        <h3>RISE with SAP, or stay on-premise? — a mid-market firm, 2026</h3>
-        <p>The kind of million-dollar call where the CFO doesn't speak the tech and the CIO doesn't speak the business. Here's how I'd frame it.</p>
+        <span class="how-tag">So — what am I doing about it?</span>
+        <h3>Not waiting for the shift. Training onto the right side of it.</h3>
+        <p>Each force that retires the old role is a force I'm deliberately building into. One concrete move against each:</p>
       </div>
       <div class="how-lenses">
         <div class="how-lens">
-          <span class="how-lens-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
-          <b>Finance lens</b>
-          <small>Capex&nbsp;→&nbsp;opex shift, 5-year TCO vs. an on-prem refresh, audit &amp; compliance continuity, and who owns the depreciation story.</small>
+          <span class="how-move-tag" aria-hidden="true">vs Clean Core</span>
+          <b>Learn SAP's clean way from day one</b>
+          <small>BTP side-by-side extensions, Build &amp; Joule Studio, S/4HANA standard — <span>zero ECC config habits to unlearn.</span></small>
         </div>
         <div class="how-lens">
-          <span class="how-lens-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg></span>
-          <b>Tech lens</b>
-          <small>Clean Core readiness, how much custom-code debt to retire, what moves to BTP side-by-side extensions, and where Joule &amp; agents actually fit.</small>
+          <span class="how-move-tag" aria-hidden="true">vs AI</span>
+          <b>Build the agents — don't get automated by them</b>
+          <small>Shipped a 10-project agentic-AI platform: Neo4j, Chroma, MCP, Docker. <span>I automate routine work; I'm not the routine.</span></small>
         </div>
         <div class="how-lens">
-          <span class="how-lens-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 5v6c0 5 3.4 8.2 8 11 4.6-2.8 8-6 8-11V5z"/><path d="M12 9v4"/><path d="M12 16h.01"/></svg></span>
-          <b>Risk lens</b>
-          <small>The month-six migration traps, change-management resistance, and which stakeholders quietly sabotage a Clean Core move.</small>
+          <span class="how-move-tag" aria-hidden="true">vs Self-service</span>
+          <b>Move up to the layer that survives</b>
+          <small>Finance domain (FICO + MBA) × system design — <span>the bilingual layer self-service can't thin.</span></small>
         </div>
-      </div>
-      <div class="how-call">
-        <span class="how-call-label" aria-hidden="true">My call</span>
-        <p>For most mid-market firms: <b>RISE, phased</b> — lead with finance and the standardized processes, park the genuinely differentiating logic on BTP. <span class="how-flip">The call flips if</span> the firm's real edge lives inside heavily-customized core processes — then a private-cloud bridge buys time to re-architect without betting the business on a big-bang cutover.</p>
       </div>
     </div>
 
     <div class="how-foot">
-      <p>I don't configure the decision — I help <span>shape</span> it.</p>
-      <small>The window everyone's now warning about? I saw it before I had anything to protect.</small>
+      <p>Every shift that ends the old role is one I'm <span>building toward</span> — on purpose.</p>
+      <small>The window everyone's now warning about? I started walking through it before I had anything to protect.</small>
     </div>
   </div>
 
