@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="description" content="Floor 2 of the computer science tower: physical hardware. From ENIAC's vacuum tubes (1945) to the transistor (1947), the Intel 4004 microprocessor (1971), the GPU, and NVIDIA's DGX Spark personal AI supercomputer (2025).">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/floors/02-hardware.html">
+  <meta property="og:title" content="Floor 2 — Physical Hardware | CS Tower">
+  <meta property="og:description" content="Silicon that computes: tubes, transistors, microprocessors, GPUs — and why hardware is suddenly king again.">
+  <meta property="og:type" content="article">
+  <title>Floor 2 — Physical Hardware | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../#tower">The Floors</a>
+      <a href="../timeline.html">Timeline</a>
+      <a href="../the-2017-cascade.html">The 2017 Cascade</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="../">Tower</a><span class="sep">/</span><span>Floor 2 — Physical Hardware</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f2">Floor 2 · the machine</span>
+    <h1>Physical <em>Hardware</em></h1>
+    <p class="hero-sub">
+      Here the mathematics of Floor 1 becomes a real object you can hold: electricity flowing through switches
+      etched in silicon. This is the story of those switches shrinking — from a room full of glowing tubes in 1945
+      to billions of transistors on a fingernail, and the chip that now trains AI.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <div class="panel">
+      <h3><span class="pic">💻</span> What this floor is</h3>
+      <p>
+        Every computer is, underneath, a vast collection of tiny electrical <strong>switches</strong>. A switch that
+        is on means 1; off means 0. Arrange enough of them and wire them with the logic from Floor 1, and they can
+        add, compare, remember, and decide. Floor 2 is the physics and engineering of making those switches
+        smaller, faster, cheaper, and more numerous — the single trend that has driven computing for 80 years.
+      </p>
+    </div>
+
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>Three layers of real hardware, bottom to top.</p></div>
+
+    <div class="panel">
+      <h3><span class="pic">🔘</span> 1. The switch: tube → transistor</h3>
+      <p>
+        The first electronic computers used <strong>vacuum tubes</strong> — fragile glass switches the size of a
+        thumb that ran hot and burned out constantly. Then in <strong>1947</strong>, three physicists at
+        <span class="term">Bell Labs<span class="tip">John Bardeen, Walter Brattain and William Shockley built the first working point-contact transistor in December 1947; it was announced in 1948. They later shared the Nobel Prize.</span></span>
+        built the <strong>transistor</strong>: a switch with no glass and no vacuum, just a sliver of solid material.
+        It was smaller, cooler, faster and far more reliable. Every chip since is a city of transistors.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 The scale of the shrink</div>
+        <p>
+          ENIAC (1945) used roughly <strong>17,000 vacuum tubes</strong> and filled a room. A modern phone chip packs
+          well over <strong>ten billion transistors</strong> into a fingernail. Same idea — an electrical switch —
+          shrunk by a factor of millions.
+        </p>
+      </div>
+      <div class="figure-row">
+        <figure class="figure"><img src="../assets/img/vacuum-tube.jpg" alt="Glowing vacuum tubes" loading="lazy">
+          <figcaption><b>Vacuum tubes.</b> The original electronic switch — hot, fragile, and prone to burning out.</figcaption></figure>
+        <figure class="figure"><img src="../assets/img/eniac.jpg" alt="The ENIAC computer — rows of cabinets filled with vacuum tubes" loading="lazy">
+          <figcaption><b>ENIAC, 1945.</b> Thousands of vacuum tubes filling a room — the first general-purpose electronic computer.</figcaption></figure>
+        <figure class="figure"><img src="../assets/img/transistor.jpg" alt="An assortment of discrete transistors in various packages" loading="lazy">
+          <figcaption><b>Transistors.</b> The solid-state switch — first built at Bell Labs in 1947 — that replaced the fragile vacuum tube and shrank the computer.</figcaption></figure>
+      </div>
+      <div class="cause f2">
+        <div class="need"><span class="ck">The real need</span><p>The telephone network ran on <strong>millions of vacuum tubes</strong> that burned out constantly and needed replacing — an unreliable, power-hungry mess.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>Bell Labs set out to build a switch that <strong>never burned out</strong>. The result — the transistor — became the building block of <strong>all</strong> modern electronics.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🔲</span> 2. Putting it all on one chip: the microprocessor</h3>
+      <p>
+        At first, transistors were wired together by hand. The breakthrough was printing thousands of them onto a
+        single piece of silicon. On <strong>15 November 1971</strong>, Intel released the
+        <span class="term">Intel 4004<span class="tip">The first commercial microprocessor. About 2,300 transistors, a 4-bit design, built on a 10-micrometre process, priced at US$60.</span></span> —
+        the first commercial <strong>microprocessor</strong>: an entire computer's "brain" (the CPU) on one chip
+        about the size of a fingernail, holding around <strong>2,300 transistors</strong>.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Why this changed everything</div>
+        <p>
+          Once a CPU was one cheap chip, computers could leave the air-conditioned room and go anywhere — onto desks,
+          into cars, into phones. The personal computer, the smartphone, and the smart everything-else all start with
+          the 4004 in 1971.
+        </p>
+      </div>
+      <div class="figure-row">
+        <figure class="figure contain"><img src="../assets/img/intel-4004.jpg" alt="The Intel 4004 microprocessor chip" loading="lazy">
+          <figcaption><b>Intel 4004, 1971.</b> A whole CPU — about 2,300 transistors — on one fingernail-sized chip.</figcaption></figure>
+        <figure class="figure contain"><img src="../assets/img/ic.jpg" alt="An integrated circuit chip" loading="lazy">
+          <figcaption><b>The integrated circuit.</b> Many transistors printed on one piece of silicon — the step that made the microprocessor possible.</figcaption></figure>
+      </div>
+      <div class="cause f2">
+        <div class="need"><span class="ck">The real need</span><p>A missile or a spacecraft needs a computer that is <strong>tiny, light, low-power and rugged</strong>. The <span class="term">Minuteman II missile<span class="tip">The Minuteman II guidance computer and the Apollo Guidance Computer were among the first machines built almost entirely from integrated circuits. US space and defence buying was roughly a third of the whole chip market in the 1960s.</span></span> and the Apollo program needed exactly that.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>Only the integrated circuit could meet it — so the military and NASA <strong>bought enough chips to make them cheap for everyone</strong>. The Minuteman missile, more than anything, forced the chip into mass production.</p></div>
+      </div>
+      <div class="cause f2">
+        <div class="need"><span class="ck">The real need</span><p>A Japanese calculator company, <strong>Busicom</strong>, ordered a set of custom chips for a desktop calculator in 1969.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>Intel's Ted Hoff proposed <strong>one general-purpose programmable chip</strong> instead of many special ones — and the microprocessor was born, by accident, out of a calculator order.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🟩</span> 3. Two kinds of brain: CPU and GPU</h3>
+      <p>
+        A <strong>CPU</strong> has a few very capable cores that do complex tasks one after another — great for
+        general work. A <strong>GPU</strong> (graphics processing unit) has <em>thousands</em> of simpler cores that
+        all do the same kind of math <strong>at the same time</strong>. GPUs were built to colour millions of pixels
+        for video games — but "do the same math on huge grids of numbers, all at once" is exactly what the linear
+        algebra of Floor 1 needs.
+      </p>
+      <div class="scenario">
+        <div class="lbl">⚡ The 2017 connection</div>
+        <p>
+          When the 2017 Transformer turned AI into massively parallel matrix math, the GPU was suddenly the perfect
+          machine for it. That is why <strong>NVIDIA</strong> — a graphics-card company — became the engine room of
+          the AI era, and why GPUs are now the most fought-over hardware on Earth.
+        </p>
+      </div>
+      <figure class="figure contain"><img src="../assets/img/gpu.png" alt="A modern graphics processing unit (GPU) card" loading="lazy">
+        <figcaption><b>A modern GPU.</b> Thousands of small cores doing the same math at once — built for game graphics, now the engine of AI training.</figcaption></figure>
+    </div>
+
+    <!-- evolution -->
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>One unbroken trend: the switch keeps shrinking.</p></div>
+
+    <div class="eras">
+      <div class="era past"><span class="tag">Then</span><h4>A room of glowing tubes</h4><p>1945: ENIAC filled a large room, weighed about 30 tons, and used thousands of hot, fragile vacuum tubes that failed often.</p></div>
+      <div class="era now"><span class="tag">Now</span><h4>Billions on a fingernail</h4><p>Modern chips hold tens of billions of transistors, sip battery power, and pack data-centre power onto a desktop.</p></div>
+      <div class="era next"><span class="tag">Next</span><h4>AI-shaped silicon</h4><p>Chips designed specifically for AI math — and personal AI supercomputers — are now the cutting edge, with quantum and brain-inspired chips on the horizon.</p></div>
+    </div>
+
+    <div class="milestone">
+      <div class="yr">1945</div>
+      <div class="mt"><b>ENIAC — the first general-purpose electronic computer</b><p>Completed in 1945 at the University of Pennsylvania for the US Army, ENIAC could do about 5,000 additions a second using ~17,000 vacuum tubes. It proved a machine could compute at electronic speed.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1947</div>
+      <div class="mt"><b>The transistor is invented</b><p>At Bell Labs, Bardeen, Brattain and Shockley build the first transistor — the solid-state switch that replaced the vacuum tube and made everything after it possible.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1958</div>
+      <div class="mt"><b>The integrated circuit — escaping the "tyranny of numbers"</b><p>Jack Kilby (1958) and Robert Noyce (1959) independently print several transistors onto one chip. Complex machines had needed so many hand-soldered parts that they were becoming impossible to build; the IC was the way out — and the direct ancestor of every processor.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1959</div>
+      <div class="mt"><b>IBM 7090 — computing goes transistorised</b><p>One of the first fully transistorised commercial mainframes (a transistor-based successor to IBM's tube machines). Far faster and more reliable, it ran scientific work for organisations including NASA.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1971</div>
+      <div class="mt"><b>Intel 4004 — the first microprocessor</b><p>A whole CPU on one chip with ~2,300 transistors. It put computing on a path off the data-centre floor and into everyday devices.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2025</div>
+      <div class="mt"><b>NVIDIA DGX Spark — a personal AI supercomputer</b><p>Shipped in October 2025 for about $3,999 on the Grace Blackwell (GB10) chip, with a larger sibling, the DGX Station. Data-centre-class AI power, sitting on a desk — the cascade made physical.</p></div>
+    </div>
+
+    <!-- role in cascade -->
+    <div class="panel" style="margin-top:30px;">
+      <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
+      <p>
+        Floor 2 is where the cascade became <strong>visible and expensive</strong>. The moment Floor 1's new math
+        demanded parallel hardware, the GPU went from a gaming part to the most valuable silicon in the world. Whole
+        companies re-oriented around it; new chips and personal AI supercomputers appeared; and value flowed back down
+        to the hardware floor so strongly that, in April 2026, <strong>Apple chose a hardware engineer, John Ternus,
+        as its next CEO.</strong> In the age of AI, the chip is the kingdom.
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="01-theory.html"><span class="ic">📚</span><span class="tx"><b>Down to Floor 1</b><span>Theory &amp; Mathematics</span></span></a>
+      <a class="next-link" href="03-architecture-os.html"><span class="ic">⚙️</span><span class="tx"><b>Up to Floor 3</b><span>Architecture &amp; Operating Systems</span></span></a>
+      <a class="next-link" href="../the-2017-cascade.html"><span class="ic">⚡</span><span class="tx"><b>The 2017 cascade</b><span>Why hardware is king again</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links"><a href="01-theory.html">← Floor 1</a><a href="03-architecture-os.html">Floor 3 →</a><a href="../../community/">Community</a></div>
+  </div>
+  <div class="wrap"><p class="footer-note">Dates verified against primary references: ENIAC (1945), the transistor (1947), the integrated circuit (1958–59), Minuteman/Apollo driving IC mass-production (1960s), Intel 4004 (15 Nov 1971), NVIDIA DGX Spark (Oct 2025). Photographs via Wikimedia Commons.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

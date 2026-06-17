@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="description" content="Floor 1 of the computer science tower: theory and mathematics. Logic, Turing's 1936 model of computation, Shannon's information theory, complexity (P vs NP), and the linear algebra that the 2017 Transformer is built from.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/floors/01-theory.html">
+  <meta property="og:title" content="Floor 1 — Theory & Mathematics | CS Tower">
+  <meta property="og:description" content="The bedrock: logic, computability, complexity, and the algebra behind AI. The floor that changed in 2017.">
+  <meta property="og:type" content="article">
+  <title>Floor 1 — Theory &amp; Mathematics | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../#tower">The Floors</a>
+      <a href="../timeline.html">Timeline</a>
+      <a href="../the-2017-cascade.html">The 2017 Cascade</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="../">Tower</a><span class="sep">/</span><span>Floor 1 — Theory &amp; Mathematics</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f1">Floor 1 · the bedrock</span>
+    <h1>Theory &amp; <em>Mathematics</em></h1>
+    <p class="hero-sub">
+      Before any computer existed, mathematicians worked out what a machine could and could not do.
+      This floor is pure thought: logic, the definition of "computation" itself, how hard problems are,
+      and the algebra that — in 2017 — gave us the Transformer. Everything above stands on this.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <div class="panel">
+      <h3><span class="pic">📚</span> What this floor is</h3>
+      <p>
+        Floor 1 doesn't need electricity. It is the mathematics of <em>information and computation</em>:
+        what counts as a step, what can be solved, how long solving takes, and how to represent knowledge as numbers.
+        A programmer rarely touches it directly — but every chip, algorithm and AI model is an answer to a
+        question first asked here.
+      </p>
+      <p>
+        It matters for one reason this whole guide is built on: a change here doesn't stay here. Redefine what
+        "computing efficiently" means, and you redraw every floor above.
+      </p>
+    </div>
+
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>Four foundations, each with a real situation where it shows up.</p></div>
+
+    <div class="panel">
+      <h3><span class="pic">🧠</span> 1. What a computer even <em>is</em> (computability)</h3>
+      <p>
+        In <strong>1936</strong>, <span class="term">Alan Turing<span class="tip">British mathematician, 1912–1954. His 1936 paper "On Computable Numbers" defined the abstract machine that became the model for every real computer.</span></span>
+        described an imaginary machine — a strip of tape and a head that reads and writes symbols — and proved
+        something startling: this simple device can compute <em>anything</em> that can be computed at all. He also
+        proved the opposite limit: some questions <strong>no</strong> computer can ever answer, such as deciding in
+        advance whether any given program will eventually stop or loop forever (the <em>halting problem</em>).
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          Every time an app freezes on an "infinite loading" spinner, you are looking at the halting problem.
+          Turing proved in 1936 that no tool can perfectly detect, ahead of time, that a program will hang —
+          which is exactly why crashes can never be fully designed away.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">📶</span> 2. Measuring information itself (information theory)</h3>
+      <p>
+        In <strong>1948</strong>, <span class="term">Claude Shannon<span class="tip">American mathematician, 1916–2001. His 1948 paper "A Mathematical Theory of Communication" founded information theory and named the "bit".</span></span>
+        published "A Mathematical Theory of Communication." He showed that <em>any</em> message — text, sound, an
+        image — can be measured in a single unit he named the <strong>bit</strong>, and he set the hard limits on
+        how much you can compress data and how fast you can send it through a noisy channel without errors.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          A song streaming cleanly over a weak signal, a photo shrinking into a small file, a video call surviving
+          a patchy connection — all of it runs on the limits Shannon proved in 1948. He is the reason "bit" is a word.
+        </p>
+      </div>
+      <div class="figure-row">
+        <figure class="figure"><img src="../assets/img/turing.jpg" alt="Photograph of Alan Turing" loading="lazy">
+          <figcaption><b>Alan Turing (1912–1954).</b> Defined "computation" with pure mathematics in 1936 — before any computer existed.</figcaption></figure>
+        <figure class="figure"><img src="../assets/img/shannon.jpg" alt="Photograph of Claude Shannon" loading="lazy">
+          <figcaption><b>Claude Shannon (1916–2001).</b> Named the "bit" and founded information theory in 1948.</figcaption></figure>
+      </div>
+      <div class="cause f1">
+        <div class="need"><span class="ck">The real need</span><p>Mathematicians wanted to know if every true statement could be proved by a fixed mechanical procedure (the <strong>Entscheidungsproblem</strong>).</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>To prove the answer was "no," Turing first had to <strong>define a machine that follows steps</strong> — and that definition became the blueprint for every computer.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">⏱️</span> 3. How hard is a problem? (complexity &amp; P vs NP)</h3>
+      <p>
+        Some problems are quick to solve; others are quick only to <em>check</em>. The deepest open question in
+        computer science, the <span class="term">P versus NP problem<span class="tip">One of the seven Millennium Prize Problems, each carrying a US$1,000,000 award. Stated precisely by Stephen Cook in 1971, and independently by Leonid Levin in 1973.</span></span>,
+        asks whether every problem whose answer is fast to <em>verify</em> is also fast to <em>solve</em>. It was
+        stated precisely by <strong>Stephen Cook in 1971</strong> (and independently by Leonid Levin in 1973), and
+        remains unsolved — a standing <strong>$1,000,000</strong> prize.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          It is easy to <em>check</em> a finished Sudoku, but hard to <em>fill one in</em>. That gap is the whole
+          point of P vs NP — and it is the reason online security works: scrambling a password is fast, unscrambling
+          it without the key is (as far as anyone can prove) impossibly slow.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🔢</span> 4. Turning meaning into numbers (linear algebra)</h3>
+      <p>
+        Computers don't understand words or pictures — they understand <strong>numbers in grids</strong>, called
+        <em>vectors</em> and <em>matrices</em>. The branch of math for combining those grids is
+        <strong>linear algebra</strong>. Represent a word as a list of numbers, and "similar meaning" becomes
+        "close together," while "combine these ideas" becomes "multiply these matrices."
+      </p>
+      <div class="scenario">
+        <div class="lbl">⚡ Why this is the floor that changed in 2017</div>
+        <p>
+          The 2017 Transformer reframed "understand this sentence" as a giant pile of matrix multiplications — pure
+          linear algebra. That single mathematical choice is what made modern AI possible, because matrix math can be
+          run on thousands of processors <strong>at once</strong>. The idea lives here on Floor 1; its consequences
+          fill every floor above. <a href="../the-2017-cascade.html">See the cascade →</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- evolution -->
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>The bedrock moves rarely — but when it does, everything moves.</p></div>
+
+    <div class="eras">
+      <div class="era past"><span class="tag">Then</span><h4>Paper &amp; proof</h4><p>From the 1930s, logicians like Turing and Church defined computation with nothing but pencil and paper — decades before a single circuit was built.</p></div>
+      <div class="era now"><span class="tag">Now</span><h4>The math runs the world</h4><p>Cryptography secures every login; complexity theory shapes every algorithm; linear algebra powers every AI model. Theory is no longer abstract — it is infrastructure.</p></div>
+      <div class="era next"><span class="tag">Next</span><h4>Quantum &amp; new algorithms</h4><p>Quantum computing redefines what "a step" means, and new architectures (like the Transformer) keep rewriting which problems are practical. The floor is still moving.</p></div>
+    </div>
+
+    <div class="milestone">
+      <div class="yr">1936</div>
+      <div class="mt"><b>Turing's "On Computable Numbers"</b><p>Alan Turing defines the abstract machine that models every computer ever built — years before the hardware existed. The blueprint of computing starts as a piece of pure mathematics.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1948</div>
+      <div class="mt"><b>Shannon founds information theory</b><p>"A Mathematical Theory of Communication" gives the world the bit, and the laws of compression and error-free transmission that the entire internet still obeys.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1971</div>
+      <div class="mt"><b>Cook states P vs NP</b><p>Stephen Cook formalises the question of which problems are truly hard. It becomes the most famous unsolved problem in computer science — and the bedrock under modern cryptography.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2017</div>
+      <div class="mt"><b>The Transformer — a new algorithm</b><p>"Attention Is All You Need" reframes understanding language as parallel linear algebra. A Floor-1 change that rebuilt every floor above it.</p></div>
+    </div>
+
+    <!-- role in cascade -->
+    <div class="panel" style="margin-top:30px;">
+      <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
+      <p>
+        Floor 1 is the <strong>source</strong> of the cascade. The Transformer was not a faster chip or a new app —
+        it was a new <em>algorithm</em>, a fresh piece of mathematics about how to process a sequence. Because it lives
+        on the bottom floor, and because it happened to be expressible as massively parallel matrix math, it forced
+        new hardware, new systems, new software, and a whole new AI floor into existence. When people ask "why is this
+        AI wave different?", the honest answer is: <strong>the bedrock changed.</strong>
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="02-hardware.html"><span class="ic">💻</span><span class="tx"><b>Up to Floor 2</b><span>Physical Hardware</span></span></a>
+      <a class="next-link" href="../the-2017-cascade.html"><span class="ic">⚡</span><span class="tx"><b>The 2017 cascade</b><span>Where this floor's change went</span></span></a>
+      <a class="next-link" href="../timeline.html"><span class="ic">🕰️</span><span class="tx"><b>Full timeline</b><span>1936 → today</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links"><a href="../">Tower home</a><a href="02-hardware.html">Floor 2 →</a><a href="../../community/">Community</a></div>
+  </div>
+  <div class="wrap"><p class="footer-note">Dates verified against primary references: Turing (1936), Shannon (1948), Cook's P-vs-NP (1971), the Transformer paper (2017). Photographs via Wikimedia Commons.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

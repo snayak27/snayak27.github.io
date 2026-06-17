@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="description" content="Floor 4 of the computer science tower: networking and the internet. Packet switching and ARPANET (1969), TCP/IP (1983), the Domain Name System (1983), the World Wide Web (1989), the cloud, and the distributed clusters that train AI.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/floors/04-networking.html">
+  <meta property="og:title" content="Floor 4 — Networking & the Internet | CS Tower">
+  <meta property="og:type" content="article">
+  <title>Floor 4 — Networking &amp; the Internet | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../#tower">The Floors</a>
+      <a href="../timeline.html">Timeline</a>
+      <a href="../the-2017-cascade.html">The 2017 Cascade</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="../">Tower</a><span class="sep">/</span><span>Floor 4 — Networking &amp; the Internet</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f4">Floor 4 · the connection</span>
+    <h1>Networking &amp; the <em>Internet</em></h1>
+    <p class="hero-sub">
+      One computer is useful. Billions of computers that can talk to each other changed civilisation. This floor is
+      the set of agreements that let any machine reach any other — and, today, the wiring that lets thousands of
+      computers act as one to train an AI.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <div class="panel">
+      <h3><span class="pic">🌐</span> What this floor is</h3>
+      <p>
+        Networking is a stack of shared <strong>protocols</strong> — rules every computer agrees to follow so a
+        message sent by one is understood by another. Those rules cover how to break a message into pieces, how to
+        address it, how to find the destination, and how to rebuild it on arrival. Get everyone to agree, and a phone
+        in Bengaluru can reach a server in Virginia in a heartbeat.
+      </p>
+    </div>
+
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+
+    <div class="panel">
+      <h3><span class="pic">📦</span> 1. Packet switching</h3>
+      <p>
+        Instead of one continuous wire between sender and receiver, the internet chops every message into small
+        numbered <strong>packets</strong> that travel independently and are reassembled at the other end. This idea
+        powered <span class="term">ARPANET<span class="tip">The research network funded by the US ARPA agency. Its first host-to-host message was sent on 29 October 1969 — the ancestor of the internet.</span></span>,
+        whose first message was sent on <strong>29 October 1969</strong>. Packets can take different routes and dodge
+        failures, which is why the internet is so hard to break.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          A video call surviving a shaky connection — freezing for a second, then catching up — is packet switching:
+          lost packets are simply re-sent, while the rest keep flowing.
+        </p>
+      </div>
+      <figure class="figure contain"><img src="../assets/img/arpanet.png" alt="A map of the early ARPANET network" loading="lazy">
+        <figcaption><b>ARPANET, around 1969.</b> A handful of university computers — the seed of the entire internet.</figcaption></figure>
+      <div class="cause f4">
+        <div class="need"><span class="ck">The real need</span><p>Research computers were <strong>rare and hugely expensive</strong>, and ARPA wanted scattered labs to share them. There was also a Cold-War wish for communication that could <strong>survive parts of the network being destroyed</strong>.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p><strong>Packet switching</strong> — chopping messages into pieces that each find their own route — so no single broken link could stop the conversation.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🤝</span> 2. The common language: TCP/IP and DNS</h3>
+      <p>
+        For a global network, everyone needs the <em>same</em> rules. <strong>TCP/IP</strong> — adopted across the
+        ARPANET on <strong>1 January 1983</strong> — became that universal language, giving every machine an address
+        and a reliable way to exchange packets. But numbers are hard to remember, so the
+        <span class="term">Domain Name System<span class="tip">Introduced in November 1983 by Paul Mockapetris. DNS translates human names like youtube.com into the numeric IP addresses computers use.</span></span>,
+        introduced in <strong>November 1983</strong> by Paul Mockapetris, became the internet's phone book —
+        translating a name like <code>youtube.com</code> into the numeric address machines actually use.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          Every time you type a website name instead of a string of numbers, DNS does an instant lookup in the
+          background. It has quietly performed this translation for you since 1983.
+        </p>
+      </div>
+      <div class="cause f4">
+        <div class="need"><span class="ck">The real need</span><p>Early on, every computer kept one shared file, <code>HOSTS.TXT</code>, listing every machine's name and number — copied around by hand. As the network grew, that file <strong>stopped scaling</strong>.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p><strong>DNS (1983)</strong> spread the lookup across thousands of cooperating servers, so the internet could keep adding names forever without one file falling over.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🕸️</span> 3. The Web, and then the cloud</h3>
+      <p>
+        The internet is the road; the <span class="term">World Wide Web<span class="tip">Invented by Tim Berners-Lee at CERN — proposed in 1989 and opened to the public on 6 August 1991. The system of linked pages that runs on top of the internet.</span></span>
+        is what most people drive on it. Proposed by Tim Berners-Lee at <strong>CERN in 1989</strong> and opened to
+        the public in <strong>1991</strong>, it added linked pages and addresses (URLs). Later, the <strong>cloud</strong>
+        (from around 2006) let anyone rent computing power in giant remote data centres instead of owning it.
+      </p>
+      <figure class="figure contain"><img src="../assets/img/www.png" alt="The NeXT computer used as the first web server at CERN" loading="lazy">
+        <figcaption><b>The first web server, CERN, 1990.</b> Berners-Lee built the Web so scientists on incompatible machines could finally share documents.</figcaption></figure>
+      <div class="cause f4">
+        <div class="need"><span class="ck">The real need</span><p>CERN's scientists used <strong>many incompatible computers</strong> and kept losing track of each other's documents and data.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>Berners-Lee invented <strong>one simple way to link information</strong> across all of them — pages, links and URLs. That is the World Wide Web.</p></div>
+      </div>
+      <div class="scenario">
+        <div class="lbl">⚡ The 2017 connection</div>
+        <p>
+          A modern AI model is far too big for one computer. It is trained across <strong>thousands of GPUs wired
+          together</strong>, constantly exchanging huge bundles of numbers. After 2017, data-centre networking and
+          the cloud were rebuilt around moving that flood of data fast enough — networking became a core part of how
+          AI is even possible.
+        </p>
+      </div>
+    </div>
+
+    <!-- evolution -->
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="eras">
+      <div class="era past"><span class="tag">Then</span><h4>A few research machines</h4><p>1969: a handful of university computers linked by ARPANET, exchanging the first fragile packets.</p></div>
+      <div class="era now"><span class="tag">Now</span><h4>Billions of devices, one cloud</h4><p>The whole planet is connected, and computing power is rented on demand from vast data centres anywhere on Earth.</p></div>
+      <div class="era next"><span class="tag">Next</span><h4>The network as a supercomputer</h4><p>Thousands of accelerators wired so tightly they behave as a single machine to train ever-larger AI models.</p></div>
+    </div>
+
+    <div class="milestone">
+      <div class="yr">1969</div>
+      <div class="mt"><b>ARPANET's first message</b><p>On 29 October 1969 the first host-to-host message travelled over a packet-switched network — the moment the internet's story begins.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1983</div>
+      <div class="mt"><b>TCP/IP and DNS</b><p>TCP/IP becomes the internet's universal language (1 Jan 1983), and DNS (Nov 1983) gives the network its human-readable phone book.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1989 → 1991</div>
+      <div class="mt"><b>The World Wide Web</b><p>Tim Berners-Lee proposes the Web at CERN in 1989; it opens to the public in 1991 and becomes how the world uses the internet.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2006 →</div>
+      <div class="mt"><b>The cloud</b><p>Renting computing power on demand turns the data centre into a utility — and later, into the place where AI is trained.</p></div>
+    </div>
+
+    <figure class="figure contain"><img src="../assets/img/data-center.jpg" alt="Rows of servers inside a data centre" loading="lazy">
+      <figcaption><b>Inside a data centre.</b> The "cloud" is rooms like this — and where a modern AI model is trained across thousands of networked machines acting as one.</figcaption></figure>
+
+    <div class="panel" style="margin-top:30px;">
+      <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
+      <p>
+        Floor 4 turned <strong>many machines into one</strong>. Training a Transformer-based model is too big for any
+        single computer, so the network itself became part of the processor — thousands of GPUs exchanging gradients
+        across high-speed links. The cloud made that power rentable by anyone. Without this floor, the 2017 idea would
+        have stayed a clever paper; with it, the idea could be scaled to planet size.
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="03-architecture-os.html"><span class="ic">⚙️</span><span class="tx"><b>Down to Floor 3</b><span>Architecture &amp; OS</span></span></a>
+      <a class="next-link" href="05-data-software.html"><span class="ic">🧱</span><span class="tx"><b>Up to Floor 5</b><span>Data, Algorithms &amp; Software</span></span></a>
+      <a class="next-link" href="../the-2017-cascade.html"><span class="ic">⚡</span><span class="tx"><b>The 2017 cascade</b><span>How training went planetary</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links"><a href="03-architecture-os.html">← Floor 3</a><a href="05-data-software.html">Floor 5 →</a><a href="../../community/">Community</a></div>
+  </div>
+  <div class="wrap"><p class="footer-note">Dates verified against primary references: ARPANET (29 Oct 1969), TCP/IP (1 Jan 1983), DNS (Nov 1983), the Web (1989–1991). Photographs via Wikimedia Commons.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

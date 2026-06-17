@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="description" content="Floor 6 of the computer science tower: artificial intelligence. From the 1956 Dartmouth workshop and the perceptron to AlexNet (2012), the 2017 Transformer, and the Large Language Models — ChatGPT, Claude, Gemini — that the Transformer made possible.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/floors/06-ai.html">
+  <meta property="og:title" content="Floor 6 — Artificial Intelligence | CS Tower">
+  <meta property="og:type" content="article">
+  <title>Floor 6 — Artificial Intelligence | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../#tower">The Floors</a>
+      <a href="../timeline.html">Timeline</a>
+      <a href="../the-2017-cascade.html">The 2017 Cascade</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="../">Tower</a><span class="sep">/</span><span>Floor 6 — Artificial Intelligence</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f6">Floor 6 · the intelligence</span>
+    <h1>Artificial <em>Intelligence</em></h1>
+    <p class="hero-sub">
+      Instead of telling a computer every rule, we let it learn patterns from examples. This floor is the long, slow
+      climb of that idea — from a hopeful 1956 workshop to 2012's breakthrough, to the 2017 Transformer that turned AI
+      from a research field into the technology reshaping the whole tower.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <div class="panel">
+      <h3><span class="pic">🧠</span> What this floor is</h3>
+      <p>
+        Most software follows rules a human wrote. <strong>Machine learning</strong> flips that: show a system
+        thousands of examples and let it find the rules itself. A <strong>neural network</strong> — loosely inspired by
+        brain cells — is the main tool, a web of simple numeric units whose connections are tuned by training until the
+        whole thing makes good predictions. This floor is special: it doesn't sit quietly above the others. After 2017
+        it began <em>reaching down</em> and reshaping every floor beneath it.
+      </p>
+    </div>
+
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+
+    <div class="panel">
+      <h3><span class="pic">🎓</span> 1. Learning from examples (machine learning)</h3>
+      <p>
+        Rather than coding "what a cat looks like," you show a network thousands of labelled photos and let it adjust
+        itself until it predicts "cat" correctly. The adjusting is done by a maths routine that nudges the network's
+        numbers in whatever direction reduces its error, over and over — the heart of training.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          A photos app that quietly groups every picture of the same person was never told what that person looks like.
+          It learned the pattern from examples — that is machine learning doing its everyday job.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🖼️</span> 2. The breakthrough that proved it (AlexNet, 2012)</h3>
+      <p>
+        For decades, neural networks underperformed. Then on <strong>30 September 2012</strong>,
+        <span class="term">AlexNet<span class="tip">A deep neural network by Alex Krizhevsky, Ilya Sutskever and Geoffrey Hinton. It won the 2012 ImageNet contest with a top-5 error rate of 15.3%, far ahead of the runner-up, by training on GPUs.</span></span> —
+        built by Krizhevsky, Sutskever and Hinton — crushed the ImageNet image-recognition contest with a top-5 error
+        rate of <strong>15.3%</strong>, far ahead of everyone else. Crucially, it was trained on <strong>GPUs</strong>.
+        This was the first loud proof that deep learning plus parallel hardware worked — a preview of the 2017 cascade.
+      </p>
+      <div class="cause f6">
+        <div class="need"><span class="ck">The real need</span><p>Neural networks were an <strong>old, underperforming idea</strong> — they lacked two things: enough labelled examples, and enough cheap parallel compute to train on.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>The <strong>ImageNet dataset</strong> plus <strong>GPUs</strong> (via CUDA) finally supplied both. AlexNet proved deep learning worked — and lit the fuse for everything after.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">⚡</span> 3. The Transformer and Large Language Models (2017 →)</h3>
+      <p>
+        In <strong>2017</strong>, Google's "Attention Is All You Need" introduced the
+        <span class="term">Transformer<span class="tip">The 2017 neural-network architecture based on self-attention. It processes a whole sequence in parallel and is the basis of every modern large language model.</span></span>.
+        By reading a whole sequence at once with <strong>attention</strong> instead of one step at a time, it could be
+        trained on enormous text at enormous scale. Scaled up, Transformers became <strong>Large Language Models</strong>
+        — ChatGPT, Claude, Gemini. The entire modern AI boom is, quite literally, this one architecture made bigger.
+      </p>
+      <div class="scenario">
+        <div class="lbl">⚡ Why this floor is the destination of the cascade</div>
+        <p>
+          The 2017 idea was born on Floor 1 (mathematics) and made practical by Floor 2 (GPUs), Floor 3–4 (systems and
+          networks) and Floor 5 (data). All of it converges <em>here</em>, on Floor 6 — which is why AI feels like it
+          arrived all at once. It is the visible tip of a change that runs all the way down. <a href="../the-2017-cascade.html">See the full cascade →</a>
+        </p>
+      </div>
+      <div class="cause f6">
+        <div class="need"><span class="ck">The real need</span><p>The older networks (RNNs) read a sentence <strong>one word at a time</strong> — slow to train and forgetful over long passages. Machine-translation researchers needed a model that could weigh <strong>all</strong> the words together.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p><strong>Self-attention</strong> — read the whole sequence at once, in parallel, and learn which words matter to each other. Because that's just parallel linear algebra, it ran beautifully on GPUs and could be scaled enormously. This is the Floor-1 change that became the cascade.</p></div>
+      </div>
+      <figure class="figure contain"><img src="../assets/img/supercomputer.jpg" alt="Racks of a supercomputer used for large-scale computation" loading="lazy">
+        <figcaption><b>A supercomputer.</b> Training a large language model means running this parallel linear algebra across thousands of GPUs for weeks — the cascade reaching all the way down to the metal.</figcaption></figure>
+    </div>
+
+    <!-- evolution -->
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="eras">
+      <div class="era past"><span class="tag">Then</span><h4>Hand-built rules</h4><p>Early AI tried to encode human knowledge as explicit rules. It could play set games but couldn't learn or handle the messy real world.</p></div>
+      <div class="era now"><span class="tag">Now</span><h4>Models that write, see and speak</h4><p>Large language and vision models write, translate, generate images and hold conversations — trained on a large fraction of the internet.</p></div>
+      <div class="era next"><span class="tag">Next</span><h4>Agents that act</h4><p>AI that doesn't just answer but takes multi-step actions — using tools, writing and running code, and carrying out tasks on your behalf.</p></div>
+    </div>
+
+    <div class="milestone">
+      <div class="yr">1956</div>
+      <div class="mt"><b>The field is named</b><p>The Dartmouth workshop coins the term "artificial intelligence" and launches it as a research field.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1958</div>
+      <div class="mt"><b>The perceptron</b><p>An early trainable neural network shows machines can learn from examples — the seed of everything on this floor, decades before the hardware could deliver.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2012</div>
+      <div class="mt"><b>AlexNet wins ImageNet</b><p>Deep learning on GPUs wins decisively (15.3% top-5 error), proving that big networks plus parallel hardware is the path forward.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2017</div>
+      <div class="mt"><b>The Transformer</b><p>"Attention Is All You Need" gives AI a parallel, scalable architecture — the basis of every modern large language model.</p></div>
+    </div>
+
+    <div class="panel" style="margin-top:30px;">
+      <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
+      <p>
+        Floor 6 was, in a sense, <strong>reborn</strong> by 2017. A field that had crawled for sixty years suddenly had
+        an architecture that rewarded scale — more data and more GPUs reliably produced more capability. That single
+        property pulled hardware, systems, networks and software into its orbit, and turned AI from one floor among
+        seven into the force reshaping all of them.
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="05-data-software.html"><span class="ic">🧱</span><span class="tx"><b>Down to Floor 5</b><span>Data, Algorithms &amp; Software</span></span></a>
+      <a class="next-link" href="07-humans-apps.html"><span class="ic">👤</span><span class="tx"><b>Up to Floor 7</b><span>Humans &amp; Applications</span></span></a>
+      <a class="next-link" href="../the-2017-cascade.html"><span class="ic">⚡</span><span class="tx"><b>The 2017 cascade</b><span>The whole story in one page</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links"><a href="05-data-software.html">← Floor 5</a><a href="07-humans-apps.html">Floor 7 →</a><a href="../../community/">Community</a></div>
+  </div>
+  <div class="wrap"><p class="footer-note">Dates verified against primary references: Dartmouth (1956), AlexNet (30 Sep 2012, 15.3% top-5 error), the Transformer paper (12 Jun 2017). Photographs via Wikimedia Commons.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

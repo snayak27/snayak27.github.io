@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="description" content="Floor 5 of the computer science tower: data, algorithms and software. Data structures and algorithms, Codd's relational databases (1970), SQL, programming languages, software engineering — and the shift to 'Software 2.0' where programs are trained, not written.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/floors/05-data-software.html">
+  <meta property="og:title" content="Floor 5 — Data, Algorithms & Software | CS Tower">
+  <meta property="og:type" content="article">
+  <title>Floor 5 — Data, Algorithms &amp; Software | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../#tower">The Floors</a>
+      <a href="../timeline.html">Timeline</a>
+      <a href="../the-2017-cascade.html">The 2017 Cascade</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="../">Tower</a><span class="sep">/</span><span>Floor 5 — Data, Algorithms &amp; Software</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f5">Floor 5 · the craft</span>
+    <h1>Data, Algorithms &amp; <em>Software</em></h1>
+    <p class="hero-sub">
+      This is the floor most people mean when they say "coding." It is where ideas become working systems: organising
+      data so it can be found instantly, choosing algorithms that stay fast at scale, and writing the software that
+      runs everything you use.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <div class="panel">
+      <h3><span class="pic">🧱</span> What this floor is</h3>
+      <p>
+        Floor 5 sits between the machine below and the people above. It covers three crafts: <strong>data
+        structures</strong> (how information is arranged), <strong>algorithms</strong> (the step-by-step methods that
+        act on it), and <strong>software engineering</strong> (building large systems that don't collapse under their
+        own weight). It is where the abstract rules of Floor 1 turn into apps, databases and tools.
+      </p>
+    </div>
+
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+
+    <div class="panel">
+      <h3><span class="pic">⚡</span> 1. Algorithms &amp; the cost of doing things (Big-O)</h3>
+      <p>
+        An <strong>algorithm</strong> is a precise recipe for solving a problem. The crucial question is not just "does
+        it work?" but "does it <em>still</em> work when the data is enormous?" Engineers measure this with
+        <span class="term">Big-O notation<span class="tip">A way to describe how an algorithm's time or memory grows as the input grows. The difference between an app that scales to millions of users and one that grinds to a halt.</span></span> —
+        a way of describing how the work grows as the input grows.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          Finding a contact by jumping to the right part of an alphabetised list is near-instant even with a million
+          names; scanning every name one by one would crawl. Choosing the first approach over the second is exactly
+          what algorithm design is about.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🗄️</span> 2. Storing data so it survives and scales (databases)</h3>
+      <p>
+        In <strong>1970</strong>, <span class="term">Edgar Codd<span class="tip">IBM researcher whose 1970 paper introduced the relational model — organising data into linked tables. It underpins SQL and almost every business database since.</span></span>
+        at IBM proposed the <strong>relational model</strong>: organise data into neat tables that can be linked
+        together. It became the foundation of <strong>SQL</strong> databases (from the mid-1970s) and still runs banks,
+        shops and governments today — chosen because it keeps data consistent even when thousands of changes happen at
+        once.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          When a payment either completes fully or not at all — never leaving money half-moved — that guarantee comes
+          from database rules first formalised on this floor in 1970.
+        </p>
+      </div>
+      <div class="cause f5">
+        <div class="need"><span class="ck">The real need</span><p>Earlier databases <strong>hard-wired the data to its storage layout</strong> on disk. Change how it was stored and every program that used it broke.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>Codd's <strong>relational model</strong> gave <em>data independence</em> — ask questions of the data in simple tables without knowing how it's physically stored. It became SQL, and the backbone of business computing.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🛠️</span> 3. Building systems that last (software engineering)</h3>
+      <p>
+        A small script is easy; a system with millions of lines, hundreds of contributors and millions of users is a
+        different challenge entirely. <strong>Software engineering</strong> is the discipline of structuring code,
+        testing it automatically, and changing it safely over years. Programming languages — from C to Python to
+        JavaScript — are the tools of this craft, each trading off speed, safety and ease.
+      </p>
+      <div class="scenario">
+        <div class="lbl">⚡ The 2017 connection — "Software 2.0"</div>
+        <p>
+          Traditionally, software is rules written by hand. After 2017, a new style took over for hard problems:
+          instead of coding the rules, engineers <strong>gather data and train a model</strong> to find the rules
+          itself. The program is <em>learned</em>, not written line by line — a fundamental shift in what "software"
+          even means, flowing straight up from the AI floor.
+        </p>
+      </div>
+    </div>
+
+    <!-- evolution -->
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="eras">
+      <div class="era past"><span class="tag">Then</span><h4>Hand-written rules</h4><p>Every behaviour was spelled out explicitly in code. Data lived in rigid files, and large projects were built mostly from scratch.</p></div>
+      <div class="era now"><span class="tag">Now</span><h4>Reusable parts &amp; huge data</h4><p>Software is assembled from libraries and services; databases hold oceans of data; automated testing keeps massive systems stable.</p></div>
+      <div class="era next"><span class="tag">Next</span><h4>Trained, not coded</h4><p>For many tasks, models trained on data replace hand-written rules — and AI assistants now help write the remaining code.</p></div>
+    </div>
+
+    <div class="milestone">
+      <div class="yr">1970</div>
+      <div class="mt"><b>Codd's relational model</b><p>Organising data into linked tables — the idea behind SQL and nearly every serious database for the next half-century.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1970s →</div>
+      <div class="mt"><b>SQL and modern languages</b><p>SQL makes databases queryable in near-English; a wave of programming languages makes building software faster and safer.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2017 →</div>
+      <div class="mt"><b>The "Software 2.0" shift</b><p>For hard problems, training a model on data replaces writing the rules by hand — a new way to build, driven by the AI floor above.</p></div>
+    </div>
+
+    <div class="panel" style="margin-top:30px;">
+      <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
+      <p>
+        Floor 5 is where the cascade <strong>changed the job itself</strong>. The most powerful way to build certain
+        software flipped from "write the rules" to "assemble the data and train the model." Data — once just something
+        software acted on — became the raw material that the program is made <em>from</em>. The craft of software is
+        being rewritten from the AI floor down.
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="04-networking.html"><span class="ic">🌐</span><span class="tx"><b>Down to Floor 4</b><span>Networking &amp; the Internet</span></span></a>
+      <a class="next-link" href="06-ai.html"><span class="ic">🧠</span><span class="tx"><b>Up to Floor 6</b><span>Artificial Intelligence</span></span></a>
+      <a class="next-link" href="../timeline.html"><span class="ic">🕰️</span><span class="tx"><b>Full timeline</b><span>1970 → today</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links"><a href="04-networking.html">← Floor 4</a><a href="06-ai.html">Floor 6 →</a><a href="../../community/">Community</a></div>
+  </div>
+  <div class="wrap"><p class="footer-note">Dates verified against primary references: Codd's relational model (1970), SQL (mid-1970s), and the post-2017 shift to learned software.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <meta name="description" content="Floor 3 of the computer science tower: computer architecture and operating systems. The von Neumann stored-program idea (1945), IBM System/360's compatible architecture (1964), Unix and Linux, and CUDA — the layer that organises the machine and shares it out.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/floors/03-architecture-os.html">
+  <meta property="og:title" content="Floor 3 — Architecture & Operating Systems | CS Tower">
+  <meta property="og:type" content="article">
+  <title>Floor 3 — Architecture &amp; Operating Systems | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/theme.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="../"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="../#tower">The Floors</a>
+      <a href="../timeline.html">Timeline</a>
+      <a href="../the-2017-cascade.html">The 2017 Cascade</a>
+      <a href="../glossary.html">Glossary</a>
+      <a href="../../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="../">Tower</a><span class="sep">/</span><span>Floor 3 — Architecture &amp; Operating Systems</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f3">Floor 3 · the organiser</span>
+    <h1>Architecture &amp; <em>Operating Systems</em></h1>
+    <p class="hero-sub">
+      A pile of transistors does nothing on its own. This floor decides how the machine is <em>organised</em> — how it
+      stores a program and runs it — and the operating system that shares one computer fairly between every app, game
+      and download running at once.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <div class="panel">
+      <h3><span class="pic">⚙️</span> What this floor is</h3>
+      <p>
+        Floor 3 has two halves. <strong>Architecture</strong> is the blueprint of the machine: how the processor,
+        memory and instructions fit together. The <strong>operating system</strong> (Windows, macOS, Android, Linux)
+        is the manager that sits between the hardware and your apps — handing out processor time, parcelling out
+        memory, and stopping one misbehaving program from taking down the whole device.
+      </p>
+    </div>
+
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+
+    <div class="panel">
+      <h3><span class="pic">📐</span> 1. The stored-program idea (von Neumann)</h3>
+      <p>
+        Early computers were rewired by hand for each new task. In <strong>1945</strong>, a report associated with
+        <span class="term">John von Neumann<span class="tip">Mathematician whose 1945 "First Draft of a Report on the EDVAC" described the stored-program computer — the design nearly every computer still uses.</span></span>
+        set out the <strong>stored-program</strong> idea: keep the instructions in the same memory as the data, so a
+        computer can be reprogrammed just by loading new instructions. Almost every machine since follows this
+        "von Neumann architecture."
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          Installing an app instead of rebuilding your phone is the stored-program idea in action: the hardware stays
+          the same, you just load new instructions into memory.
+        </p>
+      </div>
+      <figure class="figure contain"><img src="../assets/img/punch-card.jpg" alt="A punched card used to feed programs and data into early computers" loading="lazy">
+        <figcaption><b>A punched card.</b> Before programs lived in memory, instructions and data were fed in as holes punched in stiff cards — one line of a program per card.</figcaption></figure>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🧩</span> 2. One design, many machines (the architecture family)</h3>
+      <p>
+        On <strong>7 April 1964</strong>, IBM announced the
+        <span class="term">System/360<span class="tip">A family of computers, from small to large, that all ran the same instruction set — so one program could run across the whole range. A landmark in computer architecture.</span></span>:
+        a whole <em>family</em> of computers, cheap to huge, that all spoke the same instruction set. Software written
+        for one could run on any of them. This separated the <strong>architecture</strong> (the rules a program sees)
+        from the <strong>hardware</strong> (the specific machine) — an idea that still governs how chips are designed.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          The same app running on a cheap phone and a flagship phone — because both share an instruction set
+          (today, usually "ARM") — is the System/360 idea, sixty years on.
+        </p>
+      </div>
+      <figure class="figure contain"><img src="../assets/img/system-360.jpg" alt="An IBM System/360 mainframe computer" loading="lazy">
+        <figcaption><b>IBM System/360, 1964.</b> A whole family of machines that ran the same software — IBM "bet the company" on it.</figcaption></figure>
+      <div class="cause f3">
+        <div class="need"><span class="ck">The real need</span><p>Every earlier IBM model needed its <strong>own programs</strong>. A business that outgrew its computer had to throw away all its software and start over.</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p>One <strong>compatible architecture</strong> — small to huge — so software and staff skills carried across the whole range. It defined what "computer architecture" means.</p></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🧑‍✈️</span> 3. The traffic controller (the operating system)</h3>
+      <p>
+        Your device runs dozens of programs at once, yet none of them freezes the others. That is the operating
+        system's job: it schedules slices of processor time, isolates each program's memory, and manages files and
+        devices. <strong>Unix</strong> (born at Bell Labs in 1969) set the template; <strong>Linux</strong> (started
+        by Linus Torvalds in 1991) became the free version that now runs most of the world's servers, almost every
+        Android phone, and the data centres where AI is trained.
+      </p>
+      <div class="scenario">
+        <div class="lbl">⚡ The 2017 connection — CUDA</div>
+        <p>
+          GPUs only became useful for AI because of a software layer that lets ordinary programs command thousands of
+          GPU cores: NVIDIA's <strong>CUDA</strong>, released in <strong>2007</strong>. After 2017, this floor was
+          reorganised around keeping GPUs fed — fast memory, schedulers and drivers all redesigned so the expensive
+          parallel hardware never sits idle.
+        </p>
+      </div>
+      <figure class="figure contain"><img src="../assets/img/unix.png" alt="Ken Thompson and Dennis Ritchie with a PDP-11 running Unix" loading="lazy">
+        <figcaption><b>Unix at Bell Labs, early 1970s.</b> Ken Thompson and Dennis Ritchie's lean system — its ideas now run macOS, Android, Linux and the cloud.</figcaption></figure>
+      <div class="cause f3">
+        <div class="need"><span class="ck">The real need</span><p>Their previous operating system, <strong>Multics</strong>, had grown so big and complex it was barely usable. They wanted something <strong>two people could actually run</strong> (and play a game on).</p></div>
+        <div class="arr"></div>
+        <div class="got"><span class="ck">What it forced</span><p><strong>Unix</strong> — small, made of simple tools, and soon portable between machines. Its design still shapes nearly every operating system today.</p></div>
+      </div>
+    </div>
+
+    <!-- evolution -->
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="eras">
+      <div class="era past"><span class="tag">Then</span><h4>One job at a time</h4><p>Early machines ran a single program and were rewired or reloaded by hand. A crash could mean starting over completely.</p></div>
+      <div class="era now"><span class="tag">Now</span><h4>Hundreds of isolated tasks</h4><p>Modern operating systems juggle hundreds of programs and containers safely, virtualising memory so one bad app can't freeze the machine.</p></div>
+      <div class="era next"><span class="tag">Next</span><h4>Built around accelerators</h4><p>Systems are increasingly designed around GPUs and AI accelerators, not the CPU — a quiet but deep re-architecting driven by 2017.</p></div>
+    </div>
+
+    <div class="milestone">
+      <div class="yr">1945</div>
+      <div class="mt"><b>The stored-program design</b><p>The von Neumann report describes keeping instructions and data together in memory — the architecture nearly every computer still uses.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1964</div>
+      <div class="mt"><b>IBM System/360</b><p>A family of compatible computers sharing one instruction set, separating architecture from hardware. One of the most influential designs in computing history.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">1969 → 1991</div>
+      <div class="mt"><b>Unix, then Linux</b><p>Unix (1969) defines the modern operating system; Linux (1991) makes it free and open, and goes on to run most servers, Android, and the AI data centre.</p></div>
+    </div>
+    <div class="milestone">
+      <div class="yr">2007</div>
+      <div class="mt"><b>CUDA opens the GPU</b><p>NVIDIA's CUDA lets ordinary code run on thousands of GPU cores — the bridge that, ten years later, let the Transformer run at scale.</p></div>
+    </div>
+
+    <div class="panel" style="margin-top:30px;">
+      <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
+      <p>
+        Floor 3 <strong>re-organised the machine around parallelism</strong>. Once AI meant feeding thousands of GPU
+        cores, operating systems and architectures had to change: high-bandwidth memory, GPU-aware schedulers, and
+        software like CUDA became the centre of gravity instead of the CPU. The manager of the computer quietly
+        switched whom it was managing for.
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="02-hardware.html"><span class="ic">💻</span><span class="tx"><b>Down to Floor 2</b><span>Physical Hardware</span></span></a>
+      <a class="next-link" href="04-networking.html"><span class="ic">🌐</span><span class="tx"><b>Up to Floor 4</b><span>Networking &amp; the Internet</span></span></a>
+      <a class="next-link" href="../timeline.html"><span class="ic">🕰️</span><span class="tx"><b>Full timeline</b><span>1945 → today</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links"><a href="02-hardware.html">← Floor 2</a><a href="04-networking.html">Floor 4 →</a><a href="../../community/">Community</a></div>
+  </div>
+  <div class="wrap"><p class="footer-note">Dates verified against primary references: stored-program report (1945), IBM System/360 (7 Apr 1964), Unix (1969), Linux (1991), CUDA (2007). Photographs via Wikimedia Commons.</p></div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

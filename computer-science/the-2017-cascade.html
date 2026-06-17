@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <meta name="description" content="In 2017 the paper 'Attention Is All You Need' changed Floor 1 of computing — the math and algorithms. Because every floor stands on Floor 1, the change cascaded up all seven floors. This is why the AI revolution is structurally different, why NVIDIA sells personal AI supercomputers, and why Apple chose a hardware engineer as CEO in 2026.">
+  <meta name="author" content="Sashibhusan Nayak">
+  <link rel="canonical" href="https://snayak27.github.io/computer-science/the-2017-cascade.html">
+  <meta property="og:title" content="The 2017 Cascade — how one paper rebuilt every floor">
+  <meta property="og:description" content="Attention Is All You Need changed the bedrock. Here is how the ripple reached your phone — and Apple's corner office.">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>The 2017 Cascade — How One Paper Rebuilt Every Floor | CS Tower</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/theme.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/cs.css">
+  <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+</head>
+<body>
+
+<div class="blob-wrap"><div class="blob blob-1"></div><div class="blob blob-2"></div></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="./"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
+    <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
+    <div class="nav-links">
+      <a href="./#tower">The Floors</a>
+      <a href="timeline.html" data-section="timeline">Timeline</a>
+      <a href="the-2017-cascade.html" data-section="cascade" class="active">The 2017 Cascade</a>
+      <a href="glossary.html" data-section="glossary">Glossary</a>
+      <a href="../community/">← Community</a>
+      <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="wrap wrap-narrow">
+    <div class="crumb"><a href="./">Tower</a><span class="sep">/</span><span>The 2017 Cascade</span></div>
+  </div>
+
+  <header class="wrap wrap-narrow hero">
+    <span class="eyebrow f6">The spine of the whole guide</span>
+    <h1>The <em>2017 cascade</em></h1>
+    <p class="hero-sub">
+      How a single paper — not a chip, not an app, but a piece of <strong>mathematics</strong> — landed on the
+      bottom floor of computing and forced every floor above it to be rebuilt. This is the reason the post-2017
+      AI moment is different in kind, not just in degree.
+    </p>
+  </header>
+
+  <div class="wrap wrap-narrow">
+
+    <!-- recap the rule -->
+    <div class="panel">
+      <h3><span class="pic">🏢</span> First, the rule that makes this work</h3>
+      <p>
+        The tower has one law: <strong>every floor stands on the floor beneath it.</strong> Apps need software,
+        software needs an operating system, the OS needs a chip, the chip is designed from mathematics. So a change
+        near the top stays local — a new app changes one app. But a change at the <em>bottom</em> has nowhere to go
+        but <strong>up</strong>, through everything.
+      </p>
+      <p>
+        For most of computing's history, the big news happened on the middle and upper floors: faster processors,
+        the personal computer, the internet, the smartphone. The foundation — the math of <em>how we compute</em> —
+        barely moved. That is exactly why 2017 was a shock to the system.
+      </p>
+    </div>
+
+    <!-- what the paper was -->
+    <div class="section-head" style="margin-top:54px;"><h2>What actually happened in 2017</h2><p>In plain language, with the real terms.</p></div>
+
+    <div class="milestone">
+      <div class="yr">2017</div>
+      <div class="mt">
+        <b>"Attention Is All You Need" — Vaswani et&nbsp;al., Google</b>
+        <p>
+          Eight researchers introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence at once using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>.
+          Its key trick is <strong>self-attention</strong>: instead of reading a sentence one word at a time, the
+          model looks at <em>all</em> the words at once and learns which ones matter to each other.
+        </p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🧮</span> Why it was a <em>Floor&nbsp;1</em> change, not a Floor&nbsp;6 one</h3>
+      <p>
+        Before 2017, the best language models were <span class="term">recurrent networks<span class="tip">RNNs / LSTMs — networks that read data one step at a time, passing a memory forward. Powerful, but inherently sequential: step 100 can't start until step 99 finishes.</span></span> that read text <strong>sequentially</strong> — word 100 had to wait for word 99.
+        That is a mathematical bottleneck: sequential work cannot be split across thousands of processors.
+      </p>
+      <p>
+        Attention replaced that sequence with a pile of <strong>matrix multiplications</strong> — pure linear algebra
+        that can all be done <em>at the same time</em>. That is the heart of it: the Transformer is a new
+        <strong>algorithm and mathematical structure</strong> (Floor 1) that happens to be almost perfectly
+        <em>parallel</em>. Everything that followed flows from that one property.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 The detail that changed the world</div>
+        <p>
+          "Parallel" means the work can be cut into thousands of identical pieces and run simultaneously.
+          There already existed a chip built to do exactly that — thousands of small math units working in lockstep:
+          the <strong>GPU</strong>. In 2017, the new math on Floor 1 suddenly fit the hardware on Floor 2 like a key in a lock.
+          That match is why the cascade was so violent and so fast.
+        </p>
+      </div>
+    </div>
+
+    <!-- the cascade diagram -->
+    <div class="section-head" style="margin-top:54px;"><h2>The ripple, floor by floor</h2><p>One change at the bottom. Watch it climb. (Reading bottom&nbsp;→&nbsp;top.)</p></div>
+
+    <div class="cascade" data-reveal>
+      <div class="casc c1">
+        <b><span class="fl">Floor 1</span> Theory &amp; Mathematics — the source</b>
+        <p>A new algorithm (self-attention) reframes "understanding a sequence" as massively parallel linear algebra. The bedrock shifts.</p>
+      </div>
+      <div class="casc c2">
+        <b><span class="fl">Floor 2</span> Hardware — demand explodes</b>
+        <p>Parallel math means GPUs become the most valuable silicon on Earth. NVIDIA pivots its whole company to AI; new chips (Blackwell) and personal AI supercomputers (DGX Spark/Station) appear.</p>
+      </div>
+      <div class="casc c3">
+        <b><span class="fl">Floor 3</span> Architecture &amp; OS — reorganised around parallelism</b>
+        <p>Computers are now designed around feeding thousands of GPU cores: high-bandwidth memory, CUDA, schedulers that keep accelerators saturated instead of CPUs.</p>
+      </div>
+      <div class="casc c4">
+        <b><span class="fl">Floor 4</span> Networking &amp; Cloud — training goes planetary</b>
+        <p>A single model is trained across thousands of GPUs wired together. Data-centre networking and the cloud are rebuilt to move enormous gradients between machines.</p>
+      </div>
+      <div class="casc c5">
+        <b><span class="fl">Floor 5</span> Data &amp; Software — a new way to build</b>
+        <p>Instead of writing rules by hand, engineers now assemble data and train models. "Software 2.0": the program is learned, not coded line by line.</p>
+      </div>
+      <div class="casc c6">
+        <b><span class="fl">Floor 6</span> Artificial Intelligence — reborn</b>
+        <p>Scaling Transformers produces Large Language Models — ChatGPT, Claude, Gemini. The entire modern AI field is, quite literally, this one architecture made bigger.</p>
+      </div>
+      <div class="casc c7">
+        <b><span class="fl">Floor 7</span> Humans &amp; Apps — everything you touch</b>
+        <p>Search, writing, coding, image generation, voice assistants — the apps in your hand are re-shaped around models that did not exist before 2017.</p>
+      </div>
+    </div>
+    <p class="tower-cap">One pebble dropped on Floor 1. Seven floors of waves.</p>
+
+    <!-- the receipts -->
+    <div class="section-head" style="margin-top:54px;"><h2>You can see the cascade in the real world</h2><p>If the bedrock really shifted, the heaviest objects in the industry should have moved. They did.</p></div>
+
+    <div class="panel">
+      <h3><span class="pic">🟩</span> NVIDIA: a graphics company became the engine room of AI</h3>
+      <p>
+        NVIDIA made chips for video games. Those chips happened to be the parallel hardware the Transformer needed —
+        so NVIDIA became one of the most valuable companies in the world. In October 2025 it began shipping the
+        <strong>DGX&nbsp;Spark</strong> (and its larger sibling, the <strong>DGX&nbsp;Station</strong>): a
+        <em>personal</em> AI supercomputer the size of a small box, built on the Grace&nbsp;Blackwell chip, for about
+        <strong>$3,999</strong>. A machine that would have filled a data centre a decade ago now sits on a desk —
+        because Floor&nbsp;1 demanded it.
+      </p>
+    </div>
+
+    <div class="panel">
+      <h3><span class="pic">🍎</span> Apple: the next CEO is a hardware engineer</h3>
+      <p>
+        For decades the prized skill at the top of tech was operations or design. But when intelligence depends on
+        silicon, the most valuable knowledge moves back <em>down</em> to Floor&nbsp;2. In <strong>April 2026</strong>,
+        Apple announced that Tim Cook will become Executive Chairman and that
+        <strong>John Ternus — its head of Hardware Engineering — will become CEO.</strong>
+        The world's most valuable company handing its top job to a hardware engineer is the cascade made visible:
+        in the age of AI, whoever controls the chip controls the future.
+      </p>
+      <div class="scenario">
+        <div class="lbl">📌 The pattern</div>
+        <p>
+          NVIDIA selling desktop supercomputers and Apple promoting a hardware engineer are not two separate news
+          stories. They are the <strong>same story</strong> — value flowing back down to the hardware floor because the
+          math on Floor&nbsp;1 changed what hardware is <em>for</em>.
+        </p>
+      </div>
+    </div>
+
+    <!-- why different -->
+    <div class="panel">
+      <h3><span class="pic">⚖️</span> Why this is different from every past "tech hype"</h3>
+      <p>
+        Plenty of trends touched a single floor — a hot programming language (Floor 5), a flashy app category (Floor 7),
+        a faster phone (Floor 2). They came and went because a one-floor change can't move the building.
+      </p>
+      <p>
+        2017 was a <strong>Floor 1</strong> change. The only other shifts of that depth are the founding ideas of
+        computing itself — Turing's 1936 model of computation, the transistor, the microprocessor. Those didn't fade;
+        they became the permanent floor everything else was built on. A Floor 1 change isn't a wave you ride. It's new
+        ground you stand on.
+      </p>
+    </div>
+
+    <div class="next-row">
+      <a class="next-link" href="floors/01-theory.html"><span class="ic">📚</span><span class="tx"><b>Go to the source</b><span>Floor 1 — Theory &amp; Mathematics</span></span></a>
+      <a class="next-link" href="floors/06-ai.html"><span class="ic">🧠</span><span class="tx"><b>See where it landed</b><span>Floor 6 — Artificial Intelligence</span></span></a>
+      <a class="next-link" href="timeline.html"><span class="ic">🕰️</span><span class="tx"><b>The whole timeline</b><span>1945 → 2017 → now</span></span></a>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">Built &amp; maintained by <b>Sashibhusan Nayak</b> · A community contribution · Free forever</div>
+    <div class="footer-links">
+      <a href="./">Tower home</a>
+      <a href="timeline.html">Timeline</a>
+      <a href="../community/">Community</a>
+    </div>
+  </div>
+  <div class="wrap"><p class="footer-note">Facts checked against primary sources: the 2017 paper, NVIDIA's October 2025 DGX Spark launch, and Apple's April 2026 leadership announcement.</p></div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
