@@ -71,9 +71,10 @@
     <div class="panel">
       <h3><span class="pic">🎓</span> 1. Learning from examples (machine learning)</h3>
       <p>
-        Rather than coding "what a cat looks like," you show a network thousands of labelled photos and let it adjust
-        itself until it predicts "cat" correctly. The adjusting is done by a maths routine that nudges the network's
-        numbers in whatever direction reduces its error, over and over — the heart of training.
+        Rather than coding "what a cat looks like," you show a network thousands of labelled photos and let it find the patterns itself.
+      </p>
+      <p>
+        Imagine a **giant wall of millions of light dials** connected by wires. You feed an image of a cat in at the left, the dials turn, and a light bulb at the right turns on. If the bulb marked "Dog" lights up, you go backward through the wall and nudge all the dials a tiny bit (this is called **backpropagation** or training). If you do this with 10,000 cat photos, the dials settle into a pattern that perfectly detects cats.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -109,9 +110,12 @@
       <p>
         In <strong>2017</strong>, Google's "Attention Is All You Need" introduced the
         <span class="term">Transformer<span class="tip">The 2017 neural-network architecture based on self-attention. It processes a whole sequence in parallel and is the basis of every modern large language model.</span></span>.
-        By reading a whole sequence at once with <strong>attention</strong> instead of one step at a time, it could be
-        trained on enormous text at enormous scale. Scaled up, Transformers became <strong>Large Language Models</strong>
-        — ChatGPT, Claude, Gemini. The entire modern AI boom is, quite literally, this one architecture made bigger.
+      </p>
+      <p>
+        By reading a whole sequence at once with **attention** instead of one step at a time, it could be trained on massive datasets. Scaled up, Transformers became **Large Language Models** (LLMs) like ChatGPT, Claude, and Gemini.
+      </p>
+      <p>
+        Think of an LLM as a **supercharged predictive keyboard** (like the autocorrect on your phone) that has read the entire internet. It doesn't actually "think" or feel like a human; it just guesses the very next word so accurately that it sounds like a conversation.
       </p>
       <div class="scenario">
         <div class="lbl">⚡ Why this floor is the destination of the cascade</div>
@@ -128,6 +132,19 @@
       </div>
       <figure class="figure contain"><img src="../assets/img/supercomputer.jpg" alt="Racks of a supercomputer used for large-scale computation" loading="lazy">
         <figcaption><b>A supercomputer.</b> Training a large language model means running this parallel linear algebra across thousands of GPUs for weeks — the cascade reaching all the way down to the metal.</figcaption></figure>
+      <div class="scenario" style="border-left-color: var(--f6); background: var(--f6-l);">
+        <div class="lbl" style="color: var(--f6-d);"><span class="pic">🎮</span> Try it yourself: The "Attention" Link</div>
+        <p>
+          How does a computer understand which word is which? It draws links (attention scores) between words:
+        </p>
+        <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>🌊 "The bank of the **river** was muddy." &rarr; The model connects **bank** directly to **river** (thick link).</li>
+          <li>💰 "The bank held the **money** safely." &rarr; The model connects **bank** directly to **money** (thick link).</li>
+        </ul>
+        <p>
+          By drawing these links across every word in a sentence at once, the Transformer understands the context of the whole message.
+        </p>
+      </div>
     </div>
 
     <!-- evolution -->
