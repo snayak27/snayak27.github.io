@@ -79,14 +79,16 @@
     <div class="milestone">
       <div class="yr">2017</div>
       <div class="mt">
-        <b>"Attention Is All You Need" — Vaswani et&nbsp;al., Google</b>
+        <b>"Attention Is All You Need" — Vaswani et&nbsp;al.</b>
         <p>
-          Eight researchers introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence at once using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>.
-          Its key trick is <strong>self-attention</strong>: instead of reading a sentence one word at a time, the
-          model looks at <em>all</em> the words at once and learns which ones matter to each other.
+          Eight researchers from <strong>Google Brain, Google Research, and the University of Toronto</strong> posted their paper to arXiv on <strong>12 June 2017</strong> (later presented at the NeurIPS conference in December). They introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence at once using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>, based entirely on self-attention.
         </p>
       </div>
     </div>
+    <figure class="figure contain">
+      <img src="assets/img/transformer-paper.png" alt="Multi-Head Attention mechanism diagram from the paper" loading="lazy">
+      <figcaption><b>Multi-Head Attention.</b> The core mechanism of the Transformer architecture, allowing the model to simultaneously process relationships between words regardless of distance, running in parallel on GPUs.</figcaption>
+    </figure>
 
     <div class="panel">
       <h3><span class="pic">🧮</span> Why it was a <em>Floor&nbsp;1</em> change, not a Floor&nbsp;6 one</h3>
