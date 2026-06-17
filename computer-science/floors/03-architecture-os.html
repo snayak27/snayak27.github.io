@@ -72,9 +72,10 @@
       <p>
         Early computers were rewired by hand for each new task. In <strong>1945</strong>, a report associated with
         <span class="term">John von Neumann<span class="tip">Mathematician whose 1945 "First Draft of a Report on the EDVAC" described the stored-program computer — the design nearly every computer still uses.</span></span>
-        set out the <strong>stored-program</strong> idea: keep the instructions in the same memory as the data, so a
-        computer can be reprogrammed just by loading new instructions. Almost every machine since follows this
-        "von Neumann architecture."
+        set out the **stored-program** idea: keep the instructions in the same memory as the data.
+      </p>
+      <p>
+        Imagine a **kitchen** where recipes (the instructions) and the ingredients (the data) are kept in the exact same pantry cabinets. Before this, changing a program meant physically replugging cables and rerouting wires — like tearing down the kitchen walls and rebuilding the plumbing just to bake a different cake!
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -120,8 +121,10 @@
       <h3><span class="pic">🧑‍✈️</span> 3. The traffic controller (the operating system)</h3>
       <p>
         Your device runs dozens of programs at once, yet none of them freezes the others. That is the operating
-        system's job: it schedules slices of processor time, isolates each program's memory, and manages files and
-        devices. <strong>Unix</strong> (born at Bell Labs in 1969) set the template; <strong>Linux</strong> (started
+        system's job. Think of the OS as a **school playground monitor** or a **traffic cop**. It divides up playground time (CPU slices), makes sure kids don't paint over each other's chalk drawings (memory isolation), and prevents crashes when one program behaves badly.
+      </p>
+      <p>
+        <strong>Unix</strong> (born at Bell Labs in 1969) set the template; <strong>Linux</strong> (started
         by Linus Torvalds in 1991) became the free version that now runs most of the world's servers, almost every
         Android phone, and the data centres where AI is trained.
       </p>
@@ -140,6 +143,20 @@
         <div class="need"><span class="ck">The real need</span><p>Their previous operating system, <strong>Multics</strong>, had grown so big and complex it was barely usable. They wanted something <strong>two people could actually run</strong> (and play a game on).</p></div>
         <div class="arr"></div>
         <div class="got"><span class="ck">What it forced</span><p><strong>Unix</strong> — small, made of simple tools, and soon portable between machines. Its design still shapes nearly every operating system today.</p></div>
+      </div>
+      <div class="scenario" style="border-left-color: var(--f3); background: var(--f3-l);">
+        <div class="lbl" style="color: var(--f3-d);"><span class="pic">🎮</span> Try it yourself: Be a CPU Core</div>
+        <p>
+          Before code becomes fancy buttons, it gets chopped into tiny instructions for the CPU. Can you trace what these 3 instructions do in order? (We start with the number <code>5</code> saved in Memory Address A).
+        </p>
+        <ol style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>📥 <strong>LOAD A:</strong> Copy the number from memory Address A (<code>5</code>) into the CPU's temporary pocket.</li>
+          <li>➕ <strong>ADD 3:</strong> Add <code>3</code> to the number in the CPU's temporary pocket (pocket now holds <code>8</code>).</li>
+          <li>📤 <strong>STORE B:</strong> Take the number in the pocket (<code>8</code>) and write it down in memory Address B.</li>
+        </ol>
+        <p>
+          You just ran an assembly program! A CPU does this exact loop (Fetch instruction &rarr; Run it &rarr; Write it) billions of times per second.
+        </p>
       </div>
     </div>
 
