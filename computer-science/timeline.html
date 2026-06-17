@@ -54,277 +54,357 @@
     </p>
   </header>
 
-  <div class="wrap">
-    <div class="legend">
-      <span class="chip l1">Floor 1 · Theory</span>
-      <span class="chip l2">Floor 2 · Hardware</span>
-      <span class="chip l3">Floor 3 · Arch &amp; OS</span>
-      <span class="chip l4">Floor 4 · Networking</span>
-      <span class="chip l5">Floor 5 · Data &amp; Software</span>
-      <span class="chip l6">Floor 6 · AI</span>
-      <span class="chip l7">Floor 7 · Humans &amp; Apps</span>
+  <di    <div class="legend">
+      <button class="filter-btn active" data-floor="all">Show All</button>
+      <button class="filter-btn" data-floor="f1">Floor 1 · Theory</button>
+      <button class="filter-btn" data-floor="f2">Floor 2 · Hardware</button>
+      <button class="filter-btn" data-floor="f3">Floor 3 · Arch &amp; OS</button>
+      <button class="filter-btn" data-floor="f4">Floor 4 · Networking</button>
+      <button class="filter-btn" data-floor="f5">Floor 5 · Data &amp; Software</button>
+      <button class="filter-btn" data-floor="f6">Floor 6 · AI</button>
+      <button class="filter-btn" data-floor="f7">Floor 7 · Humans &amp; Apps</button>
     </div>
 
     <div class="tl">
 
+      <!-- ==================== ERA 1 ==================== -->
+      <div class="era-header">
+        <span class="era-dot"></span>
+        <div class="era-header-inner">
+          <span class="era-badge">Era 1</span>
+          <h3>The Pioneer Era (1936–1956)</h3>
+          <p>From the mathematical dream to initial code and thinking machines.</p>
+        </div>
+      </div>
+
       <div class="tl-item f1"><span class="tl-dot"></span>
         <div class="tl-year">1936</div>
-        <div class="tl-body"><h4>Turing's machine — computing is born on paper</h4>
-          <p>Alan Turing describes an abstract machine that can carry out any calculation by reading and writing symbols on a tape — the blueprint every real computer still follows.</p>
-          <span class="tl-why"><b>Why it happened:</b> mathematicians were trying to settle whether every true statement could be proved automatically (the <em>Entscheidungsproblem</em>). To answer "no", Turing first had to define exactly what "a machine following steps" means.</span>
+        <div class="tl-body"><h4>Turing's Paper Machine — the math that begot code</h4>
+          <p>Alan Turing designs an abstract, mathematical machine that reads and writes symbols on an infinite paper tape. It is the theoretical blueprint for all software and hardware ever made, proving that a single machine could perform any possible calculation.</p>
+          <span class="tl-why"><b>Why it happened:</b> mathematicians were obsessed with proving whether every math problem could be solved by a step-by-step recipe. To prove some couldn't, Turing first had to invent the mathematical definition of a "recipe" — accidentally inventing the computer.</span>
           <span class="tl-floor">Floor 1</span></div></div>
 
       <div class="tl-item f2"><span class="tl-dot"></span>
         <div class="tl-year">1945</div>
-        <div class="tl-body"><h4>ENIAC — the first general-purpose electronic computer</h4>
-          <p>Built at the University of Pennsylvania for the US Army: ~17,000 vacuum tubes, 30 tons, about 5,000 additions a second. It proved a machine could compute at electronic speed.</p>
-          <span class="tl-why"><b>Why it happened:</b> World War II artillery needed <em>firing tables</em> — thousands of trajectory calculations per gun. Human "computers" with desk calculators couldn't keep up, so the army funded an electronic one.</span>
+        <div class="tl-body"><h4>ENIAC — electricity replaces human calculators</h4>
+          <p>The world's first general-purpose electronic computer is built: a 30-ton giant containing 17,468 glowing vacuum tubes, computing 5,000 additions per second. It proved that electricity could calculate faster than human brainpower.</p>
+          <span class="tl-why"><b>Why it happened:</b> World War II artillery crews needed "firing tables" containing thousands of trajectory paths. Human math experts (called "computers") using desk calculators took weeks to finish one. The army needed lightning-fast calculations, so they funded an electronic one.</span>
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/eniac.jpg" alt="ENIAC computer" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 2</span></div></div>
 
       <div class="tl-item f3"><span class="tl-dot"></span>
         <div class="tl-year">1945</div>
-        <div class="tl-body"><h4>The stored-program idea (von Neumann report)</h4>
-          <p>John von Neumann's EDVAC report sets out keeping a computer's <em>instructions in memory alongside its data</em>, so it can be reprogrammed by loading new instructions instead of being rewired.</p>
-          <span class="tl-why"><b>Why it happened:</b> ENIAC was reprogrammed by physically replugging cables for days. The obvious fix: store the program as numbers, like the data.</span>
+        <div class="tl-body"><h4>The Stored-Program Concept — putting code in the pantry</h4>
+          <p>John von Neumann outlines the EDVAC design, proposing that a computer's instructions should be stored in the same memory as its data. This meant computers could be reprogrammed in seconds by loading new software rather than physically rewiring the machine.</p>
+          <span class="tl-why"><b>Why it happened:</b> reprogramming ENIAC was a nightmare. Teams of operators had to spend days flipping switches and replugging massive cables. The solution was simple but revolutionary: store the instructions as numbers, just like data.</span>
           <span class="tl-floor">Floor 3</span></div></div>
 
       <div class="tl-item f2"><span class="tl-dot"></span>
         <div class="tl-year">1947</div>
-        <div class="tl-body"><h4>The transistor — the solid-state switch</h4>
-          <p>At Bell Labs, Bardeen, Brattain and Shockley build the first transistor: a switch with no glass and no vacuum, just solid material. Smaller, cooler, faster, far more reliable than a tube.</p>
-          <span class="tl-why"><b>Why it happened:</b> the telephone network ran on millions of vacuum tubes that burned out constantly. Bell Labs needed a switch/amplifier that wouldn't fail — and got the device that all modern electronics is built from.</span>
+        <div class="tl-body"><h4>The Transistor — the solid-state revolution</h4>
+          <p>Bell Labs physicists create the first transistor—a microscopic switch made of solid silicon. It does the same job as a hot, fragile vacuum tube but uses a fraction of the power, generates almost no heat, and never burns out.</p>
+          <span class="tl-why"><b>Why it happened:</b> the global telephone network was choked by millions of vacuum tubes that died constantly, requiring round-the-clock replacement. Bell Labs needed a reliable, solid switch to handle millions of phone calls without breaking down.</span>
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/transistor.jpg" alt="First transistor" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 2</span></div></div>
 
       <div class="tl-item f1"><span class="tl-dot"></span>
         <div class="tl-year">1948</div>
-        <div class="tl-body"><h4>Shannon's information theory — the "bit"</h4>
-          <p>Claude Shannon shows that <em>any</em> information can be measured in bits and reliably sent over a noisy channel. The mathematical foundation of all digital communication and storage.</p>
-          <span class="tl-why"><b>Why it happened:</b> the phone company (again Bell Labs) wanted to know the hard limit on how much information a wire could carry. Shannon answered it — and accidentally founded the digital age.</span>
+        <div class="tl-body"><h4>Information Theory — measuring the invisible "bit"</h4>
+          <p>Claude Shannon publishes a paper proving that all human communication—text, sound, images—can be boiled down to binary "bits" (1s and 0s) and transmitted perfectly over noisy wires using math.</p>
+          <span class="tl-why"><b>Why it happened:</b> Bell Labs wanted to calculate the absolute speed limit of sending signals down copper phone lines. Shannon solved it, and in doing so, proved that all media could be digitized.</span>
           <span class="tl-floor">Floor 1</span></div></div>
 
       <div class="tl-item f5"><span class="tl-dot"></span>
         <div class="tl-year">1952</div>
-        <div class="tl-body"><h4>Grace Hopper's A-0 Compiler — code becomes readable words</h4>
-          <p>Grace Hopper develops the first compiler (the A-0 System) for the UNIVAC I, proving that programming could be written in English-like statements and automatically translated into machine code.</p>
-          <span class="tl-why"><b>Why it happened:</b> writing programs in raw binary machine code or assembly was painfully slow, error-prone, and unique to every computer model. Hopper realized that computers could be taught to translate English-style instructions into machine code themselves.</span>
+        <div class="tl-body"><h4>The First Compiler — teaching computers English</h4>
+          <p>Grace Hopper designs the A-0 compiler system for the UNIVAC I, proving that humans can write code using English-like words which a program then automatically translates into machine numbers.</p>
+          <span class="tl-why"><b>Why it happened:</b> early programming meant writing endless lists of raw binary math. It was slow, frustrating, and prone to tiny mistakes. Hopper argued that since computers are good at math, they should do the translation work, not humans.</span>
           <span class="tl-floor">Floor 5</span></div></div>
 
       <div class="tl-item f6"><span class="tl-dot"></span>
         <div class="tl-year">1956</div>
-        <div class="tl-body"><h4>The Dartmouth workshop — "Artificial Intelligence"</h4>
-          <p>A summer workshop coins the term <em>artificial intelligence</em> and launches the field as a research goal.</p>
-          <span class="tl-why"><b>Why it happened:</b> with real computers now running, a group of researchers bet that "thinking" could be described precisely enough for a machine to do it.</span>
+        <div class="tl-body"><h4>Dartmouth Workshop — naming "Artificial Intelligence"</h4>
+          <p>A summer gathering of brilliant minds coins the term "Artificial Intelligence," launching a new scientific field dedicated to building machines that can learn, reason, and solve problems like humans.</p>
+          <span class="tl-why"><b>Why it happened:</b> with the first programmable computers finally operational, researchers bet that human thinking was just a set of logical steps that could be coded into a machine.</span>
           <span class="tl-floor">Floor 6</span></div></div>
+
+      <!-- ==================== ERA 2 ==================== -->
+      <div class="era-header">
+        <span class="era-dot"></span>
+        <div class="era-header-inner">
+          <span class="era-badge">Era 2</span>
+          <h3>The Microchip &amp; Silicon Era (1957–1974)</h3>
+          <p>Shrinking physical gates onto pieces of rock, leading to OS, database, and network standards.</p>
+        </div>
+      </div>
 
       <div class="tl-item f5"><span class="tl-dot"></span>
         <div class="tl-year">1957</div>
-        <div class="tl-body"><h4>FORTRAN — the first popular high-level language</h4>
-          <p>Programmers could finally write formulas like <code>A = B + C</code> instead of raw machine numbers, and a <em>compiler</em> translated it. Software became something humans could read.</p>
-          <span class="tl-why"><b>Why it happened:</b> writing programs in machine code was painfully slow and error-prone, and machine time was precious. IBM wanted scientists to program faster.</span>
+        <div class="tl-body"><h4>FORTRAN — software for scientists</h4>
+          <p>IBM releases FORTRAN (Formula Translation), letting engineers write mathematical equations like <code>A = B + C</code> instead of raw machine numbers. It becomes the first widely adopted high-level programming language.</p>
+          <span class="tl-why"><b>Why it happened:</b> programming was still too slow for busy scientists who needed to solve physics and math equations. IBM needed a language that looked like math, making programmers 10 times more productive.</span>
           <span class="tl-floor">Floor 5</span></div></div>
 
       <div class="tl-item f2"><span class="tl-dot"></span>
         <div class="tl-year">1958–59</div>
-        <div class="tl-body"><h4>The integrated circuit (Kilby &amp; Noyce)</h4>
-          <p>Jack Kilby and Robert Noyce independently put several transistors onto a single chip — the integrated circuit, the ancestor of every processor.</p>
-          <span class="tl-why"><b>Why it happened:</b> the "<em>tyranny of numbers</em>" — complex machines needed so many separate parts soldered by hand that they became impossible to build reliably. Putting the parts on one chip was the escape.</span>
+        <div class="tl-body"><h4>The Integrated Circuit — carving circuits in stone</h4>
+          <p>Jack Kilby and Robert Noyce independently find a way to place multiple transistors, resistors, and wires onto a single slice of silicon. It eliminates hand-soldering and births the modern microchip.</p>
+          <span class="tl-why"><b>Why it happened:</b> the "tyranny of numbers"—to make more powerful computers, engineers had to solder millions of tiny components by hand. A single bad connection ruined the whole machine. Carving everything onto one piece of silicon was the only escape.</span>
           <span class="tl-floor">Floor 2</span></div></div>
 
       <div class="tl-item f2"><span class="tl-dot"></span>
         <div class="tl-year">1962–69</div>
-        <div class="tl-body"><h4>Minuteman &amp; Apollo — the military forces the chip into mass production</h4>
-          <p>The Minuteman II missile's guidance computer and the Apollo Guidance Computer were among the first machines built almost entirely from integrated circuits. Government space and defence spending was roughly a third of the entire chip market through the 1960s.</p>
-          <span class="tl-why"><b>Why it happened:</b> a missile or a spacecraft needs a computer that is <em>tiny, light, low-power and rugged</em>. Only the integrated circuit could do that — so the military and NASA bought enough of them to make chips cheap for everyone else. The clearest case of a need shaping the hardware.</span>
+        <div class="tl-body"><h4>Minuteman &amp; Apollo — funding the chip revolution</h4>
+          <p>The US military and NASA buy integrated circuits in massive quantities to build guidance computers for the Minuteman II missile and the Apollo spacecraft, single-handedly funding the scale-up of chip factories.</p>
+          <span class="tl-why"><b>Why it happened:</b> missiles and spacecraft couldn't carry 30-ton rooms of vacuum tubes. They needed light, tiny, low-power computers. NASA and the military paid premium prices for chips, driving down manufacturing costs and making chips affordable for civilian use.</span>
           <span class="tl-floor">Floor 2</span></div></div>
 
       <div class="tl-item f3"><span class="tl-dot"></span>
         <div class="tl-year">1964</div>
-        <div class="tl-body"><h4>IBM System/360 — one compatible family</h4>
-          <p>IBM "bet the company" on a whole range of computers, small to large, that all ran the <em>same software</em> and used the same peripherals. The idea of a compatible computer architecture.</p>
-          <span class="tl-why"><b>Why it happened:</b> every IBM model so far needed its own programs. Customers who outgrew a machine had to rewrite everything. A common architecture let software and skills carry across — and locked customers in.</span>
+        <div class="tl-body"><h4>IBM System/360 — software standardization</h4>
+          <p>IBM launches a family of computers that all share the same instruction set. For the first time, software written for a small computer can run unmodified on a giant mainframe.</p>
+          <span class="tl-why"><b>Why it happened:</b> before the 360, every computer model had unique hardware. When a business upgraded to a faster machine, they had to throw away all their code and rewrite it from scratch. IBM standardizes hardware to save their customers' software investments.</span>
           <span class="tl-floor">Floor 3</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">1968</div>
-        <div class="tl-body"><h4>The "Mother of All Demos" — the future of human computing</h4>
-          <p>Douglas Engelbart demonstrates NLS (oN-Line System) in San Francisco, showing the first computer mouse, windows, hypertext, word processing, file linking, and video conferencing in a single 90-minute live demonstration.</p>
-          <span class="tl-why"><b>Why it happened:</b> computers in the 1960s were batch-processing calculators run via punch cards. Engelbart believed computers should be interactive, real-time tools that boost human intelligence and cooperation.</span>
+        <div class="tl-body"><h4>The Mother of All Demos — glimpsing the future</h4>
+          <p>Douglas Engelbart stuns the tech world by demonstrating the computer mouse, graphical windows, clickable hypertext links, real-time text editing, and live video conferencing in a single 90-minute demo.</p>
+          <span class="tl-why"><b>Why it happened:</b> in 1968, computers were cold, massive calculators fed on punch cards. Engelbart envisioned computers as collaborative tools that could extend human intelligence, inventing the entire modern user interface in one go.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f4"><span class="tl-dot"></span>
         <div class="tl-year">1969</div>
-        <div class="tl-body"><h4>ARPANET — the first packet-switched network</h4>
-          <p>Four US university computers are linked into a network that chops messages into <em>packets</em> routed independently. The direct ancestor of the internet.</p>
-          <span class="tl-why"><b>Why it happened:</b> research computers were rare and expensive, and ARPA wanted scattered labs to share them. Packet switching also promised communication that could survive parts of the network being destroyed.</span>
+        <div class="tl-body"><h4>ARPANET — the first node of the internet</h4>
+          <p>Four university computers are linked together, successfully exchanging messages by breaking data into tiny "packets" that find their own way across a network. It is the birth of the Internet.</p>
+          <span class="tl-why"><b>Why it happened:</b> supercomputers were incredibly expensive. Researchers at different universities needed a way to share access to these rare machines remotely, forcing the creation of a robust, decentralized network.</span>
           <span class="tl-floor">Floor 4</span></div></div>
 
       <div class="tl-item f3"><span class="tl-dot"></span>
         <div class="tl-year">1969–71</div>
-        <div class="tl-body"><h4>Unix — a small, portable operating system</h4>
-          <p>Ken Thompson and Dennis Ritchie at Bell Labs build Unix: simple, made of small tools, and (rewritten in C in 1972) portable between machines. Its ideas live on in macOS, Android, Linux and the cloud.</p>
-          <span class="tl-why"><b>Why it happened:</b> their previous project, Multics, had grown bloated and complex. They wanted something lean enough for two people to run — and to play a game called <em>Space Travel</em> on.</span>
+        <div class="tl-body"><h4>Unix — lean, modular operating systems</h4>
+          <p>Ken Thompson and Dennis Ritchie create Unix, an operating system built on a simple philosophy: write small programs that do one thing well and chain them together. It becomes the software foundation of macOS, Linux, and the cloud.</p>
+          <span class="tl-why"><b>Why it happened:</b> their previous operating system project, Multics, became over-engineered and bloated. The creators wanted a lean, fun system they could run on a discarded, low-power minicomputer (mostly to play a game called <em>Space Travel</em>).</span>
           <span class="tl-floor">Floor 3</span></div></div>
 
       <div class="tl-item f5"><span class="tl-dot"></span>
         <div class="tl-year">1970</div>
-        <div class="tl-body"><h4>The relational database (Edgar Codd)</h4>
-          <p>Codd proposes storing data in simple linked <em>tables</em>, separated from how it's physically stored on disk. The foundation of SQL and almost every business data system since.</p>
-          <span class="tl-why"><b>Why it happened:</b> earlier databases hard-wired the data to its storage layout, so any change broke the programs. Codd wanted <em>data independence</em> — query the data without knowing how it's stored.</span>
+        <div class="tl-body"><h4>The Relational Database — data in clean tables</h4>
+          <p>Edgar Codd proposes organizing database records into simple rows and columns across linked tables, separating the database's logical structure from its physical storage.</p>
+          <span class="tl-why"><b>Why it happened:</b> early database programs had to know exactly which disk sectors the data was written to. If you changed the physical layout, all the code broke. Codd wanted a system where developers could query *what* they wanted without worrying about *where* it was stored.</span>
           <span class="tl-floor">Floor 5</span></div></div>
 
       <div class="tl-item f2"><span class="tl-dot"></span>
         <div class="tl-year">1971</div>
-        <div class="tl-body"><h4>Intel 4004 — the first microprocessor</h4>
-          <p>An entire CPU on one chip (~2,300 transistors), released 15 November 1971. It put a computer's brain onto a fingernail-sized piece of silicon.</p>
-          <span class="tl-why"><b>Why it happened:</b> the Japanese firm <em>Busicom</em> ordered custom chips for a desktop calculator. Intel's Ted Hoff suggested one general-purpose chip instead of many special ones — and the programmable microprocessor was born.</span>
+        <div class="tl-body"><h4>Intel 4004 — the computer on a fingernail</h4>
+          <p>Intel crams an entire Central Processing Unit (~2,300 transistors) onto a single silicon chip. It marks the birth of the microprocessor, packing the power of room-sized machines into a tiny chip.</p>
+          <span class="tl-why"><b>Why it happened:</b> a Japanese calculator company wanted Intel to build 12 custom, specialized chips for a new desktop calculator. Intel realized designing 12 separate chips was too expensive and proposed building one flexible, programmable chip instead.</span>
           <span class="tl-floor">Floor 2</span></div></div>
 
       <div class="tl-item f4"><span class="tl-dot"></span>
         <div class="tl-year">1973–74</div>
-        <div class="tl-body"><h4>Ethernet &amp; the TCP/IP design</h4>
-          <p>Ethernet (Metcalfe, 1973) wires computers together in a building; Cerf and Kahn (1974) design TCP/IP, a way for <em>different</em> networks to interconnect.</p>
-          <span class="tl-why"><b>Why it happened:</b> by now there were several incompatible networks — ARPANET, radio nets, satellite nets. They needed a common language so any network could talk to any other. That "network of networks" is literally the <em>inter</em>-net.</span>
+        <div class="tl-body"><h4>TCP/IP &amp; Ethernet — the universal network language</h4>
+          <p>Bob Metcalfe invents Ethernet to wire computers in the same building, while Vint Cerf and Bob Kahn design TCP/IP—a set of protocols that allows completely different networks to connect and pass packets.</p>
+          <span class="tl-why"><b>Why it happened:</b> by the early 1970s, different networks (radio, satellite, landlines) existed but couldn't talk to each other. Engineers needed a universal translation protocol so any computer network could communicate with any other—the birth of the <em>inter</em>-net.</span>
           <span class="tl-floor">Floor 4</span></div></div>
+
+      <!-- ==================== ERA 3 ==================== -->
+      <div class="era-header">
+        <span class="era-dot"></span>
+        <div class="era-header-inner">
+          <span class="era-badge">Era 3</span>
+          <h3>The Personal &amp; Connected Era (1975–1998)</h3>
+          <p>Computers enter living rooms, networks activate globally, and the web makes it all visual.</p>
+        </div>
+      </div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">1975–77</div>
-        <div class="tl-body"><h4>The personal computer (Altair, Apple II)</h4>
-          <p>The Altair 8800 (1975) and Apple II (1977) bring the microprocessor to hobbyists and homes — computers you could own.</p>
-          <span class="tl-why"><b>Why it happened:</b> the cheap microprocessor (1971) made a whole computer affordable for one person for the first time. Hardware drove a new kind of user.</span>
+        <div class="tl-body"><h4>The Personal Computer — moving to the living room</h4>
+          <p>The Altair 8800 (1975) and the Apple II (1977) launch the home computing era, converting the microprocessor from a corporate tool into a personal appliance for hobbies, games, and writing.</p>
+          <span class="tl-why"><b>Why it happened:</b> the cheap microprocessors created in the early 1970s made parts inexpensive enough that hobbyists could build their own computers. The drop in hardware cost created an entirely new type of user: the general public.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f1"><span class="tl-dot"></span>
         <div class="tl-year">1977</div>
-        <div class="tl-body"><h4>Public-Key Cryptography (RSA) — trust in a connected world</h4>
-          <p>Ron Rivest, Adi Shamir, and Leonard Adleman design the RSA cryptosystem. It uses modular prime number arithmetic to let anyone encrypt a message using a public key, while only the owner can decrypt it with a private key.</p>
-          <span class="tl-why"><b>Why it happened:</b> as computer networks grew to connect different organizations, sharing a secret password (symmetric key) securely over the wire became impossible. People needed a way to lock messages without sharing the key first.</span>
+        <div class="tl-body"><h4>Public-Key Cryptography (RSA) — trusting strangers</h4>
+          <p>Ron Rivest, Adi Shamir, and Leonard Adleman invent RSA cryptography, using prime numbers to create public and private key pairs. Anyone can lock a message with the public key, but only the recipient can unlock it with their private key.</p>
+          <span class="tl-why"><b>Why it happened:</b> as computer networks began connecting unrelated organizations and people, sharing a secret password (symmetric key) securely over the wire became impossible. Trusting networks required a way to send secure messages without exchanging a password first.</span>
           <span class="tl-floor">Floor 1 → Floor 4</span></div></div>
 
       <div class="tl-item f4"><span class="tl-dot"></span>
         <div class="tl-year">1983</div>
-        <div class="tl-body"><h4>TCP/IP switch-on &amp; DNS — the internet takes shape</h4>
-          <p>On 1 January 1983 ARPANET adopts TCP/IP for good. The same year, the Domain Name System (DNS) is introduced — the internet's phone book, turning names like <code>example.com</code> into numeric addresses.</p>
-          <span class="tl-why"><b>Why it happened:</b> the network had grown too big for the single shared <code>HOSTS.TXT</code> file that everyone copied by hand. DNS spread that lookup across thousands of cooperating servers so it could keep scaling.</span>
+        <div class="tl-body"><h4>The Internet Activates &amp; DNS is Born</h4>
+          <p>On January 1, 1983, the ARPANET officially switches to TCP/IP. In the same year, the Domain Name System (DNS) is deployed, translating memorable names like <code>example.com</code> into numeric IP addresses.</p>
+          <span class="tl-why"><b>Why it happened:</b> the network was outgrowing its centralized list of names (a single <code>HOSTS.TXT</code> file copied by hand by every computer). DNS was needed to delegate address lookups to thousands of distributed servers, allowing the internet to scale infinitely.</span>
           <span class="tl-floor">Floor 4</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">1984</div>
-        <div class="tl-body"><h4>Apple Macintosh — the graphical interface for everyone</h4>
-          <p>Building on ideas from Xerox PARC, the Macintosh sells a mouse, windows, icons and menus to ordinary people — no typed commands required.</p>
-          <span class="tl-why"><b>Why it happened:</b> command-line computers were powerful but intimidating; only specialists used them. To sell computers to <em>everyone</em>, the machine had to be operable without learning a language.</span>
+        <div class="tl-body"><h4>The Macintosh — computers "for the rest of us"</h4>
+          <p>Apple releases the Macintosh, bringing the graphical user interface (GUI)—featuring a mouse, desktop folders, icons, and menus—out of research labs and into the consumer market.</p>
+          <span class="tl-why"><b>Why it happened:</b> command-line systems required users to memorize cryptic text commands, which scared away ordinary people. To make computers household objects, Apple built an interface that could be operated by pointing and clicking at visual metaphors.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f4"><span class="tl-dot"></span>
         <div class="tl-year">1989–91</div>
-        <div class="tl-body"><h4>The World Wide Web (Tim Berners-Lee)</h4>
-          <p>At CERN, Berners-Lee invents the web: pages, links and addresses (URLs) on top of the internet. Released to the public in 1991, free for anyone to use.</p>
-          <span class="tl-why"><b>Why it happened:</b> CERN's scientists used many incompatible computers and kept losing track of each other's documents. Berners-Lee wanted one simple way to link information across all of them.</span>
+        <div class="tl-body"><h4>The World Wide Web — a web of documents</h4>
+          <p>Tim Berners-Lee invents HTTP, HTML, and URLs at CERN, creating an open system of hyperlinked documents that sit on top of the physical infrastructure of the internet.</p>
+          <span class="tl-why"><b>Why it happened:</b> CERN scientists had documents scattered across hundreds of incompatible computers. Finding research papers required logging into separate systems with unique logins. Berners-Lee wanted a single, universal way to link information across all platforms.</span>
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/www.png" alt="First web server at CERN" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 4</span></div></div>
 
       <div class="tl-item f3"><span class="tl-dot"></span>
         <div class="tl-year">1991</div>
-        <div class="tl-body"><h4>Linux — a free Unix-like kernel</h4>
-          <p>Linus Torvalds releases the Linux kernel as open source. Today it runs most servers, all Android phones, and nearly every AI training cluster.</p>
-          <span class="tl-why"><b>Why it happened:</b> Unix was powerful but expensive and locked up by licences. Students and hobbyists wanted a free version they could read, change and run on a cheap PC.</span>
+        <div class="tl-body"><h4>Linux — open source conquers the servers</h4>
+          <p>Linus Torvalds releases the Linux kernel as a free, open-source operating system project. It grows to become the operating system that runs the modern cloud, Android phones, and supercomputers.</p>
+          <span class="tl-why"><b>Why it happened:</b> Unix was the industry-standard OS but was locked behind expensive corporate licenses. Students and hobbyists wanted a free, Unix-compatible kernel that they could read, modify, and run on cheap consumer PCs.</span>
           <span class="tl-floor">Floor 3</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">1993</div>
-        <div class="tl-body"><h4>Mosaic — the web becomes visual</h4>
-          <p>The Mosaic browser shows images and text together in one window, making the web usable by non-technical people and triggering its explosive growth.</p>
-          <span class="tl-why"><b>Why it happened:</b> the early web was plain text. To reach a mass audience it needed to <em>look</em> like something — pictures, layout, a clickable page.</span>
+        <div class="tl-body"><h4>Mosaic — the web gets graphics</h4>
+          <p>The NCSA releases Mosaic, the first popular web browser that displays images directly inline with text inside a single window, sparking the 1990s dot-com boom.</p>
+          <span class="tl-why"><b>Why it happened:</b> the early web was plain text and required opening images in separate windows. To appeal to a mass audience, the web needed to look like a magazine page—unifying text, layout, and pictures in one place.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">1995</div>
-        <div class="tl-body"><h4>Java &amp; JavaScript — the web becomes an app platform</h4>
-          <p>Sun Microsystems releases Java (May) promising "write once, run anywhere" portability. Months later, Brendan Eich at Netscape writes JavaScript (December) in just 10 days, bringing interactive programs directly into the web browser.</p>
-          <span class="tl-why"><b>Why it happened:</b> the early World Wide Web was static text and image documents. Netscape needed a simple programming language inside the browser to make websites feel like active, interactive programs instead of flat papers.</span>
+        <div class="tl-body"><h4>Java &amp; JavaScript — interactive web pages</h4>
+          <p>Sun Microsystems launches Java, enabling cross-platform server code, and Brendan Eich writes JavaScript for Netscape, embedding a scripting engine directly inside the web browser.</p>
+          <span class="tl-why"><b>Why it happened:</b> early websites were static, dead documents. To build dynamic web applications (like search engines, shopping carts, and interactive games), the browser needed to run its own code in real-time on the user's computer.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f5"><span class="tl-dot"></span>
         <div class="tl-year">1998</div>
-        <div class="tl-body"><h4>Google &amp; PageRank — making sense of the web</h4>
-          <p>Google ranks pages by how many other pages link to them, turning an unbrowsable web into something searchable in milliseconds.</p>
-          <span class="tl-why"><b>Why it happened:</b> the web had grown to millions of pages. Browsing by hand was hopeless; people needed an algorithm to find the good pages for them.</span>
+        <div class="tl-body"><h4>PageRank — mapping web relevance</h4>
+          <p>Larry Page and Sergey Brin launch Google using PageRank, an algorithm that judges a web page's importance by counting the number and quality of other pages linking to it.</p>
+          <span class="tl-why"><b>Why it happened:</b> the web was growing by millions of pages a year. Search engines of the time indexed keywords stupidly, leading to spam. Users needed an algorithm that understood *relevance* and trust to find quality information.</span>
           <span class="tl-floor">Floor 5</span></div></div>
+
+      <!-- ==================== ERA 4 ==================== -->
+      <div class="era-header">
+        <span class="era-dot"></span>
+        <div class="era-header-inner">
+          <span class="era-badge">Era 4</span>
+          <h3>The Mobile &amp; Cloud Era (2006–2016)</h3>
+          <p>Renting elastic scale in the cloud, pocket-sized touch screens, and the neural network renaissance.</p>
+        </div>
+      </div>
 
       <div class="tl-item f4"><span class="tl-dot"></span>
         <div class="tl-year">2006</div>
-        <div class="tl-body"><h4>The cloud (Amazon Web Services)</h4>
-          <p>AWS lets anyone rent computing power and storage by the hour instead of buying servers — computing becomes a utility, like electricity.</p>
-          <span class="tl-why"><b>Why it happened:</b> websites had wildly uneven demand, and buying servers for the busiest day wasted money the rest of the time. Renting elastic capacity solved it — and later made giant AI training affordable.</span>
+        <div class="tl-body"><h4>AWS — computing becomes a utility</h4>
+          <p>Amazon launches Web Services (AWS), letting developers rent computing power, storage, and databases over the internet on a pay-as-you-go basis.</p>
+          <span class="tl-why"><b>Why it happened:</b> web startups had to spend thousands buying physical servers that sat idle 90% of the time, only to crash if they went viral. Renting elastic capacity on-demand turned infrastructure from a barrier to a utility.</span>
           <span class="tl-floor">Floor 4</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">2007</div>
-        <div class="tl-body"><h4>The iPhone — the internet in your pocket</h4>
-          <p>Apple's iPhone replaces tiny plastic keyboards with a full multitouch screen and a real web browser, putting a powerful networked computer in a billion pockets.</p>
-          <span class="tl-why"><b>Why it happened:</b> phones could reach the internet but using it was miserable on a numeric keypad and a postage-stamp screen. The need was a phone that was really a <em>computer you touch</em>.</span>
+        <div class="tl-body"><h4>The iPhone — pocket-sized mobile computing</h4>
+          <p>Apple launches the iPhone, combining multi-touch screens, mobile internet, and a desktop-grade web browser into a pocket-sized computer.</p>
+          <span class="tl-why"><b>Why it happened:</b> early smartphones were clunky devices with tiny keys and crippled web browsers. Using the web on the move was frustrating; people needed a device that behaved like a real computer but could be controlled entirely by finger touch.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f3"><span class="tl-dot"></span>
         <div class="tl-year">2007</div>
-        <div class="tl-body"><h4>CUDA — unlocking the GPU for general math</h4>
-          <p>NVIDIA releases CUDA, software that lets ordinary programs run on a GPU's thousands of cores — not just graphics.</p>
-          <span class="tl-why"><b>Why it happened:</b> scientists realised the graphics card was secretly a massively parallel math engine, but it was locked to drawing pixels. They needed a way to run their own calculations on it — the bridge that later made deep learning possible.</span>
+        <div class="tl-body"><h4>CUDA — the GPU becomes a math accelerator</h4>
+          <p>NVIDIA launches CUDA, a programming model that allows developers to run general-purpose calculations on a GPU's thousands of tiny cores, not just graphics.</p>
+          <span class="tl-why"><b>Why it happened:</b> scientists noticed that graphics cards were exceptionally fast at matrix mathematics but could only be programmed using graphics code (like textures and shaders). They needed a clean way to run mathematical calculations directly on GPUs.</span>
           <span class="tl-floor">Floor 3</span></div></div>
 
       <div class="tl-item f6"><span class="tl-dot"></span>
         <div class="tl-year">2012</div>
-        <div class="tl-body"><h4>AlexNet — deep learning wins</h4>
-          <p>A deep neural network trained on GPUs crushes the ImageNet image-recognition contest, beating hand-built methods by a huge margin and igniting the modern AI boom.</p>
-          <span class="tl-why"><b>Why it happened:</b> two ingredients finally arrived together — a huge labelled dataset (ImageNet) and cheap GPU compute (via CUDA). Neural networks, an old idea, suddenly had the fuel they needed.</span>
+        <div class="tl-body"><h4>AlexNet — the rebirth of deep learning</h4>
+          <p>Alex Krizhevsky and Geoffrey Hinton train a deep convolutional neural network on GPUs to win the ImageNet computer vision competition, beating traditional methods by a massive margin.</p>
+          <span class="tl-why"><b>Why it happened:</b> for decades, neural networks were dismissed as impractical. AlexNet proved that combining millions of labeled images (ImageNet) with massively parallel graphics processors (via CUDA) could make neural networks incredibly smart.</span>
           <span class="tl-floor">Floor 6</span></div></div>
 
       <div class="tl-item f6"><span class="tl-dot"></span>
         <div class="tl-year">2016</div>
-        <div class="tl-body"><h4>AlphaGo defeats Lee Sedol — AI masters intuition</h4>
-          <p>DeepMind's AlphaGo program defeats 18-time world Go champion Lee Sedol 4–1 in Seoul, South Korea, using deep neural networks trained on millions of games and self-play.</p>
-          <span class="tl-why"><b>Why it happened:</b> traditional game AIs (like Deep Blue for chess) relied on brute-force search trees. Go has more possible moves than atoms in the universe, making brute-force search impossible. AI needed to learn intuitive pattern recognition and self-improvement (reinforcement learning) to master the game.</span>
+        <div class="tl-body"><h4>AlphaGo — mastering intuitive strategy</h4>
+          <p>DeepMind's AlphaGo program defeats legendary Go champion Lee Sedol 4–1 in Seoul, South Korea, using deep neural networks and reinforcement learning to evaluate board positions using human-like "intuition."</p>
+          <span class="tl-why"><b>Why it happened:</b> unlike chess, the game of Go has more board configurations than there are atoms in the observable universe. Brute-force calculations were useless; AI needed to learn how to evaluate board configurations by "feel" and pattern appreciation, just like human masters.</span>
           <span class="tl-floor">Floor 6</span></div></div>
+
+      <!-- ==================== ERA 5 ==================== -->
+      <div class="era-header">
+        <span class="era-dot"></span>
+        <div class="era-header-inner">
+          <span class="era-badge">Era 5</span>
+          <h3>The Generative AI Era (2017–2026)</h3>
+          <p>Transformers parallelize sequences, enabling massive language scale and local silicon accelerations.</p>
+        </div>
+      </div>
 
       <div class="tl-item turn f1"><span class="tl-dot"></span>
         <div class="tl-year">2017</div>
-        <div class="tl-body"><h4>★ "Attention Is All You Need" — the Transformer</h4>
-          <p>Eight researchers at Google publish a new neural-network design built on <em>self-attention</em>: it reads an entire sequence at once, in parallel, instead of word by word. Every modern AI — ChatGPT, Claude, Gemini — is a Transformer.</p>
-          <span class="tl-why"><b>Why it happened:</b> the older networks (RNNs) read text one word at a time — slow to train and forgetful over long passages. Translation researchers needed a model that could look at all the words together and learn which ones matter to each other.</span>
+        <div class="tl-body"><h4>★ The Transformer — parallelizing language</h4>
+          <p>Google researchers publish "Attention Is All You Need," introducing the Transformer architecture. By reading sentences all at once rather than word-by-word, it enables massive scale and forms the basis of all modern LLMs.</p>
+          <span class="tl-why"><b>Why it happened:</b> earlier language models (RNNs) analyzed text sequentially. They were slow to train on GPUs and forgot context over long articles. Researchers needed an architecture that could read entire blocks of text in parallel and pay "attention" to related words.</span>
           <span class="tl-why" style="margin-top:6px;"><b>Why it's the turn:</b> attention is just <em>linear algebra done in parallel</em> — a change on Floor 1, the mathematics. Because every floor stands on Floor 1, that one change rippled <em>up</em> the whole tower. <a href="the-2017-cascade.html">See the cascade →</a></span>
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/transformer-paper.png" alt="Multi-head attention mechanism" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 1 → all floors</span></div></div>
 
       <div class="tl-item f6"><span class="tl-dot"></span>
         <div class="tl-year">2018–20</div>
-        <div class="tl-body"><h4>BERT, GPT-2, GPT-3 — scaling the Transformer</h4>
-          <p>Researchers discover that making Transformers bigger and feeding them more text keeps making them dramatically smarter. GPT-3 (2020) can write essays, code and answers from a plain prompt.</p>
-          <span class="tl-why"><b>Why it happened:</b> the 2017 design trained efficiently on GPUs, so for the first time it was practical to scale a language model up by 100× — and the results kept improving.</span>
+        <div class="tl-body"><h4>Scaling Up — the rise of large language models</h4>
+          <p>AI labs scale up the Transformer architecture, training massive models on internet-scale text. GPT-3 (2020) demonstrates that scaling size alone leads to unexpected capabilities like writing essays and code.</p>
+          <span class="tl-why"><b>Why it happened:</b> because the Transformer could be trained in parallel on GPUs, developers realized they could feed it the entire internet if they made the model big enough. The result was a sudden jump in linguistic fluency.</span>
           <span class="tl-floor">Floor 6</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">2022</div>
-        <div class="tl-body"><h4>ChatGPT — AI reaches everyone</h4>
-          <p>A simple chat box on top of a large Transformer reaches a hundred million users in two months — the fastest-adopted application in history.</p>
-          <span class="tl-why"><b>Why it happened:</b> the models were already capable; what was missing was an interface anyone could use. A chat box turned a research breakthrough into a product for the public — a Floor 7 moment.</span>
+        <div class="tl-body"><h4>ChatGPT — conversational interfaces for AI</h4>
+          <p>OpenAI wraps a chat interface around GPT-3.5, launching ChatGPT. It becomes the fastest-adopted consumer application in history, reaching 100 million active users in two months.</p>
+          <span class="tl-why"><b>Why it happened:</b> the raw language models were already powerful but required complex prompting techniques. Wrapping them in a simple, familiar chat box democratized access, allowing anyone to chat with the AI naturally.</span>
           <span class="tl-floor">Floor 7</span></div></div>
 
       <div class="tl-item f2"><span class="tl-dot"></span>
         <div class="tl-year">2025</div>
-        <div class="tl-body"><h4>NVIDIA DGX Spark — a personal AI supercomputer</h4>
-          <p>Shipped in October 2025 for about $3,999 on the Grace Blackwell (GB10) chip, with a bigger sibling, the DGX Station. Data-centre-class AI power that sits on a desk.</p>
-          <span class="tl-why"><b>Why it happened:</b> once AI became the most valuable thing computers do, the demand flowed straight back down to the hardware floor — people wanted that power locally, not just rented in the cloud.</span>
+        <div class="tl-body"><h4>DGX Blackwell — local supercomputing</h4>
+          <p>NVIDIA ships Blackwell-based local supercomputers, bringing data-center-grade neural network processing directly to developer desks.</p>
+          <span class="tl-why"><b>Why it happened:</b> renting massive AI clusters in the cloud was becoming expensive, and enterprises worried about data privacy. Developers needed a way to run and fine-tune large models locally, pushing the hardware floor to pack more power into desktop form factors.</span>
           <span class="tl-floor">Floor 2</span></div></div>
 
       <div class="tl-item f7"><span class="tl-dot"></span>
         <div class="tl-year">2026</div>
-        <div class="tl-body"><h4>Apple names a hardware engineer as CEO</h4>
-          <p>Apple announces that John Ternus, a hardware engineering leader, will succeed Tim Cook — a sign of where value now sits in the age of AI.</p>
-          <span class="tl-why"><b>Why it happened:</b> when AI runs on custom silicon, the chip <em>is</em> the product. The cascade that started on Floor 1 in 2017 has pushed value all the way back down to the people who build the hardware.</span>
+        <div class="tl-body"><h4>Hardware Ascends — Apple's next era</h4>
+          <p>Apple appoints John Ternus, a hardware engineer, as its next CEO, highlighting the shift in strategic value back to physical silicon design in the AI era.</p>
+          <span class="tl-why"><b>Why it happened:</b> with the software of AI becoming standardized, the primary differentiator for user devices is local silicon efficiency—how fast and cool a chip can run neural networks. The value cascade that started on Floor 1 has cycled back down to Floor 2.</span>
           <span class="tl-floor">Floor 7 → Floor 2</span></div></div>
 
     </div>
+
+    <!-- Interactive Filtering Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const btns = document.querySelectorAll('.filter-btn');
+      const items = document.querySelectorAll('.tl-item');
+      
+      btns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          // Toggle active states
+          btns.forEach(b => b.classList.remove('active'));
+          this.classList.add('active');
+          
+          const floor = this.getAttribute('data-floor');
+          
+          items.forEach(item => {
+            if (floor === 'all') {
+              item.classList.remove('filtered-out');
+            } else {
+              if (item.classList.contains(floor)) {
+                item.classList.remove('filtered-out');
+              } else {
+                item.classList.add('filtered-out');
+              }
+            }
+          });
+        });
+      });
+    });
+    </script>
 
     <div class="wrap-narrow" style="margin:30px auto 0;padding:0;">
       <div class="next-row">
