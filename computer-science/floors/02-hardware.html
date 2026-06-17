@@ -71,17 +71,16 @@
     <div class="panel">
       <h3><span class="pic">🔘</span> 1. The switch: tube → transistor</h3>
       <p>
-        The first electronic computers used <strong>vacuum tubes</strong> — fragile glass switches the size of a
-        thumb that ran hot and burned out constantly. Then in <strong>1947</strong>, three physicists at
-        <span class="term">Bell Labs<span class="tip">John Bardeen, Walter Brattain and William Shockley built the first working point-contact transistor in December 1947; it was announced in 1948. They later shared the Nobel Prize.</span></span>
-        built the <strong>transistor</strong>: a switch with no glass and no vacuum, just a sliver of solid material.
-        It was smaller, cooler, faster and far more reliable. Every chip since is a city of transistors.
+        The first electronic computers used <strong>vacuum tubes</strong>. Imagine a <strong>delicate glass light bulb</strong> that acts as a switch. If the bulb glows, it means 1; if dark, it means 0. But because they were glass bulbs, they ran hot, burned out constantly, and attracted real bugs inside (which is why broken code is still called a "bug").
+      </p>
+      <p>
+        Then in <strong>1947</strong>, physicists built the <strong>transistor</strong>. Think of a transistor as a **tiny electronic water gate**. Apply a tiny drop of electricity to the gate, and it opens a wide canal for a massive flow of electricity to rush through. Because it has no glass, no vacuum, and no moving parts, it never burns out and can be shrunk to near-atomic size.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 The scale of the shrink</div>
         <p>
-          ENIAC (1945) used roughly <strong>17,000 vacuum tubes</strong> and filled a room. A modern phone chip packs
-          well over <strong>ten billion transistors</strong> into a fingernail. Same idea — an electrical switch —
+          ENIAC (1945) used roughly <strong>17,000 vacuum tubes</strong> and filled a whole room. A modern smartphone chip packs
+          well over <strong>ten billion transistors</strong> into a space the size of a fingernail. Same idea — an electrical switch —
           shrunk by a factor of millions.
         </p>
       </div>
@@ -138,22 +137,32 @@
     <div class="panel">
       <h3><span class="pic">🟩</span> 3. Two kinds of brain: CPU and GPU</h3>
       <p>
-        A <strong>CPU</strong> has a few very capable cores that do complex tasks one after another — great for
-        general work. A <strong>GPU</strong> (graphics processing unit) has <em>thousands</em> of simpler cores that
-        all do the same kind of math <strong>at the same time</strong>. GPUs were built to colour millions of pixels
-        for video games — but "do the same math on huge grids of numbers, all at once" is exactly what the linear
-        algebra of Floor 1 needs.
+        A <strong>CPU</strong> (Central Processing Unit) has a few very capable cores. Think of a CPU as a **smart university professor** who can solve complex calculus equations very quickly, but can only solve them one after another (sequentially).
+      </p>
+      <p>
+        A <strong>GPU</strong> (Graphics Processing Unit) has thousands of simpler cores. Think of a GPU as a **stadium of 10,000 middle-schoolers** doing simple addition. If you give the professor 10,000 simple additions, it takes them hours to write down the answers one-by-one. If you shout them out to the stadium, every student does one addition and raises their hand. The stadium finishes in 1 second!
       </p>
       <div class="scenario">
         <div class="lbl">⚡ The 2017 connection</div>
         <p>
-          When the 2017 Transformer turned AI into massively parallel matrix math, the GPU was suddenly the perfect
-          machine for it. That is why <strong>NVIDIA</strong> — a graphics-card company — became the engine room of
-          the AI era, and why GPUs are now the most fought-over hardware on Earth.
+          Because GPUs are designed to color millions of pixels at the same time, they do "parallel math". When the 2017 Transformer turned AI into giant grids of simple matrix math, the GPU became the perfect engine for it. That is why <strong>NVIDIA</strong> became the engine room of the AI era, and why GPUs are now the most fought-over hardware on Earth.
         </p>
       </div>
       <figure class="figure contain"><img src="../assets/img/gpu.png" alt="A modern graphics processing unit (GPU) card" loading="lazy">
         <figcaption><b>A modern GPU.</b> Thousands of small cores doing the same math at once — built for game graphics, now the engine of AI training.</figcaption></figure>
+      <div class="scenario" style="border-left-color: var(--f2); background: var(--f2-l);">
+        <div class="lbl" style="color: var(--f2-d);"><span class="pic">🎮</span> Try it yourself: The Professor vs. The Stadium</div>
+        <p>
+          Let's say a computer needs to color a game screen with **2,000,000 pixels**:
+        </p>
+        <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>🎓 <strong>CPU (The Professor):</strong> Runs at a super fast speed, taking <strong>1 microsecond</strong> per pixel. To do all 2,000,000 pixels one-by-one, it takes <strong>2 seconds</strong>.</li>
+          <li>🏫 <strong>GPU (The Stadium):</strong> Has 2,000 individual cores. Each core is slower, taking <strong>10 microseconds</strong> per pixel. But because they work <strong>at the same time</strong>, they color 2,000 pixels every 10 microseconds. Total time: only <strong>0.01 seconds</strong>!</li>
+        </ul>
+        <p>
+          For painting game graphics or running AI neural networks, doing things in parallel is 200× faster!
+        </p>
+      </div>
     </div>
 
     <!-- evolution -->
