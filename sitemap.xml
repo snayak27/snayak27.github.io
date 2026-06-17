@@ -12,4 +12,16 @@
   <url><loc>https://snayak27.github.io/hermes-agent/</loc><priority>0.8</priority></url>
   <url><loc>https://snayak27.github.io/pi-hole-stack/</loc><priority>0.7</priority></url>
   <url><loc>https://snayak27.github.io/cloak-browser/</loc><priority>0.7</priority></url>
+  <url><loc>https://snayak27.github.io/community/</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/</loc><priority>0.9</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/the-2017-cascade.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/timeline.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/glossary.html</loc><priority>0.7</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/01-theory.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/02-hardware.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/03-architecture-os.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/04-networking.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/05-data-software.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/06-ai.html</loc><priority>0.8</priority></url>
+  <url><loc>https://snayak27.github.io/computer-science/floors/07-humans-apps.html</loc><priority>0.8</priority></url>
 </urlset>
