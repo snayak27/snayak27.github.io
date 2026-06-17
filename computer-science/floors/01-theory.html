@@ -76,17 +76,17 @@
       <h3><span class="pic">🧠</span> 1. What a computer even <em>is</em> (computability)</h3>
       <p>
         In <strong>1936</strong>, <span class="term">Alan Turing<span class="tip">British mathematician, 1912–1954. His 1936 paper "On Computable Numbers" defined the abstract machine that became the model for every real computer.</span></span>
-        described an imaginary machine — a strip of tape and a head that reads and writes symbols — and proved
-        something startling: this simple device can compute <em>anything</em> that can be computed at all. He also
-        proved the opposite limit: some questions <strong>no</strong> computer can ever answer, such as deciding in
-        advance whether any given program will eventually stop or loop forever (the <em>halting problem</em>).
+        described an imaginary machine to explain what computing is. Imagine a <strong>player piano</strong> that reads music from a long roll of paper with holes punched in it. Or a typewriter that reads a symbol on a paper tape, changes it based on a rulebook, and slides the tape left or right. Turing proved that this simple paper-sliding machine can solve <em>any</em> math problem that can possibly be computed!
+      </p>
+      <p>
+        But he also proved something warning-worthy: some questions <strong>no</strong> computer can ever answer, such as writing a master program that can look at any other program and guess if it will eventually finish or hang forever (the <em>halting problem</em>).
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
         <p>
           Every time an app freezes on an "infinite loading" spinner, you are looking at the halting problem.
-          Turing proved in 1936 that no tool can perfectly detect, ahead of time, that a program will hang —
-          which is exactly why crashes can never be fully designed away.
+          Turing proved that no software tool can perfectly detect, ahead of time, that a program will hang —
+          which is why bugs and crashes can never be completely designed away.
         </p>
       </div>
     </div>
@@ -95,15 +95,16 @@
       <h3><span class="pic">📶</span> 2. Measuring information itself (information theory)</h3>
       <p>
         In <strong>1948</strong>, <span class="term">Claude Shannon<span class="tip">American mathematician, 1916–2001. His 1948 paper "A Mathematical Theory of Communication" founded information theory and named the "bit".</span></span>
-        published "A Mathematical Theory of Communication." He showed that <em>any</em> message — text, sound, an
-        image — can be measured in a single unit he named the <strong>bit</strong>, and he set the hard limits on
-        how much you can compress data and how fast you can send it through a noisy channel without errors.
+        showed that information isn't an abstract feeling — it can be measured like sugar or flour. He named the basic unit the <strong>bit</strong>.
+      </p>
+      <p>
+        Think of a bit as a single <strong>Yes/No question</strong>. If you want to guess a secret number between 1 and 8, you can do it in exactly 3 Yes/No questions (e.g., "Is it greater than 4?"). That secret number contains exactly 3 bits of information. Shannon set the hard mathematical limits on how much you can compress data (like ZIP files) and how fast you can send it without static.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
         <p>
-          A song streaming cleanly over a weak signal, a photo shrinking into a small file, a video call surviving
-          a patchy connection — all of it runs on the limits Shannon proved in 1948. He is the reason "bit" is a word.
+          A song streaming cleanly over a weak signal, a photo shrinking into a small JPG file, a video call surviving
+          a patchy Wi-Fi connection — all of it runs on the limits Shannon proved. He is the reason "bit" is a word.
         </p>
       </div>
       <div class="figure-row">
@@ -124,9 +125,10 @@
       <p>
         Some problems are quick to solve; others are quick only to <em>check</em>. The deepest open question in
         computer science, the <span class="term">P versus NP problem<span class="tip">One of the seven Millennium Prize Problems, each carrying a US$1,000,000 award. Stated precisely by Stephen Cook in 1971, and independently by Leonid Levin in 1973.</span></span>,
-        asks whether every problem whose answer is fast to <em>verify</em> is also fast to <em>solve</em>. It was
-        stated precisely by <strong>Stephen Cook in 1971</strong> (and independently by Leonid Levin in 1973), and
-        remains unsolved — a standing <strong>$1,000,000</strong> prize.
+        asks if every problem whose answer is fast to verify is also fast to solve from scratch.
+      </p>
+      <p>
+        Imagine a **locked treasure chest** with a code dial. If I hand you the correct code, you can open it and **check** it instantly (that is a fast check, or "NP"). But if you have to **find** the code yourself from scratch by guessing a trillion combinations, it will take you years (that is hard to solve, or "P vs NP" boundary). If P equals NP, then there is a secret shortcut to find combinations as fast as checking them.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -143,8 +145,10 @@
       <p>
         Computers don't understand words or pictures — they understand <strong>numbers in grids</strong>, called
         <em>vectors</em> and <em>matrices</em>. The branch of math for combining those grids is
-        <strong>linear algebra</strong>. Represent a word as a list of numbers, and "similar meaning" becomes
-        "close together," while "combine these ideas" becomes "multiply these matrices."
+        <strong>linear algebra</strong>.
+      </p>
+      <p>
+        Imagine a **treasure map**. You can point to any spot on the map using just two coordinates: East-West and North-South (like `[5, 3]`). In AI, we give words their own coordinates on a giant "meaning map". If "Cat" is at `[1.2, 0.8]` and "Kitten" is at `[1.1, 0.9]`, they are very close together! We can even do math with these coordinates: `[King] - [Man] + [Woman] = [Queen]`.
       </p>
       <div class="scenario">
         <div class="lbl">⚡ Why this is the floor that changed in 2017</div>
@@ -153,6 +157,20 @@
           linear algebra. That single mathematical choice is what made modern AI possible, because matrix math can be
           run on thousands of processors <strong>at once</strong>. The idea lives here on Floor 1; its consequences
           fill every floor above. <a href="../the-2017-cascade.html">See the cascade →</a>
+        </p>
+      </div>
+      <div class="scenario" style="border-left-color: var(--f1); background: var(--f1-l);">
+        <div class="lbl" style="color: var(--f1-d);"><span class="pic">🎮</span> Try it yourself: Word Coordinates</div>
+        <p>
+          Let's map words using just two scores: <strong>"How fluffy is it?"</strong> (0 to 10) and <strong>"How big is it?"</strong> (0 to 10):
+        </p>
+        <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>🐾 <strong>Hamster</strong> = Fluffy (9), Small (1) &rarr; Coordinate: <code>[9, 1]</code></li>
+          <li>🦁 <strong>Lion</strong> = Fluffy (6), Big (7) &rarr; Coordinate: <code>[6, 7]</code></li>
+          <li>🚗 <strong>Car</strong> = Fluffy (0), Big (8) &rarr; Coordinate: <code>[0, 8]</code></li>
+        </ul>
+        <p>
+          Notice how the **Hamster** is closer to the **Lion** (both are living, somewhat fluffy creatures) than to the **Car**. By using hundreds of scores instead of just two, AI models can map the meaning of every word in human language!
         </p>
       </div>
     </div>
