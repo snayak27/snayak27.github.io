@@ -70,11 +70,10 @@
     <div class="panel">
       <h3><span class="pic">📦</span> 1. Packet switching</h3>
       <p>
-        Instead of one continuous wire between sender and receiver, the internet chops every message into small
-        numbered <strong>packets</strong> that travel independently and are reassembled at the other end. This idea
-        powered <span class="term">ARPANET<span class="tip">The research network funded by the US ARPA agency. Its first host-to-host message was sent on 29 October 1969 — the ancestor of the internet.</span></span>,
-        whose first message was sent on <strong>29 October 1969</strong>. Packets can take different routes and dodge
-        failures, which is why the internet is so hard to break.
+        Instead of one continuous wire between sender and receiver, the internet chops every message into small numbered packets.
+      </p>
+      <p>
+        Imagine mailing a **1,000-page book** to a friend, but the post office only allows letters. So you tear out every page, put it in its own stamped envelope with a page number, and mail all 1,000 envelopes separately. Some might travel by train, others by truck. They will arrive at your friend's house out of order, but your friend can easily use the page numbers to arrange them back into a book.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -97,10 +96,10 @@
       <p>
         For a global network, everyone needs the <em>same</em> rules. <strong>TCP/IP</strong> — adopted across the
         ARPANET on <strong>1 January 1983</strong> — became that universal language, giving every machine an address
-        and a reliable way to exchange packets. But numbers are hard to remember, so the
-        <span class="term">Domain Name System<span class="tip">Introduced in November 1983 by Paul Mockapetris. DNS translates human names like youtube.com into the numeric IP addresses computers use.</span></span>,
-        introduced in <strong>November 1983</strong> by Paul Mockapetris, became the internet's phone book —
-        translating a name like <code>youtube.com</code> into the numeric address machines actually use.
+        and a reliable way to exchange packets.
+      </p>
+      <p>
+        But numbers are hard to remember, so the Domain Name System (**DNS**) was introduced. DNS is the **internet's phone book**. Humans remember names (like <code>youtube.com</code>), but computers only understand phone numbers (IP addresses like <code>142.250.190.46</code>). DNS does the translation in a millisecond.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -121,8 +120,10 @@
       <p>
         The internet is the road; the <span class="term">World Wide Web<span class="tip">Invented by Tim Berners-Lee at CERN — proposed in 1989 and opened to the public on 6 August 1991. The system of linked pages that runs on top of the internet.</span></span>
         is what most people drive on it. Proposed by Tim Berners-Lee at <strong>CERN in 1989</strong> and opened to
-        the public in <strong>1991</strong>, it added linked pages and addresses (URLs). Later, the <strong>cloud</strong>
-        (from around 2006) let anyone rent computing power in giant remote data centres instead of owning it.
+        the public in <strong>1991</strong>, it added linked pages and addresses (URLs).
+      </p>
+      <p>
+        Later, the <strong>cloud</strong> appeared. Think of the cloud as a **tool rental library** or a power grid. Instead of buying a massive server and keeping it in your house, you rent computational power from a giant shared data center when you need it.
       </p>
       <div class="figure-row">
         <figure class="figure contain"><img src="../assets/img/berners-lee.jpg" alt="Tim Berners-Lee, inventor of the World Wide Web" loading="lazy">
@@ -143,6 +144,17 @@
           the cloud were rebuilt around moving that flood of data fast enough — networking became a core part of how
           AI is even possible.
         </p>
+      </div>
+      <div class="scenario" style="border-left-color: var(--f4); background: var(--f4-l);">
+        <div class="lbl" style="color: var(--f4-d);"><span class="pic">🎮</span> Try it yourself: Trace a Web Click</div>
+        <p>
+          When you click a button to view a photo of a cute puppy online:
+        </p>
+        <ol style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>📞 <strong>DNS Lookup:</strong> Your browser asks the internet's phone book: "Where is <code>puppyphotos.com</code>?" DNS replies: "Go to <code>14.21.8.99</code>."</li>
+          <li>📦 <strong>Packet Packing:</strong> Your browser wraps your request ("Send me the puppy photo") into packets and mails them over the network.</li>
+          <li>⚡ <strong>Cloud Delivery:</strong> The server at that address opens the envelopes, grabs the puppy photo file, chops it into 50 packets, and mails them back to your computer. Your screen stitches them together in a flash.</li>
+        </ol>
       </div>
     </div>
 
