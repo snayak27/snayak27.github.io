@@ -62,9 +62,10 @@
       <h3><span class="pic">🏢</span> First, the rule that makes this work</h3>
       <p>
         The tower has one law: <strong>every floor stands on the floor beneath it.</strong> Apps need software,
-        software needs an operating system, the OS needs a chip, the chip is designed from mathematics. So a change
-        near the top stays local — a new app changes one app. But a change at the <em>bottom</em> has nowhere to go
-        but <strong>up</strong>, through everything.
+        software needs an operating system, the OS needs a chip, the chip is designed from mathematics.
+      </p>
+      <p>
+        Think of it like a <strong>stack of wooden blocks</strong>. If you nudge the very top block (a single app), nothing else moves. But if you pull out or change the <strong>foundation block</strong> at the bottom (the math of Floor 1), a <strong>domino effect</strong> shoots straight up and shakes every single block in the tower!
       </p>
       <p>
         For most of computing's history, the big news happened on the middle and upper floors: faster processors,
@@ -81,7 +82,7 @@
       <div class="mt">
         <b>"Attention Is All You Need" — Vaswani et&nbsp;al.</b>
         <p>
-          Eight researchers from <strong>Google Brain, Google Research, and the University of Toronto</strong> posted their paper to arXiv on <strong>12 June 2017</strong> (later presented at the NeurIPS conference in December). They introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence at once using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>, based entirely on self-attention.
+          Eight researchers from <strong>Google Brain, Google Research, and the University of Toronto</strong> posted their paper to arXiv on <strong>12 June 2017</strong> (later presented at the NeurIPS conference in December). They introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence in parallel using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>, based entirely on self-attention.
         </p>
       </div>
     </div>
@@ -93,14 +94,10 @@
     <div class="panel">
       <h3><span class="pic">🧮</span> Why it was a <em>Floor&nbsp;1</em> change, not a Floor&nbsp;6 one</h3>
       <p>
-        Before 2017, the best language models were <span class="term">recurrent networks<span class="tip">RNNs / LSTMs — networks that read data one step at a time, passing a memory forward. Powerful, but inherently sequential: step 100 can't start until step 99 finishes.</span></span> that read text <strong>sequentially</strong> — word 100 had to wait for word 99.
-        That is a mathematical bottleneck: sequential work cannot be split across thousands of processors.
+        Before 2017, the best language models were like <strong>one person reading a book page-by-page</strong> in order. Word 100 had to wait for word 99. This is a mathematical bottleneck: you cannot divide sequential work among multiple helpers.
       </p>
       <p>
-        Attention replaced that sequence with a pile of <strong>matrix multiplications</strong> — pure linear algebra
-        that can all be done <em>at the same time</em>. That is the heart of it: the Transformer is a new
-        <strong>algorithm and mathematical structure</strong> (Floor 1) that happens to be almost perfectly
-        <em>parallel</em>. Everything that followed flows from that one property.
+        The Transformer changed the math: it is like <strong>giving 1,000 pages to 1,000 friends to read at the exact same time</strong>. They all read in parallel, and then share what they learned. This is <strong>parallel linear algebra</strong>.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 The detail that changed the world</div>
