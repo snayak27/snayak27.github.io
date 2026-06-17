@@ -70,10 +70,14 @@
     <div class="panel">
       <h3><span class="pic">⚡</span> 1. Algorithms &amp; the cost of doing things (Big-O)</h3>
       <p>
-        An <strong>algorithm</strong> is a precise recipe for solving a problem. The crucial question is not just "does
-        it work?" but "does it <em>still</em> work when the data is enormous?" Engineers measure this with
-        <span class="term">Big-O notation<span class="tip">A way to describe how an algorithm's time or memory grows as the input grows. The difference between an app that scales to millions of users and one that grinds to a halt.</span></span> —
-        a way of describing how the work grows as the input grows.
+        An <strong>algorithm</strong> is a precise recipe for solving a problem, like a guide to baking cookies. The crucial question is: "Does it still work when the data is huge?" Engineers measure this growth using <strong>Big-O notation</strong>.
+      </p>
+      <p>
+        Imagine you invite **guests** to a party:
+        <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>🥤 <strong>O(N) - Linear:</strong> Pouring drinks. If 1 guest takes 1 minute to serve, 10 guests take 10 minutes. The time scales nicely.</li>
+          <li>🤝 <strong>O(N²) - Quadratic:</strong> Handshakes. If 10 guests arrive and every guest must shake hands with everyone else, that is 45 handshakes. If 100 guests arrive, it explodes to 4,950 handshakes! The party will grind to a halt.</li>
+        </ul>
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -89,10 +93,10 @@
       <h3><span class="pic">🗄️</span> 2. Storing data so it survives and scales (databases)</h3>
       <p>
         In <strong>1970</strong>, <span class="term">Edgar Codd<span class="tip">IBM researcher whose 1970 paper introduced the relational model — organising data into linked tables. It underpins SQL and almost every business database since.</span></span>
-        at IBM proposed the <strong>relational model</strong>: organise data into neat tables that can be linked
-        together. It became the foundation of <strong>SQL</strong> databases (from the mid-1970s) and still runs banks,
-        shops and governments today — chosen because it keeps data consistent even when thousands of changes happen at
-        once.
+        at IBM proposed the relational model.
+      </p>
+      <p>
+        Think of it as a **linked family of spreadsheets**. Instead of repeating a student's address, parent names, and phone numbers every single time they borrow a library book, you keep a "Students" sheet and a "Library Books" sheet, and draw a line (a relational key) between them. This keeps the data clean and avoids repeating the same information.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -123,11 +127,21 @@
       <div class="scenario">
         <div class="lbl">⚡ The 2017 connection — "Software 2.0"</div>
         <p>
-          Traditionally, software is rules written by hand. After 2017, a new style took over for hard problems:
-          instead of coding the rules, engineers <strong>gather data and train a model</strong> to find the rules
-          itself. The program is <em>learned</em>, not written line by line — a fundamental shift in what "software"
-          even means, flowing straight up from the AI floor.
+          Traditionally, coding is **Software 1.0**: a programmer writes a detailed, 500-page rule manual telling a robot how to find a red ball.
         </p>
+        <p>
+          After 2017, **Software 2.0** took over: instead of writing the rules, we show the robot 10,000 photos of red balls and let it **train a neural network** to find the rules itself. The program is *learned* from data rather than coded line-by-line.
+        </p>
+      </div>
+      <div class="scenario" style="border-left-color: var(--f5); background: var(--f5-l);">
+        <div class="lbl" style="color: var(--f5-d);"><span class="pic">🎮</span> Try it yourself: The Handshake Count</div>
+        <p>
+          Let's compare how two algorithms sort a hand of **5 playing cards** (numbers: <code>[4, 1, 5, 2, 3]</code>):
+        </p>
+        <ol style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+          <li>🃏 <strong>Selection Sort (Simple but slow):</strong> Look at all 5 cards, find the smallest (<code>1</code>), swap it to the front. Now look at the remaining 4, find the next smallest, swap it. Total checks: <code>4 + 3 + 2 + 1 = 10</code> checks. If you had 1,000 cards, this would take about **500,000 checks**! (O(N²))</li>
+          <li>🥞 <strong>Merge Sort (Clever and fast):</strong> Split the 5 cards into individual piles. Merge adjacent piles together in order. For 1,000 cards, this takes only about **10,000 checks**! (O(N log N))</li>
+        </ol>
       </div>
     </div>
     <figure class="figure contain">
