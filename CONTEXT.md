@@ -11,11 +11,13 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Active Work
 <!-- What is being built right now -->
+- `computer-science/timeline.html` causal-graph timeline: enriched with new milestone nodes, deep-linking, a11y, and Wikimedia images. Graph integrity verified (86 nodes, 0 broken/one-way refs). This was the main focus of the 2026-06-18 session.
 - Cross-tool shared-context harness is fully wired (CONTEXT.md + CLAUDE.md + AGENTS.md + .antigravity/rules/). Both Antigravity and Claude Code now run under one harness pointing at this file.
 - Project lives at `E:\3.githubclone\snayak27.github.io` (moved from `D:\claude code project\portfolio` to escape GitHub push/token issues). Pushes are manual via GitHub Desktop — assistants must NOT push.
 
 ## Recent Decisions
 <!-- newest first, max 10 -->
+- 2026-06-18: Added 6 high-value gap milestones to the CS timeline (CMOS 1963, GPS 1978, VLSI Design 1980, the GUI/Xerox Star 1981, Word2Vec 2013, Stable Diffusion 2022), each with simple explanations and bidirectional causal wiring to existing nodes. Also added deep-linking (`?focus=`/`#id` + Copy-link), causal-drawer a11y (role=dialog, focus trap, aria-labels), and Wikimedia Commons images for the new + previously image-less nodes. Verified via a Python graph-integrity check + browser preview.
 - 2026-06-18: Wired Antigravity via its native `.antigravity/rules/00-shared-context.md` (always_on) rather than editing AppData/globalStorage (app-managed, corruption risk). Repo-tracked so it travels with clones.
 - 2026-06-18: Adopted a single living-state file (`CONTEXT.md`) as the cross-tool source of truth; `CLAUDE.md` and `AGENTS.md` are thin pointers to it. Rationale: prevent context drift between Claude Code and Antigravity.
 - 2026-06-18: Assistants do NOT run `git push` / `git pull` / remote ops. The user pushes via GitHub Desktop. Assistants only make clean, well-documented local commits.
@@ -33,3 +35,4 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 <!-- newest entries appended here by /sync; never delete past entries -->
 - 2026-06-18: Initialized dual-tool scaffolding (CONTEXT.md shared brain, CLAUDE.md, AGENTS.md, .claude/ tooling).
 - 2026-06-18: Added Antigravity workspace-rules harness (.antigravity/rules/) → unified both agents under one shared CONTEXT.md. 2 local commits, unpushed (user pushes via GitHub Desktop).
+- 2026-06-18: CS timeline enhancement sprint — 6 commits (CMOS, GPS, VLSI+GUI, Word2Vec+Stable Diffusion, image attachments) on top of earlier deep-link/a11y/portrait work. Graph clean at 86 nodes; all committed locally only.
