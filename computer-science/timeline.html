@@ -3430,6 +3430,9 @@
     
     
     
+    
+    
+    
     <!-- Causal Drawer & Backdrop Overlay -->
     <div class="drawer-overlay" id="drawerOverlay" onclick="closeCausalMap()"></div>
     <div class="causal-drawer" id="causalDrawer" aria-hidden="true">
@@ -3442,6 +3445,8 @@
       </div>
       <div class="drawer-body">
         <p class="drawer-focus-desc" id="drawerDesc">Milestone description...</p>
+        
+        <div class="drawer-meta-group" id="drawerSpark"></div>
         
         <div class="map-viewport">
           <svg class="svg-connectors" id="svgConnectors"></svg>
@@ -3464,6 +3469,8 @@
             </div>
           </div>
         </div>
+        
+        <div class="drawer-meta-group" id="drawerImpact"></div>
       </div>
       <div class="drawer-actions">
         <button class="drawer-btn" id="locateBtn">🎯 Locate in Timeline</button>
@@ -3533,10 +3540,29 @@
 
         const drawer = document.getElementById('causalDrawer');
         drawer.style.setProperty('--fc', `var(--${floorClass})`);
+        drawer.style.setProperty('--fc-d', `var(--${floorClass}-hd)`);
         drawer.style.setProperty('--fc-rgb', rgbVal);
 
         document.getElementById('drawerTitle').textContent = title;
         document.getElementById('drawerDesc').innerHTML = item.querySelector('p').innerHTML;
+
+        const metaItems = item.querySelectorAll('.tl-meta-item');
+        if (metaItems.length >= 6) {
+          const sparkHtml = `
+            <div class="drawer-meta-title">The Spark</div>
+            <div class="tl-meta-item">${metaItems[0].innerHTML}</div>
+            <div class="tl-meta-item">${metaItems[1].innerHTML}</div>
+            <div class="tl-meta-item">${metaItems[2].innerHTML}</div>
+          `;
+          const impactHtml = `
+            <div class="drawer-meta-title">The Impact</div>
+            <div class="tl-meta-item">${metaItems[3].innerHTML}</div>
+            <div class="tl-meta-item">${metaItems[4].innerHTML}</div>
+            <div class="tl-meta-item">${metaItems[5].innerHTML}</div>
+          `;
+          document.getElementById('drawerSpark').innerHTML = sparkHtml;
+          document.getElementById('drawerImpact').innerHTML = impactHtml;
+        }
 
         const floorName = item.querySelector('.tl-floor').textContent;
         document.getElementById('drawerEyebrow').textContent = `${floorName} · Milestone`;

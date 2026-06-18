@@ -8,22 +8,22 @@
 
 /* ── 7-floor accents: warm bedrock (theory) → cool sky (apps) ── */
 :root{
-  --f1:#e11d48; --f1-d:#be123c; --f1-l:#fff1f3; --f1-m:#fecdd6; /* 1 Theory      — rose   */
-  --f2:#ea580c; --f2-d:#c2410c; --f2-l:#fff5ed; --f2-m:#fed3b3; /* 2 Hardware    — orange */
-  --f3:#d97706; --f3-d:#b45309; --f3-l:#fdf6ec; --f3-m:#f6dcb0; /* 3 Arch & OS   — amber  */
-  --f4:#0f9d58; --f4-d:#0b7c46; --f4-l:#ecf8f1; --f4-m:#bce3cc; /* 4 Networking  — green  */
-  --f5:#0891b2; --f5-d:#0e7490; --f5-l:#ecfbff; --f5-m:#b6e7f2; /* 5 Data & Soft — cyan   */
-  --f6:#4f46e5; --f6-d:#4338ca; --f6-l:#eef0ff; --f6-m:#c9cdfb; /* 6 AI          — indigo */
-  --f7:#7c3aed; --f7-d:#6d28d9; --f7-l:#f5f0ff; --f7-m:#ddccfb; /* 7 Humans/Apps — violet */
+  --f1:#e11d48; --f1-d:#be123c; --f1-l:#fff1f3; --f1-m:#fecdd6; --f1-hd:var(--f1-d); /* 1 Theory      — rose   */
+  --f2:#ea580c; --f2-d:#c2410c; --f2-l:#fff5ed; --f2-m:#fed3b3; --f2-hd:var(--f2-d); /* 2 Hardware    — orange */
+  --f3:#d97706; --f3-d:#b45309; --f3-l:#fdf6ec; --f3-m:#f6dcb0; --f3-hd:var(--f3-d); /* 3 Arch & OS   — amber  */
+  --f4:#0f9d58; --f4-d:#0b7c46; --f4-l:#ecf8f1; --f4-m:#bce3cc; --f4-hd:var(--f4-d); /* 4 Networking  — green  */
+  --f5:#0891b2; --f5-d:#0e7490; --f5-l:#ecfbff; --f5-m:#b6e7f2; --f5-hd:var(--f5-d); /* 5 Data & Soft — cyan   */
+  --f6:#4f46e5; --f6-d:#4338ca; --f6-l:#eef0ff; --f6-m:#c9cdfb; --f6-hd:var(--f6-d); /* 6 AI          — indigo */
+  --f7:#7c3aed; --f7-d:#6d28d9; --f7-l:#f5f0ff; --f7-m:#ddccfb; --f7-hd:var(--f7-d); /* 7 Humans/Apps — violet */
 }
 html[data-theme="dark"]{
-  --f1-l:#2e1217; --f1-m:#6b2230;
-  --f2-l:#2a1810; --f2-m:#6b381c;
-  --f3-l:#2a2010; --f3-m:#6b4a18;
-  --f4-l:#11281c; --f4-m:#2c5a3e;
-  --f5-l:#0c2630; --f5-m:#1d5366;
-  --f6-l:#1a1a3d; --f6-m:#322f73;
-  --f7-l:#241a3d; --f7-m:#422f73;
+  --f1-l:#2e1217; --f1-m:#6b2230; --f1-hd:var(--f1);
+  --f2-l:#2a1810; --f2-m:#6b381c; --f2-hd:var(--f2);
+  --f3-l:#2a2010; --f3-m:#6b4a18; --f3-hd:var(--f3);
+  --f4-l:#11281c; --f4-m:#2c5a3e; --f4-hd:var(--f4);
+  --f5-l:#0c2630; --f5-m:#1d5366; --f5-hd:var(--f5);
+  --f6-l:#1a1a3d; --f6-m:#322f73; --f6-hd:var(--f6);
+  --f7-l:#241a3d; --f7-m:#422f73; --f7-hd:var(--f7);
 }
 
 /* ── floor-tinted eyebrows ── */
@@ -78,9 +78,14 @@ html[data-theme="dark"]{
   position:absolute;left:11px;top:2px;width:22px;height:22px;border-radius:50%;
   background:var(--card);border:3px solid var(--fc,var(--orange));z-index:2;box-shadow:var(--shadow);
 }
-.tl-item.f1{--fc:var(--f1); --fc-rgb:225,29,72;} .tl-item.f2{--fc:var(--f2); --fc-rgb:234,88,12;} .tl-item.f3{--fc:var(--f3); --fc-rgb:217,119,6;} .tl-item.f4{--fc:var(--f4); --fc-rgb:15,157,88;}
-.tl-item.f5{--fc:var(--f5); --fc-rgb:8,145,178;} .tl-item.f6{--fc:var(--f6); --fc-rgb:79,70,229;} .tl-item.f7{--fc:var(--f7); --fc-rgb:124,58,237;}
-.tl-year{font-size:0.8rem;font-weight:800;color:var(--fc,var(--orange));letter-spacing:0.03em;}
+.tl-item.f1{--fc:var(--f1); --fc-d:var(--f1-hd); --fc-rgb:225,29,72;}
+.tl-item.f2{--fc:var(--f2); --fc-d:var(--f2-hd); --fc-rgb:234,88,12;}
+.tl-item.f3{--fc:var(--f3); --fc-d:var(--f3-hd); --fc-rgb:217,119,6;}
+.tl-item.f4{--fc:var(--f4); --fc-d:var(--f4-hd); --fc-rgb:15,157,88;}
+.tl-item.f5{--fc:var(--f5); --fc-d:var(--f5-hd); --fc-rgb:8,145,178;}
+.tl-item.f6{--fc:var(--f6); --fc-d:var(--f6-hd); --fc-rgb:79,70,229;}
+.tl-item.f7{--fc:var(--f7); --fc-d:var(--f7-hd); --fc-rgb:124,58,237;}
+.tl-year{font-size:0.8rem;font-weight:800;color:var(--fc-d,var(--orange-d));letter-spacing:0.03em;}
 .tl-body{
   background:var(--card);border:1px solid var(--border);border-radius:var(--r-sm);
   padding:15px 18px;margin-top:6px;box-shadow:var(--shadow);
@@ -90,7 +95,7 @@ html[data-theme="dark"]{
 .tl-body h4{font-size:0.98rem;font-weight:700;margin-bottom:4px;}
 .tl-body p{font-size:0.85rem;color:var(--text2);line-height:1.6;margin:0;}
 .tl-floor{display:inline-block;font-size:0.64rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
-  color:var(--fc);background:var(--fc-l,var(--bg2));border:1px solid var(--fc);border-radius:99px;padding:2px 9px;margin-top:9px;opacity:0.92;}
+  color:var(--fc-d);background:var(--fc-l,var(--bg2));border:1px solid var(--fc-d);border-radius:99px;padding:2px 9px;margin-top:9px;opacity:0.92;}
 
 /* ════════════════════════════════════════════════
    EVOLUTION ERAS  (past / present / future strip)
@@ -369,7 +374,7 @@ html[data-theme="dark"]{
 }
 .tl-meta-label {
   font-weight: 700;
-  color: var(--fc, var(--orange-d));
+  color: var(--fc-d, var(--orange-d));
   display: inline;
   margin-right: 4px;
 }
@@ -531,6 +536,27 @@ html[data-theme="dark"] {
   border-radius: 6px;
   border: 1px solid var(--desc-border);
 }
+
+.drawer-meta-group {
+  background: var(--desc-bg);
+  border: 1px solid var(--desc-border);
+  border-radius: 8px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.drawer-meta-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  font-weight: 700;
+  border-bottom: 1px dashed var(--drawer-border);
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+}
+
 
 /* Visualization node-map */
 .map-section-title {
@@ -708,8 +734,8 @@ html[data-theme="dark"] {
 
 /* Causal Links within descriptions/metadata */
 .causal-link {
-  color: var(--fc, var(--orange-d));
-  border-bottom: 1px dashed var(--fc, var(--orange-d));
+  color: var(--fc-d, var(--orange-d));
+  border-bottom: 1px dashed var(--fc-d, var(--orange-d));
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
