@@ -631,7 +631,7 @@
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/von-neumann.jpg" alt="John von Neumann portrait" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 3</span></div></div>
 
-      <div class="tl-item f2" data-id="The Transistor" data-catalysts="[&quot;ENIAC&quot;]" data-dominoes="[&quot;The Integrated Circuit&quot;]"><span class="tl-dot"></span>
+      <div class="tl-item f2" data-id="The Transistor" data-catalysts="[&quot;ENIAC&quot;]" data-dominoes="[&quot;The Integrated Circuit&quot;, &quot;CMOS&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">1947</div>
         <div class="tl-body">
           <div class="tl-header-row">
@@ -1158,6 +1158,48 @@
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/apollo-guidance-computer.jpg" alt="Apollo Guidance Computer unit hardware" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 2</span></div></div>
 
+      <div class="tl-item f2" data-id="CMOS" data-catalysts="[&quot;The Transistor&quot;]" data-dominoes="[&quot;Intel 4004&quot;]"><span class="tl-dot"></span>
+        <div class="tl-year">1963</div>
+        <div class="tl-body">
+          <div class="tl-header-row">
+            <h4>CMOS — the low-power switch</h4>
+            <button class="view-map-btn" onclick="openCausalMap('CMOS')">🧠 Map</button>
+          </div>
+          <p>Frank Wanlass patents Complementary MOS: pairing two opposite <span class="causal-link" onclick="openCausalMap('The Transistor')">transistors</span> so the circuit draws almost no power except at the instant it switches. This is the design that lets billions of switches share one chip without melting it.</p>
+          <div class="tl-meta-box">
+            <div class="tl-meta-group">
+              <h5>The Spark</h5>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔴 Changed:</span>
+                <span class="tl-meta-val">Early logic chips leaked current constantly, so packing many of them together produced too much heat to be practical.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">⚡ Bottleneck:</span>
+                <span class="tl-meta-val">Power and heat — not transistor count — were the real ceiling on how dense a chip could get.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🏭 Catalyst:</span>
+                <span class="tl-meta-val">Frank Wanlass at Fairchild realising that a complementary pair of MOS <span class="causal-link" onclick="openCausalMap('The Transistor')">transistors</span> only burns power while flipping, not while holding a value.</span>
+              </div>
+            </div>
+            <div class="tl-meta-group">
+              <h5>The Impact</h5>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔗 Floor Impact:</span>
+                <span class="tl-meta-val">Floor 2 (Hardware). Removed the heat ceiling, making dense, mass-produced logic chips possible.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔮 Next Domino:</span>
+                <span class="tl-meta-val">Low-power MOS logic became the substrate the first single-chip processor — the <span class="causal-link" onclick="openCausalMap('Intel 4004')">Intel 4004</span> — was built on.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">📱 Use Today:</span>
+                <span class="tl-meta-val">Essentially every processor, memory, and image sensor in your phone and laptop is CMOS.</span>
+              </div>
+            </div>
+          </div>
+          <span class="tl-floor">Floor 2</span></div></div>
+
       <div class="tl-item f3" data-id="IBM System/360" data-catalysts="[&quot;The Hollerith Tabulator&quot;, &quot;FORTRAN&quot;, &quot;COBOL&quot;, &quot;Magnetic-Core Memory&quot;]" data-dominoes="[&quot;MS-DOS &amp; the IBM PC&quot;, &quot;The Relational Database&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">1964</div>
         <div class="tl-body">
@@ -1544,7 +1586,7 @@
           </div>
           <span class="tl-floor">Floor 1</span></div></div>
 
-      <div class="tl-item f2" data-id="Intel 4004" data-catalysts="[&quot;The Integrated Circuit&quot;, &quot;Minuteman &amp; Apollo&quot;, &quot;Moore&#x27;s Law&quot;]" data-dominoes="[&quot;The Personal Computer&quot;]"><span class="tl-dot"></span>
+      <div class="tl-item f2" data-id="Intel 4004" data-catalysts="[&quot;The Integrated Circuit&quot;, &quot;Minuteman &amp; Apollo&quot;, &quot;Moore&#x27;s Law&quot;, &quot;CMOS&quot;]" data-dominoes="[&quot;The Personal Computer&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">1971</div>
         <div class="tl-body">
           <div class="tl-header-row">
