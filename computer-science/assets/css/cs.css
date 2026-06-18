@@ -334,14 +334,33 @@ html[data-theme="dark"]{
   border-color: var(--f6);
 }
 
-/* Timeline Metadata Box for structured card content */
+/* Timeline Metadata Box updated for two-column grid */
 .tl-meta-box {
   margin-top: 12px;
   padding-top: 10px;
   border-top: 1px dashed var(--border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 600px) {
+  .tl-meta-box {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+.tl-meta-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
+}
+.tl-meta-group h5 {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text3);
+  margin: 0 0 4px 0;
+  font-weight: 700;
 }
 .tl-meta-item {
   font-size: 0.82rem;
@@ -357,5 +376,6 @@ html[data-theme="dark"]{
 .tl-meta-val {
   color: var(--text2);
 }
+
 
 
