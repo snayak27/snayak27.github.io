@@ -28,10 +28,10 @@
     <a class="nav-logo" href="./"><span class="dot"></span> Computer Science <span class="sub">a tower</span></a>
     <button class="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
     <div class="nav-links">
-      <a href="./#tower">The Floors</a>
-      <a href="timeline.html">Timeline</a>
-      <a href="the-2017-cascade.html">The 2017 Cascade</a>
-      <a href="glossary.html" class="active">Glossary</a>
+      <a href="./#tower" data-section="tower">The Floors</a>
+      <a href="timeline.html" data-section="timeline">Timeline</a>
+      <a href="the-2017-cascade.html" data-section="cascade">The 2017 Cascade</a>
+      <a href="glossary.html" data-section="glossary" class="active">Glossary</a>
       <a href="../community/">← Community</a>
       <a class="nav-pill" href="https://www.linkedin.com/in/sashibhusan-nayak-72720b3a0/" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
@@ -52,58 +52,103 @@
     </p>
   </header>
 
+  <!-- Glossary Search & Filter Deck -->
+  <div class="wrap glossary-controls-wrap">
+    <div class="glossary-controls">
+      <div class="search-box-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="text" id="glossary-search" placeholder="Search terms (e.g. GPU, algorithm)..." aria-label="Search glossary terms">
+        <button id="clear-search" class="clear-btn" aria-label="Clear search">&times;</button>
+      </div>
+      <div class="legend" style="margin: 0; max-width: none; justify-content: flex-start;">
+        <button class="filter-btn active" data-floor="all">All Floors</button>
+        <button class="filter-btn" data-floor="f1">Floor 1 · Theory</button>
+        <button class="filter-btn" data-floor="f2">Floor 2 · Hardware</button>
+        <button class="filter-btn" data-floor="f3">Floor 3 · Arch &amp; OS</button>
+        <button class="filter-btn" data-floor="f4">Floor 4 · Networking</button>
+        <button class="filter-btn" data-floor="f5">Floor 5 · Data &amp; Software</button>
+        <button class="filter-btn" data-floor="f6">Floor 6 · AI</button>
+        <button class="filter-btn" data-floor="f7">Floor 7 · Humans &amp; Apps</button>
+      </div>
+    </div>
+    <div class="glossary-stats" id="glossary-stats">
+      Showing <span id="match-count">32</span> of <span id="total-count">32</span> terms
+    </div>
+  </div>
+
   <div class="wrap">
     <div class="grid cols-2">
 
-      <div class="card"><div class="card-kicker f5">Floor 5</div><div class="card-name">Algorithm</div><div class="card-desc">A precise step-by-step recipe for solving a problem. Good algorithms stay fast even when the data is huge.</div></div>
+      <div class="card" data-floor="f5"><div class="card-kicker f5">Floor 5</div><div class="card-name">Algorithm</div><div class="card-desc">A precise step-by-step recipe for solving a problem. Good algorithms stay fast even when the data is huge.</div></div>
 
-      <div class="card"><div class="card-kicker f1">Floor 1</div><div class="card-name">Attention / Transformer</div><div class="card-desc">The 2017 neural-network mathematical design that reads a whole sequence at once using parallel linear algebra. The basis of every modern AI chatbot.</div></div>
+      <div class="card" data-floor="f3"><div class="card-kicker f3">Floor 3</div><div class="card-name">Assembly language</div><div class="card-desc">A low-level programming language that maps directly to the CPU's raw binary instructions, allowing programmers to write human-readable commands instead of zeroes and ones.</div></div>
 
-      <div class="card"><div class="card-kicker f5">Floor 5</div><div class="card-name">Big-O notation</div><div class="card-desc">A shorthand for how an algorithm's time or memory grows as its input grows — the difference between scaling to millions of users and grinding to a halt.</div></div>
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">Attention / Transformer</div><div class="card-desc">The 2017 neural-network mathematical design that reads a whole sequence at once using parallel linear algebra. The basis of every modern AI chatbot.</div></div>
 
-      <div class="card"><div class="card-kicker f1">Floor 1</div><div class="card-name">Bit</div><div class="card-desc">The smallest unit of information — a single 0 or 1. Named by Claude Shannon in 1948. Everything digital is built from bits.</div></div>
+      <div class="card" data-floor="f5"><div class="card-kicker f5">Floor 5</div><div class="card-name">Big-O notation</div><div class="card-desc">A shorthand for how an algorithm's time or memory grows as its input grows — the difference between scaling to millions of users and grinding to a halt.</div></div>
 
-      <div class="card"><div class="card-kicker f4">Floor 4</div><div class="card-name">Cloud</div><div class="card-desc">Renting computing power and storage from large remote data centres instead of owning the hardware yourself.</div></div>
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">Bit</div><div class="card-desc">The smallest unit of information — a single 0 or 1. Named by Claude Shannon in 1948. Everything digital is built from bits.</div></div>
 
-      <div class="card"><div class="card-kicker f2">Floor 2</div><div class="card-name">CPU</div><div class="card-desc">The central processing unit — a chip with a few powerful cores that handle general tasks one after another. The classic "brain" of a computer.</div></div>
+      <div class="card" data-floor="f4"><div class="card-kicker f4">Floor 4</div><div class="card-name">Cloud</div><div class="card-desc">Renting computing power and storage from large remote data centres instead of owning the hardware yourself.</div></div>
 
-      <div class="card"><div class="card-kicker f3">Floor 3</div><div class="card-name">CUDA</div><div class="card-desc">NVIDIA's software (2007) that lets ordinary programs run on thousands of GPU cores — the bridge that later let AI models train on GPUs.</div></div>
+      <div class="card" data-floor="f2"><div class="card-kicker f2">Floor 2</div><div class="card-name">CPU</div><div class="card-desc">The central processing unit — a chip with a few powerful cores that handle general tasks one after another. The classic "brain" of a computer.</div></div>
 
-      <div class="card"><div class="card-kicker f4">Floor 4</div><div class="card-name">DNS</div><div class="card-desc">The Domain Name System (1983) — the internet's phone book, translating names like youtube.com into the numeric addresses computers use.</div></div>
+      <div class="card" data-floor="f3"><div class="card-kicker f3">Floor 3</div><div class="card-name">CUDA</div><div class="card-desc">NVIDIA's software (2007) that lets ordinary programs run on thousands of GPU cores — the bridge that later let AI models train on GPUs.</div></div>
 
-      <div class="card"><div class="card-kicker f2">Floor 2</div><div class="card-name">GPU</div><div class="card-desc">A graphics processing unit — a chip with thousands of simple cores doing the same math at once. Built for games, now the engine of AI.</div></div>
+      <div class="card" data-floor="f6"><div class="card-kicker f6">Floor 6</div><div class="card-name">Deep learning</div><div class="card-desc">A subset of machine learning using neural networks with many hidden layers ("deep" stacks). It allows models to automatically extract features from complex, raw data.</div></div>
 
-      <div class="card"><div class="card-kicker f1">Floor 1</div><div class="card-name">Information theory</div><div class="card-desc">Claude Shannon's 1948 mathematics of measuring, compressing and transmitting information. The foundation of all digital communication.</div></div>
+      <div class="card" data-floor="f4"><div class="card-kicker f4">Floor 4</div><div class="card-name">DNS</div><div class="card-desc">The Domain Name System (1983) — the internet's phone book, translating names like youtube.com into the numeric addresses computers use.</div></div>
 
-      <div class="card"><div class="card-kicker f6">Floor 6</div><div class="card-name">Large Language Model (LLM)</div><div class="card-desc">A very large Transformer trained on huge amounts of text — like ChatGPT, Claude or Gemini — that can write, answer and converse.</div></div>
+      <div class="card" data-floor="f2"><div class="card-kicker f2">Floor 2</div><div class="card-name">GPU</div><div class="card-desc">A graphics processing unit — a chip with thousands of simple cores doing the same math at once. Built for games, now the engine of AI.</div></div>
 
-      <div class="card"><div class="card-kicker f1">Floor 1</div><div class="card-name">Linear algebra</div><div class="card-desc">The mathematics of combining grids of numbers (vectors and matrices). It is what AI models actually compute, and what GPUs are built to do fast.</div></div>
+      <div class="card" data-floor="f7"><div class="card-kicker f7">Floor 7</div><div class="card-name">GUI</div><div class="card-desc">Graphical User Interface — a visual system of windows, icons, buttons and mouse pointers (pioneered by Xerox Alto and popularized by Apple's Macintosh) replacing command-line text.</div></div>
 
-      <div class="card"><div class="card-kicker f6">Floor 6</div><div class="card-name">Machine learning</div><div class="card-desc">Teaching a computer by showing it many examples and letting it find the rules itself, rather than coding the rules by hand.</div></div>
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">Halting problem</div><div class="card-desc">Alan Turing's 1936 mathematical proof that no general algorithm can predict whether any program will eventually stop or run forever — the first definition of computing's absolute limits.</div></div>
 
-      <div class="card"><div class="card-kicker f2">Floor 2</div><div class="card-name">Microprocessor</div><div class="card-desc">A whole CPU on a single chip. The first commercial one was the Intel 4004 in 1971 — it put computers into everyday devices.</div></div>
+      <div class="card" data-floor="f4"><div class="card-kicker f4">Floor 4</div><div class="card-name">HTTP</div><div class="card-desc">The shared set of rules for requesting and sending web pages, images, and data across the internet. The language that makes the World Wide Web work.</div></div>
 
-      <div class="card"><div class="card-kicker f6">Floor 6</div><div class="card-name">Neural network</div><div class="card-desc">A web of simple numeric units, loosely inspired by brain cells, whose connections are tuned by training until it makes good predictions.</div></div>
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">Information theory</div><div class="card-desc">Claude Shannon's 1948 mathematics of measuring, compressing and transmitting information. The foundation of all digital communication.</div></div>
 
-      <div class="card"><div class="card-kicker f3">Floor 3</div><div class="card-name">Operating system</div><div class="card-desc">The manager (Windows, macOS, Android, Linux) that shares one computer between many programs and keeps them from interfering.</div></div>
+      <div class="card" data-floor="f2"><div class="card-kicker f2">Floor 2</div><div class="card-name">Integrated circuit (IC)</div><div class="card-desc">Fabricating an entire electrical circuit — transistors, resistors and wiring — on a single tiny slice of silicon. It allowed computers to shrink from room-sized cabinets to pocket-sized devices.</div></div>
 
-      <div class="card"><div class="card-kicker f4">Floor 4</div><div class="card-name">Packet switching</div><div class="card-desc">Chopping a message into small numbered packets that travel independently and are reassembled at the destination. The core idea of the internet.</div></div>
+      <div class="card" data-floor="f6"><div class="card-kicker f6">Floor 6</div><div class="card-name">Large Language Model (LLM)</div><div class="card-desc">A very large Transformer trained on huge amounts of text — like ChatGPT, Claude or Gemini — that can write, answer and converse.</div></div>
 
-      <div class="card"><div class="card-kicker f1">Floor 1</div><div class="card-name">P vs NP</div><div class="card-desc">The famous unsolved question of whether every problem that's quick to check is also quick to solve. Stated by Stephen Cook in 1971; a $1,000,000 prize.</div></div>
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">Linear algebra</div><div class="card-desc">The mathematics of combining grids of numbers (vectors and matrices). It is what AI models actually compute, and what GPUs are built to do fast.</div></div>
 
-      <div class="card"><div class="card-kicker f4">Floor 4</div><div class="card-name">Protocol</div><div class="card-desc">A shared set of rules that computers agree to follow so they can understand each other — like TCP/IP, the internet's common language.</div></div>
+      <div class="card" data-floor="f6"><div class="card-kicker f6">Floor 6</div><div class="card-name">Machine learning</div><div class="card-desc">Teaching a computer by showing it many examples and letting it find the rules itself, rather than coding the rules by hand.</div></div>
 
-      <div class="card"><div class="card-kicker f5">Floor 5</div><div class="card-name">Relational database</div><div class="card-desc">Storing data in linked tables, an idea from Edgar Codd in 1970. The basis of SQL and most business data systems.</div></div>
+      <div class="card" data-floor="f2"><div class="card-kicker f2">Floor 2</div><div class="card-name">Microprocessor</div><div class="card-desc">A whole CPU on a single chip. The first commercial one was the Intel 4004 in 1971 — it put computers into everyday devices.</div></div>
 
-      <div class="card"><div class="card-kicker f7">Floor 7</div><div class="card-name">Responsive design</div><div class="card-desc">Building an app or page that rearranges itself to fit any screen size — one app that works on phone, tablet and laptop.</div></div>
+      <div class="card" data-floor="f6"><div class="card-kicker f6">Floor 6</div><div class="card-name">Neural network</div><div class="card-desc">A web of simple numeric units, loosely inspired by brain cells, whose connections are tuned by training until it makes good predictions.</div></div>
 
-      <div class="card"><div class="card-kicker f3">Floor 3</div><div class="card-name">Stored-program</div><div class="card-desc">Keeping a computer's instructions in memory alongside its data, so it can be reprogrammed by loading new instructions. The von Neumann idea (1945).</div></div>
+      <div class="card" data-floor="f3"><div class="card-kicker f3">Floor 3</div><div class="card-name">Operating system</div><div class="card-desc">The manager (Windows, macOS, Android, Linux) that shares one computer between many programs and keeps them from interfering.</div></div>
 
-      <div class="card"><div class="card-kicker f4">Floor 4</div><div class="card-name">TCP/IP</div><div class="card-desc">The universal language of the internet (adopted 1983) — it gives every machine an address and a reliable way to exchange packets.</div></div>
+      <div class="card" data-floor="f4"><div class="card-kicker f4">Floor 4</div><div class="card-name">Packet switching</div><div class="card-desc">Chopping a message into small numbered packets that travel independently and are reassembled at the destination. The core idea of the internet.</div></div>
 
-      <div class="card"><div class="card-kicker f2">Floor 2</div><div class="card-name">Transistor</div><div class="card-desc">A tiny solid-state electrical switch, invented in 1947. Billions of them on a chip make up every modern processor.</div></div>
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">P vs NP</div><div class="card-desc">The famous unsolved question of whether every problem that's quick to check is also quick to solve. Stated by Stephen Cook in 1971; a $1,000,000 prize.</div></div>
 
-      <div class="card"><div class="card-kicker f1">Floor 1</div><div class="card-name">Turing machine</div><div class="card-desc">Alan Turing's 1936 abstract model of computation — the blueprint that every real computer follows, written before any existed.</div></div>
+      <div class="card" data-floor="f4"><div class="card-kicker f4">Floor 4</div><div class="card-name">Protocol</div><div class="card-desc">A shared set of rules that computers agree to follow so they can understand each other — like TCP/IP, the internet's common language.</div></div>
+
+      <div class="card" data-floor="f5"><div class="card-kicker f5">Floor 5</div><div class="card-name">Relational database</div><div class="card-desc">Storing data in linked tables, an idea from Edgar Codd in 1970. The basis of SQL and most business data systems.</div></div>
+
+      <div class="card" data-floor="f7"><div class="card-kicker f7">Floor 7</div><div class="card-name">Responsive design</div><div class="card-desc">Building an app or page that rearranges itself to fit any screen size — one app that works on phone, tablet and laptop.</div></div>
+
+      <div class="card" data-floor="f5"><div class="card-kicker f5">Floor 5</div><div class="card-name">SQL</div><div class="card-desc">Structured Query Language — the universal coding language used to ask questions, filter records, and update tables inside a relational database.</div></div>
+
+      <div class="card" data-floor="f3"><div class="card-kicker f3">Floor 3</div><div class="card-name">Stored-program</div><div class="card-desc">Keeping a computer's instructions in memory alongside its data, so it can be reprogrammed by loading new instructions. The von Neumann idea (1945).</div></div>
+
+      <div class="card" data-floor="f4"><div class="card-kicker f4">Floor 4</div><div class="card-name">TCP/IP</div><div class="card-desc">The universal language of the internet (adopted 1983) — it gives every machine an address and a reliable way to exchange packets.</div></div>
+
+      <div class="card" data-floor="f2"><div class="card-kicker f2">Floor 2</div><div class="card-name">Transistor</div><div class="card-desc">A tiny solid-state electrical switch, invented in 1947. Billions of them on a chip make up every modern processor.</div></div>
+
+      <div class="card" data-floor="f1"><div class="card-kicker f1">Floor 1</div><div class="card-name">Turing machine</div><div class="card-desc">Alan Turing's 1936 abstract model of computation — the blueprint that every real computer follows, written before any existed.</div></div>
+
+      <!-- Empty State (hidden by default) -->
+      <div id="glossary-empty" class="glossary-empty">
+        <h3>No terms found</h3>
+        <p>We couldn't find any terms matching your search or selected filter. Try searching for something else or clearing your filters.</p>
+        <button id="reset-filters-btn" class="btn btn-ghost" style="margin: 16px auto 0; font-size: 0.8rem; padding: 8px 16px;">Reset Search &amp; Filters</button>
+      </div>
 
     </div>
 
@@ -126,5 +171,116 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.getElementById('glossary-search');
+  const clearBtn = document.getElementById('clear-search');
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.grid.cols-2 .card');
+  const matchCountEl = document.getElementById('match-count');
+  const totalCountEl = document.getElementById('total-count');
+  const emptyStateEl = document.getElementById('glossary-empty');
+  const resetBtn = document.getElementById('reset-filters-btn');
+
+  // Dynamic counts for each floor
+  const floorCounts = { all: cards.length };
+  for (let i = 1; i <= 7; i++) {
+    floorCounts['f' + i] = document.querySelectorAll(`.grid.cols-2 .card[data-floor="f${i}"]`).length;
+  }
+
+  // Update total terms count
+  totalCountEl.textContent = cards.length;
+  matchCountEl.textContent = cards.length;
+
+  // Append counts to filter buttons
+  filterBtns.forEach(btn => {
+    const floor = btn.getAttribute('data-floor');
+    const count = floorCounts[floor];
+    if (count !== undefined) {
+      const badge = document.createElement('span');
+      badge.className = 'filter-count';
+      badge.textContent = ` (${count})`;
+      badge.style.opacity = '0.6';
+      badge.style.fontSize = '0.7rem';
+      badge.style.fontWeight = '500';
+      badge.style.marginLeft = '4px';
+      btn.appendChild(badge);
+    }
+  });
+
+  let currentSearch = '';
+  let currentFloor = 'all';
+
+  function filterGlossary() {
+    let matchCount = 0;
+    
+    cards.forEach(card => {
+      const name = card.querySelector('.card-name').textContent.toLowerCase();
+      const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+      const floor = card.getAttribute('data-floor');
+
+      const matchesSearch = name.indexOf(currentSearch) !== -1 || desc.indexOf(currentSearch) !== -1;
+      const matchesFloor = currentFloor === 'all' || floor === currentFloor;
+
+      if (matchesSearch && matchesFloor) {
+        card.classList.remove('hidden');
+        card.classList.add('fade-in');
+        matchCount++;
+      } else {
+        card.classList.add('hidden');
+        card.classList.remove('fade-in');
+      }
+    });
+
+    matchCountEl.textContent = matchCount;
+
+    if (matchCount === 0) {
+      emptyStateEl.style.display = 'block';
+    } else {
+      emptyStateEl.style.display = 'none';
+    }
+  }
+
+  // Handle typing search
+  searchInput.addEventListener('input', function() {
+    currentSearch = this.value.toLowerCase().trim();
+    clearBtn.style.display = currentSearch ? 'flex' : 'none';
+    filterGlossary();
+  });
+
+  // Clear search field
+  clearBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    currentSearch = '';
+    this.style.display = 'none';
+    searchInput.focus();
+    filterGlossary();
+  });
+
+  // Floor filters click
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentFloor = this.getAttribute('data-floor');
+      filterGlossary();
+    });
+  });
+
+  // Reset filters button click
+  resetBtn.addEventListener('click', function() {
+    searchInput.value = '';
+    currentSearch = '';
+    clearBtn.style.display = 'none';
+    
+    filterBtns.forEach(b => b.classList.remove('active'));
+    const allBtn = document.querySelector('.filter-btn[data-floor="all"]');
+    if (allBtn) allBtn.classList.add('active');
+    
+    currentFloor = 'all';
+    filterGlossary();
+  });
+});
+</script>
 </body>
 </html>
