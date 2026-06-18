@@ -334,3 +334,28 @@ html[data-theme="dark"]{
   border-color: var(--f6);
 }
 
+/* Timeline Metadata Box for structured card content */
+.tl-meta-box {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.tl-meta-item {
+  font-size: 0.82rem;
+  line-height: 1.55;
+  color: var(--text2);
+}
+.tl-meta-label {
+  font-weight: 700;
+  color: var(--fc, var(--orange-d));
+  display: inline;
+  margin-right: 4px;
+}
+.tl-meta-val {
+  color: var(--text2);
+}
+
+
