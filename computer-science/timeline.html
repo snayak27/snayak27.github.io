@@ -3104,7 +3104,7 @@
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/rust-logo.png" alt="Rust programming language logo" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 5</span></div></div>
 
-      <div class="tl-item f6" data-id="AlexNet" data-catalysts="[&quot;Backpropagation&quot;, &quot;CUDA&quot;, &quot;ImageNet&quot;]" data-dominoes="[&quot;GANs&quot;]"><span class="tl-dot"></span>
+      <div class="tl-item f6" data-id="AlexNet" data-catalysts="[&quot;Backpropagation&quot;, &quot;CUDA&quot;, &quot;ImageNet&quot;]" data-dominoes="[&quot;GANs&quot;, &quot;Word2Vec&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">2012</div>
         <div class="tl-body">
           <div class="tl-header-row">
@@ -3190,7 +3190,50 @@
           <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/container-ship.jpg" alt="Shipping containers representing OS-level containerization" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
           <span class="tl-floor">Floor 3</span></div></div>
 
-      <div class="tl-item f6" data-id="GANs" data-catalysts="[&quot;AlexNet&quot;]" data-dominoes="[&quot;The Transformer&quot;]"><span class="tl-dot"></span>
+      <div class="tl-item f6" data-id="Word2Vec" data-catalysts="[&quot;AlexNet&quot;]" data-dominoes="[&quot;The Transformer&quot;]"><span class="tl-dot"></span>
+        <div class="tl-year">2013</div>
+        <div class="tl-body">
+          <div class="tl-header-row">
+            <h4>Word2Vec — meaning becomes math</h4>
+            <button class="view-map-btn" onclick="openCausalMap('Word2Vec')">🧠 Map</button>
+          </div>
+          <p>A team at Google trains a small <span class="causal-link" onclick="openCausalMap('AlexNet')">neural network</span> to turn each word into a list of numbers — an <em>embedding</em> — so that words with similar meanings land near each other. Famously, "king − man + woman" lands near "queen": meaning had become arithmetic.</p>
+          <div class="tl-meta-box">
+            <div class="tl-meta-group">
+              <h5>The Spark</h5>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔴 Changed:</span>
+                <span class="tl-meta-val">Computers treated words as opaque symbols with no notion that "cat" and "kitten" are related.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">⚡ Bottleneck:</span>
+                <span class="tl-meta-val">Language models needed a way to represent meaning that math — and gradient descent — could work with.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🏭 Catalyst:</span>
+                <span class="tl-meta-val">Tomas Mikolov's team showing that predicting a word from its neighbours forces the <span class="causal-link" onclick="openCausalMap('AlexNet')">network</span> to place meaning into geometry.</span>
+              </div>
+            </div>
+            <div class="tl-meta-group">
+              <h5>The Impact</h5>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔗 Floor Impact:</span>
+                <span class="tl-meta-val">Floor 6 (AI). Gave language a dense numeric representation every later model could build on.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔮 Next Domino:</span>
+                <span class="tl-meta-val">Embeddings became the input layer of the <span class="causal-link" onclick="openCausalMap('The Transformer')">Transformer</span> and every large language model after it.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">📱 Use Today:</span>
+                <span class="tl-meta-val">Search, recommendations, and the way chatbots understand your words all start with embeddings.</span>
+              </div>
+            </div>
+          </div>
+          <figure class="figure contain" style="margin:12px 0 8px; padding:6px; max-height:180px;"><img src="assets/img/word2vec.jpg" alt="Word embedding vector-space diagram" loading="lazy" style="max-height:150px; width:auto; margin:0 auto; display:block;"></figure>
+          <span class="tl-floor">Floor 6</span></div></div>
+
+      <div class="tl-item f6" data-id="GANs" data-catalysts="[&quot;AlexNet&quot;]" data-dominoes="[&quot;The Transformer&quot;, &quot;Stable Diffusion&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">2014</div>
         <div class="tl-body">
           <div class="tl-header-row">
@@ -3329,7 +3372,7 @@
         </div>
       </div>
 
-      <div class="tl-item turn f1" data-id="The Transformer" data-catalysts="[&quot;GANs&quot;, &quot;AlphaGo&quot;]" data-dominoes="[&quot;Scaling Up&quot;, &quot;AlphaFold&quot;]"><span class="tl-dot"></span>
+      <div class="tl-item turn f1" data-id="The Transformer" data-catalysts="[&quot;GANs&quot;, &quot;AlphaGo&quot;, &quot;Word2Vec&quot;]" data-dominoes="[&quot;Scaling Up&quot;, &quot;AlphaFold&quot;, &quot;Stable Diffusion&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">2017</div>
         <div class="tl-body">
           <div class="tl-header-row">
@@ -3539,6 +3582,48 @@
             </div>
           </div>
           <span class="tl-floor">Floor 7</span></div></div>
+
+      <div class="tl-item f6" data-id="Stable Diffusion" data-catalysts="[&quot;The Transformer&quot;, &quot;GANs&quot;]" data-dominoes="[]"><span class="tl-dot"></span>
+        <div class="tl-year">2022</div>
+        <div class="tl-body">
+          <div class="tl-header-row">
+            <h4>Stable Diffusion — images from noise</h4>
+            <button class="view-map-btn" onclick="openCausalMap('Stable Diffusion')">🧠 Map</button>
+          </div>
+          <p>A diffusion model learns to start from pure static and repeatedly remove noise until a picture appears — guided by a text prompt that a <span class="causal-link" onclick="openCausalMap('The Transformer')">Transformer</span> turns into meaning. Released openly, it put photorealistic image generation on ordinary hardware.</p>
+          <div class="tl-meta-box">
+            <div class="tl-meta-group">
+              <h5>The Spark</h5>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔴 Changed:</span>
+                <span class="tl-meta-val">Generative image models like <span class="causal-link" onclick="openCausalMap('GANs')">GANs</span> were unstable and hard to steer with words.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">⚡ Bottleneck:</span>
+                <span class="tl-meta-val">A way to generate sharp, controllable images that followed a text prompt and trained stably.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🏭 Catalyst:</span>
+                <span class="tl-meta-val">Denoising diffusion paired with a <span class="causal-link" onclick="openCausalMap('The Transformer')">Transformer</span> text encoder, then released openly so anyone could run it.</span>
+              </div>
+            </div>
+            <div class="tl-meta-group">
+              <h5>The Impact</h5>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔗 Floor Impact:</span>
+                <span class="tl-meta-val">Floor 6 (AI). Made high-quality, prompt-driven image synthesis a commodity capability.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">🔮 Next Domino:</span>
+                <span class="tl-meta-val">Seeded the wave of consumer generative-media tools and the debates over training data and authorship.</span>
+              </div>
+              <div class="tl-meta-item">
+                <span class="tl-meta-label">📱 Use Today:</span>
+                <span class="tl-meta-val">Text-to-image apps, design tools, and game-asset pipelines all rest on diffusion models.</span>
+              </div>
+            </div>
+          </div>
+          <span class="tl-floor">Floor 6</span></div></div>
 
       <div class="tl-item f6" data-id="GPT-4" data-catalysts="[&quot;ChatGPT&quot;]" data-dominoes="[&quot;Agentic AI &amp; MCP&quot;]"><span class="tl-dot"></span>
         <div class="tl-year">2023</div>
