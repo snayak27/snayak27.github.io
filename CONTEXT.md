@@ -32,11 +32,12 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Next Up
 <!-- Immediate next steps -->
-- Optional cleanup: remove 3 `*.bak` files + duplicate resume PDF (`resume.pdf` vs `Sashibhusan_Nayak_Resume.pdf`).
+- Optional cleanup: remove duplicate resume PDF (`resume.pdf` vs `Sashibhusan_Nayak_Resume.pdf`).
 - Continue per user request.
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
+- 2026-06-18: Cleaned up legacy backup files index.html.bak and index.html.pre-sapls.bak from root.
 - 2026-06-18: SEO & Metadata Standardization sprint — resolved canonical gaps, description length warnings, and missing social preview cards. 17 files modified.
 - 2026-06-18: Mobile responsiveness sprint — resolved layout issues on small/narrow screens across index, 10 project pages, ecosystem page, community hub, and shared stylesheets. 16 files modified.
 - 2026-06-18: Glossary page enhancement sprint — added interactive search and floor filtering, alphabetized and added 7 new terms, fixed nav link bugs. Staged and committed locally.
