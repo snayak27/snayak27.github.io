@@ -3647,7 +3647,7 @@
     
     <!-- Causal Drawer & Backdrop Overlay -->
     <div class="drawer-overlay" id="drawerOverlay" onclick="closeCausalMap()"></div>
-    <div class="causal-drawer" id="causalDrawer" aria-hidden="true">
+    <div class="causal-drawer" id="causalDrawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" aria-hidden="true">
       <div class="drawer-header">
         <div class="drawer-header-left">
           <span class="drawer-eyebrow" id="drawerEyebrow">Causal Map</span>
@@ -3705,11 +3705,15 @@
       };
 
       let currentFocusedId = null;
+      let lastFocusedEl = null;
 
       window.openCausalMap = function(id) {
         const drawer = document.getElementById('causalDrawer');
         const overlay = document.getElementById('drawerOverlay');
         if (!drawer || !overlay) return;
+
+        // a11y: remember what had focus so we can restore it on close.
+        if (!drawer.classList.contains('open')) lastFocusedEl = document.activeElement;
 
         currentFocusedId = id;
         renderCausalMap(id);
@@ -3718,6 +3722,11 @@
         overlay.classList.add('open');
         drawer.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+
+        // a11y: move keyboard focus into the dialog (setTimeout fires even when
+        // requestAnimationFrame is throttled, e.g. a backgrounded tab).
+        const closeBtn = drawer.querySelector('.drawer-close');
+        if (closeBtn) setTimeout(() => closeBtn.focus(), 0);
 
         // Deep-link: reflect the focused milestone in the URL hash so it can be shared.
         try { history.replaceState(null, '', '#' + encodeURIComponent(id)); } catch (e) {}
@@ -3732,6 +3741,12 @@
         overlay.classList.remove('open');
         drawer.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+
+        // a11y: restore focus to the control that opened the dialog.
+        if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+          lastFocusedEl.focus();
+        }
+        lastFocusedEl = null;
 
         // Deep-link: drop the hash and any ?focus= so a refresh doesn't re-open the drawer.
         try {
@@ -3941,8 +3956,19 @@
       });
 
       document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          closeCausalMap();
+        const drawer = document.getElementById('causalDrawer');
+        if (!drawer || !drawer.classList.contains('open')) return;
+
+        if (e.key === 'Escape') { closeCausalMap(); return; }
+
+        // a11y: trap Tab focus within the open dialog.
+        if (e.key === 'Tab') {
+          const focusables = drawer.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+          const list = Array.prototype.filter.call(focusables, function(el) { return el.offsetParent !== null && !el.disabled; });
+          if (!list.length) return;
+          const first = list[0], last = list[list.length - 1];
+          if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+          else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
         }
       });
 
@@ -3990,6 +4016,23 @@
           }
         });
       }
+
+      // a11y: give each Map button a descriptive label, and make the inline
+      // causal links (spans with onclick) operable by keyboard.
+      document.querySelectorAll('.view-map-btn').forEach(function(btn) {
+        var item = btn.closest('.tl-item');
+        var h4 = item && item.querySelector('h4');
+        var name = h4 ? h4.textContent.split(' — ')[0].replace('★', '').trim() : 'this milestone';
+        btn.setAttribute('aria-label', 'Open causal map for ' + name);
+        btn.setAttribute('aria-haspopup', 'dialog');
+      });
+      document.querySelectorAll('.causal-link').forEach(function(link) {
+        if (!link.hasAttribute('role')) link.setAttribute('role', 'button');
+        if (!link.hasAttribute('tabindex')) link.setAttribute('tabindex', '0');
+        link.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); link.click(); }
+        });
+      });
 
       // On first paint, honour a shared link.
       openFromUrl();
