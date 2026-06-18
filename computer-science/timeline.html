@@ -3944,10 +3944,27 @@
           </div>
         </div>
         
+        <!-- Floor-to-Floor Cascade Visualizer -->
+        <div class="cascade-tower-container" id="cascadeTowerContainer" style="display: none; margin: 20px 0 15px;">
+          <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: var(--text1);">
+            🔗 Floor-to-Floor Causal Cascade
+          </div>
+          <div class="cascade-floors-stack">
+            <div class="cascade-floor active-f7" data-floor="7">Floor 7: Humans &amp; Applications</div>
+            <div class="cascade-floor active-f6" data-floor="6">Floor 6: Artificial Intelligence</div>
+            <div class="cascade-floor active-f5" data-floor="5">Floor 5: Data, Algorithms &amp; Software</div>
+            <div class="cascade-floor active-f4" data-floor="4">Floor 4: Networking &amp; the Internet</div>
+            <div class="cascade-floor active-f3" data-floor="3">Floor 3: Architecture &amp; Operating Systems</div>
+            <div class="cascade-floor active-f2" data-floor="2">Floor 2: Physical Hardware</div>
+            <div class="cascade-floor active-f1" data-floor="1">Floor 1: Theory &amp; Mathematics</div>
+          </div>
+        </div>
+
         <div class="drawer-meta-group" id="drawerImpact"></div>
       </div>
       <div class="drawer-actions">
         <button class="drawer-btn" id="locateBtn">🎯 Locate in Timeline</button>
+        <button class="drawer-btn secondary" id="traceCascadeBtn">⚡ Trace Cascade</button>
         <button class="drawer-btn secondary" id="copyLinkBtn">🔗 Copy link</button>
         <button class="drawer-btn secondary" onclick="closeCausalMap()">Close</button>
       </div>
@@ -4130,8 +4147,39 @@
           }, 400);
         };
 
+        // Extract floor numbers for the cascade visualizer
+        const currentFloorNum = parseInt(floorClass.substring(1));
+        const catalystFloorNums = [];
+        catalysts.forEach(catId => {
+          const catItem = findTimelineItem(catId);
+          if (catItem) {
+            const catFloorClass = Array.from(catItem.classList).find(c => c.startsWith('f')) || 'f1';
+            const catFloorNum = parseInt(catFloorClass.substring(1));
+            if (!catalystFloorNums.includes(catFloorNum)) catalystFloorNums.push(catFloorNum);
+          }
+        });
+        const dominoFloorNums = [];
+        dominoes.forEach(domId => {
+          const domItem = findTimelineItem(domId);
+          if (domItem) {
+            const domFloorClass = Array.from(domItem.classList).find(c => c.startsWith('f')) || 'f1';
+            const domFloorNum = parseInt(domFloorClass.substring(1));
+            if (!dominoFloorNums.includes(domFloorNum)) dominoFloorNums.push(domFloorNum);
+          }
+        });
+
+        // Set up the Trace Cascade button handler
+        const traceCascadeBtn = document.getElementById('traceCascadeBtn');
+        if (traceCascadeBtn) {
+          traceCascadeBtn.onclick = () => {
+            runCascadeAnimation(currentFloorNum, catalystFloorNums, dominoFloorNums);
+          };
+        }
+
         requestAnimationFrame(() => {
           drawConnectors();
+          // Automatically run the cascade animation on open
+          runCascadeAnimation(currentFloorNum, catalystFloorNums, dominoFloorNums);
         });
       }
 
@@ -4171,6 +4219,68 @@
         dominoNodes.forEach(domNode => {
           drawLine(currentRect, domNode.getBoundingClientRect());
         });
+      }
+
+      let cascadeTimeoutIds = [];
+      function runCascadeAnimation(currentFloor, catalystFloors, dominoFloors) {
+        const container = document.getElementById('cascadeTowerContainer');
+        if (!container) return;
+        
+        container.style.display = 'block';
+        
+        // Clear active timeouts
+        cascadeTimeoutIds.forEach(id => clearTimeout(id));
+        cascadeTimeoutIds = [];
+        
+        const floorsStack = container.querySelectorAll('.cascade-floor');
+        
+        // Reset stack visual state
+        floorsStack.forEach(f => {
+          f.className = f.className.replace(/\bactive-highlight\b/g, '').replace(/\bactive-path\b/g, '');
+          f.style.opacity = '0.18';
+          f.style.transform = 'scale(0.98)';
+          f.style.boxShadow = 'none';
+        });
+        
+        const activeSet = new Set([currentFloor, ...catalystFloors, ...dominoFloors]);
+        const lowestFloor = Math.min(...Array.from(activeSet));
+        const highestFloor = Math.max(...Array.from(activeSet));
+        
+        // Mark path floors immediately
+        floorsStack.forEach(f => {
+          const fNum = parseInt(f.getAttribute('data-floor'));
+          if (activeSet.has(fNum)) {
+            f.classList.add('active-path');
+            f.style.opacity = '0.35';
+          }
+        });
+        
+        // Run cascade wave climb
+        let delay = 100;
+        for (let i = lowestFloor; i <= highestFloor; i++) {
+          const targetFloorNum = i;
+          const timeoutId = setTimeout(() => {
+            const floorEl = container.querySelector(`.cascade-floor[data-floor="${targetFloorNum}"]`);
+            if (floorEl) {
+              floorEl.classList.add('active-highlight');
+              floorEl.style.transform = 'scale(1.04)';
+              floorEl.style.opacity = '1';
+              
+              const pulseOffId = setTimeout(() => {
+                floorEl.style.transform = 'scale(1.0)';
+                if (activeSet.has(targetFloorNum)) {
+                  floorEl.style.opacity = '1';
+                } else {
+                  floorEl.classList.remove('active-highlight');
+                  floorEl.style.opacity = '0.18';
+                }
+              }, 250);
+              cascadeTimeoutIds.push(pulseOffId);
+            }
+          }, delay);
+          cascadeTimeoutIds.push(timeoutId);
+          delay += 120;
+        }
       }
 
       window.addEventListener('resize', () => {
