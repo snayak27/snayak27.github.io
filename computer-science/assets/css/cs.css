@@ -538,8 +538,17 @@ html[data-theme="dark"] {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: var(--muted);
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   font-weight: 700;
+  text-align: center;
+}
+.map-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  z-index: 2;
 }
 .map-viewport {
   position: relative;
@@ -549,7 +558,7 @@ html[data-theme="dark"] {
   padding: 24px 16px;
   display: flex;
   flex-direction: column;
-  gap: 45px;
+  gap: 40px;
   align-items: center;
   overflow: hidden;
 }

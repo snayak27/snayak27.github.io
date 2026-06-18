@@ -3429,6 +3429,7 @@
 
     
     
+    
     <!-- Causal Drawer & Backdrop Overlay -->
     <div class="drawer-overlay" id="drawerOverlay" onclick="closeCausalMap()"></div>
     <div class="causal-drawer" id="causalDrawer" aria-hidden="true">
@@ -3442,11 +3443,13 @@
       <div class="drawer-body">
         <p class="drawer-focus-desc" id="drawerDesc">Milestone description...</p>
         
-        <div class="map-section-title">🏭 Catalysts (Causes)</div>
         <div class="map-viewport">
           <svg class="svg-connectors" id="svgConnectors"></svg>
-          <div class="map-row" id="catalystsRow">
-            <!-- Catalyst nodes go here -->
+          <div class="map-group">
+            <div class="map-section-title">🏭 Catalysts (Causes)</div>
+            <div class="map-row" id="catalystsRow">
+              <!-- Catalyst nodes go here -->
+            </div>
           </div>
           <div class="map-row">
             <div class="map-node current" id="currentNode">
@@ -3454,11 +3457,13 @@
               <span class="node-title" id="currentNodeTitle">Current Node</span>
             </div>
           </div>
-          <div class="map-row" id="dominoesRow">
-            <!-- Domino nodes go here -->
+          <div class="map-group">
+            <div class="map-section-title">🔮 Future Dominoes (Consequences)</div>
+            <div class="map-row" id="dominoesRow">
+              <!-- Domino nodes go here -->
+            </div>
           </div>
         </div>
-        <div class="map-section-title">🔮 Future Dominoes (Consequences)</div>
       </div>
       <div class="drawer-actions">
         <button class="drawer-btn" id="locateBtn">🎯 Locate in Timeline</button>
