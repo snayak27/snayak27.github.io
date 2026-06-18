@@ -3686,6 +3686,7 @@
       </div>
       <div class="drawer-actions">
         <button class="drawer-btn" id="locateBtn">🎯 Locate in Timeline</button>
+        <button class="drawer-btn secondary" id="copyLinkBtn">🔗 Copy link</button>
         <button class="drawer-btn secondary" onclick="closeCausalMap()">Close</button>
       </div>
     </div>
@@ -3717,6 +3718,9 @@
         overlay.classList.add('open');
         drawer.setAttribute('aria-hidden', 'false');
         document.body.style.overflow = 'hidden';
+
+        // Deep-link: reflect the focused milestone in the URL hash so it can be shared.
+        try { history.replaceState(null, '', '#' + encodeURIComponent(id)); } catch (e) {}
       };
 
       window.closeCausalMap = function() {
@@ -3728,6 +3732,14 @@
         overlay.classList.remove('open');
         drawer.setAttribute('aria-hidden', 'true');
         document.body.style.overflow = '';
+
+        // Deep-link: drop the hash and any ?focus= so a refresh doesn't re-open the drawer.
+        try {
+          var params = new URLSearchParams(location.search);
+          params.delete('focus');
+          var qs = params.toString();
+          history.replaceState(null, '', location.pathname + (qs ? '?' + qs : ''));
+        } catch (e) {}
       };
 
       function findTimelineItem(id) {
@@ -3933,6 +3945,54 @@
           closeCausalMap();
         }
       });
+
+      // Deep-linking: open a milestone's causal map straight from the URL.
+      // Supports ?focus=<id> (preferred for sharing) and #<id> (set when a map opens).
+      function idFromUrl() {
+        var params = new URLSearchParams(location.search);
+        var raw = params.get('focus');
+        if (!raw && location.hash) {
+          try { raw = decodeURIComponent(location.hash.slice(1)); } catch (e) { raw = location.hash.slice(1); }
+        }
+        return raw && findTimelineItem(raw) ? raw : null;
+      }
+
+      function openFromUrl() {
+        var id = idFromUrl();
+        if (id) window.openCausalMap(id);
+      }
+
+      // Back/forward and manual hash edits.
+      window.addEventListener('hashchange', function() {
+        var id = idFromUrl();
+        if (id) window.openCausalMap(id);
+        else window.closeCausalMap();
+      });
+
+      // Copy a shareable ?focus= link for the currently open milestone.
+      var copyBtn = document.getElementById('copyLinkBtn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function() {
+          if (!currentFocusedId) return;
+          var url = location.origin + location.pathname + '?focus=' + encodeURIComponent(currentFocusedId);
+          var done = function() {
+            var prev = copyBtn.textContent;
+            copyBtn.textContent = '✓ Copied';
+            setTimeout(function() { copyBtn.textContent = prev; }, 1500);
+          };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(url).then(done).catch(done);
+          } else {
+            var ta = document.createElement('textarea');
+            ta.value = url; document.body.appendChild(ta); ta.select();
+            try { document.execCommand('copy'); } catch (e) {}
+            document.body.removeChild(ta); done();
+          }
+        });
+      }
+
+      // On first paint, honour a shared link.
+      openFromUrl();
     })();
     </script>
     <script src="assets/js/main.js"></script>
