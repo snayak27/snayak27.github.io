@@ -149,7 +149,15 @@
     .footer a { color: var(--text2); text-decoration: none; font-weight: 600; }
     .footer a:hover { color: var(--orange); }
 
-    @media (max-width: 600px) { .nav-links { gap: 14px; } .chero { padding: 60px 0 28px; } }
+    @media (max-width: 600px) {
+      .nav-links { gap: 14px; }
+      .chero { padding: 48px 0 24px; }
+      .proj-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .princ { grid-template-columns: 1fr; }
+      .wrap { padding: 0 16px; }
+    }
   </style>
 </head>
 <body>

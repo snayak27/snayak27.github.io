@@ -4,19 +4,21 @@
 > It is git-tracked, so it travels with the repo and survives tool switches, fresh clones, and context resets.
 > Both `CLAUDE.md` and `AGENTS.md` point here. **Read this first, every session. Update it before you stop.**
 
-_Last synced: 2026-06-18 (IST)_
+_Last synced: 2026-06-18 (IST) - Mobile Responsiveness Polish_
 
 ## Current Phase
 Active Dev / Maintenance — content site is live on GitHub Pages; ongoing additions of project deep-dive pages and SEO/structured-data polish.
 
 ## Active Work
 <!-- What is being built right now -->
-- `computer-science/timeline.html` causal-graph timeline: enriched with new milestone nodes, deep-linking, a11y, and Wikimedia images. Graph integrity verified (86 nodes, 0 broken/one-way refs). This was the main focus of the 2026-06-18 session.
-- Cross-tool shared-context harness is fully wired (CONTEXT.md + CLAUDE.md + AGENTS.md + .antigravity/rules/). Both Antigravity and Claude Code now run under one harness pointing at this file.
-- Project lives at `E:\3.githubclone\snayak27.github.io` (moved from `D:\claude code project\portfolio` to escape GitHub push/token issues). Pushes are manual via GitHub Desktop — assistants must NOT push.
+- `computer-science/timeline.html` causal-graph timeline: enriched with new milestone nodes, deep-linking, a11y, and Wikimedia images. Graph integrity verified (86 nodes, 0 broken/one-way refs).
+- `computer-science/glossary.html` glossary page: enhanced with a real-time local search input, floor filtering deck, dynamic count badges, and 7 new terms mapped across all 7 floors.
+- Mobile Responsiveness Polish: optimized landing page and 10+ subpages for mobile (375px) and tablet (768px) layout scaling.
 
 ## Recent Decisions
 <!-- newest first, max 10 -->
+- 2026-06-18: Portfolio-wide Mobile Responsiveness: added hamburger navigation menu to main page with simple JS toggle, stacked stats rows into clean grid segments on mobile/tablet views, stacked project details subpage links, wrapped ecosystem and community grid blocks, and resolved card grid width overflow across shared stylesheet classes.
+- 2026-06-18: Glossary Page Enhancements: added local search input with clear-box control, floor filtering deck with dynamic count badges, and a custom no-results empty state (with Reset button). Also inserted 7 new terms (Assembly language, Deep learning, GUI, Halting problem, HTTP, Integrated circuit, SQL) to fill knowledge gaps across all floors, and fixed navigation link active highlighting bug.
 - 2026-06-18: Added 6 high-value gap milestones to the CS timeline (CMOS 1963, GPS 1978, VLSI Design 1980, the GUI/Xerox Star 1981, Word2Vec 2013, Stable Diffusion 2022), each with simple explanations and bidirectional causal wiring to existing nodes. Also added deep-linking (`?focus=`/`#id` + Copy-link), causal-drawer a11y (role=dialog, focus trap, aria-labels), and Wikimedia Commons images for the new + previously image-less nodes. Verified via a Python graph-integrity check + browser preview.
 - 2026-06-18: Wired Antigravity via its native `.antigravity/rules/00-shared-context.md` (always_on) rather than editing AppData/globalStorage (app-managed, corruption risk). Repo-tracked so it travels with clones.
 - 2026-06-18: Adopted a single living-state file (`CONTEXT.md`) as the cross-tool source of truth; `CLAUDE.md` and `AGENTS.md` are thin pointers to it. Rationale: prevent context drift between Claude Code and Antigravity.
@@ -33,6 +35,8 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
+- 2026-06-18: Mobile responsiveness sprint — resolved layout issues on small/narrow screens across index, 10 project pages, ecosystem page, community hub, and shared stylesheets. 16 files modified.
+- 2026-06-18: Glossary page enhancement sprint — added interactive search and floor filtering, alphabetized and added 7 new terms, fixed nav link bugs. Staged and committed locally.
 - 2026-06-18: Initialized dual-tool scaffolding (CONTEXT.md shared brain, CLAUDE.md, AGENTS.md, .claude/ tooling).
 - 2026-06-18: Added Antigravity workspace-rules harness (.antigravity/rules/) → unified both agents under one shared CONTEXT.md. 2 local commits, unpushed (user pushes via GitHub Desktop).
 - 2026-06-18: CS timeline enhancement sprint — 6 commits (CMOS, GPS, VLSI+GUI, Word2Vec+Stable Diffusion, image attachments) on top of earlier deep-link/a11y/portrait work. Graph clean at 86 nodes; all committed locally only.

@@ -125,6 +125,18 @@
     .arch-down{text-align:center;color:var(--orange);font-size:1.1rem;font-weight:700;margin:6px 0;}
     .logo-b{display:flex;align-items:center;justify-content:center;font-size:0.68rem;font-weight:800;color:white;flex-shrink:0;border-radius:6px;width:30px;height:30px;}
     .lb-chroma{background:#7c3aed;}.lb-neo4j{background:#018bff;}.lb-c4{background:#059669;}.lb-or{background:#1c1917;}.lb-hive{background:#f97316;}.lb-me{background:#ea580c;}
+    /* ── Mobile/Tablet Responsiveness ── */
+    @media(max-width:768px){
+      .hero { padding: 48px 0 32px; }
+      .proj-nav { flex-direction: column; align-items: stretch; gap: 12px; }
+      .proj-nav-link { max-width: none; }
+      .proj-nav-all { justify-content: center; }
+      .resume-cards { grid-template-columns: 1fr; }
+    }
+    @media(max-width:480px){
+      .wrap { padding: 0 16px; }
+      section { padding: 36px 0; }
+    }
   </style>
 </head>
 <body>

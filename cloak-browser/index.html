@@ -92,6 +92,18 @@
     .nav-hint{font-size:0.74rem;color:var(--muted);}
     .proj-nav-all{font-size:0.82rem;color:var(--text2);text-decoration:none;display:flex;align-items:center;gap:6px;padding:8px 18px;border-radius:99px;background:var(--bg2);border:1px solid var(--border);transition:all 0.2s;white-space:nowrap;}
     .proj-nav-all:hover{color:var(--orange);background:var(--orange-l);text-decoration:none;}
+    /* ── Mobile/Tablet Responsiveness ── */
+    @media(max-width:768px){
+      .hero { padding: 48px 0 32px; }
+      .proj-nav { flex-direction: column; align-items: stretch; gap: 12px; }
+      .proj-nav-link { max-width: none; }
+      .proj-nav-all { justify-content: center; }
+      .resume-cards { grid-template-columns: 1fr; }
+    }
+    @media(max-width:480px){
+      .wrap { padding: 0 16px; }
+      section { padding: 36px 0; }
+    }
   </style>
 </head>
 <body>

@@ -905,4 +905,11 @@ html[data-theme="dark"] {
   animation: cardIn 0.3s var(--ease) both;
 }
 
+@media (max-width: 480px) {
+  .wrap { padding: 0 16px; }
+  .nav { padding: 0 16px; }
+  .section-head { margin: 40px 0 24px; }
+  .hero { padding: 24px 0 20px; }
+}
+
 
