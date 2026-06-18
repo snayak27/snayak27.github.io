@@ -68,7 +68,7 @@
       </p>
     </div>
 
-    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>From simple logic gates to neural networks that learn from data.</p></div>
 
     <div class="panel">
       <h3><span class="pic">🎓</span> 1. Learning from examples (machine learning)</h3>
@@ -76,7 +76,14 @@
         Rather than coding "what a cat looks like," you show a network thousands of labelled photos and let it find the patterns itself.
       </p>
       <p>
-        Imagine a **giant wall of millions of light dials** connected by wires. You feed an image of a cat in at the left, the dials turn, and a light bulb at the right turns on. If the bulb marked "Dog" lights up, you go backward through the wall and nudge all the dials a tiny bit (this is called **backpropagation** or training). If you do this with 10,000 cat photos, the dials settle into a pattern that perfectly detects cats.
+        A <strong>neural network</strong> is made of thousands of tiny math units called <strong>neurons</strong>. Think of a single neuron as a <strong>weighted voting system</strong>:
+        \[ y = \sigma(w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b) \]
+        where each input ($x$) is a piece of advice from a friend, the weight ($w$) is how much you trust that friend, and the bias ($b$) is how stubborn you are. The activation function ($\sigma$), like **ReLU** (Rectified Linear Unit), acts as a simple switch:
+        \[ f(x) = \max(0, x) \]
+        If the total vote is positive, the neuron fires the output; if it is negative, it stays silent (0). If we didn't have this non-linear switch, a network with 100 layers would collapse into a single flat equation, unable to learn anything complex!
+      </p>
+      <p>
+        To train this network, we use **Backpropagation** (backward error propagation). Imagine a giant wall of millions of dimmer dials connected by wires. You feed in an image of a cat; the dials turn, and a bulb at the end turns on. If the bulb marked "Dog" lights up instead of "Cat," the computer goes backward through the layers, calculating the gradient of the error, and nudges each dial a tiny bit so the next guess is slightly closer to the correct answer.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -84,6 +91,9 @@
           A photos app that quietly groups every picture of the same person was never told what that person looks like.
           It learned the pattern from examples — that is machine learning doing its everyday job.
         </p>
+      </div>
+      <div class="cause f6">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Neural networks translate complex human tasks into high-dimensional grid math (Floor 1). In the 1950s, Frank Rosenblatt implemented this math physically as the Mark I Perceptron (Floor 2)—a room-sized cabinet using real motorized dials to adjust weights.</p></div>
       </div>
     </div>
 
@@ -101,6 +111,15 @@
         <div class="arr"></div>
         <div class="got"><span class="ck">What it forced</span><p>The <strong>ImageNet dataset</strong> plus <strong>GPUs</strong> (via CUDA) finally supplied both. AlexNet proved deep learning worked — and lit the fuse for everything after.</p></div>
       </div>
+      <div class="cause f6">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>AlexNet proved that deep learning (Floor 6) could scale by shifting the grid math from slow CPUs to parallel GPUs (Floor 2) using NVIDIA's CUDA programming layer (Floor 3).</p></div>
+      </div>
+      <div class="figure-row" style="margin-top: 15px;">
+        <figure class="figure contain"><img src="../assets/img/deep-blue.jpg" alt="Garry Kasparov playing Deep Blue" loading="lazy">
+          <figcaption><b>Deep Blue (1997).</b> IBM's chess computer defeated Garry Kasparov using brute-force math rules and checking millions of chess positions (Symbolic AI).</figcaption></figure>
+        <figure class="figure contain"><img src="../assets/img/go-board.jpg" alt="An AlphaGo board" loading="lazy">
+          <figcaption><b>AlphaGo (2016).</b> Google DeepMind defeated Lee Sedol using deep neural networks and practice, mastering a game with more combinations than atoms in the universe.</figcaption></figure>
+      </div>
     </div>
     <figure class="figure contain">
       <img src="../assets/img/hinton.jpg" alt="Geoffrey Hinton, pioneer of deep learning" loading="lazy">
@@ -117,7 +136,17 @@
         By reading a whole sequence at once with **attention** instead of one step at a time, it could be trained on massive datasets. Scaled up, Transformers became **Large Language Models** (LLMs) like ChatGPT, Claude, and Gemini.
       </p>
       <p>
-        Think of an LLM as a **supercharged predictive keyboard** (like the autocorrect on your phone) that has read the entire internet. It doesn't actually "think" or feel like a human; it just guesses the very next word so accurately that it sounds like a conversation.
+        To understand which word belongs to what context, the Transformer uses **Self-Attention** by projecting words into three vectors:
+      </p>
+      <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+        <li>🔍 <strong>Query ($\mathbf{Q}$):</strong> What a word is looking for (e.g., "I am looking for words that describe my bank").</li>
+        <li>🔑 <strong>Key ($\mathbf{K}$):</strong> What a word offers as a description (e.g., "I am the word 'river', I offer a nature context").</li>
+        <li>💎 <strong>Value ($\mathbf{V}$):</strong> The actual information of the word.</li>
+      </ul>
+      <p>
+        The model multiplies the Query and Key to find their matching score, divides by a scaling factor to keep the math stable, and applies a softmax function to get the attention weights:
+        \[ \text{Attention}(\mathbf{Q}, \mathbf{K}, \mathbf{V}) = \text{softmax}\left(\frac{\mathbf{Q}\mathbf{K}^T}{\sqrt{d_k}}\right)\mathbf{V} \]
+        This acts like a <strong>context magnet</strong>: in "the bank of the river," the Key of "river" pulls the Query of "bank" closer, selecting the correct geographical meaning (Value) instead of a financial one.
       </p>
       <div class="scenario">
         <div class="lbl">⚡ Why this floor is the destination of the cascade</div>
@@ -132,8 +161,17 @@
         <div class="arr"></div>
         <div class="got"><span class="ck">What it forced</span><p><strong>Self-attention</strong> — read the whole sequence at once, in parallel, and learn which words matter to each other. Because that's just parallel linear algebra, it ran beautifully on GPUs and could be scaled enormously. This is the Floor-1 change that became the cascade.</p></div>
       </div>
+      <div class="cause f6" style="margin-top: 15px;">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Large language models (Floor 6) are trained across thousands of servers wired by high-speed networks (Floor 4) running Linux kernels (Floor 3). The models are then packaged into software libraries (Floor 5) to power conversational chat apps (Floor 7).</p></div>
+      </div>
       <figure class="figure contain"><img src="../assets/img/supercomputer.jpg" alt="Racks of a supercomputer used for large-scale computation" loading="lazy">
         <figcaption><b>A supercomputer.</b> Training a large language model means running this parallel linear algebra across thousands of GPUs for weeks — the cascade reaching all the way down to the metal.</figcaption></figure>
+      <div class="figure-row" style="margin-top: 15px;">
+        <figure class="figure contain"><img src="../assets/img/transformer-paper.png" alt="The Transformer architecture diagram from the paper" loading="lazy">
+          <figcaption><b>The Transformer (2017).</b> The paper "Attention Is All You Need" introduced the attention-only architecture that replaced sequential networks.</figcaption></figure>
+        <figure class="figure contain"><img src="../assets/img/stable-diffusion.jpg" alt="Stable Diffusion generated artwork collage" loading="lazy">
+          <figcaption><b>Generative AI (2022).</b> Models like Stable Diffusion and ChatGPT learn patterns from billions of internet examples to generate new images and text.</figcaption></figure>
+      </div>
       <div class="scenario" style="border-left-color: var(--f6); background: var(--f6-l);">
         <div class="lbl" style="color: var(--f6-d);"><span class="pic">🎮</span> Try it yourself: The "Attention" Link</div>
         <p>
@@ -150,37 +188,45 @@
     </div>
 
     <!-- evolution -->
-    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>From rules-based expert systems to parallel models that generate and reason.</p></div>
     <div class="eras">
       <div class="era past"><span class="tag">Then</span><h4>Hand-built rules</h4><p>Early AI tried to encode human knowledge as explicit rules. It could play set games but couldn't learn or handle the messy real world.</p></div>
       <div class="era now"><span class="tag">Now</span><h4>Models that write, see and speak</h4><p>Large language and vision models write, translate, generate images and hold conversations — trained on a large fraction of the internet.</p></div>
       <div class="era next"><span class="tag">Next</span><h4>Agents that act</h4><p>AI that doesn't just answer but takes multi-step actions — using tools, writing and running code, and carrying out tasks on your behalf.</p></div>
     </div>
 
-    <div class="milestone">
+    <a href="../timeline.html?focus=Dartmouth+Workshop" class="milestone">
       <div class="yr">1956</div>
-      <div class="mt"><b>The field is named</b><p>The Dartmouth workshop coins the term "artificial intelligence" and launches it as a research field.</p></div>
-    </div>
+      <div class="mt"><b>The field is named ↗</b><p>The Dartmouth workshop coins the term "artificial intelligence" and launches it as a research field.</p></div>
+    </a>
     <figure class="figure contain">
       <img src="../assets/img/mccarthy.jpg" alt="John McCarthy, pioneer of AI" loading="lazy">
       <figcaption><b>John McCarthy at Stanford.</b> Organizer of the 1956 Dartmouth Summer Research Project on Artificial Intelligence and creator of the Lisp programming language, McCarthy was a seminal figure in shaping connectionist and symbolic AI.</figcaption>
     </figure>
-    <div class="milestone">
+    <a href="../timeline.html?focus=The+Mark+I+Perceptron" class="milestone">
       <div class="yr">1958</div>
-      <div class="mt"><b>The perceptron</b><p>An early trainable neural network shows machines can learn from examples — the seed of everything on this floor, decades before the hardware could deliver.</p></div>
-    </div>
+      <div class="mt"><b>The perceptron ↗</b><p>An early trainable neural network shows machines can learn from examples — the seed of everything on this floor, decades before the hardware could deliver.</p></div>
+    </a>
     <figure class="figure contain">
       <img src="../assets/img/perceptron.jpg" alt="Frank Rosenblatt's Mark I Perceptron" loading="lazy">
       <figcaption><b>The Mark I Perceptron.</b> Built by Frank Rosenblatt in 1957-1958, this room-sized electromechanical machine was the first physical implementation of a neural network, demonstrating basic pattern recognition.</figcaption>
     </figure>
-    <div class="milestone">
+    <a href="../timeline.html?focus=Backpropagation" class="milestone">
+      <div class="yr">1986</div>
+      <div class="mt"><b>Backpropagation is popularized ↗</b><p>Rumelhart, Hinton, and Williams show that backpropagation can train multi-layer neural networks, solving the single-layer bottleneck of the perceptron.</p></div>
+    </a>
+    <a href="../timeline.html?focus=AlexNet" class="milestone">
       <div class="yr">2012</div>
-      <div class="mt"><b>AlexNet wins ImageNet</b><p>Deep learning on GPUs wins decisively (15.3% top-5 error), proving that big networks plus parallel hardware is the path forward.</p></div>
-    </div>
-    <div class="milestone">
+      <div class="mt"><b>AlexNet wins ImageNet ↗</b><p>Deep learning on GPUs wins decisively (15.3% error), proving that large neural networks plus parallel hardware is the path forward.</p></div>
+    </a>
+    <a href="../timeline.html?focus=The+Transformer" class="milestone">
       <div class="yr">2017</div>
-      <div class="mt"><b>The Transformer</b><p>"Attention Is All You Need" gives AI a parallel, scalable architecture — the basis of every modern large language model.</p></div>
-    </div>
+      <div class="mt"><b>The Transformer ↗</b><p>"Attention Is All You Need" gives AI a parallel, scalable sequence processing architecture — the basis of every modern LLM.</p></div>
+    </a>
+    <a href="../timeline.html?focus=ChatGPT" class="milestone">
+      <div class="yr">2022</div>
+      <div class="mt"><b>ChatGPT — conversational AI ↗</b><p>OpenAI releases ChatGPT, wrapping a user-friendly conversational interface around GPT-3.5, launching the AI app wave.</p></div>
+    </a>
 
     <div class="panel" style="margin-top:30px;">
       <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>

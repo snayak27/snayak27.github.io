@@ -96,6 +96,8 @@ html[data-theme="dark"]{
 .tl-body p{font-size:0.85rem;color:var(--text2);line-height:1.6;margin:0;}
 .tl-floor{display:inline-block;font-size:0.64rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;
   color:var(--fc-d);background:var(--fc-l,var(--bg2));border:1px solid var(--fc-d);border-radius:99px;padding:2px 9px;margin-top:9px;opacity:0.92;}
+a.tl-floor{text-decoration:none;transition:background-color 0.2s,color 0.2s,border-color 0.2s;cursor:pointer;}
+a.tl-floor:hover{background-color:var(--fc-d);color:var(--card);border-color:var(--fc-d);}
 
 /* ════════════════════════════════════════════════
    EVOLUTION ERAS  (past / present / future strip)
@@ -116,9 +118,31 @@ html[data-theme="dark"]{
   display:flex;gap:16px;align-items:flex-start;background:linear-gradient(135deg,var(--card),var(--bg2));
   border:1.5px solid var(--border);border-radius:var(--r);padding:20px 22px;box-shadow:var(--shadow);margin-bottom:18px;
 }
+a.milestone{
+  text-decoration:none;
+  color:inherit;
+  transition:transform 0.25s var(--spring),box-shadow 0.25s var(--ease),border-color 0.2s;
+  cursor:pointer;
+}
+a.milestone:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow-h);
+  border-color:var(--orange);
+}
 .milestone .yr{font-size:1.5rem;font-weight:800;color:var(--orange);line-height:1;flex-shrink:0;min-width:64px;}
 .milestone .mt b{display:block;font-size:1rem;font-weight:700;margin-bottom:4px;}
 .milestone .mt p{font-size:0.86rem;color:var(--text2);line-height:1.65;margin:0;}
+
+/* Dynamic drawer eyebrow floor link style */
+.drawer-floor-link {
+  color: var(--fc);
+  text-decoration: none;
+  border-bottom: 1px dashed var(--fc);
+  transition: opacity 0.2s;
+}
+.drawer-floor-link:hover {
+  opacity: 0.85;
+}
 
 /* ════════════════════════════════════════════════
    REAL-SCENARIO CALLOUT  (concrete CS situation — not a metaphor)

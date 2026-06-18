@@ -67,15 +67,15 @@
       </p>
     </div>
 
-    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>The screens, touchpoints, and responsive layers that connect human intent with silicon.</p></div>
 
     <div class="panel">
       <h3><span class="pic">🖱️</span> 1. Making computers usable (the interface)</h3>
       <p>
-        Early computers needed typed commands only experts knew. The **graphical interface** (GUI) changed that.
+        Early computers needed typed commands only experts knew. The **graphical interface** (GUI) changed that by shifting from <strong>Recall</strong> (memorizing and typing strict text commands) to <strong>Recognition</strong> (seeing and clicking options).
       </p>
       <p>
-        Imagine a **physical desk** with folders, paper documents, and a trash can, but drawn on a screen. Instead of typing codes, you use a mouse or your finger to slide folders around and drop files in the trash. This visual metaphor turned the computer from a rocket-scientist's calculator into an everyday tool.
+        This was built on the **WIMP** paradigm: <strong>W</strong>indows, <strong>I</strong>cons, <strong>M</strong>enus, and a <strong>P</strong>ointer. Imagine a **physical desk** with folders, paper documents, and a trash can, but drawn on a screen. Instead of typing codes, you use a mouse or your finger to slide folders around and drop files in the trash. This visual desktop metaphor turned the computer from a rocket-scientist's calculator into an everyday tool.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -84,13 +84,22 @@
           as objects you can see and move. That choice is why your grandparents can use a phone.
         </p>
       </div>
-      <div class="figure-row">
+      <div class="cause f7">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Graphical interfaces (Floor 7) represent software data structures (Floor 5) running on operating system screen buffers (Floor 3) driven by physical graphics chip transistors (Floor 2).</p></div>
+      </div>
+      <div class="figure-row" style="margin-top: 15px;">
         <figure class="figure contain"><img src="../assets/img/xerox-alto.jpg" alt="The Xerox Alto computer from 1973" loading="lazy">
           <figcaption><b>Xerox Alto, 1973.</b> The first workstation to integrate a mouse, graphical user interface (GUI), and desktop metaphor, developed at Xerox PARC.</figcaption></figure>
         <figure class="figure contain"><img src="../assets/img/macintosh.jpg" alt="The original 1984 Apple Macintosh computer" loading="lazy">
           <figcaption><b>Apple Macintosh, 1984.</b> The mouse-and-windows interface that brought the GUI concepts pioneered by Xerox to the mainstream public.</figcaption></figure>
       </div>
-      <div class="cause f7">
+      <div class="figure-row" style="margin-top: 15px;">
+        <figure class="figure contain"><img src="../assets/img/altair-8800.jpg" alt="MITS Altair 8800 computer" loading="lazy">
+          <figcaption><b>MITS Altair 8800 (1975).</b> The spark of the personal computer revolution, sold as a kit for hobbyists. Gates and Allen wrote Altair BASIC for it.</figcaption></figure>
+        <figure class="figure contain"><img src="../assets/img/dan-bricklin.jpg" alt="Dan Bricklin and VisiCalc" loading="lazy">
+          <figcaption><b>VisiCalc (1979).</b> The first computer spreadsheet program. It turned personal computers from a hobbyist toy into a business necessity.</figcaption></figure>
+      </div>
+      <div class="cause f7" style="margin-top: 15px;">
         <div class="need"><span class="ck">The real need</span><p>Command-line computers were powerful but <strong>intimidating</strong> — you had to memorise exact typed instructions. Only trained specialists used them.</p></div>
         <div class="arr"></div>
         <div class="got"><span class="ck">What it forced</span><p>A <strong>graphical interface</strong> — windows, icons, a mouse — so a computer could be operated <strong>without learning a language</strong>, and sold to everyone.</p></div>
@@ -102,12 +111,22 @@
       <p>
         On <strong>29 June 2007</strong>, Apple released the <span class="term">iPhone<span class="tip">Announced by Steve Jobs in January 2007 and released on 29 June 2007. Its multi-touch screen made the pocket computer mainstream and created the modern app economy.</span></span>.
         Its <strong>multi-touch</strong> screen — pinch, swipe, tap — put a real computer in everyone's pocket and,
-        with the App Store the following year, created an entire economy of applications. More than any single device,
-        it is why computing is now woven through daily life.
+        with the App Store the following year, created an entire economy of applications.
       </p>
+      <p>
+        Phones changed software by adding hardware eyes and ears (sensors):
+      </p>
+      <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+        <li>📡 <strong>GPS:</strong> Detects your physical location on Earth, making maps and location-aware apps possible.</li>
+        <li>📐 <strong>Accelerometers & Gyroscopes:</strong> Detect tilt and rotation, rotating the screen automatically and letting you play games by tilting the device.</li>
+        <li>👆 <strong>Capacitive Multi-Touch:</strong> Measures changes in electrical charge from your skin, replacing plastic keypads and resistive styluses with natural swipes, pinches, and gestures.</li>
+      </ul>
       <figure class="figure contain"><img src="../assets/img/iphone.png" alt="The original 2007 Apple iPhone" loading="lazy">
         <figcaption><b>iPhone, 2007.</b> A full multitouch screen replaced the plastic keypad — the pocket computer goes mainstream.</figcaption></figure>
       <div class="cause f7">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Mobile screens (Floor 7) coordinate with cellular networking chips (Floor 4) running mobile operating system kernels (Floor 3) on custom microprocessors (Floor 2).</p></div>
+      </div>
+      <div class="cause f7" style="margin-top: 15px;">
         <div class="need"><span class="ck">The real need</span><p>Phones could technically reach the internet, but using it was <strong>miserable</strong> on a numeric keypad and a postage-stamp screen.</p></div>
         <div class="arr"></div>
         <div class="got"><span class="ck">What it forced</span><p>A phone that was really a <strong>computer you touch</strong> — full screen, multitouch, a real browser — and, a year later, the App Store economy.</p></div>
@@ -120,7 +139,17 @@
         People now use phones, tablets, laptops and TVs interchangeably, so a well-built app must reshape itself to fit any screen.
       </p>
       <p>
-        Think of **responsive design** like a **liquid** that takes the shape of whatever container you pour it into. It flows and adapts seamlessly, whether you pour it into a narrow test tube (phone) or a wide bowl (laptop monitor).
+        Think of **responsive design** like a **liquid** that takes the shape of whatever container you pour it into. In CSS, we do this using **Media Queries**:
+      </p>
+      <pre style="font-size: 0.8rem; background: var(--panel-bg); padding: 10px; border-radius: 6px; border: 1px solid var(--border); overflow-x: auto; color: var(--text1);">
+@media (max-width: 768px) {
+  .grid-layout {
+    display: flex;
+    flex-direction: column; /* Stack vertically on small screens */
+  }
+}</pre>
+      <p>
+        The browser checks the viewport width and automatically switches layouts, adapting the same code fluidly.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
@@ -129,8 +158,11 @@
           apps — it is one app reshaping itself to the space available.
         </p>
       </div>
-      <div class="scenario" style="border-left-color: var(--f7); background: var(--f7-l);">
-        <div class="lbl" style="color: var(--f7-d);"><span class="pic">🏢</span> Try it yourself: The 7-Floor Elevator Ride</div>
+      <div class="cause f7">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Responsive web pages (Floor 7) are served from cloud databases (Floor 4) as code (Floor 5) that parses in the browser runtime (Floor 3).</p></div>
+      </div>
+      <div class="scenario" style="border-left-color: var(--f7); background: var(--f7-l); margin-top: 15px;">
+        <div class="lbl" style="color: var(--f7-d);"><span class="pic">🎮</span> Try it yourself: The 7-Floor Elevator Ride</div>
         <p>
           Let's trace what happens when you ask Siri or Google: **"What is the weather?"** Watch the request travel down and back up all 7 floors:
         </p>
@@ -148,31 +180,61 @@
         </p>
       </div>
     </div>
+
+    <div class="panel">
+      <h3><span class="pic">💬</span> 4. AI-Native &amp; Agentic Interfaces</h3>
+      <p>
+        We are in the middle of the next major interface evolution: the shift to <strong>AI-Native Interfaces</strong> and <strong>Agentic UI</strong>.
+      </p>
+      <p>
+        Instead of learning how to click through complex tabs, forms, and filters to book a flight or write a report, you simply tell the computer what you want in plain English (or voice).
+      </p>
+      <p>
+        The interface behaves like a <strong>conversational partner</strong>. Behind the scenes, the system acts as an **autonomous agent**—determining the necessary steps, running searches, querying APIs, and dynamically generating custom cards, sliders, or graphs on-the-fly to show you the result. The software interface compiles itself dynamically based on your intent.
+      </p>
+      <div class="scenario">
+        <div class="lbl">🔎 Where you meet it</div>
+        <p>
+          Chatting with a coding assistant that writes, runs, and debugs code inside a preview window is a preview of Agentic UI: the screen adapts to what the AI is doing, rather than showing static buttons.
+        </p>
+      </div>
+      <div class="cause f7">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Agentic interfaces (Floor 7) rely on large language models (Floor 6) running parallel matrix calculations (Floor 1) on GPU supercomputers (Floor 2) connected across high-speed cloud networks (Floor 4).</p></div>
+      </div>
+    </div>
     <figure class="figure contain">
       <img src="../assets/img/vr-headset.jpg" alt="A modern virtual reality headset" loading="lazy">
       <figcaption><b>Spatial Computing &amp; VR.</b> Moving beyond flat screens, spatial interfaces represent the next evolution of human-computer interaction, blending digital workspaces into the physical environment.</figcaption>
     </figure>
 
     <!-- evolution -->
-    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>From punch cards and command lines to multi-touch and natural speech.</p></div>
     <div class="eras">
       <div class="era past"><span class="tag">Then</span><h4>Typed commands</h4><p>To do anything you typed exact instructions onto a text-only screen — powerful, but only for the trained few.</p></div>
       <div class="era now"><span class="tag">Now</span><h4>Touch, voice, everywhere</h4><p>Screens in every pocket; you swipe, talk to assistants, and expect apps to work seamlessly across all your devices.</p></div>
       <div class="era next"><span class="tag">Next</span><h4>You just describe what you want</h4><p>AI interfaces let you ask in plain language and have the software figure out the steps — the interface itself becoming a conversation.</p></div>
     </div>
 
-    <div class="milestone">
+    <a href="../timeline.html?focus=The+Mother+of+All+Demos" class="milestone">
+      <div class="yr">1968</div>
+      <div class="mt"><b>The Mother of All Demos ↗</b><p>Douglas Engelbart demonstrates the computer mouse, windows, hypertext, and video conferencing in one single presentation, defining the future of computing interfaces.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Xerox+Alto" class="milestone">
+      <div class="yr">1973</div>
+      <div class="mt"><b>Xerox Alto — the first modern GUI workstation ↗</b><p>Xerox Palo Alto Research Center (PARC) builds the Alto, introducing the desktop metaphor, mouse-driven GUI, and WYSIWYG word processing.</p></div>
+    </a>
+    <a href="../timeline.html?focus=The+Macintosh" class="milestone">
       <div class="yr">1984</div>
-      <div class="mt"><b>The Macintosh</b><p>Apple brings the graphical interface — windows, icons, a mouse — to the mainstream, making computers usable by ordinary people.</p></div>
-    </div>
-    <div class="milestone">
+      <div class="mt"><b>The Macintosh ↗</b><p>Apple brings the graphical interface — windows, icons, a mouse — to the mainstream, making computers usable by ordinary people.</p></div>
+    </a>
+    <a href="../timeline.html?focus=iPhone" class="milestone">
       <div class="yr">2007</div>
-      <div class="mt"><b>The iPhone</b><p>Released 29 June 2007, its multi-touch screen puts a real computer in everyone's pocket and launches the app economy.</p></div>
-    </div>
-    <div class="milestone">
-      <div class="yr">2022 →</div>
-      <div class="mt"><b>AI-native apps</b><p>Chat assistants, AI writing and coding tools, image generators — applications built around models that did not exist before 2017.</p></div>
-    </div>
+      <div class="mt"><b>The iPhone ↗</b><p>Released 29 June 2007, its multi-touch screen puts a real computer in everyone's pocket and launches the app economy.</p></div>
+    </a>
+    <a href="../timeline.html?focus=ChatGPT" class="milestone">
+      <div class="yr">2022</div>
+      <div class="mt"><b>AI-native apps ↗</b><p>Chat assistants, AI writing and coding tools, image generators — applications built around conversational models that did not exist before 2017.</p></div>
+    </a>
 
     <div class="panel" style="margin-top:30px;">
       <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>

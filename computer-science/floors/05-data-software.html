@@ -67,7 +67,7 @@
       </p>
     </div>
 
-    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>How we structure information, query databases, and write human-readable code.</p></div>
 
     <div class="panel">
       <h3><span class="pic">⚡</span> 1. Algorithms &amp; the cost of doing things (Big-O)</h3>
@@ -75,12 +75,45 @@
         An <strong>algorithm</strong> is a precise recipe for solving a problem, like a guide to baking cookies. The crucial question is: "Does it still work when the data is huge?" Engineers measure this growth using <strong>Big-O notation</strong>.
       </p>
       <p>
-        Imagine you invite **guests** to a party:
-        <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
-          <li>🥤 <strong>O(N) - Linear:</strong> Pouring drinks. If 1 guest takes 1 minute to serve, 10 guests take 10 minutes. The time scales nicely.</li>
-          <li>🤝 <strong>O(N²) - Quadratic:</strong> Handshakes. If 10 guests arrive and every guest must shake hands with everyone else, that is 45 handshakes. If 100 guests arrive, it explodes to 4,950 handshakes! The party will grind to a halt.</li>
-        </ul>
+        To store data, we choose different **Data Structures** based on how we need to access them:
       </p>
+      <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+        <li>🗄️ <strong>Arrays (Numbered lockers):</strong> Storing items in a contiguous line. It is instant ($O(1)$) to open locker #5. But if you want to insert a new locker in the middle, you have to slide all the lockers after it down, which is slow ($O(N)$).</li>
+        <li>🔗 <strong>Linked Lists (Treasure hunt):</strong> Storing items where each item has a pointer to the next one. It is very easy to insert a new clue in the middle ($O(1)$), but to find a clue at the end, you have to follow the chain from the very beginning ($O(N)$).</li>
+        <li>🔑 <strong>Hash Tables (Indexed mailroom):</strong> Using a hash function to map keys directly to specific slots. This gives near-instant ($O(1)$) average speeds for searching, inserting, and deleting.</li>
+      </ul>
+      <div style="margin: 15px 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; text-align: left; color: var(--text2); background: var(--panel-bg);">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--border); color: var(--text1);">
+              <th style="padding: 8px;">Structure</th>
+              <th style="padding: 8px;">Search Speed</th>
+              <th style="padding: 8px;">Insert Speed</th>
+              <th style="padding: 8px;">Delete Speed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px; font-weight: 600;">Array</td>
+              <td style="padding: 8px; color: var(--f1-d);">Slow ($O(N)$)</td>
+              <td style="padding: 8px; color: var(--f2-d);">Fast ($O(1)$) at end</td>
+              <td style="padding: 8px; color: var(--f1-d);">Slow ($O(N)$)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--border);">
+              <td style="padding: 8px; font-weight: 600;">Linked List</td>
+              <td style="padding: 8px; color: var(--f1-d);">Slow ($O(N)$)</td>
+              <td style="padding: 8px; color: var(--f2-d);">Fast ($O(1)$)</td>
+              <td style="padding: 8px; color: var(--f2-d);">Fast ($O(1)$)</td>
+            </tr>
+            <tr>
+              <td style="padding: 8px; font-weight: 600;">Hash Table</td>
+              <td style="padding: 8px; color: var(--f2-d);">Instant ($O(1)$)</td>
+              <td style="padding: 8px; color: var(--f2-d);">Instant ($O(1)$)</td>
+              <td style="padding: 8px; color: var(--f2-d);">Instant ($O(1)$)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
         <p>
@@ -88,6 +121,9 @@
           names; scanning every name one by one would crawl. Choosing the first approach over the second is exactly
           what algorithm design is about.
         </p>
+      </div>
+      <div class="cause f5">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>These data structures are blueprints for organizing physical memory in RAM (Floor 3) and on hard drives (Floor 2). Choosing the wrong structure can slow down a network server (Floor 4) or cause an app (Floor 7) to freeze.</p></div>
       </div>
     </div>
 
@@ -100,6 +136,18 @@
       <p>
         Think of it as a **linked family of spreadsheets**. Instead of repeating a student's address, parent names, and phone numbers every single time they borrow a library book, you keep a "Students" sheet and a "Library Books" sheet, and draw a line (a relational key) between them. This keeps the data clean and avoids repeating the same information.
       </p>
+      <p>
+        To avoid scanning every row of data one-by-one, databases build **B-Tree Indexes**. Imagine a B-Tree as a **physical filing cabinet** with labels: the top drawer is labeled A-M and N-Z. If you look for "Sam," you skip the first drawer completely, open the second, and check alphabetical tabs inside. Instead of opening 10,000 files, you find Sam in 3 steps!
+      </p>
+      <p>
+        To keep data safe, database systems guarantee <strong>ACID</strong> rules:
+      </p>
+      <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+        <li>💥 <strong>Atomicity (All-or-Nothing):</strong> If you transfer money, it either leaves your account and arrives in your friend's account, or the whole transaction is cancelled. It never gets lost in transit.</li>
+        <li>📜 <strong>Consistency:</strong> The database must obey rules (like: an account balance cannot go below zero).</li>
+        <li>🔒 <strong>Isolation:</strong> If two people buy the same seat at the same time, the database forces one to go first, preventing double booking.</li>
+        <li>💾 <strong>Durability:</strong> Once a transaction is saved, it is written to the physical disk. Even if the power cuts out a second later, the data is permanent.</li>
+      </ul>
       <div class="scenario">
         <div class="lbl">🔎 Where you meet it</div>
         <p>
@@ -108,6 +156,9 @@
         </p>
       </div>
       <div class="cause f5">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Databases translate high-level SQL queries (Floor 5) into raw reads and writes handled by the operating system kernel (Floor 3) on physical storage drives (Floor 2), and sync copies of data across servers worldwide (Floor 4).</p></div>
+      </div>
+      <div class="cause f5" style="margin-top: 15px;">
         <div class="need"><span class="ck">The real need</span><p>Earlier databases <strong>hard-wired the data to its storage layout</strong> on disk. Change how it was stored and every program that used it broke.</p></div>
         <div class="arr"></div>
         <div class="got"><span class="ck">What it forced</span><p>Codd's <strong>relational model</strong> gave <em>data independence</em> — ask questions of the data in simple tables without knowing how it's physically stored. It became SQL, and the backbone of business computing.</p></div>
@@ -123,9 +174,15 @@
       <p>
         A small script is easy; a system with millions of lines, hundreds of contributors and millions of users is a
         different challenge entirely. <strong>Software engineering</strong> is the discipline of structuring code,
-        testing it automatically, and changing it safely over years. Programming languages — from C to Python to
-        JavaScript — are the tools of this craft, each trading off speed, safety and ease.
+        testing it automatically, and changing it safely over years.
       </p>
+      <p>
+        To convert human code into something hardware understands, we use:
+      </p>
+      <ul style="font-size: 0.85rem; margin: 8px 0 8px 18px; line-height: 1.5; color: var(--text2);">
+        <li>📕 <strong>Compilers:</strong> Translate the entire codebase at once into binary machine instructions (like Rust, C, or C++). The result runs incredibly fast, but you must compile again every time you make a change.</li>
+        <li>🗣️ <strong>Interpreters:</strong> Translate code line-by-line on the fly as it runs (like Python or JavaScript). It is slower to execute, but lets you quickly test changes as you type.</li>
+      </ul>
       <div class="scenario">
         <div class="lbl">⚡ The 2017 connection — "Software 2.0"</div>
         <p>
@@ -145,6 +202,21 @@
           <li>🥞 <strong>Merge Sort (Clever and fast):</strong> Split the 5 cards into individual piles. Merge adjacent piles together in order. For 1,000 cards, this takes only about **10,000 checks**! (O(N log N))</li>
         </ol>
       </div>
+      <div class="cause f5">
+        <div class="need"><span class="ck">🔗 How it connects to other floors</span><p>Human-readable languages (Floor 5) are compiled into machine instruction sets (Floor 3) to run on CPU silicon (Floor 2). In Software 2.0, neural networks (Floor 6) write some of the code for user interfaces (Floor 7).</p></div>
+      </div>
+      <div class="figure-row" style="margin-top: 15px;">
+        <figure class="figure contain"><img src="../assets/img/grace-hopper.jpg" alt="Grace Hopper in uniform" loading="lazy">
+          <figcaption><b>Grace Hopper (1906–1992).</b> US Navy rear admiral who pioneered compiler design, demonstrating that computers could understand English-like words instead of raw numbers.</figcaption></figure>
+        <figure class="figure contain"><img src="../assets/img/john-backus.jpg" alt="John Backus" loading="lazy">
+          <figcaption><b>John Backus (1924–2007).</b> Led the IBM team that created FORTRAN (1957), the first widely used high-level programming language.</figcaption></figure>
+      </div>
+      <div class="figure-row" style="margin-top: 15px;">
+        <figure class="figure contain"><img src="../assets/img/lisp-logo.png" alt="Lisp logo" loading="lazy">
+          <figcaption><b>LISP (1958).</b> McCarthy's language introduced symbol processing, recursion, and garbage collection, serving as the standard for early AI research.</figcaption></figure>
+        <figure class="figure contain"><img src="../assets/img/rust-logo.png" alt="Rust logo" loading="lazy">
+          <figcaption><b>Rust (2010).</b> A modern language that guarantees memory safety without using a slow garbage collector runtime, through ownership rules.</figcaption></figure>
+      </div>
     </div>
     <figure class="figure contain">
       <img src="../assets/img/torvalds.jpg" alt="Linus Torvalds, creator of Linux and Git" loading="lazy">
@@ -152,25 +224,53 @@
     </figure>
 
     <!-- evolution -->
-    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>From hand-coded logic and file-storage to data-driven Software 2.0.</p></div>
     <div class="eras">
       <div class="era past"><span class="tag">Then</span><h4>Hand-written rules</h4><p>Every behaviour was spelled out explicitly in code. Data lived in rigid files, and large projects were built mostly from scratch.</p></div>
       <div class="era now"><span class="tag">Now</span><h4>Reusable parts &amp; huge data</h4><p>Software is assembled from libraries and services; databases hold oceans of data; automated testing keeps massive systems stable.</p></div>
       <div class="era next"><span class="tag">Next</span><h4>Trained, not coded</h4><p>For many tasks, models trained on data replace hand-written rules — and AI assistants now help write the remaining code.</p></div>
     </div>
 
-    <div class="milestone">
+    <a href="../timeline.html?focus=The+First+Compiler" class="milestone">
+      <div class="yr">1952</div>
+      <div class="mt"><b>The First Compiler (A-0) ↗</b><p>Grace Hopper designs the A-0 compiler, letting programmers write symbolic instructions that are automatically translated to binary machine numbers.</p></div>
+    </a>
+    <a href="../timeline.html?focus=FORTRAN" class="milestone">
+      <div class="yr">1957</div>
+      <div class="mt"><b>FORTRAN — high-level language ↗</b><p>John Backus and IBM release FORTRAN (Formula Translation), letting engineers write mathematical equations instead of raw machine numbers.</p></div>
+    </a>
+    <a href="../timeline.html?focus=LISP" class="milestone">
+      <div class="yr">1958</div>
+      <div class="mt"><b>LISP is created ↗</b><p>John McCarthy invents LISP, introducing functional programming and trash collection (garbage collection), which became the language of AI research.</p></div>
+    </a>
+    <a href="../timeline.html?focus=The+Relational+Database" class="milestone">
       <div class="yr">1970</div>
-      <div class="mt"><b>Codd's relational model</b><p>Organising data into linked tables — the idea behind SQL and nearly every serious database for the next half-century.</p></div>
-    </div>
-    <div class="milestone">
-      <div class="yr">1970s →</div>
-      <div class="mt"><b>SQL and modern languages</b><p>SQL makes databases queryable in near-English; a wave of programming languages makes building software faster and safer.</p></div>
-    </div>
-    <div class="milestone">
-      <div class="yr">2017 →</div>
-      <div class="mt"><b>The "Software 2.0" shift</b><p>For hard problems, training a model on data replaces writing the rules by hand — a new way to build, driven by the AI floor above.</p></div>
-    </div>
+      <div class="mt"><b>Codd's relational model ↗</b><p>Edgar Codd proposes organizing database information into linked tables — the idea behind SQL and nearly every enterprise database since.</p></div>
+    </a>
+    <a href="../timeline.html?focus=SQL" class="milestone">
+      <div class="yr">1974</div>
+      <div class="mt"><b>SQL is designed ↗</b><p>Donald Chamberlin and Raymond Boyce design Structured Query Language (SQL) at IBM to access and manipulate data stored in relational databases.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Python+Language" class="milestone">
+      <div class="yr">1991</div>
+      <div class="mt"><b>Python is released ↗</b><p>Guido van Rossum releases Python, prioritizing code readability and simplicity, making it the dominant scripting and AI language.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Git" class="milestone">
+      <div class="yr">2005</div>
+      <div class="mt"><b>Git version control ↗</b><p>Linus Torvalds designs Git to manage Linux kernel development, creating the standard distributed version control system for software teams.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Rust+Language" class="milestone">
+      <div class="yr">2010</div>
+      <div class="mt"><b>Rust Language ↗</b><p>Graydon Hoare and Mozilla introduce Rust, prioritizing memory safety and concurrent execution without a runtime garbage collector.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Docker" class="milestone">
+      <div class="yr">2013</div>
+      <div class="mt"><b>Docker containerization ↗</b><p>Solomon Hykes and Dotcloud release Docker, standardizing how server programs are packaged with their dependencies into isolated containers.</p></div>
+    </a>
+    <a href="../timeline.html?focus=GitHub+Copilot" class="milestone">
+      <div class="yr">2021</div>
+      <div class="mt"><b>GitHub Copilot — AI-assisted coding ↗</b><p>GitHub launches Copilot, an AI code assistant that suggests code inline, marking the beginning of the Software 2.0 shift in development.</p></div>
+    </a>
 
     <div class="panel" style="margin-top:30px;">
       <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>

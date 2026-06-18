@@ -67,7 +67,7 @@
       </p>
     </div>
 
-    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>How isolated computers find each other, exchange data, and act as one.</p></div>
 
     <div class="panel">
       <h3><span class="pic">📦</span> 1. Packet switching</h3>
@@ -97,8 +97,7 @@
       <h3><span class="pic">🤝</span> 2. The common language: TCP/IP and DNS</h3>
       <p>
         For a global network, everyone needs the <em>same</em> rules. <strong>TCP/IP</strong> — adopted across the
-        ARPANET on <strong>1 January 1983</strong> — became that universal language, giving every machine an address
-        and a reliable way to exchange packets.
+        ARPANET on <strong>1 January 1983</strong> — became that universal language. It splits communication into **four layers**: the *Link Layer* (the physical wires or Wi-Fi waves), the *Internet Layer* (IP addressing and routing packets across networks), the *Transport Layer* (TCP, which numbers packets to ensure they arrive in order and re-sends any that get lost), and the *Application Layer* (such as HTTP or DNS, which translates raw data into what you see on a screen).
       </p>
       <p>
         But numbers are hard to remember, so the Domain Name System (**DNS**) was introduced. DNS is the **internet's phone book**. Humans remember names (like <code>youtube.com</code>), but computers only understand phone numbers (IP addresses like <code>142.250.190.46</code>). DNS does the translation in a millisecond.
@@ -125,7 +124,7 @@
         the public in <strong>1991</strong>, it added linked pages and addresses (URLs).
       </p>
       <p>
-        Later, the <strong>cloud</strong> appeared. Think of the cloud as a **tool rental library** or a power grid. Instead of buying a massive server and keeping it in your house, you rent computational power from a giant shared data center when you need it.
+        Later, the <strong>cloud</strong> appeared. Instead of buying physical server racks, companies rent virtualized machines on-demand (first popularized by AWS in 2006). But managing thousands of containerized apps across these rented servers by hand was impossible. In <strong>2014</strong>, Google open-sourced **Kubernetes**—a container orchestration engine. Think of Kubernetes as the **conductor of a massive server orchestra**. If one server goes down, it automatically reschedules the container to another server; if traffic spikes, it spawns copies of the app to share the load, keeping web services running uninterrupted.
       </p>
       <div class="figure-row">
         <figure class="figure contain"><img src="../assets/img/berners-lee.jpg" alt="Tim Berners-Lee, inventor of the World Wide Web" loading="lazy">
@@ -161,29 +160,37 @@
     </div>
 
     <!-- evolution -->
-    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>From a four-computer military test to a worldwide elastic cloud.</p></div>
     <div class="eras">
       <div class="era past"><span class="tag">Then</span><h4>A few research machines</h4><p>1969: a handful of university computers linked by ARPANET, exchanging the first fragile packets.</p></div>
       <div class="era now"><span class="tag">Now</span><h4>Billions of devices, one cloud</h4><p>The whole planet is connected, and computing power is rented on demand from vast data centres anywhere on Earth.</p></div>
       <div class="era next"><span class="tag">Next</span><h4>The network as a supercomputer</h4><p>Thousands of accelerators wired so tightly they behave as a single machine to train ever-larger AI models.</p></div>
     </div>
 
-    <div class="milestone">
+    <a href="../timeline.html?focus=ARPANET" class="milestone">
       <div class="yr">1969</div>
-      <div class="mt"><b>ARPANET's first message</b><p>On 29 October 1969 the first host-to-host message travelled over a packet-switched network — the moment the internet's story begins.</p></div>
-    </div>
-    <div class="milestone">
+      <div class="mt"><b>ARPANET's first message ↗</b><p>On 29 October 1969 the first host-to-host message travelled over a packet-switched network — the moment the internet's story begins.</p></div>
+    </a>
+    <a href="../timeline.html?focus=TCP%2FIP+%26+Ethernet" class="milestone">
       <div class="yr">1983</div>
-      <div class="mt"><b>TCP/IP and DNS</b><p>TCP/IP becomes the internet's universal language (1 Jan 1983), and DNS (Nov 1983) gives the network its human-readable phone book.</p></div>
-    </div>
-    <div class="milestone">
-      <div class="yr">1989 → 1991</div>
-      <div class="mt"><b>The World Wide Web</b><p>Tim Berners-Lee proposes the Web at CERN in 1989; it opens to the public in 1991 and becomes how the world uses the internet.</p></div>
-    </div>
-    <div class="milestone">
-      <div class="yr">2006 →</div>
-      <div class="mt"><b>The cloud</b><p>Renting computing power on demand turns the data centre into a utility — and later, into the place where AI is trained.</p></div>
-    </div>
+      <div class="mt"><b>TCP/IP becomes standard ↗</b><p>TCP/IP becomes the internet's universal language on 1 Jan 1983, standardizing how different networks package and route data.</p></div>
+    </a>
+    <a href="../timeline.html?focus=The+Internet+Activates+%26+DNS+is+Born" class="milestone">
+      <div class="yr">1983</div>
+      <div class="mt"><b>DNS is introduced ↗</b><p>In November 1983, the Domain Name System is created to translate human-readable names like <code>google.com</code> to IP addresses.</p></div>
+    </a>
+    <a href="../timeline.html?focus=The+World+Wide+Web" class="milestone">
+      <div class="yr">1989</div>
+      <div class="mt"><b>The World Wide Web ↗</b><p>Tim Berners-Lee proposes the Web at CERN in 1989; it opens to the public in 1991 and becomes how the world uses the internet.</p></div>
+    </a>
+    <a href="../timeline.html?focus=AWS" class="milestone">
+      <div class="yr">2006</div>
+      <div class="mt"><b>The Cloud (AWS) ↗</b><p>Amazon launches EC2 and S3, turning physical server hardware into a virtual software utility rented on demand.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Kubernetes" class="milestone">
+      <div class="yr">2014</div>
+      <div class="mt"><b>Kubernetes — the cloud OS ↗</b><p>Google open-sources Kubernetes, standardizing how containerized server programs are scheduled and managed across large server farms.</p></div>
+    </a>
 
     <figure class="figure contain"><img src="../assets/img/data-center.jpg" alt="Rows of servers inside a data centre" loading="lazy">
       <figcaption><b>Inside a data centre.</b> The "cloud" is rooms like this — and where a modern AI model is trained across thousands of networked machines acting as one.</figcaption></figure>

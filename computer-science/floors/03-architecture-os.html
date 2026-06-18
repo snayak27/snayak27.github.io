@@ -67,7 +67,7 @@
       </p>
     </div>
 
-    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2></div>
+    <div class="section-head" style="margin-top:48px;"><h2>The big ideas</h2><p>The concepts that organize physical resources and schedule running programs.</p></div>
 
     <div class="panel">
       <h3><span class="pic">📐</span> 1. The stored-program idea (von Neumann)</h3>
@@ -123,20 +123,16 @@
       <h3><span class="pic">🧑‍✈️</span> 3. The traffic controller (the operating system)</h3>
       <p>
         Your device runs dozens of programs at once, yet none of them freezes the others. That is the operating
-        system's job. Think of the OS as a **school playground monitor** or a **traffic cop**. It divides up playground time (CPU slices), makes sure kids don't paint over each other's chalk drawings (memory isolation), and prevents crashes when one program behaves badly.
+        system's job. Think of the OS as a **school playground monitor** or a **traffic cop**. The core of the OS is the **kernel**. It performs **context switching**, slicing CPU time into milliseconds so a single processor core can juggle multiple programs by rapidly swapping their register states. It also manages **virtual memory**—assigning each program its own isolated "sandbox" address space, making it physically impossible for a bug in one app to read or overwrite another app's memory.
       </p>
       <p>
-        <strong>Unix</strong> (born at Bell Labs in 1969) set the template; <strong>Linux</strong> (started
-        by Linus Torvalds in 1991) became the free version that now runs most of the world's servers, almost every
-        Android phone, and the data centres where AI is trained.
+        <strong>Unix</strong> (born at Bell Labs in 1969) set this standard template of multi-user multitasking; <strong>Linux</strong> (started by Linus Torvalds in 1991) made it free, open-source, and modular. Today, Linux runs the infrastructure of the internet—from Google search servers to AWS cloud instances, Android phones, and the high-performance computing clusters that train large language models.
       </p>
       <div class="scenario">
         <div class="lbl">⚡ The 2017 connection — CUDA</div>
         <p>
           GPUs only became useful for AI because of a software layer that lets ordinary programs command thousands of
-          GPU cores: NVIDIA's <strong>CUDA</strong>, released in <strong>2007</strong>. After 2017, this floor was
-          reorganised around keeping GPUs fed — fast memory, schedulers and drivers all redesigned so the expensive
-          parallel hardware never sits idle.
+          GPU cores: NVIDIA's <strong>CUDA</strong>, released in <strong>2007</strong>. Before CUDA, programmers had to write graphics shaders (like simulating light bouncing off a polygon) just to do math. CUDA exposed the GPU's thousands of Arithmetic Logic Units (ALUs) as a parallel grid. After 2017, this floor was reorganized around keeping GPUs fed — fast memory access (HBM), custom scheduling drivers, and software libraries (like cuDNN) designed so the expensive parallel hardware never sits idle.
         </p>
       </div>
       <figure class="figure contain"><img src="../assets/img/unix.png" alt="Ken Thompson and Dennis Ritchie with a PDP-11 running Unix" loading="lazy">
@@ -163,29 +159,33 @@
     </div>
 
     <!-- evolution -->
-    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2></div>
+    <div class="section-head" style="margin-top:54px;"><h2>How this floor evolved</h2><p>From one-job mainframes to virtualized cores and cloud systems.</p></div>
     <div class="eras">
       <div class="era past"><span class="tag">Then</span><h4>One job at a time</h4><p>Early machines ran a single program and were rewired or reloaded by hand. A crash could mean starting over completely.</p></div>
       <div class="era now"><span class="tag">Now</span><h4>Hundreds of isolated tasks</h4><p>Modern operating systems juggle hundreds of programs and containers safely, virtualising memory so one bad app can't freeze the machine.</p></div>
       <div class="era next"><span class="tag">Next</span><h4>Built around accelerators</h4><p>Systems are increasingly designed around GPUs and AI accelerators, not the CPU — a quiet but deep re-architecting driven by 2017.</p></div>
     </div>
 
-    <div class="milestone">
+    <a href="../timeline.html?focus=The+Stored-Program+Concept" class="milestone">
       <div class="yr">1945</div>
-      <div class="mt"><b>The stored-program design</b><p>The von Neumann report describes keeping instructions and data together in memory — the architecture nearly every computer still uses.</p></div>
-    </div>
-    <div class="milestone">
+      <div class="mt"><b>The stored-program design ↗</b><p>The von Neumann report describes keeping instructions and data together in memory — the architecture nearly every computer still uses.</p></div>
+    </a>
+    <a href="../timeline.html?focus=IBM+System%2F360" class="milestone">
       <div class="yr">1964</div>
-      <div class="mt"><b>IBM System/360</b><p>A family of compatible computers sharing one instruction set, separating architecture from hardware. One of the most influential designs in computing history.</p></div>
-    </div>
-    <div class="milestone">
-      <div class="yr">1969 → 1991</div>
-      <div class="mt"><b>Unix, then Linux</b><p>Unix (1969) defines the modern operating system; Linux (1991) makes it free and open, and goes on to run most servers, Android, and the AI data centre.</p></div>
-    </div>
-    <div class="milestone">
+      <div class="mt"><b>IBM System/360 ↗</b><p>A family of compatible computers sharing one instruction set, separating architecture from hardware. One of the most influential designs in computing history.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Unix" class="milestone">
+      <div class="yr">1969</div>
+      <div class="mt"><b>Unix is born ↗</b><p>Ken Thompson and Dennis Ritchie define the modern operating system at Bell Labs, introducing filesystems, shells, and small modular tools.</p></div>
+    </a>
+    <a href="../timeline.html?focus=Linux" class="milestone">
+      <div class="yr">1991</div>
+      <div class="mt"><b>Linux kernel is released ↗</b><p>Linus Torvalds releases Linux as a free, open-source kernel, which grows to run the modern cloud, mobile (Android), and AI clusters.</p></div>
+    </a>
+    <a href="../timeline.html?focus=CUDA" class="milestone">
       <div class="yr">2007</div>
-      <div class="mt"><b>CUDA opens the GPU</b><p>NVIDIA's CUDA lets ordinary code run on thousands of GPU cores — the bridge that, ten years later, let the Transformer run at scale.</p></div>
-    </div>
+      <div class="mt"><b>CUDA opens the GPU ↗</b><p>NVIDIA's CUDA lets ordinary code run on thousands of GPU cores — the bridge that, ten years later, let the Transformer run at scale.</p></div>
+    </a>
 
     <div class="panel" style="margin-top:30px;">
       <h3><span class="pic">⚡</span> This floor's role in the 2017 cascade</h3>
