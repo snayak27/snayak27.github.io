@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://snayak27.github.io/sitemap.xml
+Sitemap: https://snayak27.github.io/sap-landscape/sitemap.xml
