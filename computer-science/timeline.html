@@ -4177,7 +4177,7 @@
         if (!current) return;
         const currentRect = current.getBoundingClientRect();
 
-        const drawLine = (parentRect, childRect) => {
+        const drawLine = (parentRect, childRect, nodeEl) => {
           const pX = parentRect.left - viewportRect.left + parentRect.width / 2;
           const pY = parentRect.bottom - viewportRect.top;
           const cX = childRect.left - viewportRect.left + childRect.width / 2;
@@ -4190,16 +4190,30 @@
           path.setAttribute('d', pathData);
           path.setAttribute('class', 'causal-path');
           svg.appendChild(path);
+
+          if (nodeEl) {
+            const toggleHighlight = (highlight) => {
+              if (highlight) {
+                path.classList.add('highlighted');
+              } else {
+                path.classList.remove('highlighted');
+              }
+            };
+            nodeEl.addEventListener('mouseenter', () => toggleHighlight(true));
+            nodeEl.addEventListener('mouseleave', () => toggleHighlight(false));
+            nodeEl.addEventListener('focus', () => toggleHighlight(true));
+            nodeEl.addEventListener('blur', () => toggleHighlight(false));
+          }
         };
 
         const catalystNodes = document.querySelectorAll('#catalystsRow .map-node');
         catalystNodes.forEach(catNode => {
-          drawLine(catNode.getBoundingClientRect(), currentRect);
+          drawLine(catNode.getBoundingClientRect(), currentRect, catNode);
         });
 
         const dominoNodes = document.querySelectorAll('#dominoesRow .map-node');
         dominoNodes.forEach(domNode => {
-          drawLine(currentRect, domNode.getBoundingClientRect());
+          drawLine(currentRect, domNode.getBoundingClientRect(), domNode);
         });
       }
 
@@ -4271,6 +4285,15 @@
           drawConnectors();
         }
       });
+
+      const drawerEl = document.getElementById('causalDrawer');
+      if (drawerEl) {
+        drawerEl.addEventListener('transitionend', (e) => {
+          if (e.propertyName === 'transform' && drawerEl.classList.contains('open')) {
+            drawConnectors();
+          }
+        });
+      }
 
       // Hover highlighting logic for main page cards
       const tl = document.querySelector('.tl');
