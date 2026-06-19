@@ -46,6 +46,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
+- 2026-06-19: Audited CS Wing & Updated Search Index — created and ran a python stress-test script verifying all 11 HTML files, 87 milestones, links, assets, and SEO head metadata. Found zero bugs or broken links, and resolved a keyword indexing gap in search-index.json for the new 2026 milestones.
 - 2026-06-19: Corrected Transformer Self-Attention Analogy — replaced the imprecise '1,000 friends reading 1,000 pages' analogy in the-2017-cascade.html with a factually correct and clear explanation of self-attention matrix math versus sequential recurrence.
 - 2026-06-19: Fact-Checked & Refined 2026 Cascade Claims — corrected pricing claims of the DGX Spark ($3,999) to separate it from the workstation-class DGX Station; updated Microsoft MXC details to focus on OS-level hypervisor sandboxing instead of 'rebuilding Windows'; and updated Floor 1 Quantum ML descriptions to focus on QPU acceleration for mathematical optimization rather than general changes to basic linear algebra.
 - 2026-06-19: Integrated Nvidia Chip Photo for Floor 2 — replaced the incorrect anime-poster Unsplash photo under modern-laptop.jpg with the user-provided photograph of an actual Nvidia hardware chip, and updated the HTML alt tag descriptions to match.
