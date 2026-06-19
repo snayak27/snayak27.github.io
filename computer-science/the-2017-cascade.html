@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-  <meta name="description" content="How the 2017 paper 'Attention Is All You Need' cascaded up all seven floors of computing, and why it is rebuilding the entire industry from the ground up.">
+  <meta name="description" content="How the 2017 paper 'Attention Is All You Need' shifted Floor 1 and why the entire industry is scrambling to rebuild Floors 1-5 to carry the weight in 2026.">
   <meta name="author" content="Sashibhusan Nayak">
   <link rel="canonical" href="https://snayak27.github.io/computer-science/the-2017-cascade.html">
   <meta property="og:title" content="The 2017 Cascade — how one paper rebuilt every floor">
@@ -12,7 +12,7 @@
   <meta property="og:image" content="https://snayak27.github.io/og-image.png">
   <meta property="og:type" content="article">
   <meta name="twitter:card" content="summary_large_image">
-  <title>The 2017 Cascade — How One Paper Rebuilt Every Floor | CS Tower</title>
+  <title>The 2017 Cascade: Bedrock Shift and the 2026 Scramble | CS Tower</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,6 +21,101 @@
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/cs.css">
   <script>(function(){try{var t=localStorage.getItem('cs-theme');if(t==='dark')document.documentElement.setAttribute('data-theme','dark');}catch(e){}})();</script>
+  
+  <style>
+    /* ── Interactive 2026 Scramble Explorer ── */
+    .scramble-section { margin-top: 54px; }
+    .scramble-explorer { display: flex; gap: 28px; align-items: stretch; margin-top: 28px; }
+    .scramble-list { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; width: 340px; }
+
+    .scramble-btn {
+      display: flex; align-items: center; gap: 14px; padding: 14px 18px;
+      background: var(--card); border: 1.5px solid var(--border); border-left: 4px solid var(--fc, var(--orange));
+      border-radius: var(--r-sm); color: inherit; font-family: inherit; font-size: 0.88rem; font-weight: 700;
+      width: 100%; text-align: left; cursor: pointer; box-shadow: var(--shadow);
+      transition: transform .25s var(--spring), box-shadow .25s var(--ease), border-color 0.2s, border-left-width 0.15s;
+    }
+    .scramble-btn:hover { transform: translateX(6px) scale(1.01); box-shadow: var(--shadow-h); border-color: var(--f-border); }
+    .scramble-btn.active {
+      background: var(--f-bg, var(--orange-l)); border-color: var(--f-border, var(--orange-m));
+      border-left: 8px solid var(--fc, var(--orange));
+    }
+
+    .scramble-btn .floor-num {
+      width: 30px; height: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 0.85rem; color: #fff; background: var(--fc, var(--orange)); flex-shrink: 0;
+    }
+    .scramble-btn.f1 { --fc: var(--f1); --f-bg: var(--f1-l); --f-border: var(--f1-m); }
+    .scramble-btn.f2 { --fc: var(--f2); --f-bg: var(--f2-l); --f-border: var(--f2-m); }
+    .scramble-btn.f3 { --fc: var(--f3); --f-bg: var(--f3-l); --f-border: var(--f3-m); }
+    .scramble-btn.f4 { --fc: var(--f4); --f-bg: var(--f4-l); --f-border: var(--f4-m); }
+    .scramble-btn.f5 { --fc: var(--f5); --f-bg: var(--f5-l); --f-border: var(--f5-m); }
+    .scramble-btn.f6 { --fc: var(--f6); --f-bg: var(--f6-l); --f-border: var(--f6-m); }
+    .scramble-btn.f7 { --fc: var(--f7); --f-bg: var(--f7-l); --f-border: var(--f7-m); }
+
+    .scramble-details { flex: 1; display: flex; }
+    .scramble-details-card {
+      width: 100%; padding: 36px; border-radius: var(--r);
+      border: 1.5px solid var(--card-border, var(--f7-m));
+      border-left: 8px solid var(--card-accent, var(--f7));
+      background: var(--card-tint, var(--f7-l)); box-shadow: var(--shadow);
+      display: flex; flex-direction: column; justify-content: center; gap: 14px;
+      transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), border-color 0.2s, background-color 0.2s;
+    }
+
+    .scramble-details-card .card-eyebrow {
+      font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+      color: var(--card-accent, var(--f7)); display: flex; align-items: center; gap: 6px;
+    }
+    .scramble-details-card .card-eyebrow::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--card-accent, var(--f7));
+    }
+    .scramble-details-card h3 { font-size: 1.6rem; font-weight: 800; margin-bottom: 2px; }
+    .scramble-details-card p { font-size: 0.92rem; color: var(--text2); line-height: 1.68; margin: 0; }
+    .scramble-details-card .card-quote {
+      font-style: italic; font-size: 0.88rem; color: var(--text); border-left: 3px solid var(--card-accent, var(--f7));
+      padding-left: 14px; margin-top: 14px; line-height: 1.55;
+    }
+
+    .mobile-scramble-stack { display: none; }
+
+    /* ── Mobile layout adjustments ── */
+    @media (max-width: 820px) {
+      .scramble-explorer { display: none; }
+      .mobile-scramble-stack { display: flex; flex-direction: column; gap: 16px; margin-top: 20px; }
+      
+      .scramble-mobile-card {
+        padding: 24px; border-radius: var(--r-sm); border: 1.5px solid var(--border);
+        border-left: 6px solid var(--fc, var(--orange)); background: var(--f-bg, var(--card));
+        box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 10px;
+      }
+      .scramble-mobile-card.f1 { --fc: var(--f1); --f-bg: var(--f1-l); }
+      .scramble-mobile-card.f2 { --fc: var(--f2); --f-bg: var(--f2-l); }
+      .scramble-mobile-card.f3 { --fc: var(--f3); --f-bg: var(--f3-l); }
+      .scramble-mobile-card.f4 { --fc: var(--f4); --f-bg: var(--f4-l); }
+      .scramble-mobile-card.f5 { --fc: var(--f5); --f-bg: var(--f5-l); }
+      .scramble-mobile-card.f6 { --fc: var(--f6); --f-bg: var(--f6-l); }
+      .scramble-mobile-card.f7 { --fc: var(--f7); --f-bg: var(--f7-l); }
+      
+      html[data-theme="dark"] .scramble-mobile-card {
+        background: var(--card); /* Keep background standard card color in dark theme for consistency */
+      }
+      
+      .scramble-mobile-card .card-eyebrow {
+        font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+        color: var(--fc); display: flex; align-items: center; gap: 6px;
+      }
+      .scramble-mobile-card .card-eyebrow::before {
+        content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--fc);
+      }
+      .scramble-mobile-card h4 { font-size: 1.15rem; font-weight: 800; margin: 0; }
+      .scramble-mobile-card p { font-size: 0.88rem; color: var(--text2); line-height: 1.6; margin: 0; }
+      .scramble-mobile-card .card-quote {
+        font-style: italic; font-size: 0.82rem; color: var(--text2); border-left: 2px solid var(--fc);
+        padding-left: 10px; margin-top: 8px; line-height: 1.4;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -51,8 +146,7 @@
     <h1>The <em>2017 cascade</em></h1>
     <p class="hero-sub">
       How a single paper — not a chip, not an app, but a piece of <strong>mathematics</strong> — landed on the
-      bottom floor of computing and forced every floor above it to be rebuilt. This is the reason the post-2017
-      AI moment is different in kind, not just in degree.
+      bottom floor of computing and forced every floor above it to be rebuilt.
     </p>
   </header>
 
@@ -60,10 +154,10 @@
 
     <!-- recap the rule -->
     <div class="panel">
-      <h3><span class="pic">🏢</span> First, the rule that makes this work</h3>
+      <h3><span class="pic">🏢</span> The Bedrock Rule</h3>
       <p>
         The tower has one law: <strong>every floor stands on the floor beneath it.</strong> Apps need software,
-        software needs an operating system, the OS needs a chip, the chip is designed from mathematics.
+        software needs an operating system, the OS needs a chip, and the chip is designed from mathematics.
       </p>
       <p>
         Think of it like a <strong>stack of wooden blocks</strong>. If you nudge the very top block (a single app), nothing else moves. But if you pull out or change the <strong>foundation block</strong> at the bottom (the math of Floor 1), a <strong>domino effect</strong> shoots straight up and shakes every single block in the tower!
@@ -76,14 +170,17 @@
     </div>
 
     <!-- what the paper was -->
-    <div class="section-head" style="margin-top:54px;"><h2>What actually happened in 2017</h2><p>In plain language, with the real terms.</p></div>
+    <div class="section-head" style="margin-top:54px;">
+      <h2>What actually happened in 2017</h2>
+      <p>A mathematical key that unlocked the hardware floor.</p>
+    </div>
 
     <div class="milestone">
       <div class="yr">2017</div>
       <div class="mt">
         <b>"Attention Is All You Need" — Vaswani et&nbsp;al.</b>
         <p>
-          Eight researchers from <strong>Google Brain, Google Research, and the University of Toronto</strong> posted their paper to arXiv on <strong>12 June 2017</strong> (later presented at the NeurIPS conference in December). They introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence in parallel using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>, based entirely on self-attention.
+          Eight researchers from <strong>Google Brain, Google Research, and the University of Toronto</strong> posted their paper to arXiv on <strong>12 June 2017</strong>. They introduced a new design for neural networks called the <span class="term">Transformer<span class="tip">The neural-network architecture introduced in 2017. It processes a whole sequence in parallel using "attention," instead of reading it one step at a time. Every modern large language model — GPT, Claude, Gemini — is a Transformer.</span></span>, based entirely on self-attention.
         </p>
       </div>
     </div>
@@ -95,13 +192,13 @@
     <div class="panel">
       <h3><span class="pic">🧮</span> Why it was a <em>Floor&nbsp;1</em> change, not a Floor&nbsp;6 one</h3>
       <p>
-        Before 2017, the best language models were like <strong>one person reading a book page-by-page</strong> in order. Word 100 had to wait for word 99. This is a mathematical bottleneck: you cannot divide sequential work among multiple helpers.
+        Before 2017, the best language models read sequences like <strong>one person reading a book page-by-page</strong> in order. Word 100 had to wait for word 99. This is a mathematical bottleneck: you cannot divide sequential work among multiple helpers.
       </p>
       <p>
         The Transformer changed the math: it is like <strong>giving 1,000 pages to 1,000 friends to read at the exact same time</strong>. They all read in parallel, and then share what they learned. This is <strong>parallel linear algebra</strong>.
       </p>
       <div class="scenario">
-        <div class="lbl">🔎 The detail that changed the world</div>
+        <div class="lbl">🔎 The match that ignited the boom</div>
         <p>
           "Parallel" means the work can be cut into thousands of identical pieces and run simultaneously.
           There already existed a chip built to do exactly that — thousands of small math units working in lockstep:
@@ -111,43 +208,139 @@
       </div>
     </div>
 
-    <!-- the cascade diagram -->
-    <div class="section-head" style="margin-top:54px;"><h2>The ripple, floor by floor</h2><p>One change at the bottom. Watch it climb. (Reading bottom&nbsp;→&nbsp;top.)</p></div>
+    <!-- The 2026 Cost & Scale Scramble Section -->
+    <div class="section-head" style="margin-top:54px;">
+      <h2>The 2026 Scramble: Rebuilding the tower</h2>
+      <p>Floor 6 (AI) is brilliant. Floors 1-5 are scrambling to catch up.</p>
+    </div>
 
-    <div class="cascade" data-reveal>
-      <div class="casc c1">
-        <b><span class="fl">Floor 1</span> Theory &amp; Mathematics — the source</b>
-        <p>A new algorithm (self-attention) reframes "understanding a sequence" as massively parallel linear algebra. The bedrock shifts.</p>
+    <div class="panel" style="border-left-color: var(--f6); background: var(--f6-l);">
+      <h3><span class="pic">📉</span> The cost crisis under the headlines</h3>
+      <p>
+        By mid-2026, the tech industry hit a stark reality: <strong>the bottleneck is no longer raw model capability.</strong>
+        Global AI infrastructure spending (chips, servers, networking) surged to <strong>$98 billion</strong>, outfacing finance teams' capacity to react.
+      </p>
+      <div class="scenario" style="margin-top: 15px;">
+        <div class="lbl" style="color: var(--f6-d);"><span class="pic">🚗</span> Case Study: Uber's AI Budget Blowout</div>
+        <p>
+          Uber rolled out Anthropic's **Claude Code** to its 5,000 engineers. Adoption skyrocketed to 95% of teams monthly, contributing to 70% of committed code. 
+          The result? **Uber’s CTO, Praveen Neppalli Naga, blew through their entire 2026 AI budget by April.**
+          Because consumption-based token costs scaled directly with usage, monthly bills per engineer reached hundreds of dollars.
+          Uber was forced to establish a strict **$1,500 monthly cap** per engineer and deploy spend-monitoring dashboards.
+        </p>
       </div>
-      <div class="casc c2">
-        <b><span class="fl">Floor 2</span> Hardware — demand explodes</b>
-        <p>Parallel math means GPUs become the most valuable silicon on Earth. NVIDIA pivots its whole company to AI; new chips (Blackwell) and personal AI supercomputers (DGX Spark/Station) appear.</p>
+      <p>
+        As Deloitte's Enterprise AI Survey summarized: the primary blocker is now **organizational readiness**—governance, training, and the willingness to redesign workflows rather than simply "bolting AI on top" of legacy systems.
+      </p>
+    </div>
+
+    <!-- Interactive explorer element -->
+    <div class="scramble-section">
+      <div class="section-head" style="margin-top:30px;">
+        <h3><span class="pic">🧱</span> Explore the Rebuild, Floor-by-Floor</h3>
+        <p>Select a floor to see how the cascade is actively reshaping its infrastructure in 2026.</p>
       </div>
-      <div class="casc c3">
-        <b><span class="fl">Floor 3</span> Architecture &amp; OS — reorganised around parallelism</b>
-        <p>Computers are now designed around feeding thousands of GPU cores: high-bandwidth memory, CUDA, schedulers that keep accelerators saturated instead of CPUs.</p>
+
+      <div class="scramble-explorer">
+        <div class="scramble-list">
+          <button class="scramble-btn f7 active" data-floor="7" aria-label="Floor 7: Humans &amp; Applications">
+            <span class="floor-num">7</span>
+            <span class="floor-title">Humans &amp; Applications</span>
+          </button>
+          <button class="scramble-btn f6" data-floor="6" aria-label="Floor 6: Artificial Intelligence">
+            <span class="floor-num">6</span>
+            <span class="floor-title">Artificial Intelligence</span>
+          </button>
+          <button class="scramble-btn f5" data-floor="5" aria-label="Floor 5: Data &amp; Software">
+            <span class="floor-num">5</span>
+            <span class="floor-title">Data, Algorithms &amp; Software</span>
+          </button>
+          <button class="scramble-btn f4" data-floor="4" aria-label="Floor 4: Networking &amp; the Internet">
+            <span class="floor-num">4</span>
+            <span class="floor-title">Networking &amp; the Internet</span>
+          </button>
+          <button class="scramble-btn f3" data-floor="3" aria-label="Floor 3: Architecture &amp; OS">
+            <span class="floor-num">3</span>
+            <span class="floor-title">Architecture &amp; OS</span>
+          </button>
+          <button class="scramble-btn f2" data-floor="2" aria-label="Floor 2: Physical Hardware">
+            <span class="floor-num">2</span>
+            <span class="floor-title">Physical Hardware</span>
+          </button>
+          <button class="scramble-btn f1" data-floor="1" aria-label="Floor 1: Theory &amp; Mathematics">
+            <span class="floor-num">1</span>
+            <span class="floor-title">Theory &amp; Mathematics</span>
+          </button>
+        </div>
+
+        <div class="scramble-details">
+          <div class="scramble-details-card" id="scrambleCard" style="--card-accent: var(--f7); --card-tint: var(--f7-l); --card-border: var(--f7-m);">
+            <div class="card-eyebrow" id="cardEyebrow">Floor 7 · Humans &amp; Applications</div>
+            <h3 id="cardTitle">The Governance &amp; Budget Crisis</h3>
+            <p id="cardDesc">Surging agent usage (like Uber's budget blowout by April due to Claude Code) shifts the entire focus from simple chatbot demos to enterprise-grade governance, training, and cost-control pipelines.</p>
+            <div class="card-quote" id="cardQuote">"Anyone can demo a chatbot. Far fewer people understand the five floors of infrastructure, cost, and governance it takes to make it survive."</div>
+          </div>
+        </div>
       </div>
-      <div class="casc c4">
-        <b><span class="fl">Floor 4</span> Networking &amp; Cloud — training goes planetary</b>
-        <p>A single model is trained across thousands of GPUs wired together. Data-centre networking and the cloud are rebuilt to move enormous gradients between machines.</p>
-      </div>
-      <div class="casc c5">
-        <b><span class="fl">Floor 5</span> Data &amp; Software — a new way to build</b>
-        <p>Instead of writing rules by hand, engineers now assemble data and train models. "Software 2.0": the program is learned, not coded line by line.</p>
-      </div>
-      <div class="casc c6">
-        <b><span class="fl">Floor 6</span> Artificial Intelligence — reborn</b>
-        <p>Scaling Transformers produces Large Language Models — ChatGPT, Claude, Gemini. The entire modern AI field is, quite literally, this one architecture made bigger.</p>
-      </div>
-      <div class="casc c7">
-        <b><span class="fl">Floor 7</span> Humans &amp; Apps — everything you touch</b>
-        <p>Search, writing, coding, image generation, voice assistants — the apps in your hand are re-shaped around models that did not exist before 2017.</p>
+
+      <!-- Mobile Fallback (Full Stack Cards) -->
+      <div class="mobile-scramble-stack">
+        <div class="scramble-mobile-card f7">
+          <div class="card-eyebrow">Floor 7 · Humans &amp; Applications</div>
+          <h4>The Governance &amp; Budget Crisis</h4>
+          <p>Surging agent usage (like Uber's budget blowout by April due to Claude Code) shifts the entire focus from simple chatbot demos to enterprise-grade governance, training, and cost-control pipelines.</p>
+          <div class="card-quote">"Anyone can demo a chatbot. Far fewer people understand the five floors of infrastructure, cost, and governance it takes to make it survive."</div>
+        </div>
+
+        <div class="scramble-mobile-card f6">
+          <div class="card-eyebrow">Floor 6 · Artificial Intelligence</div>
+          <h4>Reasoning Models &amp; Inference Compute</h4>
+          <p>AI has evolved from instant token generation to reasoning models that run reinforcement learning search loops at inference time. This 'thinking time' compute drives immense demand.</p>
+          <div class="card-quote">"Floor 6 is brilliant. But it is putting unprecedented stress on Floors 1-5."</div>
+        </div>
+
+        <div class="scramble-mobile-card f5">
+          <div class="card-eyebrow">Floor 5 · Data, Algorithms &amp; Software</div>
+          <h4>Sub-100ms Delta Lake Queries</h4>
+          <p>Databricks now serves real-time AI queries straight from Delta Lake at sub-100ms latency. Powered by the new Reyden query engine, the database itself is optimized to think at the speed of generative AI models.</p>
+          <div class="card-quote">"Instead of writing rules, we assemble data. Databases now think at AI's pace."</div>
+        </div>
+
+        <div class="scramble-mobile-card f4">
+          <div class="card-eyebrow">Floor 4 · Networking &amp; the Internet</div>
+          <h4>Spectrum-X Ethernet Fabrics</h4>
+          <p>Nvidia's Spectrum-X lets GPUs across entire data centers act as one giant supercomputer over plain Ethernet. No exotic fabrics (like InfiniBand) required, making massive scaling cost-effective.</p>
+          <div class="card-quote">"Data-center networks are being re-routed to handle the massive gradient exchanges of planetary training."</div>
+        </div>
+
+        <div class="scramble-mobile-card f3">
+          <div class="card-eyebrow">Floor 3 · Architecture &amp; OS</div>
+          <h4>Agent-First OS Kernels</h4>
+          <p>Microsoft rebuilt Windows as an 'agent-first' OS, introducing kernel-level execution containers (Microsoft Execution Containers - MXC) to isolate and govern AI agents — because autonomous agents increase attack surfaces by 450%.</p>
+          <div class="card-quote">"Floor 3 is reorganised around parallelism and sandboxed agent execution containers."</div>
+        </div>
+
+        <div class="scramble-mobile-card f2">
+          <div class="card-eyebrow">Floor 2 · Physical Hardware</div>
+          <h4>RTX Spark Local Superchips</h4>
+          <p>Nvidia's RTX Spark packs 1 petaflop of AI compute and 128GB of unified memory directly into a laptop. Compute is finally moving from the cloud to your desk, allowing local, secure agent execution.</p>
+          <div class="card-quote">"Compute is moving from the cloud to your desk. Control the silicon, control the future."</div>
+        </div>
+
+        <div class="scramble-mobile-card f1">
+          <div class="card-eyebrow">Floor 1 · Theory &amp; Mathematics</div>
+          <h4>Quantum-Enhanced ML Algorithms</h4>
+          <p>IBM and Google are pushing quantum algorithms into machine learning workflows. The basic linear algebra and mathematical foundations beneath AI are starting to change to support complex reasoning.</p>
+          <div class="card-quote">"The math underneath AI is starting to change too, moving beyond standard silicon-bound linear algebra."</div>
+        </div>
       </div>
     </div>
-    <p class="tower-cap">One pebble dropped on Floor 1. Seven floors of waves.</p>
 
     <!-- the receipts -->
-    <div class="section-head" style="margin-top:54px;"><h2>You can see the cascade in the real world</h2><p>If the bedrock really shifted, the heaviest objects in the industry should have moved. They did.</p></div>
+    <div class="section-head" style="margin-top:54px;">
+      <h2>You can see the cascade in the real world</h2>
+      <p>If the bedrock really shifted, the heaviest objects in the industry should have moved. They did.</p>
+    </div>
 
     <div class="panel">
       <h3><span class="pic">🟩</span> NVIDIA: a graphics company became the engine room of AI</h3>
@@ -182,7 +375,7 @@
     </div>
 
     <!-- why different -->
-    <div class="panel">
+    <div class="panel" style="margin-bottom: 30px;">
       <h3><span class="pic">⚖️</span> Why this is different from every past "tech hype"</h3>
       <p>
         Plenty of trends touched a single floor — a hot programming language (Floor 5), a flashy app category (Floor 7),
@@ -196,7 +389,18 @@
       </p>
     </div>
 
-    <div class="next-row">
+    <!-- consultant pitch card -->
+    <div class="panel" style="border-left-color: var(--orange); background: var(--orange-l);">
+      <h3><span class="pic">💡</span> The Consultant's Roadmap</h3>
+      <p>
+        In this new era, the real value does not lie in building another simple chatbot demo. Anyone can spin up an API wrapper.
+      </p>
+      <p>
+        The real value lies in understanding the **five floors of infrastructure, cost optimization, and governance** required to make that chatbot survive in an enterprise environment. As a consultant or architect, this is your map to the future.
+      </p>
+    </div>
+
+    <div class="next-row" style="margin-top: 30px;">
       <a class="next-link" href="floors/01-theory.html"><span class="ic">📚</span><span class="tx"><b>Go to the source</b><span>Floor 1 — Theory &amp; Mathematics</span></span></a>
       <a class="next-link" href="floors/06-ai.html"><span class="ic">🧠</span><span class="tx"><b>See where it landed</b><span>Floor 6 — Artificial Intelligence</span></span></a>
       <a class="next-link" href="timeline.html"><span class="ic">🕰️</span><span class="tx"><b>The whole timeline</b><span>1843 → 2017 → now</span></span></a>
@@ -213,9 +417,117 @@
       <a href="../community/">Community</a>
     </div>
   </div>
-  <div class="wrap"><p class="footer-note">Facts checked against primary sources: the 2017 paper, NVIDIA's October 2025 DGX Spark launch, and Apple's April 2026 leadership announcement.</p></div>
+  <div class="wrap"><p class="footer-note">Facts checked against primary sources: the 2017 paper, NVIDIA's October 2025 DGX Spark launch, Apple's April 2026 leadership announcement, Microsoft's May 2026 MXC release, and Uber's Spring 2026 AI budget cap details.</p></div>
 </footer>
 
 <script src="assets/js/main.js"></script>
+
+<script>
+  // ── Scramble Visualizer JS ──
+  (function() {
+    const btns = document.querySelectorAll('.scramble-btn');
+    const card = document.getElementById('scrambleCard');
+    const eyebrow = document.getElementById('cardEyebrow');
+    const title = document.getElementById('cardTitle');
+    const desc = document.getElementById('cardDesc');
+    const quote = document.getElementById('cardQuote');
+
+    const data = {
+      1: {
+        eyebrow: "Floor 1 · Theory & Mathematics",
+        title: "Quantum-Enhanced ML Algorithms",
+        desc: "IBM and Google are pushing quantum algorithms into machine learning workflows. The basic linear algebra and mathematical foundations beneath AI are starting to change to support complex reasoning.",
+        quote: "The math underneath AI is starting to change too, moving beyond standard silicon-bound linear algebra.",
+        accent: "var(--f1)",
+        bg: "var(--f1-l)",
+        border: "var(--f1-m)"
+      },
+      2: {
+        eyebrow: "Floor 2 · Physical Hardware",
+        title: "RTX Spark Local Superchips",
+        desc: "Nvidia's RTX Spark packs 1 petaflop of AI compute and 128GB of unified memory directly into a laptop. Compute is finally moving from the cloud to your desk, allowing local, secure agent execution.",
+        quote: "Compute is moving from the cloud to your desk. Control the silicon, control the future.",
+        accent: "var(--f2)",
+        bg: "var(--f2-l)",
+        border: "var(--f2-m)"
+      },
+      3: {
+        eyebrow: "Floor 3 · Architecture & OS",
+        title: "Agent-First OS Kernels",
+        desc: "Microsoft rebuilt Windows as an 'agent-first' OS, introducing kernel-level execution containers (Microsoft Execution Containers - MXC) to isolate and govern AI agents — because autonomous agents increase attack surfaces by 450%.",
+        quote: "Floor 3 is reorganised around parallelism and sandboxed agent execution containers.",
+        accent: "var(--f3)",
+        bg: "var(--f3-l)",
+        border: "var(--f3-m)"
+      },
+      4: {
+        eyebrow: "Floor 4 · Networking & Cloud",
+        title: "Spectrum-X Ethernet Fabrics",
+        desc: "Nvidia's Spectrum-X lets GPUs across entire data centers act as one giant supercomputer over plain Ethernet. No exotic fabrics (like InfiniBand) required, making massive scaling cost-effective.",
+        quote: "Data-center networks are being re-routed to handle the massive gradient exchanges of planetary training.",
+        accent: "var(--f4)",
+        bg: "var(--f4-l)",
+        border: "var(--f4-m)"
+      },
+      5: {
+        eyebrow: "Floor 5 · Data & Software",
+        title: "Sub-100ms Delta Lake Queries",
+        desc: "Databricks now serves real-time AI queries straight from Delta Lake at sub-100ms latency. Powered by the new Reyden query engine, the database itself is optimized to think at the speed of generative AI models.",
+        quote: "Instead of writing rules, we assemble data. Databases now think at AI's pace.",
+        accent: "var(--f5)",
+        bg: "var(--f5-l)",
+        border: "var(--f5-m)"
+      },
+      6: {
+        eyebrow: "Floor 6 · Artificial Intelligence",
+        title: "Reasoning Models & Inference Compute",
+        desc: "AI has evolved from instant token generation to reasoning models that run reinforcement learning search loops at inference time. This 'thinking time' compute drives immense demand.",
+        quote: "Floor 6 is brilliant. But it is putting unprecedented stress on Floors 1-5.",
+        accent: "var(--f6)",
+        bg: "var(--f6-l)",
+        border: "var(--f6-m)"
+      },
+      7: {
+        eyebrow: "Floor 7 · Humans & Applications",
+        title: "The Governance & Budget Crisis",
+        desc: "Surging agent usage (like Uber's budget blowout by April due to Claude Code) shifts the entire focus from simple chatbot demos to enterprise-grade governance, training, and cost-control pipelines.",
+        quote: "Anyone can demo a chatbot. Far fewer people understand the five floors of infrastructure, cost, and governance it takes to make it survive.",
+        accent: "var(--f7)",
+        bg: "var(--f7-l)",
+        border: "var(--f7-m)"
+      }
+    };
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        btns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+
+        const floor = this.getAttribute('data-floor');
+        const d = data[floor];
+        if (!d) return;
+
+        // Fade out
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(6px)';
+
+        setTimeout(() => {
+          eyebrow.textContent = d.eyebrow;
+          title.textContent = d.title;
+          desc.textContent = d.desc;
+          quote.textContent = `"${d.quote}"`;
+          
+          card.style.setProperty('--card-accent', d.accent);
+          card.style.setProperty('--card-tint', d.bg);
+          card.style.setProperty('--card-border', d.border);
+
+          // Fade in
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 150);
+      });
+    });
+  })();
+</script>
 </body>
 </html>
