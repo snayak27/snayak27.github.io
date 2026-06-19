@@ -40,7 +40,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
-- 2026-06-19: Landing Page (index.html) Audit & Interactive Enhancements — fixed undefined CSS variables, navigation border bugs, and certifications strip overlapping layout issue; added a fixed radial dot grid, hover glows, and scrollbar styles; implemented animated stats counter, a category search/filter deck, and empty states; wired bidirectional hover highlighting between Skills Matrix and Project Cards; removed duplicate `Sashibhusan_Nayak_Resume.pdf` file.
+- 2026-06-19: Landing Page (index.html) Audit & Interactive Enhancements — fixed undefined CSS variables, navigation border bugs, and certifications strip overlapping layout issue; added a fixed radial dot grid, hover glows, and scrollbar styles; implemented animated stats counter, a category search/filter deck, and empty states; wired bidirectional hover highlighting between Skills Matrix and Project Cards; removed duplicate `Sashibhusan_Nayak_Resume.pdf` file; removed "Experience" link from the navigation tab.
 - 2026-06-18: Floor Content Enrichment and Timeline Sync sprint — aligned floor headers and emojis, added 18 milestones to match timeline density, and wired up bidirectional linking across 7 floor files, timeline.html, and cs.css. Verified 100% link integrity (0 broken links) via verify_links.py.
 - 2026-06-18: Cleaned up legacy backup files index.html.bak and index.html.pre-sapls.bak from root.
 - 2026-06-18: SEO & Metadata Standardization sprint — resolved canonical gaps, description length warnings, and missing social preview cards. 17 files modified.
