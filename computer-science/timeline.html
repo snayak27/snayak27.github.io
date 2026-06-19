@@ -4059,7 +4059,7 @@
         const floorEl = item.querySelector('.tl-floor');
         const floorName = floorEl.textContent;
         const floorHref = floorEl.getAttribute('href');
-        document.getElementById('drawerEyebrow').innerHTML = `<a href="${floorHref}" class="drawer-floor-link">${floorName}</a> · Milestone`;
+        document.getElementById('drawerEyebrow').innerHTML = `<span class="eyebrow-dot" style="display:inline-block; width:8px; height:8px; border-radius:50%; background:var(--fc); margin-right:6px; box-shadow: 0 0 8px var(--fc);"></span><a href="${floorHref}" class="drawer-floor-link" style="color:var(--fc); font-weight:700; text-decoration:none;">${floorName}</a> · Milestone`;
 
         const currentNode = document.getElementById('currentNode');
         currentNode.className = `map-node current ${floorClass}`;
@@ -4192,6 +4192,12 @@
           svg.appendChild(path);
 
           if (nodeEl) {
+            // Copy CSS custom property for individual node accent color to the path element
+            const accent = getComputedStyle(nodeEl).getPropertyValue('--node-accent');
+            if (accent) {
+              path.style.setProperty('--node-accent', accent);
+            }
+
             const toggleHighlight = (highlight) => {
               if (highlight) {
                 path.classList.add('highlighted');
