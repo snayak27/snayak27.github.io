@@ -209,18 +209,15 @@
     <div class="panel">
       <h3><span class="pic">🧮</span> Why it was a <em>Floor&nbsp;1</em> change, not a Floor&nbsp;6 one</h3>
       <p>
-        Before 2017, the best language models read sequences like <strong>one person reading a book page-by-page</strong> in order. Word 100 had to wait for word 99. This is a mathematical bottleneck: you cannot divide sequential work among multiple helpers.
+        Before 2017, the best language models (RNNs and LSTMs) processed text sequentially, like <strong>one person reading a sentence word-by-word from left to right</strong>. To calculate the representation of Word 100, the model had to wait for the calculations of Word 99 to complete. This recurrence created a strict mathematical bottleneck that prevented training from being parallelized across GPU cores.
       </p>
       <p>
-        The Transformer changed the math: it is like <strong>giving 1,000 pages to 1,000 friends to read at the exact same time</strong>. They all read in parallel, and then share what they learned. This is <strong>parallel linear algebra</strong>.
+        The Transformer replaced recurrence with <strong>self-attention</strong>. Instead of sequential reading, it is like <strong>looking at the entire sentence at once and drawing direct lines of connection between every word and all others</strong>. Because there is no sequential chain, a GPU can calculate the relationships of all words in the sequence simultaneously during training. This is <strong>parallel linear algebra</strong>.
       </p>
       <div class="scenario">
         <div class="lbl">🔎 The match that ignited the boom</div>
         <p>
-          "Parallel" means the work can be cut into thousands of identical pieces and run simultaneously.
-          There already existed a chip built to do exactly that — thousands of small math units working in lockstep:
-          the <strong>GPU</strong>. In 2017, the new math on Floor 1 suddenly fit the hardware on Floor 2 like a key in a lock.
-          That match is why the cascade was so violent and so fast.
+          By expressing language processing as a single massive matrix multiplication instead of a sequential loop, the new math on Floor 1 suddenly fit the architecture of the <strong>GPU</strong> (which is built for parallel matrix math) like a key in a lock. This alignment is what enabled AI models to scale to billions of parameters.
         </p>
       </div>
     </div>
