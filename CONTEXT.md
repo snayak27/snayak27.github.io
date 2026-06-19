@@ -4,7 +4,7 @@
 > It is git-tracked, so it travels with the repo and survives tool switches, fresh clones, and context resets.
 > Both `CLAUDE.md` and `AGENTS.md` point here. **Read this first, every session. Update it before you stop.**
 
-_Last synced: 2026-06-19 (IST) - Cascade Tower Layout Polish_
+_Last synced: 2026-06-19 (IST) - Redesigned 2017 Cascade & 2026 Scramble Integration_
 
 ## Current Phase
 Active Dev / Maintenance — content site is live on GitHub Pages; ongoing additions of project deep-dive pages and SEO/structured-data polish.
@@ -20,6 +20,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Recent Decisions
 <!-- newest first, max 10 -->
+- 2026-06-19: Redesigned and Rewrote 2017 Cascade Page: Completely restructured the 2017 Cascade page around the 2026 cost/infrastructure scramble theme. Built a split-pane interactive floor explorer for desktop (featuring custom colors/borders mapping active floors dynamically) and a responsive vertical card stack for mobile. Integrated verified facts on Uber's Claude Code cap, Databricks Delta Lake, Nvidia Spectrum-X, Microsoft MXC execution containers, Nvidia RTX Spark superchips, and IBM's hybrid quantum accelerators. Synchronized milestones across 6 individual floor pages and wired the new crisis milestone as a direct domino of Reasoning Models in timeline.html's causal graph.
 - 2026-06-19: Cascade Tower Layout Polish: Widened the cascade tower flex basis to 360px and floors stack max-width to 320px for better text readability. Applied a 2-line text clamp via `-webkit-line-clamp: 2` to floor labels. Fixed a layout bug where the heading and floors stack aligned horizontally by adding `display: flex` and `flex-direction: column` to the tower container.
 - 2026-06-19: Landscape Modal Layout: Changed the centered causal map modal to landscape orientation (960px width, max-height 90vh) and repositioned the mind-map viewport and cascade tower side-by-side in a flex-row layout to prevent vertical cropping and ensure 100% layout visibility. Added media queries to revert to stacked columns under 820px.
 - 2026-06-19: Mind-Map Aesthetic Redesign: Added floor color-coding to node bubbles (borders, years, hovers). Redesigned the current node into a glowing gradient pill. Replaced viewport background with a technical dot-grid pattern. Implemented dynamic path highlight stroke colors matching the hovered node's accent. Introduced transitioning backdrop overlay blurs (backdrop-filter) and dynamic hover states on secondary buttons.
@@ -45,6 +46,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
+- 2026-06-19: CS Tower 2017 Cascade Redesign & 2026 Scramble Integration — completely rewrote the 2017 Cascade page around the 2026 cost/infrastructure scramble. Built an interactive split-pane floor explorer for desktop and a responsive vertical card stack for mobile. Added new 2026 milestones on Floor pages 1-5 and 7. Added the 2026 Cost & Scale Crisis milestone in timeline.html and wired it in the dynamic causal map. Staged and committed changes locally.
 - 2026-06-19: CS Timeline Cascade Tower Layout Polish — widened cascade tower to 360px (stack to 320px) to avoid crowding, enforced a 2-line maximum text clamp on floor labels with ellipsis, and fixed a vertical stacking flex bug by adding `display: flex` and `flex-direction: column` to `.cascade-tower-container`.
 - 2026-06-19: CS Timeline Landscape Modal Redesign — converted the centered popup modal to landscape (960px wide, max-height 90vh) and refactored layout to place mind map and cascade tower side-by-side. Removed inline margins and set cascade tower JS display to flex. Added media query for column-stacking under 820px. Staged and committed changes locally.
 - 2026-06-19: CS Timeline Mind-Map Aesthetic Redesign — implemented floor color-coding for node bubbles (borders, years, hovers), styled current node as a glowing gradient pill, added a dot-grid pattern to viewport, enabled dynamic path highlight coloring matching node accents, implemented transitioning backdrop blurs, and styled secondary button hovers. Staged and committed changes locally.
