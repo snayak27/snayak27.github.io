@@ -4,14 +4,15 @@
 > It is git-tracked, so it travels with the repo and survives tool switches, fresh clones, and context resets.
 > Both `CLAUDE.md` and `AGENTS.md` point here. **Read this first, every session. Update it before you stop.**
 
-_Last synced: 2026-06-18 (IST) - SEO & Metadata Standardization_
+_Last synced: 2026-06-19 (IST) - Landing Page (index.html) Interactive Enhancements_
 
 ## Current Phase
 Active Dev / Maintenance — content site is live on GitHub Pages; ongoing additions of project deep-dive pages and SEO/structured-data polish.
 
 ## Active Work
 <!-- What is being built right now -->
-- `computer-science/floors/` content enrichment & timeline sync: added 18 missing milestones to floor pages to match the timeline's density, synchronized milestone metadata, aligned subtitles/emojis, and wired 100% valid bidirectional linking. Enriched floor pages with student-friendly explanations (analogies, simple coin-flip entropy tables, neural network dials, etc.), integrated cross-floor connection callouts, and added 8+ historical images (Grace Hopper, Ada Lovelace, Boolean Logic, Rust, Lisp, Altair, VisiCalc, chess/Go game boards, etc.).
+- `index.html` Visual & Interactive Enhancements: added a visual dot grid, hover card glows, and custom scrollbar styles within current color palette. Integrated scroll-triggered count-up animation for stats. Implemented search/filter deck for project cards. Added hover connections between Skills Matrix and project card chips. Added Ecosystem nav links and fixed mobile menu divider borders.
+- `computer-science/floors/` content enrichment & timeline sync: added 18 missing milestones to floor pages to match the timeline's density, synchronized milestone metadata, aligned subtitles/emojis, and wired 100% valid bidirectional linking. Enriched floor pages with student-friendly explanations, integrated cross-floor connection callouts, and added 8+ historical images.
 - `computer-science/timeline.html` causal-graph timeline: enriched with new milestone nodes, deep-linking, a11y, and Wikimedia images. Graph integrity verified (86 nodes, 0 broken/one-way refs).
 - `computer-science/glossary.html` glossary page: enhanced with a real-time local search input, floor filtering deck, dynamic count badges, and 7 new terms mapped across all 7 floors.
 - Mobile Responsiveness Polish: optimized landing page and 10+ subpages for mobile (375px) and tablet (768px) layout scaling.
@@ -19,6 +20,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Recent Decisions
 <!-- newest first, max 10 -->
+- 2026-06-19: Landing Page Visual & Interactive Enhancements: Added dot grid background, hover card glows, and custom scrollbar styles within current color palette. Integrated scroll-triggered count-up animation for stats. Implemented search/filter deck for project cards. Added hover connections between Skills Matrix and project card chips. Added Ecosystem nav links and fixed mobile menu divider borders. Cleaned up duplicate resume file.
 - 2026-06-18: Floor Content Enrichment & Timeline Sync: Audited, aligned, and enriched visual/content layouts across all 7 Floor pages. Expanded concepts with student-friendly analogies (lockers, treasure hunts, voting neurons, and magnets), simplified formulas (entropy, cosine similarity, neurons, attention), and custom tables. Added 8+ historical images (Ada Lovelace, Boole, Grace Hopper, Backus, Lisp, Rust, Altair, VisiCalc, Deep Blue, AlphaGo, Transformer architecture, Stable Diffusion). Added cross-floor connection callouts for integrated evolution tracking. Established 100% valid bidirectional navigation with 0 broken links.
 - 2026-06-18: SEO & Metadata Standardization: added canonical references across 11 project/hub directories, trimmed descriptions on landing/CS tower/floor files under 160 characters, integrated og:image and og:description previews, and added sap-landscape/sitemap.xml into robots.txt.
 - 2026-06-18: Portfolio-wide Mobile Responsiveness: added hamburger navigation menu to main page with simple JS toggle, stacked stats rows into clean grid segments on mobile/tablet views, stacked project details subpage links, wrapped ecosystem and community grid blocks, and resolved card grid width overflow across shared stylesheet classes.
@@ -34,11 +36,11 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Next Up
 <!-- Immediate next steps -->
-- Optional cleanup: remove duplicate resume PDF (`resume.pdf` vs `Sashibhusan_Nayak_Resume.pdf`).
 - Continue per user request.
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
+- 2026-06-19: Landing Page (index.html) Audit & Interactive Enhancements — fixed undefined CSS variables, navigation border bugs, and certifications strip overlapping layout issue; added a fixed radial dot grid, hover glows, and scrollbar styles; implemented animated stats counter, a category search/filter deck, and empty states; wired bidirectional hover highlighting between Skills Matrix and Project Cards; removed duplicate `Sashibhusan_Nayak_Resume.pdf` file.
 - 2026-06-18: Floor Content Enrichment and Timeline Sync sprint — aligned floor headers and emojis, added 18 milestones to match timeline density, and wired up bidirectional linking across 7 floor files, timeline.html, and cs.css. Verified 100% link integrity (0 broken links) via verify_links.py.
 - 2026-06-18: Cleaned up legacy backup files index.html.bak and index.html.pre-sapls.bak from root.
 - 2026-06-18: SEO & Metadata Standardization sprint — resolved canonical gaps, description length warnings, and missing social preview cards. 17 files modified.

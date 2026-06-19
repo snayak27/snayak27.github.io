@@ -67,6 +67,7 @@
       --text2:    #57534e;
       --muted:    #a8a29e;
       --border:   rgba(0,0,0,0.07);
+      --border-2: rgba(0,0,0,0.04);
       --shadow:   0 2px 12px rgba(0,0,0,0.06), 0 1px 4px rgba(0,0,0,0.04);
       --shadow-h: 0 16px 48px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
       --spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -76,6 +77,12 @@
 
     html { scroll-behavior: smooth; }
 
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--orange-m); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -83,6 +90,16 @@
       min-height: 100vh;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: radial-gradient(rgba(249, 115, 22, 0.035) 1px, transparent 1px);
+      background-size: 24px 24px;
     }
 
     /* ── Blobs ── */
@@ -301,7 +318,7 @@
     }
     .card:hover {
       transform: translateY(-8px) scale(1.008);
-      box-shadow: var(--shadow-h);
+      box-shadow: var(--shadow-h), 0 0 20px rgba(249, 115, 22, 0.08);
       border-color: var(--orange-m);
     }
     .card:active { transform: translateY(-4px) scale(1.004); }
@@ -427,6 +444,7 @@
     /* ── Certifications strip ── */
     .cert-strip { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; max-width: 880px; margin: 0 auto 70px; }
     .cert-item { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 10px 16px; box-shadow: var(--shadow); font-size: 0.8rem; color: var(--text); text-decoration: none; transition: transform 0.25s var(--spring), box-shadow 0.25s var(--ease), border-color 0.2s; }
+    span.cert-item { cursor: default; }
     a.cert-item:hover { transform: translateY(-2px); box-shadow: var(--shadow-h); border-color: var(--orange-m); }
     .cert-item .cert-ic { font-size: 1rem; flex-shrink: 0; }
     .cert-item b { font-weight: 700; }
@@ -497,6 +515,133 @@
       .wrap { padding: 0 16px; }
       .nav { padding: 0 16px; }
     }
+
+    /* ── Projects Filter & Search ── */
+    .filter-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 28px;
+      margin-bottom: 36px;
+      align-items: center;
+      position: relative;
+      z-index: 10;
+    }
+    .filter-search-box {
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+    }
+    .filter-search-box input {
+      width: 100%;
+      padding: 12px 18px 12px 42px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      background: #fff;
+      color: var(--text);
+      transition: all 0.25s var(--ease);
+      box-shadow: var(--shadow);
+    }
+    .filter-search-box input:focus {
+      outline: none;
+      border-color: var(--orange-m);
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1), var(--shadow);
+    }
+    .filter-search-box svg {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: var(--muted);
+      pointer-events: none;
+    }
+    .filter-deck {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+    .filter-btn {
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 99px;
+      padding: 6px 16px;
+      font-family: inherit;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text2);
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      box-shadow: var(--shadow);
+    }
+    .filter-btn:hover {
+      border-color: var(--orange-m);
+      color: var(--orange-d);
+      background: var(--orange-l);
+    }
+    .filter-btn.active {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(249, 115, 22, 0.25);
+    }
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 48px 24px;
+      background: #fff;
+      border: 1.5px dashed var(--border);
+      border-radius: var(--r);
+      color: var(--text2);
+      display: none;
+    }
+    .no-results h4 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .no-results p {
+      font-size: 0.85rem;
+      margin-bottom: 16px;
+    }
+    .no-results .btn-reset {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 6px 16px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .no-results .btn-reset:hover {
+      background: var(--orange-l);
+      border-color: var(--orange-m);
+      color: var(--orange-d);
+    }
+
+    /* ── Skill highlighting ── */
+    .skill-tag {
+      transition: all 0.2s var(--ease);
+    }
+    .skill-tag.highlight-tag {
+      background: var(--orange);
+      border-color: var(--orange);
+      color: #fff;
+      transform: scale(1.05);
+      font-weight: 600;
+    }
+    .card.highlight-card {
+      border-color: var(--orange);
+      box-shadow: var(--shadow-h), 0 0 25px rgba(249, 115, 22, 0.15);
+      transform: translateY(-8px) scale(1.012);
+    }
   </style>
 </head>
 <body>
@@ -515,6 +660,7 @@
       <a href="#alignment">SAP Fit</a>
       <a href="#how">How I Think</a>
       <a href="#experience">Experience</a>
+      <a href="#ecosystem">Ecosystem</a>
       <a href="#writing">Writing</a>
       <a href="community/">Community Contribution</a>
       <a href="resume.pdf" download>Resume</a>
@@ -561,11 +707,11 @@
   <!-- ── Proof bar ── -->
   <div class="wrap">
     <div class="stats-row">
-      <div class="stat-item"><span class="stat-num">30K+</span><span class="stat-label">Top Post Reach</span></div>
-      <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">Projects</span></div>
-      <div class="stat-item"><span class="stat-num">34</span><span class="stat-label">MCP Tools</span></div>
-      <div class="stat-item"><span class="stat-num">23K+</span><span class="stat-label">2nd Brain Notes</span></div>
-      <div class="stat-item"><span class="stat-num">46+</span><span class="stat-label">AI Rules</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="30" data-suffix="K+">30K+</span><span class="stat-label">Top Post Reach</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="10" data-suffix="">10</span><span class="stat-label">Projects</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="34" data-suffix="">34</span><span class="stat-label">MCP Tools</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="23" data-suffix="K+">23K+</span><span class="stat-label">2nd Brain Notes</span></div>
+      <div class="stat-item"><span class="stat-num" data-target="46" data-suffix="+">46+</span><span class="stat-label">AI Rules</span></div>
     </div>
   </div>
 
@@ -1064,15 +1210,34 @@
   </div>
 
   <!-- ── Projects ── -->
-  <div class="wrap">
+  <div class="wrap" id="ecosystem" style="scroll-margin-top: 90px;">
     <div class="section-head">
       <h2>The Ecosystem</h2>
       <p>Click any project — explained for everyone, from curious to technical</p>
     </div>
 
-    <div class="grid">
+    <div class="filter-wrap">
+      <div class="filter-search-box">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="project-search" placeholder="Search projects by name, description, or tech stack...">
+      </div>
+      <div class="filter-deck">
+        <button class="filter-btn active" data-filter="all">All Ecosystem</button>
+        <button class="filter-btn" data-filter="ai-llm">AI / LLM</button>
+        <button class="filter-btn" data-filter="sap-btp">SAP / BTP</button>
+        <button class="filter-btn" data-filter="infrastructure">Infrastructure</button>
+        <button class="filter-btn" data-filter="automation">Stealth &amp; Automation</button>
+      </div>
+    </div>
 
-      <a class="card" href="hive/index.html">
+    <div class="grid">
+      <div class="no-results" id="no-projects-el">
+        <h4>No projects found</h4>
+        <p>We couldn't find any matches for your query. Try resetting filters.</p>
+        <button class="btn-reset" id="reset-projects-btn">Reset Filters</button>
+      </div>
+
+      <a class="card" href="hive/index.html" data-categories="ai-llm,infrastructure">
         <div class="card-top">
           <div class="card-emoji-wrap">🔮</div>
           <span class="card-arrow">↗</span>
@@ -1086,7 +1251,7 @@
         </div>
       </a>
 
-      <a class="card" href="second-brain/index.html">
+      <a class="card" href="second-brain/index.html" data-categories="ai-llm,infrastructure">
         <div class="card-top">
           <div class="card-emoji-wrap">🧠</div>
           <span class="card-arrow">↗</span>
@@ -1100,7 +1265,7 @@
         </div>
       </a>
 
-      <a class="card" href="uac/index.html">
+      <a class="card" href="uac/index.html" data-categories="ai-llm,infrastructure">
         <div class="card-top">
           <div class="card-emoji-wrap">⚡</div>
           <span class="card-arrow">↗</span>
@@ -1114,7 +1279,7 @@
         </div>
       </a>
 
-      <a class="card" href="organic-url-index/index.html">
+      <a class="card" href="organic-url-index/index.html" data-categories="ai-llm,automation,infrastructure">
         <div class="card-top">
           <div class="card-emoji-wrap">🌐</div>
           <span class="card-arrow">↗</span>
@@ -1128,7 +1293,7 @@
         </div>
       </a>
 
-      <a class="card" href="claw-router/index.html">
+      <a class="card" href="claw-router/index.html" data-categories="ai-llm">
         <div class="card-top">
           <div class="card-emoji-wrap">🎯</div>
           <span class="card-arrow">↗</span>
@@ -1142,7 +1307,7 @@
         </div>
       </a>
 
-      <a class="card" href="brave-bridge/index.html">
+      <a class="card" href="brave-bridge/index.html" data-categories="automation,ai-llm">
         <div class="card-top">
           <div class="card-emoji-wrap">👁️</div>
           <span class="card-arrow">↗</span>
@@ -1156,7 +1321,7 @@
         </div>
       </a>
 
-      <a class="card" href="hermes-agent/index.html">
+      <a class="card" href="hermes-agent/index.html" data-categories="ai-llm,sap-btp">
         <div class="card-top">
           <div class="card-emoji-wrap">🤖</div>
           <span class="card-arrow">↗</span>
@@ -1170,7 +1335,7 @@
         </div>
       </a>
 
-      <a class="card card-featured" href="behavioral-rules/index.html">
+      <a class="card card-featured" href="behavioral-rules/index.html" data-categories="ai-llm,infrastructure">
         <div class="hot-badge">🔥 Most in-demand AI skill 2026</div>
         <div class="card-top">
           <div class="card-emoji-wrap">⚙️</div>
@@ -1185,7 +1350,7 @@
         </div>
       </a>
 
-      <a class="card" href="pi-hole-stack/index.html">
+      <a class="card" href="pi-hole-stack/index.html" data-categories="infrastructure">
         <div class="card-top">
           <div class="card-emoji-wrap">🛡️</div>
           <span class="card-arrow">↗</span>
@@ -1199,7 +1364,7 @@
         </div>
       </a>
 
-      <a class="card" href="cloak-browser/index.html">
+      <a class="card" href="cloak-browser/index.html" data-categories="automation,sap-btp">
         <div class="card-top">
           <div class="card-emoji-wrap">🕶️</div>
           <span class="card-arrow">↗</span>
@@ -1342,6 +1507,7 @@
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // ── Mobile Navigation Toggle ──
     var toggle = document.querySelector('.nav-toggle');
     var links  = document.querySelector('.nav-links');
     if (toggle && links) {
@@ -1360,6 +1526,191 @@
         });
       });
     }
+
+    // ── Stats Count-Up Animation ──
+    const statsRow = document.querySelector('.stats-row');
+    const statNums = document.querySelectorAll('.stat-num');
+    let animated = false;
+
+    function animateStats() {
+      if (animated) return;
+      animated = true;
+
+      statNums.forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const suffix = el.getAttribute('data-suffix') || '';
+        if (isNaN(target)) return;
+
+        let start = 0;
+        const duration = 1200; // ms
+        const startTime = performance.now();
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          
+          // Ease out quad
+          const easeProgress = progress * (2 - progress);
+          const currentVal = Math.floor(easeProgress * target);
+          
+          el.textContent = currentVal + suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            el.textContent = target + suffix;
+          }
+        }
+
+        requestAnimationFrame(update);
+      });
+    }
+
+    if ('IntersectionObserver' in window && statsRow) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateStats();
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      observer.observe(statsRow);
+    } else {
+      animateStats(); // Fallback
+    }
+
+    // ── Project Search and Filtering ──
+    const searchInput = document.getElementById('project-search');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.grid .card');
+    const noResultsEl = document.getElementById('no-projects-el');
+    const resetBtn = document.getElementById('reset-projects-btn');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    function filterProjects() {
+      let visibleCount = 0;
+
+      projectCards.forEach(card => {
+        const name = card.querySelector('.card-name').textContent.toLowerCase();
+        const subtitle = card.querySelector('.card-subtitle').textContent.toLowerCase();
+        const desc = card.querySelector('.card-desc').textContent.toLowerCase();
+        const chips = Array.from(card.querySelectorAll('.chip')).map(c => c.textContent.toLowerCase()).join(' ');
+        
+        const categories = card.getAttribute('data-categories') || '';
+        const categoryList = categories.split(',');
+
+        const matchesSearch = name.includes(searchQuery) || 
+                              subtitle.includes(searchQuery) || 
+                              desc.includes(searchQuery) || 
+                              chips.includes(searchQuery);
+
+        const matchesCategory = currentFilter === 'all' || categoryList.includes(currentFilter);
+
+        if (matchesSearch && matchesCategory) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      if (visibleCount === 0) {
+        noResultsEl.style.display = 'block';
+      } else {
+        noResultsEl.style.display = 'none';
+      }
+    }
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        searchQuery = e.target.value.toLowerCase().trim();
+        filterProjects();
+      });
+    }
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterButtons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        filterProjects();
+      });
+    });
+
+    if (resetBtn) {
+      resetBtn.addEventListener('click', function() {
+        if (searchInput) searchInput.value = '';
+        searchQuery = '';
+        filterButtons.forEach(b => b.classList.remove('active'));
+        const allBtn = document.querySelector('.filter-btn[data-filter="all"]');
+        if (allBtn) allBtn.classList.add('active');
+        currentFilter = 'all';
+        filterProjects();
+      });
+    }
+
+    // ── Bidirectional Skills Matrix & Project Cards Highlighting ──
+    const skillTags = document.querySelectorAll('.skill-tag');
+
+    function cleanString(str) {
+      return str.toLowerCase().replace(/[^a-z0-9]/g, '');
+    }
+
+    function isMatch(tagText, chipText) {
+      const t1 = cleanString(tagText);
+      const t2 = cleanString(chipText);
+      if (t1 === t2) return true;
+      if (t1.includes(t2) || t2.includes(t1)) return true;
+      
+      const words1 = tagText.toLowerCase().split(/[\s\-\/\(\)]+/).filter(w => w.length > 2);
+      const words2 = chipText.toLowerCase().split(/[\s\-\/\(\)]+/).filter(w => w.length > 2);
+      return words1.some(w => words2.includes(w));
+    }
+
+    skillTags.forEach(tag => {
+      tag.addEventListener('mouseenter', function() {
+        tag.classList.add('highlight-tag');
+        const tagText = tag.textContent;
+        projectCards.forEach(card => {
+          const chips = card.querySelectorAll('.chip');
+          let hasMatch = false;
+          chips.forEach(chip => {
+            if (isMatch(tagText, chip.textContent)) {
+              hasMatch = true;
+            }
+          });
+          if (hasMatch) {
+            card.classList.add('highlight-card');
+          }
+        });
+      });
+
+      tag.addEventListener('mouseleave', function() {
+        tag.classList.remove('highlight-tag');
+        projectCards.forEach(card => card.classList.remove('highlight-card'));
+      });
+    });
+
+    projectCards.forEach(card => {
+      card.addEventListener('mouseenter', function() {
+        const chips = card.querySelectorAll('.chip');
+        chips.forEach(chip => {
+          const chipText = chip.textContent;
+          skillTags.forEach(tag => {
+            if (isMatch(tag.textContent, chipText)) {
+              tag.classList.add('highlight-tag');
+            }
+          });
+        });
+      });
+
+      card.addEventListener('mouseleave', function() {
+        skillTags.forEach(tag => tag.classList.remove('highlight-tag'));
+      });
+    });
   });
 </script>
 
