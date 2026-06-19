@@ -3918,10 +3918,6 @@
         <button class="drawer-close" onclick="closeCausalMap()" aria-label="Close panel">&times;</button>
       </div>
       <div class="drawer-body">
-        <p class="drawer-focus-desc" id="drawerDesc">Milestone description...</p>
-        
-        <div class="drawer-meta-group" id="drawerSpark"></div>
-        
         <div class="map-viewport">
           <svg class="svg-connectors" id="svgConnectors"></svg>
           <div class="map-group">
@@ -3959,8 +3955,6 @@
             <div class="cascade-floor active-f1" data-floor="1">Floor 1: Theory &amp; Mathematics</div>
           </div>
         </div>
-
-        <div class="drawer-meta-group" id="drawerImpact"></div>
       </div>
       <div class="drawer-actions">
         <button class="drawer-btn" id="locateBtn">🎯 Locate in Timeline</button>
@@ -4048,7 +4042,6 @@
         }
 
         const title = item.querySelector('h4').textContent.split(' — ')[0];
-        const desc = item.querySelector('p').textContent;
         const year = item.querySelector('.tl-year').textContent;
         const catalysts = JSON.parse(item.getAttribute('data-catalysts') || '[]');
         const dominoes = JSON.parse(item.getAttribute('data-dominoes') || '[]');
@@ -4062,25 +4055,6 @@
         drawer.style.setProperty('--fc-rgb', rgbVal);
 
         document.getElementById('drawerTitle').textContent = title;
-        document.getElementById('drawerDesc').innerHTML = item.querySelector('p').innerHTML;
-
-        const metaItems = item.querySelectorAll('.tl-meta-item');
-        if (metaItems.length >= 6) {
-          const sparkHtml = `
-            <div class="drawer-meta-title">The Spark</div>
-            <div class="tl-meta-item">${metaItems[0].innerHTML}</div>
-            <div class="tl-meta-item">${metaItems[1].innerHTML}</div>
-            <div class="tl-meta-item">${metaItems[2].innerHTML}</div>
-          `;
-          const impactHtml = `
-            <div class="drawer-meta-title">The Impact</div>
-            <div class="tl-meta-item">${metaItems[3].innerHTML}</div>
-            <div class="tl-meta-item">${metaItems[4].innerHTML}</div>
-            <div class="tl-meta-item">${metaItems[5].innerHTML}</div>
-          `;
-          document.getElementById('drawerSpark').innerHTML = sparkHtml;
-          document.getElementById('drawerImpact').innerHTML = impactHtml;
-        }
 
         const floorEl = item.querySelector('.tl-floor');
         const floorName = floorEl.textContent;
@@ -4106,7 +4080,11 @@
               
               const node = document.createElement('div');
               node.className = `map-node ${catFloor}`;
+              node.setAttribute('tabindex', '0');
+              node.setAttribute('role', 'button');
+              node.setAttribute('aria-label', `Catalyst: ${catTitle} (${catYear})`);
               node.onclick = () => renderCausalMap(catId);
+              node.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); renderCausalMap(catId); } };
               node.innerHTML = `<span class="node-year">${catYear}</span><span class="node-title" title="${catTitle}">${catTitle}</span>`;
               catalystsRow.appendChild(node);
             }
@@ -4127,7 +4105,11 @@
               
               const node = document.createElement('div');
               node.className = `map-node ${domFloor}`;
+              node.setAttribute('tabindex', '0');
+              node.setAttribute('role', 'button');
+              node.setAttribute('aria-label', `Domino: ${domTitle} (${domYear})`);
               node.onclick = () => renderCausalMap(domId);
+              node.onkeydown = (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); renderCausalMap(domId); } };
               node.innerHTML = `<span class="node-year">${domYear}</span><span class="node-title" title="${domTitle}">${domTitle}</span>`;
               dominoesRow.appendChild(node);
             }
