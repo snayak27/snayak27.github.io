@@ -3941,7 +3941,7 @@
         </div>
         
         <!-- Floor-to-Floor Cascade Visualizer -->
-        <div class="cascade-tower-container" id="cascadeTowerContainer" style="display: none; margin: 20px 0 15px;">
+        <div class="cascade-tower-container" id="cascadeTowerContainer" style="display: none;">
           <div style="font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 12px; color: var(--text1);">
             🔗 Floor-to-Floor Causal Cascade
           </div>
@@ -4228,7 +4228,7 @@
         const container = document.getElementById('cascadeTowerContainer');
         if (!container) return;
         
-        container.style.display = 'block';
+        container.style.display = 'flex';
         
         // Clear active timeouts
         cascadeTimeoutIds.forEach(id => clearTimeout(id));
