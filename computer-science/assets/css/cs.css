@@ -1216,6 +1216,8 @@ html[data-theme="dark"] {
    VISUAL CASCADE TOWER
    ========================================================================== */
 .cascade-tower-container {
+  display: flex;
+  flex-direction: column;
   margin: 0;
   padding: 20px;
   border-radius: 12px;
@@ -1223,14 +1225,15 @@ html[data-theme="dark"] {
   border: 1.5px solid rgba(var(--fc-rgb), 0.15);
   align-items: center;
   justify-content: center;
-  flex: 0 0 300px;
+  flex: 0 0 360px;
 }
 
 .cascade-floors-stack {
   display: flex;
   flex-direction: column-reverse;
   gap: 6px;
-  max-width: 280px;
+  width: 100%;
+  max-width: 320px;
   margin: 0 auto;
 }
 
@@ -1245,6 +1248,15 @@ html[data-theme="dark"] {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   opacity: 0.18;
   transform: scale(0.98);
+  white-space: normal;
+  word-break: break-word;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  line-height: 1.35;
 }
 
 .cascade-floor.active-path {

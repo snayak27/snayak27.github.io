@@ -4,7 +4,7 @@
 > It is git-tracked, so it travels with the repo and survives tool switches, fresh clones, and context resets.
 > Both `CLAUDE.md` and `AGENTS.md` point here. **Read this first, every session. Update it before you stop.**
 
-_Last synced: 2026-06-19 (IST) - Landscape Mind-Map Redesign_
+_Last synced: 2026-06-19 (IST) - Cascade Tower Layout Polish_
 
 ## Current Phase
 Active Dev / Maintenance — content site is live on GitHub Pages; ongoing additions of project deep-dive pages and SEO/structured-data polish.
@@ -20,6 +20,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Recent Decisions
 <!-- newest first, max 10 -->
+- 2026-06-19: Cascade Tower Layout Polish: Widened the cascade tower flex basis to 360px and floors stack max-width to 320px for better text readability. Applied a 2-line text clamp via `-webkit-line-clamp: 2` to floor labels. Fixed a layout bug where the heading and floors stack aligned horizontally by adding `display: flex` and `flex-direction: column` to the tower container.
 - 2026-06-19: Landscape Modal Layout: Changed the centered causal map modal to landscape orientation (960px width, max-height 90vh) and repositioned the mind-map viewport and cascade tower side-by-side in a flex-row layout to prevent vertical cropping and ensure 100% layout visibility. Added media queries to revert to stacked columns under 820px.
 - 2026-06-19: Mind-Map Aesthetic Redesign: Added floor color-coding to node bubbles (borders, years, hovers). Redesigned the current node into a glowing gradient pill. Replaced viewport background with a technical dot-grid pattern. Implemented dynamic path highlight stroke colors matching the hovered node's accent. Introduced transitioning backdrop overlay blurs (backdrop-filter) and dynamic hover states on secondary buttons.
 - 2026-06-19: Visual Mind Map Enhancements: Added interactive highlighting to SVG paths linking node bubbles on mouseenter/focus. Fixed transient coordinate misalignment bug during scale transitions using a `transitionend` event listener. Added 2-line clamping for node titles to enable text wrapping. Styled empty state indicators into standard badge templates.
@@ -44,6 +45,7 @@ Active Dev / Maintenance — content site is live on GitHub Pages; ongoing addit
 
 ## Session Log
 <!-- newest entries appended here by /sync; never delete past entries -->
+- 2026-06-19: CS Timeline Cascade Tower Layout Polish — widened cascade tower to 360px (stack to 320px) to avoid crowding, enforced a 2-line maximum text clamp on floor labels with ellipsis, and fixed a vertical stacking flex bug by adding `display: flex` and `flex-direction: column` to `.cascade-tower-container`.
 - 2026-06-19: CS Timeline Landscape Modal Redesign — converted the centered popup modal to landscape (960px wide, max-height 90vh) and refactored layout to place mind map and cascade tower side-by-side. Removed inline margins and set cascade tower JS display to flex. Added media query for column-stacking under 820px. Staged and committed changes locally.
 - 2026-06-19: CS Timeline Mind-Map Aesthetic Redesign — implemented floor color-coding for node bubbles (borders, years, hovers), styled current node as a glowing gradient pill, added a dot-grid pattern to viewport, enabled dynamic path highlight coloring matching node accents, implemented transitioning backdrop blurs, and styled secondary button hovers. Staged and committed changes locally.
 - 2026-06-19: CS Timeline Mind Map Enhancements — implemented dynamic glowing path highlights on node bubble hover/focus, added a `transitionend` event listener to ensure accurate line alignment coordinates after modal entry transitions finish, enabled 2-line title wrapping for nodes, and styled empty states as badges. Staged and committed changes locally.
